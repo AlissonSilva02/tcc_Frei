@@ -1,22 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import './app.scss';
+import { Cabe } from '../components/head';
 
+export default function App(){
 
-export default App;
-
-function App() {
   return (
 
     <div className='secao-landing'>
 
-<div>
-<img src="public\assets\images\menu.png" alt="" />
-
+      <div>
+        <Cabe/>
       </div>
-
-
-
-
 
 
 

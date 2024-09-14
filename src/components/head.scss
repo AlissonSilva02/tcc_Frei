@@ -1,0 +1,83 @@
+
+
+.secao-cabecalho{
+
+display: flex;
+flex-direction: column;
+justify-content: start;
+align-items: center;
+width: 1350px;
+
+
+
+
+
+.sub{
+display: flex;
+gap: 55px;
+width: 1300px;
+flex-direction: row;
+    
+
+    .men{
+    gap: 20px;
+    display: flex;
+    width: 300px;
+    align-self: center;
+    align-content: center;
+    align-items: center;
+
+
+        }
+
+    .logo{
+
+    display: flex;
+    justify-content: space-around;
+    width: 600px;
+
+ 
+
+        }
+}
+
+
+
+.pesquisa{
+
+margin-top: 30px;
+display: flex;
+flex-direction: row;
+width: 1300px;
+justify-content: space-between;
+
+        .pesq{
+        display: flex;
+        justify-content: start;
+        width: 1800px;
+        height: 40px;
+        border-radius: 5px;
+        border: 0;
+        box-shadow: 0px 2px 0px 0px rgba(0,0,0,0.4),0px 10px 15px -3px rgba(0,0,0,0.1);
+
+            
+        }
+        .pesq::placeholder {
+            position: absolute;
+            left: 10px;
+        }
+
+        .lup{
+            position: absolute;
+            
+            right: 100px;
+            top: 129px;
+        }
+
+} 
+
+
+
+
+
+}

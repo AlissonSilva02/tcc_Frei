@@ -1,10 +1,30 @@
-import 'head.scss'
+import './head.scss'
 
 
-export default function Cabe() {
+export function Cabe() {
+return(
 
+ <div className='secao-cabecalho'>
 
-
-    <img src="public\assets\images\menu.png" alt="" />
+    <div className='sub'>
+    <div className='men'>
+    <img src="assets\images\menu.png" alt="menu" width={53} height={53}/>
+    <h1>Menu</h1>
+    </div> 
+    <div className='logo'>
+    <img className='aura' src="assets\images\logo1.png" alt="logo" width={370} />
     
-}
+   </div> 
+   </div>
+
+    <div className='pesquisa'>
+    <input className='pesq' type="text" placeholder='Pesquisar' />
+    <img className='lup' src="assets\images\search.png" alt="pesquisar" width={25}/>
+      </div>
+     
+ </div>
+
+
+
+
+)}
