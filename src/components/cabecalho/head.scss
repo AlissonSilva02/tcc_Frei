@@ -48,18 +48,20 @@ flex-direction: row;
 margin-top: 30px;
 display: flex;
 flex-direction: row;
-width: 1300px;
+width: 1210px;
 justify-content: space-between;
 
-        .pesq{
-        display: flex;
-        justify-content: start;
-        width: 1800px;
-        height: 40px;
-        border-radius: 5px;
-        border: 0;
-        box-shadow: 0px 2px 0px 0px rgba(0,0,0,0.4),0px 10px 15px -3px rgba(0,0,0,0.1);
-
+.pesq {
+    display: flex;
+    justify-content: start;
+    width: 1800px;
+    height: 40px;
+    border-radius: 5px;
+    border: 0;
+    box-shadow: 0px 2px 0px 0px rgba(0,0,0,0.4),0px 10px 15px -3px rgba(0,0,0,0.1);
+    padding-left: 10px;
+    padding-right: 10px;
+  }
             
         }
         .pesq::placeholder {
@@ -71,7 +73,7 @@ justify-content: space-between;
             position: absolute;
             
             right: 100px;
-            top: 129px;
+            top: 125px;
         }
 
 } 
@@ -80,4 +82,3 @@ justify-content: space-between;
 
 
 
-}
