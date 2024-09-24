@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
 import App from './App/app';
+import Rodape from './components/rodape';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -11,7 +12,7 @@ root.render(
 <Route>
 
 
-<Route path="/" element={<App />} />
+<Route path="/" element={<Rodape />} />
 
 
 
