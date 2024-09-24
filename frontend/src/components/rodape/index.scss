@@ -1,21 +1,48 @@
 .secao-rodape{
 
     display: flex;
-    padding: 30px;
+    padding: 0;
     box-sizing: border-box;
     flex-direction: column;
+    border: 1px solid greenyellow;
+    width: 1300px;
 
-
-    .sla{
-        width:1400px;
-        background-color: gold;
-
+    .a1{
+        display: flex;
+        width: 1300px;
+        height: 50px;
+        background-color: black;
 
     }
+
+    .b{
+
+        display: flex;
+        flex-direction: row;
+ .b1 { 
+        
+        background-color: black;
+    }   
+    
+    .sla{
+        width:900px;
+        height: 2px;
+        position: absolute;
+        margin-left: 200px;
+        background-color: #FFE4C4;
+    
+    }
+
+    }
+
+
+   
+ 
 
     .cor{
 
         width: 1300px;
+        height: 120px;
         background-color: black;
         display: flex;
         justify-content: end;
@@ -45,26 +72,21 @@
 
         }
 
-    }
 
    
 
     
 
     .grupo{
-
+        display: flex;
+        flex-direction: row;
         height: 20px;
-
-
-        .yt{
-
-            width: 14px;
-            height: 15px;
-
-        }
     }
 
 
 
 
 
+
+
+    }
