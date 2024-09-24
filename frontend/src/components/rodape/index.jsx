@@ -37,7 +37,7 @@ export default function Rodape() {
 
 
             <div>
-            <img src="assets\images\Ic.png" alt="" className='yt'/>
+            <img src="assets\images\Ic.png" alt="" width={17} className='yt'/> 
             </div>
 
             <div>

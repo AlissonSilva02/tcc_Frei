@@ -1,6 +1,7 @@
 import "./app.scss";
 import { Cabe } from "../components/cabecalho/head.jsx";
 import Card from "../components/Card/index.jsx";
+import Rodape from "../components/rodape/index.jsx";
 import { useState } from "react";
 
 export default function App() {
@@ -36,6 +37,16 @@ export default function App() {
                     />
                 </div>
             </div>
+
+
+            <div>
+             <footer>
+               <Rodape/>  
+             </footer>
+            </div>
+
+
+
         </div>
     );
 }
