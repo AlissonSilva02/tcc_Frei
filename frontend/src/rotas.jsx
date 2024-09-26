@@ -7,7 +7,7 @@ export default function Navegacao() {
     return(
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<App />}/>
+                <Route path="/" element={<Light />}/>
             </Routes>
         </BrowserRouter>
     )
