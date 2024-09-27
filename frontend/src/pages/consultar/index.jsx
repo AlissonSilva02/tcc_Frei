@@ -1,11 +1,11 @@
-import { useState } from 'react'
-import './index.scss'
+import { useState } from 'react';
+import './index.scss';
 
-import axios from 'axios'
+import axios from 'axios';
 
 export default function Consultar() {
     const [produtos, setProdutos] = useState([]);
-    const [id, setId] = useState()
+    const [id, setId] = useState(''); // Inicialize com uma string vazia
 
     async function buscar() {
         const url = 'http://localhost:5002/select/produtos';
@@ -13,9 +13,8 @@ export default function Consultar() {
         setProdutos(resp.data);
     }
 
-
-    async function deletar(id) {
-        const url = 'http://localhost:5002/delete/produto/:id'
+    async function deletar() { // Remova o parâmetro id
+        const url = `http://localhost:5002/delete/produto/${id}`; // Substitua o parâmetro id
         await axios.delete(url);
     }
 
@@ -58,11 +57,7 @@ export default function Consultar() {
                         </tr>
                     )}
                 </tbody>
-
-
             </table>
-
-           
         </div>
     )
 }
