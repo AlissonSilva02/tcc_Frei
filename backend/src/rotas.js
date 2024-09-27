@@ -1,6 +1,6 @@
-import testeController from './controller/testeController.js'
+import produtosController from './controller/produtosController.js'
 
 
 export default function adiconarRotas (servidor) {
-    servidor.use(testeController);
+    servidor.use(produtosController);
 }
