@@ -1,19 +1,9 @@
-* {
+
+
+
+*{
+    margin: 0;
     box-sizing: border-box;
-    padding: 0;
-}
 
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 250px;
-    height: 100vh;
-    background-color: #f0f0f0;
-    padding: 20px;
-    display: none;
-}
 
-.sidebar-visible {
-    display: block;
 }

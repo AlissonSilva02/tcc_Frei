@@ -8,7 +8,7 @@ export default function Light() {
         <div className="light">
             <header>
                 <div className="cabecalho">
-                    <img src="assets\images\light.png" alt="" />
+                    <img src="assets\images\light.png" alt="" height={70}/>
 
                     <div className="links">
                         <h1>Serviços</h1>
@@ -22,33 +22,34 @@ export default function Light() {
 
             <section>
                 <div className="banner">
-                    <pre>
-                        <h1>Light Digital</h1>
-                    </pre>
-                    <img src="assets\images\Make.png" alt="" />
+                    
+                        <div className="nome">
+                       <img src="assets\images\LightDigital.png" alt="" width={600} />
+                         </div>
+                    <img src="assets\images\Make.png" width={1343} height={400} alt="" />
                 </div>
             </section>
 
-            <section>
-
+            <section className="servicos">
+                 <div className="servicos_a1">
                 <h1>Serviços</h1>
-                <div>
+                    
                     <img src="assets\images\codigo.png" alt="" />
                     <img src="assets\images\floating.png" alt="" />
                     <img src="assets\images\inter.png" alt="" />
                     <img src="assets\images\Getty.png" alt="" />
                 </div>
 
-            </section>
+            
 
-            <section>
-                <h1>Capabilidades</h1>
+              
 
-                <div>
+                <div>  
+                    <h1>Capabilidades</h1>
                     <img src="assets\images\eshop.png" alt="" />
                     <img src="assets\images\engenharia.png" alt="" />
                     <img src="assets\images\eletrotecnica.png" alt="" />
-                    <img src="assets\bank.png" alt="" />
+                    <img src="assets\images\bank.png" alt="" />
                 </div>
             </section>
 
