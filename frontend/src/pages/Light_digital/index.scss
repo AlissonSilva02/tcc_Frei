@@ -1,24 +1,29 @@
 @font-face {
     font-family: Inter;
     src: url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+
 }
+
 
 html{
 
-    background-color: #121222;
+ background-color: #11081f;
  width: 1344px;
 }
 
 * {
-    border: 1px solid gray;
+   
     font-family: Inter;
+    color: #ffffff;
+    font-weight: 500;
     
 }
 
 .light{
     width: 1344px;
-    background-color: #121222;
-    height: 2800px;
+    background-color: #1B1732;
+    height: 2200px;
     display:  flex;
     flex-direction: column;
     margin-bottom: 200px;
@@ -32,6 +37,7 @@ html{
     height: 70px;
     background-color: #121222;
     color: #ffffff;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;;
 
     .links{
         gap: 20px;
@@ -44,7 +50,7 @@ html{
 
 .banner{
 
-    background-color: #121222;
+    background-color: #1B1732;
     width: 1344px;    height: 300px;
 
 
@@ -64,12 +70,12 @@ html{
 
 
     width: 1344px;
-            height: 300px;
+    height: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 100px 0px;
-    margin-bottom: 900px;
+    margin-bottom: 800px;
     
     img{
 
@@ -79,14 +85,61 @@ html{
     }
 
     h1 {
-        margin: 10px;
+        
+        padding: 20px 0;
         font-size: 30px;
+        font-weight: 800;
         color: #ffffff;
     }
 
+
+    .services{
+
+        font-family: Weather;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        margin-top: 130px;
+        margin-left: 30px;
+        gap: 120px;
+        text-align: center;
+
+
+    h1{
+
+        width: 200px;
+        
+    }
+
+    }
+
+}
+
+.sobre {
+
+margin: 20px;
+width: 1200px;
+
+
+
+}
+
+.contato{
+    background-color: #000000;
+    margin: 20px;
+    padding: 15px 50px;
     
 }
 
+
+.rodape{
+    display: flex;
+    padding: 20px 50px;
+    background-color: #11081f;
+    margin-top: 100px;
+    justify-content: end;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    }
 
 }
 

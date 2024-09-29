@@ -33,8 +33,15 @@ export default function Light() {
             <section className="servicos">
                  <div className="servicos_a1">
                 <h1>Serviços</h1>
-                    
-                    <img src="assets\images\codigo.png" alt="" />
+              
+              <div className="services">
+                
+                <h1>web <br /> e <br /> app design</h1>
+                <h1>inteligencia <br /> artificial</h1>
+                <h1>redes <br /> e <br /> internet</h1>
+                <h1 className="ferran"> BPM </h1>
+              </div>
+                    <img className="sla" src="assets\images\codigo.png" alt="" />
                     <img src="assets\images\floating.png" alt="" />
                     <img src="assets\images\inter.png" alt="" />
                     <img src="assets\images\Getty.png" alt="" />
@@ -45,6 +52,15 @@ export default function Light() {
               
 
                 <div>  
+
+                <div className="services">
+                
+                <h1>E-commerce</h1>
+                <h1>Equipamento <br /> Hospitalar</h1>
+                <h1>Produção</h1>
+                <h1> Bancário </h1>
+              </div>
+
                     <h1>Capabilidades</h1>
                     <img src="assets\images\eshop.png" alt="" />
                     <img src="assets\images\engenharia.png" alt="" />
@@ -57,30 +73,32 @@ export default function Light() {
                 <div className="sobre">
                     <h1>Sobre nós</h1>
 
-                    <p>
+                    <h4>
                         Bem-vindo à Light Digital! Somos uma empresa dedicada a iluminar o
                         caminho digital das empresas e pessoas, trazendo soluções inovadoras
-                        e eficientes para suas necessidades tecnológicas. Nosso foco é criar
+                        e eficientes para suas necessidades tecnológicas. 
+                         Nosso foco é criar
                         sites modernos, funcionais e personalizados que refletem a essência
                         do seu negócio, além de oferecer serviços de instalação de redes que
-                        garantem conectividade rápida e segura. Na Light Digital,
+                        garantem conectividade rápida e segura.  <br />  <br />
+                        Na Light Digital,
                         acreditamos que a tecnologia deve ser acessível, prática e capaz de
                         transformar a forma como você interage com o mundo. Nossa equipe é
                         composta por profissionais experientes e apaixonados pelo que fazem,
                         sempre prontos para ouvir suas necessidades e transformar suas
-                        ideias em realidade. Estamos comprometidos em entregar resultados de
+                        ideias em realidade.  <br /> <br /> Estamos comprometidos em entregar resultados de
                         alta qualidade, com um atendimento próximo e personalizado. Seja
                         desenvolvendo o site dos seus sonhos ou instalando uma rede robusta
                         para o seu escritório, estamos aqui para tornar o processo simples e
-                        eficaz. Conte conosco para ser o parceiro que você pode confiar na
+                        eficaz. <br /> <br /> Conte conosco para ser o parceiro que você pode confiar na
                         sua jornada digital. Na Light Digital, fazemos a tecnologia brilhar
                         ao seu favor!
-                    </p>
+                    </h4>
                 </div>
             </section>
 
-            <div className="contato">
-                <button>
+            <div className="sobre">
+                <button className="contato">
                     <h2>Solicite um orçamento</h2>
                 </button>{" "}
                 <img src="" alt="" />
@@ -95,10 +113,12 @@ export default function Light() {
                 </p>
             </div>
 
-            <section> <hr />
+            <section>
                 <div className="rodape">
 
-                    <img src="" alt="" />
+                <img src="assets\images\light.png" alt="" height={70}/>
+                    <img src="assets\images\LightDigital.png" alt=""  height={70} />
+                    
 
                 </div>
 
