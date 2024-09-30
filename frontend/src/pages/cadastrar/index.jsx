@@ -1,5 +1,9 @@
 import { useEffect, useState } from 'react'
 import './index.scss'
+import { Link } from 'react-router-dom';
+import { Cabe }  from "../../components/cabecalho/head.jsx";
+
+ 
 
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
@@ -12,6 +16,7 @@ export default function Cadastrar() {
     const [estoque, setEstoque] = useState('');
     const [disponivel, setDisponivel] = useState(false);
     const { id } = useParams()
+
 
 
 
@@ -33,7 +38,6 @@ export default function Cadastrar() {
         } else {
             //atualizar
             const url = `http://localhost:5002/update/produto/${id}`
-
             await axios.put(url, paramCorpo);
 
             alert('Produto alterado Id: ' + id);
@@ -58,31 +62,44 @@ export default function Cadastrar() {
     }
 
     useEffect(() => {
-
         Buscar()
     }, [])
 
-
-
-
     return (
         <div className='pagina-cadastrar'>
-            <h1> CADASTRAR </h1>
+
+
+        <div>
+        <Cabe/>
+
+        </div>
+
+
+
+            <h1 className='titulo'> CADASTRAR </h1>
             <p>{id}</p>
 
             <div className='form'>
-                <div>
-                    <label>Nome:</label>
+                <div className='forma1'> 
+
+                <div className='lab'>
+                    <label>Nome do produto :</label>
                     <input type='text' value={tipo} onChange={e => setTipo(e.target.value)} />
                 </div>
-                <div>
+                <div className='lab'>
                     <label>img:</label>
                     <input type='file' value={img} onChange={e => setImg(e.target.value)} />
                 </div>
+
+                  </div>
+
+                  
                 <div>
+
+                </div>
                     <label>descricao:</label>
                     <input type='text' value={descricao} onChange={e => setDescricao(e.target.value)} />
-                </div>
+              
                 <div>
                     <label>valor</label>
                     <input type='text' value={valor} onChange={e => setValor(e.target.value)} />
@@ -96,7 +113,8 @@ export default function Cadastrar() {
                     <input type='text' checked={estoque} onChange={e => setEstoque(e.target.value)} />
                 </div>
             </div>
-            <button onClick={salvar}> SALVAR </button>
+            <Link to ={`/consultar`}><button onClick={salvar}> Alterar e ir para consulta </button></Link>
+            <button onClick={salvar}> Alterar </button>
 
         </div>
     )

@@ -38,6 +38,12 @@ export default function Consultar() {
                 <button onClick={deletar}>remover</button>
             </div>
 
+
+            <div>
+            <Link to ={`/cadastrar/`}> <h2>Cadastrar</h2></Link> 
+
+            </div>
+
             <table>
                 <thead>
                     <tr>

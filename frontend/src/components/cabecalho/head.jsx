@@ -28,7 +28,7 @@ export function Cabe() {
                 <div className="men">
                     <button onClick={barramenu}>
                         <img
-                            src="assets\images\menu.png"
+                            src="/assets\images\menu.png"
                             alt="menu"
                             width={53}
                             height={53}
@@ -39,7 +39,7 @@ export function Cabe() {
                 <div className="logo">
                     <img
                         className="aura"
-                        src="assets\images\logo1.png"
+                        src="/assets/images/logo1.png"
                         alt="logo"
                         width={370}
                     />
@@ -50,7 +50,7 @@ export function Cabe() {
                 <input className="pesq" type="text" placeholder="Pesquisar" />
                 <img
                     className="lup"
-                    src="assets\images\search.png"
+                    src="\assets\images\search.png"
                     alt="pesquisar"
                     width={25}
                 />

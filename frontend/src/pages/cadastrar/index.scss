@@ -1,34 +1,57 @@
 .pagina-cadastrar {
-    padding: 50px;
+    padding: 10px;
+
+    
+    .titulo {
+
+        margin-top: 80px;
+
+    }
 
     
     .form {
         display: flex;
         flex-direction: column;
         gap: 10px;
+        margin-top: 200px;
 
-        > div {
-            display: flex;
-            align-items: center;
 
-            label {
-                display: inline-block;
-                width: 200px;
-                text-align: right;
-                padding-right: 10px;
-                font: 400 24px Arial;
-            }
+        .forma1{
 
-            input {
-                font: 400 24px Arial;
-                padding: 5px;
-                border: 1px solid #000;
-            }
+            width: 1200px;
+
+
+
         }
+
+       
+    .lab {
+
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+
+
+
     }
 
-    button {
-        font: 400 24px Arial;
-        padding: 20px;
-    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
