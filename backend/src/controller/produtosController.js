@@ -1,4 +1,4 @@
-import { alterarProdutos, consultarProdutos, deletarProduto, inserirProdutos } from "../repository/produtosRepository.js";
+import * as db from "../repository/produtosRepository.js";
 
 import { Router } from "express";
 const endpoints = Router();
@@ -9,7 +9,7 @@ endpoints.delete('/delete/produto/:id' , async (req, resp) => {
     try {
         let id = req.params.id
 
-        let resposta = await deletarProduto(id)
+        let resposta = await db.deletarProduto(id)
 
         resp.send({
             linhasAfetadas: resposta
@@ -23,11 +23,29 @@ endpoints.delete('/delete/produto/:id' , async (req, resp) => {
 })
 
 
-endpoints.get('/select/produtos', async (req, resp) => {
+endpoints.get('/select/produto', async (req, resp) => {
     try {
-        let produto = await consultarProdutos();
+        let produto = await db.consultarProdutos();
 
         resp.send(produto)
+    }
+    catch (error) {
+        resp.send(
+            {
+                error: error.message
+            }
+        )
+    }
+
+})
+
+
+endpoints.get('/select/produto/:id', async (req, resp) => {
+    try { 
+        let id = req.params.id
+        let produto = await db.consultarProdutosid(id);
+
+        resp.send(produto[0])
     }
     catch (error) {
         resp.send(
@@ -43,7 +61,7 @@ endpoints.post('/insert/produto', async (req, resp) => {
     try {
         let produto = req.body
 
-        let resposta = await inserirProdutos(produto)
+        let resposta = await db.inserirProdutos(produto)
 
         resp.send(
             {
@@ -59,14 +77,14 @@ endpoints.post('/insert/produto', async (req, resp) => {
 
 })
 
-endpoints.put('/update/produto/:id'), async (req, resp) => {
+endpoints.put('/update/produto/:id', async (req, resp) => {
 
     try {
         let id = req.params.id
 
         let produto = req.body
 
-        let resposta = await alterarProdutos(produto, id)
+        let resposta = await db.alterarProdutos(produto, id)
 
         resp.send(
             {
@@ -79,7 +97,7 @@ endpoints.put('/update/produto/:id'), async (req, resp) => {
             error: error.message
         })
     }
-}
+})
 
 
 

@@ -18,6 +18,25 @@ export async function consultarProdutos() {
     return registros;
 }
 
+export async function consultarProdutosid(id) {
+    let comando = `
+       SELECT   id_produto  id,  
+                tipo,		
+                img,
+                descricao,	
+                valor,
+                disponivel,
+                estoque  
+	    FROM produtos
+        WHERE id_produto = ?
+    `
+
+    let resposta = await con.query(comando, [id]);
+    let registros = resposta[0]
+
+    return registros;
+}
+
 export async function inserirProdutos(produto) {
     let comando =
         `
@@ -39,7 +58,7 @@ export async function alterarProdutos(produto, id) {
     descricao = ?, 
     valor = ?, 
     disponivel = ?,
-    estoque = ? ,
+    estoque = ? 
     WHERE id_produto = ?;
     `
 

@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './index.scss';
+import { Link } from 'react-router-dom';
 
 import axios from 'axios';
 
@@ -8,7 +9,7 @@ export default function Consultar() {
     const [id, setId] = useState(''); // Inicialize com uma string vazia
 
     async function buscar() {
-        const url = 'http://localhost:5002/select/produtos';
+        const url = 'http://localhost:5002/select/produto';
         let resp = await axios.get(url);
         setProdutos(resp.data);
     }
@@ -16,13 +17,20 @@ export default function Consultar() {
     async function deletar() { // Remova o parâmetro id
         const url = `http://localhost:5002/delete/produto/${id}`; // Substitua o parâmetro id
         await axios.delete(url);
+
+        buscar()
     }
+
+    useEffect(() => {
+           
+        buscar()
+    }, [])
 
     return (
         <div className='pagina-consultar'>
             <h1> CONSULTAR </h1>
 
-            <button onClick={buscar}>Buscar</button>
+            {/* <button onClick={buscar}>Buscar</button> */}
             
             <div>
                 <label>Insira um id</label>
@@ -40,6 +48,7 @@ export default function Consultar() {
                         <th>Valor</th>
                         <th>Estoque</th>
                         <th>Disponivel</th>
+                        <th>Alterar</th>
                     </tr>
                 </thead>
 
@@ -54,6 +63,7 @@ export default function Consultar() {
                             <td>{item.estoque}</td>
                             {/* <td>{new Date(item.vinganca).toLocaleDateString()}</td> */}
                             <td>{item.disponivel ? 'Sim' : 'Não'}</td>
+                            <td><Link to ={`/cadastrar/${item.id}`}>Alterar</Link></td>
                         </tr>
                     )}
                 </tbody>
