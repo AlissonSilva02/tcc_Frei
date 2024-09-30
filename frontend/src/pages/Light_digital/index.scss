@@ -6,7 +6,15 @@
 }
 
 
-html{
+
+
+.light{
+    width: 1344px;
+    background-color: #1B1732;
+    height: 2200px;
+    display:  flex;
+    flex-direction: column;
+    margin-bottom: 200px;html{
 
  background-color: #11081f;
  width: 1344px;
@@ -19,14 +27,6 @@ html{
     font-weight: 500;
     
 }
-
-.light{
-    width: 1344px;
-    background-color: #1B1732;
-    height: 2200px;
-    display:  flex;
-    flex-direction: column;
-    margin-bottom: 200px;
 
 
 .cabecalho{

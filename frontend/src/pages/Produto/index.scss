@@ -1,0 +1,93 @@
+.pagina_produto{
+
+display: flex;
+flex-direction: column;
+ 
+
+
+.botao{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    justify-items: start;
+    background-color: black;
+    color: #ffff;
+    width: fit-content;
+    margin: 20px;
+
+    .but{
+
+        background-color: black;
+        padding: 0 85px;
+        color: white;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    img{
+
+        display: flex;
+        justify-self: start;
+        border: 1px solid red;
+        justify-self: start;
+        position: relative;
+
+    }
+
+}
+
+.card{
+
+display: flex;
+flex-direction: row;
+
+
+
+
+
+
+
+}
+
+
+.descricao{
+
+    padding: 120px;
+    margin: 20px;
+
+    h2{
+
+        margin-top: 200px;
+    }
+
+    p{
+
+        margin-bottom: 200px;
+    }
+
+
+}
+
+.related{
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    margin: 50px;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+}
