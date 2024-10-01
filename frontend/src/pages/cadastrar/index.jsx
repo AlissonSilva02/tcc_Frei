@@ -17,9 +17,6 @@ export default function Cadastrar() {
     const [disponivel, setDisponivel] = useState(false);
     const { id } = useParams()
 
-
-
-
     async function salvar() {
         const paramCorpo = {
             "tipo": tipo,
@@ -29,7 +26,7 @@ export default function Cadastrar() {
             "disponivel": disponivel,
             "estoque": estoque
         }
-        if (id == undefined) {
+        if (id === undefined) {
             //inserir
             const url = 'http://localhost:5002/insert/produto';
             let resp = await axios.post(url, paramCorpo);
@@ -88,7 +85,7 @@ export default function Cadastrar() {
                 </div>
                 <div className='lab'>
                     <label>img:</label>
-                    <input type='file' value={img} onChange={e => setImg(e.target.value)} />
+                    <input type='text' value={img} onChange={e => setImg(e.target.value)} />
                 </div>
 
                   </div>
