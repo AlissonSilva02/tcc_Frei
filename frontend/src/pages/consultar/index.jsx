@@ -1,47 +1,56 @@
-import { useEffect, useState } from 'react';
-import './index.scss';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import "./index.scss";
+import { Link } from "react-router-dom";
 
-import axios from 'axios';
+import axios from "axios";
 
 export default function Consultar() {
+    const [id, setId] = useState(""); // Inicialize com uma string vazia
     const [produtos, setProdutos] = useState([]);
-    const [id, setId] = useState(''); // Inicialize com uma string vazia
 
     async function buscar() {
-        const url = 'http://localhost:5002/select/produto';
+        const url = "http://localhost:5002/select/produto";
         let resp = await axios.get(url);
         setProdutos(resp.data);
     }
 
-    async function deletar() { // Remova o parâmetro id
+    async function deletar() {
+        // Remova o parâmetro id
         const url = `http://localhost:5002/delete/produto/${id}`; // Substitua o parâmetro id
         await axios.delete(url);
 
-        buscar()
+        //se erro
+        alert('Erro no banco de dados')
+        buscar();
     }
 
     useEffect(() => {
-           
-        buscar()
-    }, [])
+         buscar();
+    }, []);
 
     return (
-        <div className='pagina-consultar'>
+        <div className="pagina-consultar">
+
+            <button onClick={buscar}>Consultar</button>
             <h1> CONSULTAR </h1>
 
             {/* <button onClick={buscar}>Buscar</button> */}
-            
+
             <div>
                 <label>Insira um id</label>
-                <input type="text" value={id} onChange={e => setId(e.target.value)}/>
+                <input
+                    type="text"
+                    value={id}
+                    onChange={(e) => setId(e.target.value)}
+                />
                 <button onClick={deletar}>remover</button>
             </div>
 
-
             <div>
-            <Link to ={`/cadastrar/`}> <h2>Cadastrar</h2></Link> 
-
+                <Link to={`/cadastrar/`}>
+                    {" "}
+                    <h2>Cadastrar</h2>
+                </Link>
             </div>
 
             <table>
@@ -75,5 +84,5 @@ export default function Consultar() {
                 </tbody>
             </table>
         </div>
-    )
+    );
 }
