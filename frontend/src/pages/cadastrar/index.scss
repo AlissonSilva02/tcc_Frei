@@ -1,57 +1,38 @@
 .pagina-cadastrar {
     padding: 10px;
 
-    
     .titulo {
+        margin-top: 10px;
 
-        margin-top: 80px;
-
+        font-family: "inter";
+        font-weight: 600;
     }
 
-    
-    .form {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        margin-top: 200px;
+    hr{
+        border: none;
+        background-color: black;
+        height: 2px;
+    }
+
+    .formulario {
+        padding: 70px;
 
 
-        .forma1{
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 200px;
 
-            width: 1200px;
+            .forma1 {
+                width: 1200px;
+            }
 
-
-
+            .lab {
+                display: flex;
+                flex-direction: column;
+                width: 300px;
+            }
         }
-
-       
-    .lab {
-
-        display: flex;
-        flex-direction: column;
-        width: 300px;
-
-
-
     }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
