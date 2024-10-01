@@ -1,10 +1,59 @@
-.cardB{
+
+    .cardG{
 
     display: flex;
-    flex-direction: row;
-    border: 1px solid;
-    width: 230px;
-    height: 300px;
+    width: 1200px;
+
+
+
+    .divimg{
+
+        display: flex;
+        padding: 10px;
+        
+            .img{
+
+
+                display: flex;
+            }
+
+            .divnome{
+
+
+                display: flex;
+                flex-direction: column;
+                
+              .nome{
+
+                margin: 10px 0;
+
+              }
+                
+            }
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
