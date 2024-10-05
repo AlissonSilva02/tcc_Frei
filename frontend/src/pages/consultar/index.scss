@@ -1,19 +1,37 @@
 .pagina-consultar {
+    margin-bottom: 20px;
     padding: 50px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 
+
     table {
+        margin-top: 20px;
         width: 1200px;
+
+        .tr{
+
+
+            background-color: #000;
+        }
 
         th {
             text-align: left;
             padding: 5px;
+            background-color: #000;
+            color: #ffff;
+
+          
         }
 
         td {
             padding: 5px;
             border-top: 1px solid #000;
+            color: #9E9E9E;
         }
     }
-    
+      .alter{
+
+        width: 168px;
+
+                }
 }

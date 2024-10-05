@@ -54,6 +54,8 @@ export default function Cadastrar() {
         Buscar();
     });
 
+
+
     return (
         <div className="pagina-cadastrar">
             <div>
