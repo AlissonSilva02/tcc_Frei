@@ -1,12 +1,20 @@
 
+.super{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
 .secao-cabecalho{
 
+
 display: flex;
 flex-direction: column;
-justify-content: start;
+justify-content: center;
 align-items: center;
-width: 1340px;
+width: 1260px;
+margin-bottom: 50px;
 
 
 
@@ -15,7 +23,7 @@ width: 1340px;
 .sub{
 display: flex;
 gap: 55px;
-width: 1300px;
+width: 1200px;
 flex-direction: row;
     
 
@@ -34,7 +42,7 @@ flex-direction: row;
 
     display: flex;
     justify-content: space-around;
-    width: 600px;
+    width: 450px;
 
  
 
@@ -45,22 +53,28 @@ flex-direction: row;
 
 .pesquisa{
 
-margin-top: 30px;
+margin-top: 50px;
 display: flex;
 flex-direction: row;
-width: 1210px;
+width: 1010px;
+height: 40px;
+margin-left: 120px;
 justify-content: space-between;
+box-shadow: 0px 2px 0px 0px rgba(0,0,0,0.4),0px 10px 15px -3px rgba(0,0,0,0.1);
+margin-right: 140px;
+
 
 .pesq {
     display: flex;
     justify-content: start;
-    width: 1800px;
+    width: 1200px;
+    margin-bottom: 50px;
+    
     height: 40px;
     border-radius: 5px;
     border: 0;
-    box-shadow: 0px 2px 0px 0px rgba(0,0,0,0.4),0px 10px 15px -3px rgba(0,0,0,0.1);
-    padding-left: 10px;
-    padding-right: 10px;
+    
+    
   }
             
         }
@@ -70,15 +84,17 @@ justify-content: space-between;
         }
 
         .lup{
-            position: absolute;
+            display: flex;
+
+            height: 20px;
+            margin-top: 15px;
             
-            right: 100px;
-            top: 125px;
+            
         }
 
 } 
 
 
 
-
+}
 

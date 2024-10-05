@@ -1,32 +1,51 @@
-.pagina-consultar {
-    margin-bottom: 20px;
-    padding: 50px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
 
+.a1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  
+
+
+
+.pagina-consultar {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    margin: 0 80px;
+    align-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: fit-content;
 
     table {
         margin-top: 20px;
         width: 1200px;
+        background-color: #e9e6e6;
+        border-spacing: 0;
 
-        .tr{
 
 
-            background-color: #000;
-        }
-
+        
+      
         th {
-            text-align: left;
-            padding: 5px;
+            text-align: center;
+            border-spacing: 0;        
             background-color: #000;
             color: #ffff;
+            padding: 20px 20px;
+           
 
           
         }
 
         td {
-            padding: 5px;
+            padding: 20px 20px;
             border-top: 1px solid #000;
             color: #9E9E9E;
+            text-align: center;
         }
     }
       .alter{
@@ -34,4 +53,36 @@
         width: 168px;
 
                 }
+
+                .ver{
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-top: 100px;
+                    margin-bottom: 100px;
+                    padding: 10px 190px;
+                }
+            
+            }
+
+ footer{
+
+
+    display: flex;
+    justify-content: start;
+    align-items: start;
+
+    .rodape{
+
+
+        display: flex;
+        justify-content: start;
+        align-items: start;
+
+    }
+
+ }
 }
+
+   

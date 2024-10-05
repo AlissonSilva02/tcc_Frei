@@ -1,32 +1,14 @@
 import { useState } from "react";
-import "./head.scss";
+import "./index.scss";
 
 export function Cabe() {
-    const [ativado, setAtivado] = useState(false);
-    const [visivel, setVisivel] = useState(false);
-
-    function Abrirmenu() {
-        setVisivel(!visivel);
-    }
-
-    const barramenu = () => {
-        return (
-            <div className="sidebar">
-                <h2>Sidebar</h2>
-                <ul>
-                    <li>Menu item 1</li>
-                    <li>Menu item 2</li>
-                    <li>Menu item 3</li>
-                </ul>
-            </div>
-        );
-    };
-
+  
     return (
+    <div className="super"> 
         <div className="secao-cabecalho">
             <div className="sub">
                 <div className="men">
-                    <button onClick={barramenu}>
+                    <button>
                         <img
                             src="/assets\images\menu.png"
                             alt="menu"
@@ -48,13 +30,16 @@ export function Cabe() {
 
             <div className="pesquisa">
                 <input className="pesq" type="text" placeholder="Pesquisar" />
+                
                 <img
                     className="lup"
                     src="\assets\images\search.png"
                     alt="pesquisar"
                     width={25}
                 />
+                
             </div>
         </div>
+    </div>
     );
 }

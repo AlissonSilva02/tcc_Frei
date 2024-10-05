@@ -1,5 +1,5 @@
 import "./app.scss";
-import { Cabe } from "../../components/cabecalho/head.jsx";
+import { Cabe } from "../../components/cabecalho/index.jsx";
 import Card from "../../components/Card/index.jsx";
 import Rodape from "../../components/rodape/index.jsx";
 

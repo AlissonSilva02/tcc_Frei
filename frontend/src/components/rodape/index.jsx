@@ -7,7 +7,7 @@ export default function Rodape() {
     
     <div className='secao-rodape'>
 
-        <div className='a1'>
+        <div className='linha'>
         </div>
 
         <div className='b'>
@@ -15,7 +15,7 @@ export default function Rodape() {
         <div className='b1'></div>
       
         <div className='sla'>
-            <img className='asd' src="assets/imgaes/linha.png" alt="" />
+            <img className='asd' src="assets/images/linha.png" alt="" />
         </div>
         
         <div className='b2'></div>

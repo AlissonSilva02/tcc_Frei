@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import "./index.scss";
 import { Link } from "react-router-dom";
-import { Cabe } from "../../components/cabecalho/head.jsx";
+import { Cabe } from "../../components/cabecalho/index.jsx";
+import Rodape from "../../components/rodape/index.jsx";
+
 
 import axios from "axios";
 
@@ -20,8 +22,7 @@ export default function Consultar() {
     const url = `http://localhost:5002/delete/produto/${id}`; // Substitua o parâmetro id
     await axios.delete(url);
 
-    //se erro
-    alert("Erro no banco de dados");
+    
     buscar();
   }
 
@@ -30,30 +31,23 @@ export default function Consultar() {
   }, []);
 
   return (
+    <div className="a1">
     <div className="pagina-consultar">
       <header>
         <Cabe />
       </header>
 
-      <button onClick={buscar}>Consultar</button>
-      <h1> CONSULTAR </h1>
-
-      {/* <button onClick={buscar}>Buscar</button> */}
 
       <div>
         <label>Insira um id</label>
+        <input type="text" value={id} onChange={(e) => setId(e.target.value)}/>
+        <button onClick={deletar}>deletar </button>
       </div>
 
-      <div>
-        <Link to={`/cadastrar/`}>
-          {" "}
-          <h2>Cadastrar</h2>
-        </Link>
-      </div>
 
       <table>
         <thead>
-          <tr>
+          <tr className="bak">
             <th>ID</th>
             <th>Produto</th>
             <th>Imagem</th>
@@ -81,22 +75,35 @@ export default function Consultar() {
                   {" "}
                   <img src="assets\images\asf.png" alt="" width={40} />
                 </Link>
-                <input
-                  type="text"
-                  value={id}
-                  onChange={(e) => setId(e.target.value)}
-                />
-                <Link to={`/cadastrar/${item.id}`}>
-                  <button onClick={deletar}>
-                    {" "}
-                    <img src="assets\images\asx.png" alt="" />{" "}
-                  </button>
-                </Link>
+                       
+                  
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+
+
+          <div>
+          <button className="ver">Ver mais</button>
+</div>
+
     </div>
+  
+
+
+          <div className="rodape">
+            <footer>
+
+
+              <Rodape />
+
+            </footer>
+          </div>
+
+  </div>
+
+
+
   );
 }
