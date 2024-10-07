@@ -19,7 +19,7 @@ export async function validarUsuario(usuario) {
                 nome,		
                 senha
         FROM autonomo
-        WHERE nome= ?   and senha = ?  
+        WHERE nome= ?  and senha = ?
      `;
 
     let registros = await con.query(comando, [usuario.nome, usuario.senha]);

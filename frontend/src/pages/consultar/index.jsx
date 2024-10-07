@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./index.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Cabe } from "../../components/cabecalho/index.jsx";
 import Rodape from "../../components/rodape/index.jsx";
 
@@ -11,8 +11,9 @@ export default function Consultar() {
   const [id, setId] = useState(""); // Inicialize com uma string vazia
   const [produtos, setProdutos] = useState([]);
 
+  const Navigate = useNavigate();
   async function buscar() {
-    const url = "http://localhost:5002/select/produto";
+    const url = `http://localhost:5002/autonomo?idUsuario=$(usuario?.id)`;
     let resp = await axios.get(url);
     setProdutos(resp.data);
   }
@@ -29,6 +30,23 @@ export default function Consultar() {
   useEffect(() => {
     buscar();
   }, []);
+
+  async function sair() {
+    localStorage.setItem('usuario', null)
+    Navigate('/')
+  }
+
+  useEffect(() => {
+
+    let dados = JSON.parse(localStorage.getItem('usuario'))
+    setProdutos(dados)
+  
+
+  if (dados == null || dados == undefined) {
+    Navigate('/')
+  }
+
+  }, [])
 
   return (
     <div className="a1">

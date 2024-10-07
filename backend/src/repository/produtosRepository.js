@@ -18,7 +18,7 @@ export async function consultarProdutos() {
     return registros;
 }
 
-export async function consultarProdutosid(id) {
+export async function consultarProdutosid(idUsuario) {
     let comando = `
        SELECT   id_produto  id,  
                 tipo,		
@@ -28,10 +28,10 @@ export async function consultarProdutosid(id) {
                 disponivel,
                 estoque  
 	    FROM produtos
-        WHERE id_produto = ?
+        WHERE id_autonomo = ?
     `
 
-    let resposta = await con.query(comando, [id]);
+    let resposta = await con.query(comando, [idUsuario]);
     let registros = resposta[0]
 
     return registros;
