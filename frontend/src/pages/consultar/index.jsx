@@ -12,8 +12,9 @@ export default function Consultar() {
   const [produtos, setProdutos] = useState([]);
 
   const Navigate = useNavigate();
+
   async function buscar() {
-    const url = `http://localhost:5002/autonomo?idUsuario=$(usuario?.id)`;
+    const url = `http://localhost:5002/select/produto`;
     let resp = await axios.get(url);
     setProdutos(resp.data);
   }
@@ -36,18 +37,7 @@ export default function Consultar() {
     Navigate('/')
   }
 
-  useEffect(() => {
-
-    let dados = JSON.parse(localStorage.getItem('usuario'))
-    setProdutos(dados)
-  
-
-  if (dados == null || dados == undefined) {
-    Navigate('/')
-  }
-
-  }, [])
-
+ 
   return (
     <div className="a1">
     <div className="pagina-consultar">

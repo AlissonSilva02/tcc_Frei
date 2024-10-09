@@ -28,37 +28,27 @@ endpoints.post('/usuario/', async (req, resp) => {
 
 
 
-endpoints.post('/entrar/', async (req, resp) => {
+endpoints.get('/entrar/', async (req, resp) => {
     try {
         let usuario = req.body
         
         let resposta = await db.validarUsuario(usuario)
 
-    if (resposta === null) {
 
-      error:  resp.send('usuario ou senha incorreto(s)')
-        
+    if (resposta === undefined) {
+         resp.send('usuario ou senha incorreto(s)')
     }
     else {
-
-
-        resp.send(dados)
-
+        resp.send(resposta)
     }
 
-        resp.send(
-            {
-                novoId: resposta
-            }
-        )
-
-    } catch (error) {
+    } 
+    
+    catch (error) {
         resp.send({
-            error: error.message
+            error: error
         })
     }
-
-
 
 
 })

@@ -23,7 +23,10 @@ export async function validarUsuario(usuario) {
      `;
 
     let registros = await con.query(comando, [usuario.nome, usuario.senha]);
+
     return registros[0][0];
+
+
 }
 
 

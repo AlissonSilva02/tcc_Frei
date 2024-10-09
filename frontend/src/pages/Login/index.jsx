@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 
 export default function Login() {
-const [nome,setNome] = useState(null);
+const [nome,setNome] = useState('');
 const [senha,setSenha] = useState('');
 
 
@@ -18,23 +18,25 @@ const [senha,setSenha] = useState('');
             "senha": senha
 
         }
+
         const url = "http://localhost:5002/entrar/"
-        let resp = await axios.post(url, usuario)
+        let resp = await axios.get(url, usuario)
 
-        if (resp.data.erro != undefined) {
+        alert (resp.data)
 
-            alert(resp.data.erro)
+        
+
+        if (resp.data !== undefined) {
+          
         }
-        else {
-            let usuario = {
 
+        else {
+
+            let usuario = {
                 "id": resp.data.id,
                 "nome": resp.data.nome
             }   
-
-
             localStorage.setItem('usuario', JSON.stringify(usuario))
-            navigate('/consultar')
         }
     }
 

@@ -26,7 +26,8 @@ export async function consultarProdutosid(idUsuario) {
                 descricao,	
                 valor,
                 disponivel,
-                estoque  
+                estoque,
+                id_autonomo  
 	    FROM produtos
         WHERE id_autonomo = ?
     `
