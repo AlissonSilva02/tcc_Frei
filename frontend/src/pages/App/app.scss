@@ -3,10 +3,31 @@
 .secao-landing{
 
 display: flex;
+font-family: inter;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 
+
+.catch{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    align-items: center;
+    width: 700px;
+
+   .garanta{
+
+    width: 400px;
+
+   } 
+   .gold{
+    width: 600px;
+    margin: 5px;
+    border: 1px solid;
+}
+
+}
 
 
 
@@ -16,10 +37,22 @@ align-items: center;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    width: 1200px;
+    width: fit-content;
     border: 1px solid #d6d696;
     background-color: #d6d696;
     
+
+}
+
+
+.nomes{
+
+    display: flex;
+    flex-direction: row;
+    border: 1px solid;
+    width: 600px;
+    justify-content: start;
+    gap: 20px;
 }
 
 .ji {

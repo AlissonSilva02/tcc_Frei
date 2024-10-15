@@ -12,19 +12,57 @@ export default function App() {
 
             <div className="land">
                 <img
-                    src="assets/images/PRODUOS-Photoroom1.png"
+                    src="assets/images/banner_21.png"
                     alt=""
-                    width={510}
+                    width={1200}
+                    height={600}
+                    
                 />
-                <img src="assets/images/cab-loiro1.png" alt="" width={512} />
+               
             </div>
 
-            <img
-                className="ji"
-                src="assets/images/group28.png"
-                alt=""
-                width={300}
-            />
+
+            <div className="catch">
+
+                <img className="garanta" src="assets/images/garanta.png" alt="" />
+
+                <hr className="gold" />
+
+                <h2>Conheça a nossa coleção de produtos de autocuidado</h2>
+
+            </div>
+
+
+            <div className="categoria">
+
+            <img src="grou.png" alt="" />
+
+
+            <div className="nomes">
+                <thead>
+                <th className="th"> Cabelos </th>
+                <th  className="th"> Perfumes </th>
+                <th  className="th"> Skin-care </th>
+                <th  className="th"> Maquiagem </th>
+                </thead>
+            </div>
+
+            </div>
+
+          <div className="mestre">
+
+            <div className="secundario">
+
+                <img src="" alt="" />
+
+
+
+
+
+            </div>
+
+
+          </div>
 
             <div className="cards">
                 <div className="c2">
