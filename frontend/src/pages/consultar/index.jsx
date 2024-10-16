@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./index.scss";
 import { Link, useNavigate } from "react-router-dom";
-import { Cabe } from "../../components/cabecalho/index.jsx";
+import  {Cabe}  from "../../components/cabecalho/index.jsx";
 import Rodape from "../../components/rodape/index.jsx";
 
 
@@ -10,32 +10,42 @@ import axios from "axios";
 export default function Consultar() {
   const [id, setId] = useState(""); // Inicialize com uma string vazia
   const [produtos, setProdutos] = useState([]);
+  const [token, setToken] = useState(null);
+
 
   const Navigate = useNavigate();
 
   async function buscar() {
-    const url = `http://localhost:5002/select/produto`;
+    const url = `http://localhost:5002/select/produto?x-access-token=${token}`;
     let resp = await axios.get(url);
     setProdutos(resp.data);
   }
 
-  async function deletar() {
+  async function deletar(id) {
     // Remova o parâmetro id
-    const url = `http://localhost:5002/delete/produto/${id}`; // Substitua o parâmetro id
+    const url = `http://localhost:5002/delete/produto/${id}?x-access-token=${token}`; // Substitua o parâmetro id
     await axios.delete(url);
 
     
-    buscar();
+   await buscar();
+  }
+
+  
+
+  async function sair() {
+    localStorage.setItem('USUARIO', null)
+    Navigate('/')
   }
 
   useEffect(() => {
-    buscar();
-  }, []);
+    let token = localStorage.getItem('USUARIO')
+    setToken(token)
 
-  async function sair() {
-    localStorage.setItem('usuario', null)
-    Navigate('/')
-  }
+    if (token === 'null') {
+        Navigate('/')
+    }
+}, [])  
+
 
  
   return (
@@ -47,6 +57,8 @@ export default function Consultar() {
 
 
       <div>
+        <button onClick={sair}>Sair</button>
+        <button><Link to={'/cadastrar'}>Cadastrar</Link></button>
         <label>Insira um id</label>
         <input type="text" value={id} onChange={(e) => setId(e.target.value)}/>
         <button onClick={deletar}>deletar </button>
@@ -80,10 +92,9 @@ export default function Consultar() {
               <td>{item.disponivel ? "Sim" : "Não"}</td>
               <td>
                 <Link to={`/cadastrar/${item.id}`}>
-                  {" "}
                   <img src="assets\images\asf.png" alt="" width={40} />
                 </Link>
-                       
+                <Link onClick={() => deletar(item.id)}>Deletar</Link>       
                   
               </td>
             </tr>

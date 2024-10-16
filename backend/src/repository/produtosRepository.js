@@ -1,6 +1,6 @@
 import con from './connection.js'
 
-export async function consultarProdutos() {
+export async function consultarProdutos(idUsuario) {
     let comando = `
        SELECT   id_produto    id,  
                 tipo,		
@@ -10,15 +10,16 @@ export async function consultarProdutos() {
                 disponivel,
                 estoque  
 	    FROM produtos
+        WHERE idUsuario = ?
     `
 
-    let resposta = await con.query(comando, []);
+    let resposta = await con.query(comando, [idUsuario]);
     let registros = resposta[0]
 
     return registros;
 }
 
-export async function consultarProdutosid(idUsuario) {
+export async function consultarProdutosid(id) {
     let comando = `
        SELECT   id_produto  id,  
                 tipo,		
@@ -29,10 +30,10 @@ export async function consultarProdutosid(idUsuario) {
                 estoque,
                 id_autonomo  
 	    FROM produtos
-        WHERE id_autonomo = ?
+        WHERE idUsuario = ?
     `
 
-    let resposta = await con.query(comando, [idUsuario]);
+    let resposta = await con.query(comando, [id]);
     let registros = resposta[0]
 
     return registros;
@@ -41,11 +42,11 @@ export async function consultarProdutosid(idUsuario) {
 export async function inserirProdutos(produto) {
     let comando =
         `
-    INSERT INTO produtos (tipo, img, descricao, valor, disponivel,estoque) VALUES
-    (?, ?, ?, ?, ?, ?)
+    INSERT INTO produtos (tipo, img, descricao, valor, disponivel,estoque,idUsuario) VALUES
+    (?, ?, ?, ?, ?, ?,?)
     `
 
-    let resposta = await con.query(comando, [produto.tipo, produto.img, produto.descricao, produto.valor, produto.disponivel, produto.estoque]);
+    let resposta = await con.query(comando, [produto.tipo, produto.img, produto.descricao, produto.valor, produto.disponivel, produto.estoque, produto.idUsuario]);
     let info = resposta[0]
 
     return info.insertId;
