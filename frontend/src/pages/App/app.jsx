@@ -12,30 +12,68 @@ export default function App() {
 
             <div className="land">
                 <img
-                    src="assets/images/PRODUOS-Photoroom1.png"
+                    src="assets/images/banner_21.png"
                     alt=""
-                    width={510}
+                    width={1200}
+                    
+                    
                 />
-                <img src="assets/images/cab-loiro1.png" alt="" width={512} />
+               
             </div>
 
-            <img
-                className="ji"
-                src="assets/images/group28.png"
-                alt=""
-                width={300}
-            />
 
-            <div className="cards">
-                <div className="c2">
-                    <Card
-                        imagem="assets\images\Rectangle25.png"
-                        alt="Product imagem produto"
-                        preco="10.99"
-                        nome="Nome do produto"
-                    />
+            <div className="catch">
+
+                <img className="garanta" src="assets/images/gr.png" alt="" />
+
+                <hr className="gold" />
+
+                <h2>Conheça a nossa coleção de produtos de autocuidado</h2>
+
+                <button>Ver mais</button>
+
+            </div>
+
+            
+            
+            <div className="">
+                <img className="garanta" src="assets/images/grou.png" alt="" width={250} />
                 </div>
+
+            <div className="categoria">
+
+            <img src="grou.png" alt="" />
+
+
+            <div className="dona">
+            <div className="nomes">
+                
+                <div className="cat1"> 
+
+                <img className="creme" src="assets/images/creme1.png" alt="" />
+                <img className="verde" src="assets/images/garra1.png" alt="" />
+                </div>
+
+                <div className="cat2">
+                    <img className="azul" src="assets/images/makeup_blue2.png" alt="" />
+                </div>
+
+                
+
+
+                <div className="cat3">
+                    <img className="amarelo" src="assets/images/pote_amarelo1.png" alt="" />
+                    <img  className="roxo" src="assets/images/perfum.png" alt="" />
+                </div>
+           
+
             </div>
+
+         </div>
+
+
+          
+
 
 
             <div>
@@ -46,6 +84,7 @@ export default function App() {
 
             <link rel="stylesheet" href="" />
 
+        </div>
         </div>
     );
 }
