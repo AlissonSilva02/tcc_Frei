@@ -12,7 +12,7 @@ export default function Navegacao() {
     return(
         <BrowserRouter>
             <Routes>
-                <Route path="/app" element={<App />} />
+                <Route path="/" element={<App />} />
                 <Route path="/tabela" element={<Tabela />} />
                 <Route path="/consultar" element={<Consultar />} />
                 <Route path="/light" element={<Light />} />
@@ -20,7 +20,7 @@ export default function Navegacao() {
                 <Route path="/cadastrar" element={<Cadastrar />} />
                 <Route path="/cadastrar/:id" element={<Cadastrar />} />
                 <Route path="/login" element={<Login/>} />
-                <Route path="/" element={<App />} />
+
 
             </Routes>
         </BrowserRouter>
