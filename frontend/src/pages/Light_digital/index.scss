@@ -45,9 +45,11 @@
         display: flex;
         margin-left: 450px;
         font-size: 10px;
-        
         h1{
+          
             a{
+                animation: color 8s  infinite;
+                text-shadow: 2px 2px 4px #000000;
                 text-decoration: none !important;
             }
         }
@@ -55,6 +57,13 @@
     
 }
 
+@keyframes color {
+    0% {color:#9999cb;}
+    25% {color: rgb(141, 158, 224);}
+    50% {color: rgb(223, 144, 144);}
+    75% {color:rgb(217, 180, 207);}
+    100% {color:#4c36c8}
+}
 .banner{
 
     background-color: #1B1732;
