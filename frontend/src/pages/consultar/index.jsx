@@ -25,7 +25,7 @@ export default function Consultar() {
 		const url = `http://localhost:5002/delete/produto/${id}?x-access-token=${token}`; // Substitua o parâmetro id
 		await axios.delete(url);
 
-		await buscar();
+		await buscar(token);
 	}
 
 	async function sair() {
@@ -40,8 +40,10 @@ export default function Consultar() {
 
 		if (token === null) {
 			Navigate('/')
+		} else{
+			buscar(token)
 		}
-		buscar(token)
+
 	}, [Navigate])
 
 
@@ -89,9 +91,12 @@ export default function Consultar() {
 								<td>{item.disponivel ? "Sim" : "Não"}</td>
 								<td>
 									<Link to={`/cadastrar/${item.id}`}>
-										<img src="assets\images\asf.png" alt="" width={40} />
+										<img src="/assets/images/Alterar.svg" alt="icone_alterar" width={50} />
 									</Link>
-									<Link onClick={() => deletar(item.id, token)}>Deletar</Link>
+									
+									<Link onClick={() => deletar(item.id, token)}> 
+										<img src="/assets/images/Remover.svg" alt="icone_lixo" width={40} />
+									</Link>
 
 								</td>
 							</tr>
