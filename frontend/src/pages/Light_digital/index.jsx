@@ -11,10 +11,10 @@ export default function Light() {
                     <img src="assets\images\light.png" alt="" height={70}/>
 
                     <div className="links">
-                        <h1>Serviços</h1>
-                        <h1>Capabilidades</h1>
-                        <h1>Sobre Nós</h1>
-                        <h1>Contato</h1>
+                        <h1><a href="#servicos">Serviços</a></h1>
+                        <h1><a href="#capabilidades">Capabilidades</a></h1>
+                        <h1><a href="#sobre">Sobre nós</a></h1>
+                        <h1><a href="#contato">Contato</a></h1>
                     </div>
                 </div>
 
@@ -30,49 +30,45 @@ export default function Light() {
                 </div>
             </section>
 
-            <section className="servicos">
-                 <div className="servicos_a1">
-                <h1>Serviços</h1>
-              
-              <div className="services">
-                
-                <h1>web <br /> e <br /> app design</h1>
-                <h1>inteligencia <br /> artificial</h1>
-                <h1>redes <br /> e <br /> internet</h1>
-                <h1 className="ferran"> BPM </h1>
-              </div>
-                    <img className="sla" src="assets\images\codigo.png" alt="" />
-                    <img src="assets\images\floating.png" alt="" />
-                    <img src="assets\images\inter.png" alt="" />
-                    <img src="assets\images\Getty.png" alt="" />
-                </div>
+            <section className="servicos" id="servicos">
+  <div className="servicos_a1">
+    <h1>Serviços</h1>
+    <div className="services">
+      <h1>web <br /> e <br /> app design</h1>
+      <h1>inteligencia <br /> artificial</h1>
+      <h1>redes <br /> e <br /> internet</h1>
+      <h1 className="ferran">BPM</h1>
+    </div>
+    <div className="images">
+      <img className="sla" src="assets/images/codigo.png" alt="" />
+      <img src="assets/images/floating.png" alt="" />
+      <img src="assets/images/inter.png" alt="" />
+      <img src="assets/images/Getty.png" alt="" />
+    </div>
+  </div>
 
-            
+  <div>
+    <div className="services">
+      <h1>E-commerce</h1>
+      <h1>Equipamento <br /> Hospitalar</h1>
+      <h1>Produção</h1>
+      <h1>Bancário</h1>
+    </div>
+    <h1 id="capabilidades">Capabilidades</h1>
+    <div className="images">
+      <img src="assets/images/eshop.png" alt="" />
+      <img src="assets/images/engenharia.png" alt="" />
+      <img src="assets/images/eletrotecnica.png" alt="" />
+      <img src="assets/images/bank.png" alt="" />
+    </div>
+  </div>
+</section>
 
-              
-
-                <div>  
-
-                <div className="services">
-                
-                <h1>E-commerce</h1>
-                <h1>Equipamento <br /> Hospitalar</h1>
-                <h1>Produção</h1>
-                <h1> Bancário </h1>
-              </div>
-
-                    <h1>Capabilidades</h1>
-                    <img src="assets\images\eshop.png" alt="" />
-                    <img src="assets\images\engenharia.png" alt="" />
-                    <img src="assets\images\eletrotecnica.png" alt="" />
-                    <img src="assets\images\bank.png" alt="" />
-                </div>
-            </section>
 
             <section>
-                <div className="sobre">
+                <div className="sobre" id="sobre">
                     <h1>Sobre nós</h1>
-
+                        
                     <h4>
                         Bem-vindo à Light Digital! Somos uma empresa dedicada a iluminar o
                         caminho digital das empresas e pessoas, trazendo soluções inovadoras
@@ -102,13 +98,16 @@ export default function Light() {
                     <h2>Solicite um orçamento</h2>
                 </button>{" "}
                 <img src="" alt="" />
-                <h1>Contato</h1>
+                <h1 className="con" id="contato">Contato</h1>
                 <p>
                     Estamos prontos para ajudar você a dar o próximo passo na sua jornada
                     digital! Entre em contato com a Light Digital pelos canais abaixo:
-                    Telefone/WhatsApp: (XX) XXXX-XXXX E-mail: contato@lightdigital.com
-                    Horário de Atendimento: Segunda a Sexta, das 9h às 18h Siga-nos nas
-                    redes sociais para ficar por dentro das novidades e dicas sobre
+
+                    <li> Telefone/WhatsApp: (11) 99416-1401 </li>
+                    <li> E-mail: contato@lightdigital.com.br </li>
+                    <li>Horário de Atendimento: Segunda a Sexta, das 9h às 18h </li>
+                    
+                    Siga-nos nas redes sociais para ficar por dentro das novidades e dicas sobre
                     tecnologia. Vamos juntos fazer a tecnologia brilhar ao seu favor!
                 </p>
             </div>
