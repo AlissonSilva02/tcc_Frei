@@ -1,6 +1,6 @@
 import "./index.scss";
 
-export function Cabe() {
+export default function Cabe() {
   
     return (
     <div className="super"> 

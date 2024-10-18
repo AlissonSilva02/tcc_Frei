@@ -2,6 +2,8 @@ import './index.scss';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
+import Rodape from '../../components/'
+import Cabe from '../../components/cabecalho'
 
 export default function Login() {
 const [nome,setNome] = useState('');
@@ -28,13 +30,30 @@ const [senha,setSenha] = useState('');
 
 
     return (
+
+
+
         <div className='login'>
+
+        
+            <Cabe/>
             <h1>Entrar</h1>
 
             <input type="text"  placeholder='Digite seu CPF/CNPJ'  onChange={e => setNome(e.target.value)} />
             <input type="text"  placeholder='Digite sua senha'  onChange={e => setSenha(e.target.value)} />
 
             <button onClick={entrar}>ENTRAR</button>
+
+
+
+
+            <footer>
+                <Rodape/>
+            </footer>
         </div>
+
+
+
+
     )
 }
