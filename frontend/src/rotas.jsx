@@ -7,6 +7,7 @@ import Light from "./pages/Light_digital/index.jsx";
 import Produto from "./pages/Produto/index.jsx";
 import Cadastrar from "./pages/cadastrar/index.jsx";
 import Login from "./pages/Login/index.jsx";
+import Not from "./pages/not_found/index.jsx";
 
 export default function Navegacao() {
     return(
@@ -21,9 +22,8 @@ export default function Navegacao() {
                 <Route path="/cadastrar/:id" element={<Cadastrar />} />
                 <Route path="/login" element={<Login/>} />
 
-
+                <Route path="*" element={<Not />} />
             </Routes>
         </BrowserRouter>
     )
-
 }

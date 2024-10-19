@@ -29,12 +29,22 @@ const [senha,setSenha] = useState('');
 
     return (
         <div className='login'>
-            <h1>Entrar</h1>
+            <a href="/" className='voltar'>
+                <img src="/assets/images/Arrowleft.png" alt="voltar" />
+                <p>VOLTAR</p>
+            </a>
+            <img className='logo' src="/assets/images/bank.png" alt="Logo" />
 
-            <input type="text"  placeholder='Digite seu CPF/CNPJ'  onChange={e => setNome(e.target.value)} />
-            <input type="text"  placeholder='Digite sua senha'  onChange={e => setSenha(e.target.value)} />
-
-            <button onClick={entrar}>ENTRAR</button>
+            <div className='container'>
+                <h1>Login</h1>
+                <h4 className='dif'>CPF/CNPJ</h4>
+                <input type="text"  placeholder='Digite seu CPF/CNPJ'  onChange={e => setNome(e.target.value)} />
+                <h4 className='dif'>SENHA</h4>
+                <input type="text"  placeholder='Digite sua senha'  onChange={e => setSenha(e.target.value)} />
+                <p className='dif'>Esqueci a Senha</p>
+                <div className="linha"></div>
+                <button onClick={entrar}>ENTRAR</button>
+            </div>
         </div>
     )
 }
