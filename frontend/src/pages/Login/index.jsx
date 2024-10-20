@@ -2,7 +2,7 @@ import './index.scss';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
-
+import Rodape from '../../components/rodape';
 export default function Login() {
 const [nome,setNome] = useState('');
 const [senha,setSenha] = useState('');
@@ -33,18 +33,20 @@ const [senha,setSenha] = useState('');
                 <img src="/assets/images/Arrowleft.png" alt="voltar" />
                 <p>VOLTAR</p>
             </a>
-            <img className='logo' src="/assets/images/bank.png" alt="Logo" />
+            <img className='logo' src="/assets/images/logo1.png" alt="Logo" />
 
             <div className='container'>
                 <h1>Login</h1>
-                <h4 className='dif'>CPF/CNPJ</h4>
+                <h4 className='cpf'>CPF/CNPJ</h4>
                 <input type="text"  placeholder='Digite seu CPF/CNPJ'  onChange={e => setNome(e.target.value)} />
-                <h4 className='dif'>SENHA</h4>
+                <h4 className='senha'>SENHA</h4>
                 <input type="text"  placeholder='Digite sua senha'  onChange={e => setSenha(e.target.value)} />
-                <p className='dif'>Esqueci a Senha</p>
+                <a href="">Esqueci a Senha</a>
                 <div className="linha"></div>
                 <button onClick={entrar}>ENTRAR</button>
             </div>
+
+            <Rodape/>
         </div>
     )
 }
