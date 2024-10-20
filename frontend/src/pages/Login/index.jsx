@@ -52,7 +52,7 @@ export default function Login() {
                                 placeholder="Digite sua senha"
                                 onChange={(e) => setSenha(e.target.value)}
                             />
-                            <a href='/'>Esqueci a Senha</a>
+                            <a href='/esqueceu_senha_email'>Esqueci a Senha</a>
                         </div>
 
                         <hr className="linha" />
