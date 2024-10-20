@@ -8,6 +8,7 @@ import { autenticar } from "../utils/jwt.js";
 //seleciona todos os produtos
 endpoints.get("/select/produto", autenticar, async (req, resp) => {
     try {
+        //Recebe o id pelo Token
         let idUsuario = req.user.id;
 
         let produto = await db.consultarProdutos(idUsuario);
@@ -20,6 +21,7 @@ endpoints.get("/select/produto", autenticar, async (req, resp) => {
     }
 });
 
+//Seleciona um id especifico
 endpoints.get("/select/produto/:id", autenticar, async (req, resp) => {
     try {
         let id = req.params.id;
@@ -50,6 +52,7 @@ endpoints.get("/produto/nome", autenticar, async (req, resp) => {
     }
 });
 
+//insere um novo produto
 endpoints.post("/insert/produto", autenticar, async (req, resp) => {
     try {
         let id = req.user.id;
@@ -67,13 +70,13 @@ endpoints.post("/insert/produto", autenticar, async (req, resp) => {
     }
 });
 
+//Altera um produto
 endpoints.put("/update/produto/:id", autenticar, async (req, resp) => {
     try {
-        let idUsuario = req.params.id;
-
+        let idProduto = req.params.id;
         let produto = req.body;
 
-        let resposta = await db.alterarProdutos(produto, idUsuario);
+        let resposta = await db.alterarProdutos(produto, idProduto);
 
         resp.send({
             linhasAfetadas: resposta,
@@ -85,6 +88,7 @@ endpoints.put("/update/produto/:id", autenticar, async (req, resp) => {
     }
 });
 
+//Remove um produto
 endpoints.delete("/delete/produto/:id", autenticar, async (req, resp) => {
     try {
         let id = req.params.id;

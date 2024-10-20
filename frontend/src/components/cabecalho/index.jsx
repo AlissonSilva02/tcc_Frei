@@ -9,7 +9,7 @@ export function Cabe() {
                 <div className="men">
                     <button>
                         <img
-                            src="/assets\images\menu.png"
+                            src="/assets/images/menu.png"
                             alt="menu"
                             width={53}
                             height={53}

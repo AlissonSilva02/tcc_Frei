@@ -33,14 +33,13 @@ export default function Consultar() {
 		Navigate('/')
 	}
 
-
 	useEffect(() => {
 		let token = localStorage.getItem('USUARIO')
 		setToken(token)
 
-		if (token === null) {
+		if (token === 'null') {
 			Navigate('/')
-		} else{
+		} else {
 			buscar(token)
 		}
 
