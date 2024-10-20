@@ -1,0 +1,54 @@
+.super {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  *{
+
+    font-family: Inter;
+  }
+
+
+
+  .sobre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+   
+  } .fale {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 170px 600px;
+    background-color: #ffffff;
+      background-image: url("../../../public/assets/images/imageasd.png");
+    }
+
+    .nossa {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 150px 600px;
+      color: #ffffff;
+      background-color: #171717;
+
+      h3{
+        margin: 50px;
+        width: 400px;
+      }
+      
+    }
+
+    .comentarios {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        padding: 150px 600px;
+      background-color: #fcbf58;
+    }
+}
