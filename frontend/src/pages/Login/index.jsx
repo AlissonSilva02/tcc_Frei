@@ -29,10 +29,6 @@ export default function Login() {
 
     return (
         <div className="Pagina-login">
-            <div className="logo">
-                <img src="/assets/images/logo1.png" alt="Logo" width={300} />
-            </div>
-
             <div className="voltar">
                 <a href="/">
                     <img src="/assets/images/Arrowleft.png" alt="voltar" />
@@ -40,6 +36,10 @@ export default function Login() {
                 </a>
             </div>
 
+            <div className="logo">
+                <img src="/assets/images/logo1.png" alt="Logo" width={300} />
+            </div>
+            
             <div className="container">
                 <div className="formulario">
                     <div className="campos">
