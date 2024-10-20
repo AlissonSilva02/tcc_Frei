@@ -4,42 +4,14 @@
     background-image: url(../../../public/assets/images/fundo_login.png);
 
     font-family: inter;
-    height: 100vh;
+    
 
-    .logo {
-        display: flex;
-        justify-content: center;    
-    }
-
-    .voltar {
-        display: flex;
-        flex-direction: row;
-
-        padding: 40px 40px;
-
-        a {
-            display: flex;
-            align-items: center;
-
-            color: black;
-            font-weight: 500;
-            font-size: 24px;
-            text-decoration: none;
-        }
-
-        img {
-            width: 30px;
-            height: 30px;
-            margin-right: 5px;
-        }
-    }
+    
 
     .container {
-        display: flex;
-        justify-content: center;
-        height: 80vh;
-        
-
+        display: flex;        
+        padding-top: 50px;
+        padding-bottom: 50px;
         .formulario {
             display: flex;
             justify-content: center;

@@ -1,0 +1,32 @@
+.container{
+    background-size: cover;
+    background-attachment: fixed;
+    background-image: url(../../../public/assets/images/fundo_login.png);
+
+    font-family: inter;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    
+    .voltar {
+      padding: 20px 0px 0px 30px;
+        a {
+            display: flex;
+            color: black;
+            font-weight: 500;
+            font-size: 24px;
+            text-decoration: none;
+       img {
+            width: 30px;
+            height: 30px;
+        } 
+      }
+    }    
+
+    .logo {
+        display: flex;
+        height: auto;
+        align-items: center;
+        justify-content: center;
+    }
+}
