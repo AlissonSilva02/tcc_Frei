@@ -65,6 +65,8 @@
                 }
 
                 .campo {
+                    display: flex;
+                    flex-direction: column  ;
                     input {
                         width: 20rem;
                         padding: 10px 15px;
@@ -75,6 +77,11 @@
                         border-style: solid;
 
                         border-radius: 5px;
+                    }
+                    a{
+                        text-decoration: none;
+                        font-weight: 500;
+
                     }
                 }
 

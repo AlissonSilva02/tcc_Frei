@@ -39,7 +39,7 @@ export default function Login() {
             <div className="logo">
                 <img src="/assets/images/logo1.png" alt="Logo" width={300} />
             </div>
-            
+
             <div className="container">
                 <div className="formulario">
                     <div className="campos">
@@ -61,7 +61,7 @@ export default function Login() {
                                 placeholder="Digite sua senha"
                                 onChange={(e) => setSenha(e.target.value)}
                             />
-                            <p>Esqueci a Senha</p>
+                            <a href='/'>Esqueci a Senha</a>
                         </div>
 
                         <hr className="linha" />
