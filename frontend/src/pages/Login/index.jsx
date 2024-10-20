@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import Rodape from '../../components/rodape';
+import Cabecalho_login from '../../components/cabecalho_login';
 
 export default function Login() {
     const [nome, setNome] = useState("");
@@ -29,17 +30,7 @@ export default function Login() {
 
     return (
         <div className="Pagina-login">
-            <div className="logo">
-                <img src="/assets/images/logo1.png" alt="Logo" width={300} />
-            </div>
-
-            <div className="voltar">
-                <a href="/">
-                    <img src="/assets/images/Arrowleft.png" alt="voltar" />
-                    <p>VOLTAR</p>
-                </a>
-            </div>
-
+            <Cabecalho_login/>
             <div className="container">
                 <div className="formulario">
                     <div className="campos">
@@ -61,7 +52,7 @@ export default function Login() {
                                 placeholder="Digite sua senha"
                                 onChange={(e) => setSenha(e.target.value)}
                             />
-                            <p>Esqueci a Senha</p>
+                            <a href='/esqueceu_senha_email'>Esqueci a Senha</a>
                         </div>
 
                         <hr className="linha" />

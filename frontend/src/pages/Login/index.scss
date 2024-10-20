@@ -2,45 +2,14 @@
     background-size: cover;
     background-attachment: fixed;
     background-image: url(../../../public/assets/images/fundo_login.png);
-
     font-family: inter;
-    height: 100vh;
+    
 
-    .logo {
-        display: flex;
-        justify-content: center;
-    }
-
-    .voltar {
-        display: flex;
-        flex-direction: row;
-
-        margin: 10px 40px;
-
-        a {
-            display: flex;
-            align-items: center;
-
-            color: black;
-            font-weight: 500;
-            font-size: 24px;
-            text-decoration: none;
-        }
-
-        img {
-            width: 30px;
-            height: 30px;
-            margin-right: 5px;
-        }
-    }
+    
 
     .container {
-        display: flex;
-        justify-content: center;
-
-        height: 80vh;
-        
-
+        display: flex;        
+        padding-bottom: 50px;
         .formulario {
             display: flex;
             justify-content: center;
@@ -52,7 +21,7 @@
                 flex-direction: column;
                 justify-content: center;
 
-                padding: 20px 50px;
+                padding: 20px 30px;
                 gap: 20px;
 
                 background-color: #ffffff;
@@ -66,6 +35,8 @@
                 }
 
                 .campo {
+                    display: flex;
+                    flex-direction: column  ;
                     input {
                         width: 20rem;
                         padding: 10px 15px;
@@ -76,6 +47,11 @@
                         border-style: solid;
 
                         border-radius: 5px;
+                    }
+                    a{
+                        text-decoration: none;
+                        font-weight: 500;
+
                     }
                 }
 

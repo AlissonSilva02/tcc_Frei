@@ -9,6 +9,10 @@ import Cadastrar from "./pages/cadastrar/index.jsx";
 import Login from "./pages/Login/index.jsx";
 import Not from "./pages/not_found/index.jsx";
 import Sobre from "./pages/sobrenos/index.jsx";
+import Esqueceu_senha_codigo from "./pages/esqueceu_senha_codigo/index.jsx";
+import Esqueceu_senha_email from "./pages/esqueceu_senha_email/index.jsx";
+import Esqueceu_senha_senha from "./pages/esqueceu_senha_senha/index.jsx";
+
 
 export default function Navegacao() {
     return(
@@ -23,6 +27,9 @@ export default function Navegacao() {
                 <Route path="/cadastrar/:id" element={<Cadastrar />} />
                 <Route path="/login" element={<Login/>} />
                 <Route path="/sobre" element={<Sobre/>} />
+                <Route path="/esqueceu_senha_codigo" element={<Esqueceu_senha_codigo />} />
+                <Route path="/esqueceu_senha_email" element={<Esqueceu_senha_email/>} />
+                <Route path="/esqueceu_senha_senha" element={<Esqueceu_senha_senha/>} />
 
                 <Route path="*" element={<Not />} />
             </Routes>
