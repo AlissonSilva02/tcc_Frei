@@ -1,61 +1,26 @@
-import './index.scss'
-
+import "./index.scss";
 
 export default function Rodape() {
-    return(
+  return (
+    <div className="secao-rodape">
 
-    
-    <div className='secao-rodape'>
+        <div className="cor1"></div>
 
-        <div className='linha'>
+        <div className="linha"></div>
+
+      <div className="cor">
+        <img className="logo" src="assets\images\logo1.png" alt="logo" />
+
+        <div className="grupo">
+          <img src="assets/images/face.png" alt="face" />
+
+          <img src="assets/images/insta.png" alt="insta" />
+
+          <img src="assets/images/yt.png" alt="yt" />
+
+          <img src="assets/images/twitter.png" alt="twitter" />
         </div>
-
-        <div className='b'>
-
-        <div className='b1'></div>
-      
-        <div className='sla'>
-            <img className='asd' src="assets/images/linha.png" alt="" />
-        </div>
-        
-        <div className='b2'></div>
-        </div>
-        
-        
-        <div className='cor'>
-
-        
-
-                <div className='logo2'>
-                <img className='logop'src="assets\images\logo1.png" alt="" />
-                </div>
-            <div className='grupo'>
-
-             <div> 
-            <img src="assets\images\I.png" alt=""  width={14}/>
-            </div>  
-
-
-            <div>
-            <img src="assets\images\Ic.png" alt="" width={17} className='yt'/> 
-            </div>
-
-            <div>
-            <img src="assets\images\Ico.png" alt="" width={14} />
-            </div>
-
-            <div>
-            <img src="assets\images\Icon.png" alt="" width={14} />
-            </div>
-
-            </div>
-
-
-        </div>
-
-
-
-
+      </div>
     </div>
-    )
+  );
 }

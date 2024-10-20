@@ -1,7 +1,8 @@
-import "./index.scss";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import './index.scss';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
+import Rodape from '../../components/rodape';
 
 export default function Login() {
     const [nome, setNome] = useState("");
@@ -69,6 +70,8 @@ export default function Login() {
                     </div>
                 </div>
             </div>
+
+            <Rodape/>
         </div>
     );
 }
