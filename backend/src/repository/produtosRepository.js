@@ -57,13 +57,13 @@ export async function consultarProdutosNome(info) {
     return registros;
 }
 
-export async function inserirProdutos(produto, id) {
+export async function inserirProdutos(produto, caminhoImagem, id) {
     let comando =`
     INSERT INTO produtos (tipo, img, descricao, valor, disponivel, estoque, id_autonomo) VALUES
     (?, ?, ?, ?, ?, ?, ?)
     `
 
-    let resposta = await con.query(comando, [produto.tipo, produto.img, produto.descricao, produto.valor, produto.disponivel, produto.estoque, id]);
+    let resposta = await con.query(comando, [produto.tipo, caminhoImagem, produto.descricao, produto.valor, produto.disponivel, produto.estoque, id]);
     let info = resposta[0]
 
     return info.insertId;
@@ -85,6 +85,20 @@ export async function alterarProdutos(produto, id) {
     let info = resposta[0]
 
     return info.affectedRows;
+}
+
+export async function alterarImagem(id, caminhoImagem) {
+    let comando = `
+        UPDATE produtos
+        SET img = ?
+        WHERE id_produto = ?
+    `
+
+    let resposta = await con.query(comando, [caminhoImagem, id])
+
+    let info = resposta[0]
+
+    return info.affectedRows
 }
 
 export async function deletarProduto(id) {

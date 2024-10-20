@@ -1,9 +1,18 @@
 import * as db from "../repository/produtosRepository.js";
-
-import { Router } from "express";
-const endpoints = Router();
+import alterarImagemService from "../service/AlterarImagemService.js";
 
 import { autenticar } from "../utils/jwt.js";
+
+import multer from 'multer'
+
+import { Router } from "express";
+import consultarProdutosIDService from "../service/consultarProdutosIDService.js";
+import consultarProdutosNomeService from "../service/consultarProdutosNomeService.js";
+import inserirProdutoService from "../service/inserirProdutoService.js";
+import alterarProdutoService from "../service/alterarProdutoService.js";
+import removerProdutoService from "../service/RemoverProdutoService.js";
+
+const endpoints = Router();
 
 //seleciona todos os produtos
 endpoints.get("/select/produto", autenticar, async (req, resp) => {
@@ -25,12 +34,13 @@ endpoints.get("/select/produto", autenticar, async (req, resp) => {
 endpoints.get("/select/produto/:id", autenticar, async (req, resp) => {
     try {
         let id = req.params.id;
-        let produto = await db.consultarProdutosid(id);
+
+        let produto = await consultarProdutosIDService(id);
 
         resp.send(produto[0]);
     } catch (error) {
         resp.send({
-            Error: error.message,
+            Error: error.message
         });
     }
 });
@@ -40,10 +50,8 @@ endpoints.get("/produto/nome", autenticar, async (req, resp) => {
     try {
         let buscar = req.body;
 
-        console.log(`----> ${buscar}`);
-
-        let produtos = await db.consultarProdutosNome(buscar);
-
+        let produtos = await consultarProdutosNomeService(buscar)
+        
         resp.send(produtos);
     } catch (err) {
         resp.send({
@@ -53,15 +61,34 @@ endpoints.get("/produto/nome", autenticar, async (req, resp) => {
 });
 
 //insere um novo produto
-endpoints.post("/insert/produto", autenticar, async (req, resp) => {
+let uploadImagemProduto = multer({dest: './storage/produtos'})
+endpoints.post("/insert/produto", autenticar, uploadImagemProduto.single('produto'), async (req, resp) => {
     try {
         let id = req.user.id;
-        let produto = req.body;
+        
+        let produto = null
+        let caminhoImagem = null
 
-        let resposta = await db.inserirProdutos(produto, id);
+        if (!req.body.data){
+            //Usar o body ainda funciona
+            produto = req.body
+            caminhoImagem = produto.img 
+        } else {
+            produto = JSON.parse(req.body.data)
+            
+            //verifica se algum arquivo foi enviado
+            if (req.file && req.file.path) {
+                caminhoImagem = req.file.path;
+            } else {
+                console.log('Nenhum arquivo foi enviado.');
+                caminhoImagem = produto.img
+            }
+        }
+
+        let resposta = await inserirProdutoService(produto, caminhoImagem, id)
 
         resp.send({
-            id: resposta,
+            id: resposta
         });
     } catch (error) {
         resp.send({
@@ -70,16 +97,51 @@ endpoints.post("/insert/produto", autenticar, async (req, resp) => {
     }
 });
 
+/* Thunder client
+            Body > Form
+
+            Marca a caxinha "Files"
+
+            Files
+            field name = produto
+            "escolher imagem"
+        */
+//inserindo uma imagem
+let atualizarImagemProduto = multer({dest: './storage/produtos'})
+endpoints.put("/update/imagem/:id", autenticar, atualizarImagemProduto.single('produto'), async (req, resp) => {
+        try {
+            let id = req.params.id;
+            let caminhoImagem = req.file.path;
+            let extensao = req.file.mimetype
+            let nome = req.file.originalname
+
+            //processamento (service)
+            let linhasAfetadas = await alterarImagemService(id, caminhoImagem)
+
+            //saida
+            resp.send({
+                linhasAfetadas: linhasAfetadas,
+                Nome: nome,
+                Extensao: extensao
+            });
+        } catch (error) {
+            resp.send({
+                Error: error.message
+            })
+        }
+    }
+)
+
 //Altera um produto
 endpoints.put("/update/produto/:id", autenticar, async (req, resp) => {
     try {
         let idProduto = req.params.id;
         let produto = req.body;
 
-        let resposta = await db.alterarProdutos(produto, idProduto);
+        let resposta = await alterarProdutoService(produto, idProduto)
 
         resp.send({
-            linhasAfetadas: resposta,
+            linhasAfetadas: resposta
         });
     } catch (error) {
         resp.send({
@@ -93,7 +155,7 @@ endpoints.delete("/delete/produto/:id", autenticar, async (req, resp) => {
     try {
         let id = req.params.id;
 
-        let resposta = await db.deletarProduto(id);
+        let resposta = await removerProdutoService(id)
 
         resp.send({
             linhasAfetadas: resposta,
