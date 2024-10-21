@@ -19,6 +19,19 @@ export default function Cadastrar() {
     const [disponivel, setDisponivel] = useState(false);
     const { id } = useParams();
 
+   function alterarImagem(e) {
+        const file = e.target.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImg(reader.result);
+            };
+
+            reader.readAsDataURL(file);
+        }
+    }
+
     async function salvar() {
         const paramCorpo = {
             tipo: tipo,
@@ -28,22 +41,23 @@ export default function Cadastrar() {
             disponivel: disponivel,
             estoque: estoque,
         };
+
         if (id === undefined) {
             //inserir
             const url = `http://localhost:5002/insert/produto?x-access-token=${token}`;
             let resp = await axios.post(url, paramCorpo);
-            alert("Produto adicionado Id: " + resp.data.id);
+            alert("Produto adicionado Id: " +  resp.data.id)
         } else {
             //atualizar
-
+            
 			const config = {
-				headers: {
-					'x-access-token': token
+                headers: {
+                    'x-access-token': token
 				}
 			};
             const url = `http://localhost:5002/update/produto/${id}`;
             await axios.put(url, paramCorpo, config);
-
+        
             alert("Produto alterado Id: " + id);
         }
     }
@@ -107,9 +121,9 @@ export default function Cadastrar() {
                         <div className="campo">
                             <h3>Imagem:</h3>
                             <input
-                                type="text"
-                                value={img}
-                                onChange={(e) => setImg(e.target.value)}
+                                 type="file"
+                                 accept='image/*'
+                                 onChange={(e) => alterarImagem(e)}
                             />
                         </div>
 
@@ -141,6 +155,17 @@ export default function Cadastrar() {
                         />
                     </div>
                 </div>
+
+
+                {img &&
+                    <div className='imagem'>
+                        <img
+                            id='inimigo'
+                            src={img}
+                            alt="Foto"
+                        />
+                    </div>
+                }
 
                 <div className="lile">
                     <Link to={`/consultar`}>
