@@ -5,172 +5,156 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./index.scss";
 
-import {useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Cadastrar() {
-	const [token, setToken] = useState(null)
-	const Navigate = useNavigate();
+    const [token, setToken] = useState(null);
+    const Navigate = useNavigate();
 
-	const [tipo, setTipo] = useState("");
-	const [img, setImg] = useState("");
-	const [descricao, setDescricao] = useState("");
-	const [valor, setValor] = useState("");
-	const [estoque, setEstoque] = useState("");
-	const [disponivel, setDisponivel] = useState(false);
-	const { id } = useParams();
+    const [tipo, setTipo] = useState("");
+    const [img, setImg] = useState("");
+    const [descricao, setDescricao] = useState("");
+    const [valor, setValor] = useState("");
+    const [estoque, setEstoque] = useState("");
+    const [disponivel, setDisponivel] = useState(false);
+    const { id } = useParams();
 
-	async function salvar() {
-		const paramCorpo = {
-			tipo: tipo,
-			img: img,
-			descricao: descricao,
-			valor: valor,
-			disponivel: disponivel,
-			estoque: estoque,
-		};
-		if (id === undefined) {
-			//inserir
-			const url = "http://localhost:5002/insert/produto";
-			let resp = await axios.post(url, paramCorpo);
-			alert("Produto adicionado Id: " + resp.data.id);
-		} else {
-			//atualizar
-			const url = `http://localhost:5002/update/produto/${id}`;
-			await axios.put(url, paramCorpo);
+    async function salvar() {
+        const paramCorpo = {
+            tipo: tipo,
+            img: img,
+            descricao: descricao,
+            valor: valor,
+            disponivel: disponivel,
+            estoque: estoque,
+        };
+        if (id === undefined) {
+            //inserir
+            const url = `http://localhost:5002/insert/produto?x-access-token=${token}`;
+            let resp = await axios.post(url, paramCorpo);
+            alert("Produto adicionado Id: " + resp.data.id);
+        } else {
+            //atualizar
 
-			alert("Produto alterado Id: " + id);
-		}
-	}
+			const config = {
+				headers: {
+					'x-access-token': token
+				}
+			};
+            const url = `http://localhost:5002/update/produto/${id}`;
+            await axios.put(url, paramCorpo, config);
 
-	async function Buscar(token) {
-		const url = `http://localhost:5002/select/produto/${id}?x-access-token=${token}`;
-		let resp = await axios.get(url);
+            alert("Produto alterado Id: " + id);
+        }
+    }
 
-		console.log(resp.data);
+    async function Buscar(token) {
+        const url = `http://localhost:5002/select/produto/${id}?x-access-token=${token}`;
+        let resp = await axios.get(url);
 
-		setTipo(resp.data.tipo);
-		setImg(resp.data.img);
-		setDescricao(resp.data.descricao);
-		setValor(resp.data.valor);
-		setDisponivel(resp.data.disponivel);
-		setEstoque(resp.data.estoque);
-	}
+        setTipo(resp.data.tipo);
+        setImg(resp.data.img);
+        setDescricao(resp.data.descricao);
+        setValor(resp.data.valor);
+        setDisponivel(resp.data.disponivel);
+        setEstoque(resp.data.estoque);
+    }
 
-	useEffect(() => {
-		let token = localStorage.getItem('USUARIO')
-		setToken(token)
-	
-		if (token === null) {
-			Navigate('/')
-		}
+    useEffect(() => {
+        let token = localStorage.getItem("USUARIO");
+        setToken(token);
 
-		Buscar(token)
-	}, []);
+        if (token === null) {
+            Navigate("/");
+        }
 
-	return (
-		<div>
-			<div className="pagina-cadastrar">
-				<div>
-					<Cabe />
-				</div>
+        Buscar(token);
+    }, []);
 
-				<div className="formulario">
+    return (
+        <div className="pagina-cadastrar">
+            <header>
+                <Cabe />
+            </header>
 
-					<div className="titulo">
-						<h2> Cadastrar Produto: </h2>
-						<h2>{id}</h2>
-					</div>
-					<hr />
+            <main>
+                <div className="titulo">
+                    <h2> Cadastrar Produto: {id} </h2>
+                    <hr />
+                </div>
 
-					<div className="form">
-						<div className="forma1">
-							<div className="lab">
-								<label><h3>Nome do produto:</h3></label>
-								<input
-									type="text"
-									value={tipo}
-									onChange={(e) => setTipo(e.target.value)}
-								/>
-							</div>
-							<div className="lab">
-								<label> <h3>Valor:</h3> </label>
-								<input
-									type="text"
-									value={valor}
-									onChange={(e) => setValor(e.target.value)}
-								/>
-							</div>
-						</div>
+                <div className="formulario">
+                    <div className="campos">
+                        <div className="campo">
+                            <h3>Nome do produto:</h3>
+                            <input
+                                type="text"
+                                value={tipo}
+                                onChange={(e) => setTipo(e.target.value)}
+                            />
+                        </div>
 
+                        <div className="campo">
+                            <h3>Valor:</h3>
+                            <input
+                                type="text"
+                                value={valor}
+                                onChange={(e) => setValor(e.target.value)}
+                            />
+                        </div>
+                    </div>
+                    <div className="campos">
+                        <div className="campo">
+                            <h3>Imagem:</h3>
+                            <input
+                                type="text"
+                                value={img}
+                                onChange={(e) => setImg(e.target.value)}
+                            />
+                        </div>
 
-						<div className="forma1">
-							<div className="lab">
-								<label><h3>Imagem:</h3></label>
-								<input
-									type="text"
-									value={img}
-									onChange={(e) => setImg(e.target.value)}
-								/>
-							</div>
+                        <div className="campo">
+                            <h3>Estoque:</h3>
+                            <input
+                                type="text"
+                                value={estoque}
+                                onChange={(e) => setEstoque(e.target.value)}
+                            />
+                        </div>
+                    </div>
 
+                    <div className="checkbox">
+                        <h3>Disponivel:</h3>
+                        <input
+                            className="check"
+                            type="checkbox"
+                            checked={disponivel}
+                            onChange={(e) => setDisponivel(e.target.checked)}
+                        />
+                    </div>
 
+                    <div className="descricao">
+                        <h3>Descricão:</h3>
+                        <textarea
+                            value={descricao}
+                            onChange={(e) => setDescricao(e.target.value)}
+                        />
+                    </div>
+                </div>
 
-							<div className="lab">
-								<label><h3>Estoque:</h3></label>
-								<input
-									type="text"
-									checked={estoque}
-									onChange={(e) => setEstoque(e.target.value)}
-								/>
-							</div>
-						</div>
-					</div>
+                <div className="lile">
+                    <Link to={`/consultar`}>
+                        <button onClick={salvar}>
+                            Alterar e ir para consulta
+                        </button>
+                    </Link>
+                    <button onClick={salvar}> Alterar </button>
+                </div>
+            </main>
 
-					<div className="forma1">
-						<div className="lab">
-
-							<label>
-
-								<h3>Disponivel:</h3>
-								<input className="check"
-									type="checkbox"
-									checked={disponivel}
-									onChange={(e) => setDisponivel(e.target.checked)}
-								/>
-
-							</label>
-						</div>
-
-					</div>
-				</div>
-
-				<div className="forma1">
-					<div className="lab">
-						<label><h3>Descricão:</h3></label>
-						<input className="desc"
-							type="text"
-							value={descricao}
-							onChange={(e) => setDescricao(e.target.value)}
-						/>
-					</div>
-
-				</div>
-
-				<div className="lile">
-					<Link to={`/consultar`}>
-						<button onClick={salvar}> Alterar e ir para consulta </button>
-					</Link>
-					<button onClick={salvar}> Alterar </button>
-				</div>
-
-			</div>
-
-			<div>
-				<footer>
-					<Rodape />
-				</footer>
-			</div>
-
-		</div>
-	);
+            <footer>
+                <Rodape />
+            </footer>
+        </div>
+    );
 }

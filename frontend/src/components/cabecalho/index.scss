@@ -1,100 +1,79 @@
-
-.super{
-
+.super {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-.secao-cabecalho{
+    .secao-cabecalho {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 1260px;
+        margin-bottom: 50px;
 
+        .sub {
+            display: flex;
+            gap: 55px;
+            width: 1200px;
+            flex-direction: row;
 
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-width: 1260px;
-margin-bottom: 50px;
+            .men {
+                gap: 20px;
+                display: flex;
+                width: 300px;
+                align-self: center;
+                align-content: center;
+                align-items: center;
 
+                button{
+                    cursor: pointer;
 
+                    background-color: white;
+                    border: none;
+                }
+            }
 
-
-
-.sub{
-display: flex;
-gap: 55px;
-width: 1200px;
-flex-direction: row;
-    
-
-    .men{
-    gap: 20px;
-    display: flex;
-    width: 300px;
-    align-self: center;
-    align-content: center;
-    align-items: center;
-
-
+            .logo {
+                display: flex;
+                justify-content: space-around;
+                width: 450px;
+            }
         }
 
-    .logo{
+        .pesquisa {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: row;
+            width: 1010px;
+            height: 40px;
+            margin-left: 120px;
+            justify-content: space-between;
+            box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.4),
+                0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+            margin-right: 140px;
 
-    display: flex;
-    justify-content: space-around;
-    width: 450px;
+            .pesq {
+                display: flex;
+                justify-content: start;
+                width: 1200px;
+                margin-bottom: 50px;
 
- 
-
-        }
-}
-
-
-
-.pesquisa{
-
-margin-top: 50px;
-display: flex;
-flex-direction: row;
-width: 1010px;
-height: 40px;
-margin-left: 120px;
-justify-content: space-between;
-box-shadow: 0px 2px 0px 0px rgba(0,0,0,0.4),0px 10px 15px -3px rgba(0,0,0,0.1);
-margin-right: 140px;
-
-
-.pesq {
-    display: flex;
-    justify-content: start;
-    width: 1200px;
-    margin-bottom: 50px;
-    
-    height: 40px;
-    border-radius: 5px;
-    border: 0;
-    
-    
-  }
-            
+                height: 40px;
+                border-radius: 5px;
+                border: 0;
+            }
         }
         .pesq::placeholder {
             position: absolute;
             left: 10px;
         }
 
-        .lup{
+        .lup {
             display: flex;
 
             height: 20px;
             margin-top: 15px;
-            
-            
         }
-
-} 
-
-
-
+    }
 }
-
