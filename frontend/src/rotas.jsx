@@ -9,6 +9,7 @@ import Cadastrar from "./pages/cadastrar/index.jsx";
 import Login from "./pages/Login/index.jsx";
 import Not from "./pages/not_found/index.jsx";
 import Sobre from "./pages/sobrenos/index.jsx";
+import TesteMenu from "./pages/testMenu/index.jsx";
 
 
 
@@ -25,7 +26,8 @@ export default function Navegacao() {
                 <Route path="/cadastrar/:id" element={<Cadastrar />} />
                 <Route path="/login" element={<Login/>} />
                 <Route path="/sobre" element={<Sobre/>} />
-             
+                
+                <Route path="/testMenu" element={<TesteMenu />} />
 
                 <Route path="*" element={<Not />} />
             </Routes>

@@ -7,6 +7,7 @@ import "./index.scss";
 
 import { useNavigate } from "react-router-dom";
 
+
 export default function Cadastrar() {
     const [token, setToken] = useState(null);
     const Navigate = useNavigate();
@@ -82,8 +83,8 @@ export default function Cadastrar() {
             Navigate("/");
         }
 
-        Buscar(token);
-    }, []);
+        Buscar(token); 
+    }, [Buscar, Navigate]);
 
     return (
         <div className="pagina-cadastrar">
