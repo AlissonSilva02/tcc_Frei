@@ -30,20 +30,24 @@ export default function Sobre() {
             </h3>
           </div>
 
+
+          <div className="comentarios0">
+             <h2>Comentarios</h2>
+              
           <div className="comentarios">
-            <h2>Comentarios</h2>
+         
             
             <img src="assets/images/seta.esq.png" alt="" />{" "}
-            <h2 className="pe">
+            <h3 className="pe">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Accusantium cupiditate alias quibusdam non placeat tempora,
               temporibus amet. Accusantium, enim consequuntur explicabo
               blanditiis cum exercitationem totam praesentium saepe possimus
               beatae. Vero.
-            </h2>{" "}
+            </h3>{" "}
             <img src="assets/images/seta.direita.png" alt="" />
           </div>
-
+             </div>
           <p>
             Nossos cosméticos são formulados com ingredientes de alta qualidade,
             combinando inovação e respeito pelo meio ambiente. Junte-se a nós e
