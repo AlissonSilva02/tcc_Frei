@@ -1,6 +1,6 @@
 import "./index.scss";
 import { useState } from "react";
-import SideBar from "../menuSidebar/index.jsx";
+import SideBar from "../menuSidebar";
 
 export default function Menu() {
     const [sidebar, setSidebar] = useState(false);
