@@ -1,6 +1,10 @@
 import './index.scss';
 import React from 'react';
 
+import homeIcon from '../../assets/home.svg'
+
+import SidebarItem from '../menuItens';
+
 const SideBar = ({ active }) => {
 
     const closeSidebar = () => {
@@ -15,10 +19,12 @@ const SideBar = ({ active }) => {
                 </svg>
 
                 <div className='itens-menu'>
-                    <h1>item 1</h1>
-                    <h1>item 1</h1>
-                    <h1>item 1</h1>
-                    <h1>item 1</h1>
+                    <SidebarItem Icon={homeIcon} Text={'Home'}/>
+                    <SidebarItem Icon={homeIcon} Text={'Home'}/>
+                    <SidebarItem Icon={homeIcon} Text={'Home'}/>
+                    <SidebarItem Icon={homeIcon} Text={'Home'}/>
+                    <SidebarItem Icon={homeIcon} Text={'Home'}/>
+                    <SidebarItem Icon={homeIcon} Text={'Home'}/>
                 </div>
             </div>
         </div>
