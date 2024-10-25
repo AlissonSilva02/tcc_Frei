@@ -1,11 +1,10 @@
 import './index.scss'
 
-const SidebarItem = ({Icon, Text}) => {
+export default function SidebarItem({Icon, Text})  {
     return(
         <div className='componente-sidebarItem'>
-            <img src={Icon} alt="icone"/> {Text}
+            {Icon && <img src={Icon} alt="icone"/>} {Text}
         </div>
     )
 }
 
-export default SidebarItem

@@ -1,4 +1,4 @@
-import { Cabe } from "../../components/cabecalho/index.jsx";
+import Cabe from "../../components/cabecalho/index.jsx";
 import Rodape from "../../components/rodape/index.jsx";
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";

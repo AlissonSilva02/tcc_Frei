@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./index.scss";
 import { Link, useNavigate } from "react-router-dom";
-import { Cabe } from "../../components/cabecalho/index.jsx";
+import Cabe from "../../components/cabecalho/index.jsx";
 import Rodape from "../../components/rodape/index.jsx";
 
 import axios from "axios";
