@@ -14,7 +14,7 @@ export default function Consultar() {
 
     const Navigate = useNavigate();
 
-    async function buscar(token) {
+    async function buscar(token) {        
         const url = `http://localhost:5002/select/produto/?total=${limite}&x-access-token=${token}`;
         let resp = await axios.get(url);
         setProdutos(resp.data);
@@ -31,6 +31,12 @@ export default function Consultar() {
     async function sair() {
         localStorage.setItem("USUARIO", null);
         Navigate("/");
+    }
+
+    async function VerMais(){
+        setLimite(limite + 1)
+
+        await buscar(token)
     }
 
     useEffect(() => {
@@ -75,8 +81,8 @@ export default function Consultar() {
                         </thead>
 
                         <tbody>
-                            {produtos.map((item) => (
-                                <tr>
+                            {produtos.map((item, index) => (
+                                <tr key={index}>
                                     <td>
                                         #{item.id.toString().padStart(2, "0")}
                                     </td>
@@ -116,7 +122,7 @@ export default function Consultar() {
 
                 <div className="verMais">
                     <hr />
-                    <button>Ver Mais</button>
+                        <button onClick={VerMais}>Ver Mais</button>
                     <hr />
                 </div>
             </main>

@@ -6,9 +6,9 @@ export default function Rodape() {
 
         <div className="cor1"></div>
 
-        <div className="linha"></div>
 
       <div className="cor">
+        <div className="linha"></div>
         <img className="logo" src="assets\images\logo1.png" alt="logo" />
 
         <div className="grupo">

@@ -21,7 +21,7 @@ export default function TesteMenu() {
                         },
                         {
                             nome: "item sem icone",
-                        },
+                        }
                     ]}
                 />
             </div>
