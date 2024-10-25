@@ -13,7 +13,7 @@ export default function App() {
 
       
       <div className="land">
-        <img src="assets/images/banner_21.png" alt="" width={1200} />
+        <img className="banner" src="assets/images/banner_21.png" alt=""  />
       </div>
 
       <div className="catch">
@@ -86,7 +86,7 @@ export default function App() {
           </div>
         </div>
 
-        <div>
+        <div className="roda">
           <footer>
             <Rodape />
           </footer>
