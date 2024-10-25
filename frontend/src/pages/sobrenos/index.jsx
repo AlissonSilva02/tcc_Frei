@@ -1,4 +1,4 @@
-import { Cabe } from "../../components/cabecalho";
+import Cabe from "../../components/cabecalho";
 import Rodape from "../../components/rodape";
 import './index.scss'
 

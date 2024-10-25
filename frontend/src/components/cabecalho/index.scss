@@ -1,75 +1,43 @@
 .secao-cabecalho {
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-   
-    .super{
-        
-        .sub {
+
+    .super {
         display: flex;
-        width: 70%;
-        justify-content: space-between;
-       
-        gap: 55px;
-        
-        .men {
-            gap: 20px;
-            display: flex;
-            
-            align-self: center;
-            align-content: center;
-            align-items: center;
-            
-            button {
-                cursor: pointer;
-                
-                background-color: white;
-                border: none;
-            }
-        }
-        
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 50px;
+
         .logo {
             display: flex;
             justify-content: space-around;
             width: 450px;
         }
-    }
-    
-    .pesquisa {
-        margin-top: 50px;
-        display: flex;
-        flex-direction: row;
-        width: 1010px;
-        height: 40px;
-        margin-left: 120px;
-        justify-content: space-between;
-        box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.4),
-            0px 10px 15px -3px rgba(0, 0, 0, 0.1);
-        margin-right: 140px;
 
-        .pesq {
+        .pesquisar {
             display: flex;
-            justify-content: start;
-            width: 1200px;
-            margin-bottom: 50px;
+            justify-content: center;
 
-            height: 40px;
-            border-radius: 5px;
-            border: 0;
+            .pesquisa {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+
+                width: 80vw;
+                height: 40px;
+
+                box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.4),
+                    0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+                input {
+                    padding-left: 20px;
+                    padding-right: 20px;
+
+                    border-radius: 5px;
+                    border: 0;
+                    outline: none;
+                }
+            }
         }
     }
-    
-    .pesq::placeholder {
-        position: absolute;
-        left: 10px;
-    }
-    
-    .lup {
-        display: flex;
-        
-        height: 20px;
-        margin-top: 15px;
-    }
-    
-}
 }
