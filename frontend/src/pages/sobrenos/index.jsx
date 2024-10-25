@@ -4,7 +4,7 @@ import './index.scss'
 
 export default function Sobre() {
   return (
-    <div className="super">
+    <div className="pagina-SobreNos">
       <div className="sobre">
         <header>
           <Cabe />

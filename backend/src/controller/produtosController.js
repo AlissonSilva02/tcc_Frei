@@ -19,8 +19,9 @@ endpoints.get("/select/produto", autenticar, async (req, resp) => {
     try {
         //Recebe o id pelo Token
         let idUsuario = req.user.id;
+        let total = req.query.total
 
-        let produto = await db.consultarProdutos(idUsuario);
+        let produto = await db.consultarProdutos(idUsuario, total);
 
         resp.send(produto);
     } catch (error) {

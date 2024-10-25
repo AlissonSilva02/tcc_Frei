@@ -1,6 +1,6 @@
 .secao-landing {
   display: flex;
-  width: fit-content;
+  width: 100vw;
   font-family: inter;
   flex-direction: column;
   justify-content: center;
@@ -23,6 +23,8 @@
       margin-top: 65px;
       columns: 200px;
     }
+
+    
     .gold {
       width: 500px;
       margin: 5px;
@@ -60,6 +62,11 @@
     width: fit-content;
    
     background-color: #d6d696;
+    
+    .banner{
+
+      width: 60vw;
+    }
   }
 
   .ver {
@@ -282,5 +289,15 @@
     flex-direction: row;
     justify-content: start;
   }
+}
+
+
+
+div.secao-rodape{
+
+  width: 100vw;
+
+
+ 
 }
 }

@@ -4,16 +4,18 @@ import { Link, useNavigate } from "react-router-dom";
 import Cabe from "../../components/cabecalho/index.jsx";
 import Rodape from "../../components/rodape/index.jsx";
 
+
 import axios from "axios";
 
 export default function Consultar() {
     const [produtos, setProdutos] = useState([]);
     const [token, setToken] = useState(null);
+    const [limite, setLimite] = useState(5)
 
     const Navigate = useNavigate();
 
     async function buscar(token) {
-        const url = `http://localhost:5002/select/produto?x-access-token=${token}`;
+        const url = `http://localhost:5002/select/produto/?total=${limite}&x-access-token=${token}`;
         let resp = await axios.get(url);
         setProdutos(resp.data);
     }

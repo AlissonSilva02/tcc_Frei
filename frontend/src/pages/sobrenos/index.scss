@@ -1,8 +1,8 @@
-.super {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+.pagina-SobreNos {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 
 
   header{
@@ -148,4 +148,56 @@
 
 
     
+=======
+	* {
+
+		font-family: Inter;
+	}
+
+
+
+	.sobre {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	flex-direction: column;
+
+
+>>>>>>> 1530a10181ab3810cd88b1c74a983611991ebbd9
+}
+
+.fale {
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	padding: 170px 600px;
+	background-color: #ffffff;
+	background-image: url("../../../public/assets/images/imageasd.png");
+}
+
+.nossa {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 150px 600px;
+	color: #ffffff;
+	background-color: #171717;
+
+	h3 {
+		margin: 50px;
+		width: 400px;
+	}
+
+}
+
+.comentarios {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+	padding: 150px 600px;
+	background-color: #fcbf58;
 }
