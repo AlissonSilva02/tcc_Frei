@@ -4,8 +4,14 @@
   align-items: center;
   flex-direction: column;
 
-  *{
 
+  header{
+    width:100%;
+  }
+  
+
+  *{
+    
     font-family: Inter;
   }
 
@@ -15,16 +21,34 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    justify-content: start;
     flex-direction: column;
+    width: 100vw;
 
    
   } .fale {
     display: flex;
     justify-content: start;
-    align-items: center;
-    padding: 170px 600px;
+    align-items: start;
+    width: 100%;
+    padding: 20vh 0;
+
     background-color: #ffffff;
       background-image: url("../../../public/assets/images/imageasd.png");
+      background-size: 100vw;
+      background-position: 50%;
+      background-repeat: no-repeat;
+      .butao{
+
+        background-color: #171717;
+        color: #ffffff;
+        font-weight: 800;
+        padding: 10% 5vw;
+        margin-left:  2vw;
+        border-radius: 10px;
+
+        
+      }
     }
 
     .nossa {
@@ -32,23 +56,96 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        padding: 150px 600px;
-      color: #ffffff;
+        width: 100vw;
+        color: #ffffff;
+        padding: 20vh 0;
+
       background-color: #171717;
 
-      h3{
-        margin: 50px;
-        width: 400px;
-      }
+    
       
     }
 
     .comentarios {
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        flex-direction: row;
-        padding: 150px 600px;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 50vh;
+        padding: 0 20vh;
+
       background-color: #fcbf58;
+
+
+      .comments-txt{
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid;
+        height: 20vh; 
+        width: 90vw;       
+
+
+      }
+
+      .seta{
+          height: 10vh;
+          margin: 5vw 0;
+        }
+
+
     }
+
+      .pe{
+        width: 80vw;
+        margin: 0 5vw;
+        
+      }
+
+    .yap0{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10vh 0;
+      
+
+
+      h2{
+        width: 50vw;
+        
+      }
+
+    }
+
+    h1{
+
+      font-size: 3vw;
+
+
+    }
+    
+    h2{
+      font-size: 2vw;
+    } 
+    h3{
+      font-size: 1.5vw;
+    }
+    
+    .tiny{
+
+
+      width: 60vw;
+    }
+
+    footer{
+
+      width: 100%;
+    }
+
+
+    
 }
