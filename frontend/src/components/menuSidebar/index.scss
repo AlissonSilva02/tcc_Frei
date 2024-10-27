@@ -6,7 +6,7 @@
         height: 100%;
         top: 0;
         left: 0;
-        width: 30vw;
+        width: 40vw;
 
         animation: showSidebar 0.4s;
 
@@ -31,7 +31,7 @@
             }
             to {
                 opacity: 1;
-                width: 500px;
+                width: 40vw;
             }
         }
     }
@@ -41,4 +41,22 @@
         margin-left: 20%;
         margin-right: 5%;
     }
+
+    @media (max-width: 500px) {
+        .container-sidebar {
+            width: 100%;
+        }
+
+        @keyframes showSidebar {
+            from {
+                opacity: 0;
+                width: 0;
+            }
+            to {
+                opacity: 1;
+                width: 100%;
+            }
+        }
+    }
+   
 }

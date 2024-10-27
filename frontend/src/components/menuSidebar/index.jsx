@@ -1,8 +1,6 @@
 import './index.scss';
 import React from 'react';
 
-import homeIcon from '../../assets/home.svg'
-
 import SidebarItem from '../menuItens';
 
 export default function SideBar ({ active, item}) {

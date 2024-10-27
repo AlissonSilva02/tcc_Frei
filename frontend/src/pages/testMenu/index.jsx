@@ -1,8 +1,6 @@
 import "./index.scss";
 import Menu from "../../components/menu/index.jsx";
 
-import iconeHome from "../../assets/home.svg";
-
 import Cabe from "../../components/cabecalho/index.jsx";
 
 export default function TesteMenu() {
@@ -12,11 +10,11 @@ export default function TesteMenu() {
                 <Menu
                     itens={[
                         {
-                            icone: iconeHome,
+                            icone: '/assets/images/menu/home.svg',
                             nome: "Home",
                         },
                         {
-                            icone: iconeHome,
+                            icone: '/assets/images/menu/home.svg',
                             nome: "Outro Home",
                         },
                         {
@@ -26,7 +24,9 @@ export default function TesteMenu() {
                 />
             </div>
 
-            <Cabe />
+            <Cabe 
+                pesquisar={true}
+            />
         </div>
     );
 }

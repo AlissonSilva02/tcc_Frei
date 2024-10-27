@@ -1,35 +1,34 @@
 import "./index.scss";
 
-export default function Cabe() {
+export default function Cabe({ pesquisar }) {
     return (
         <div className="secao-cabecalho">
-            <div className="super">
-                <div className="logo">
+            <div className="logo">
+                <img
+                    className="logo"
+                    src="assets/images/logo/Ashey-Logo.svg"
+                    alt="logo"
+                />
+            </div>
+
+            <div className="navegacao">
+                <h2>Inicio</h2>
+                <h2>Produtos</h2>
+                <h2>Sobre nós</h2>
+            </div>
+
+            {pesquisar && (
+                <div className="pesquisa">
+                    <input type="search" placeholder="Pesquisar" />
+
                     <img
-                        className="aura"
-                        src="/assets/images/logo1.png"
-                        alt="logo"
-                        width={370}
+                        src="/assets/images/search.png"
+                        alt="pesquisar"
+                        width={25}
+                        height={25}
                     />
                 </div>
-
-                <div className="pesquisar">
-                    <div className="pesquisa">
-                        <input
-                            type="search"
-                            placeholder="Pesquisar"
-                        />
-
-                        <img
-                            src="\assets\images\search.png"
-                            alt="pesquisar"
-                            width={25}
-                            height={25}
-                        />
-                    </div>
-                </div>
-
-            </div>
+            )}
         </div>
     );
 }

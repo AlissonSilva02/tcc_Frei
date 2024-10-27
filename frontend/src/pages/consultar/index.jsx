@@ -11,11 +11,13 @@ import Menu from "../../components/menu/index.jsx";
 export default function Consultar() {
     const [produtos, setProdutos] = useState([]);
     const [token, setToken] = useState(null);
-    const [limite, setLimite] = useState(5)
+    const [limite, setLimite] = useState(5);
+
+    const [mostrarVermais , setMostrarVermais] = useState(true);
 
     const Navigate = useNavigate();
 
-    async function buscar(token) {        
+    async function buscar(token) {
         const url = `http://localhost:5002/select/produto/?total=${limite}&x-access-token=${token}`;
         let resp = await axios.get(url);
         setProdutos(resp.data);
@@ -34,28 +36,39 @@ export default function Consultar() {
         Navigate("/");
     }
 
-    async function VerMais(){
-        setLimite(limite + 1)
+    async function VerMais() {
+        if (limite === produtos.length) {
+            alert(`
+            limite: ${limite}
+            resultados: ${produtos.length}
+            `);
+        }else{
+            alert('deletar botão de ver mais')
+            setMostrarVermais(false)
+        }
 
-        await buscar(token)
+        let novoLimite = limite + 5;
+        setLimite(novoLimite);
+
+        await buscar(token);
     }
 
     useEffect(() => {
         let token = localStorage.getItem("USUARIO");
         setToken(token);
 
-        if (token === "null") {
+        if (token === null) {
             Navigate("/");
         } else {
             buscar(token);
         }
-    }, [Navigate]);
+    }, [Navigate, limite, buscar]);
 
     return (
         <div className="pagina-consultar">
-            <header>
-                <Menu   
-                     itens={[
+            <header className="cabecalho">
+                <Menu
+                    itens={[
                         {
                             icone: iconeHome,
                             nome: "Home",
@@ -67,18 +80,19 @@ export default function Consultar() {
                         {
                             nome: "item sem icone",
                         },
-                    ]}    
+                    ]}
                 />
                 <Cabe />
             </header>
 
             <main>
                 <div className="opcoes">
-                    <button className="sair" onClick={sair}>Sair</button>
+                    <button className="sair" onClick={sair}>
+                        Sair
+                    </button>
                     <button>
                         <Link to={"/cadastrar"}>Adicionar Item</Link>
                     </button>
-        
                 </div>
 
                 <div className="tabela" style={{ overflow: "auto" }}>
@@ -136,11 +150,15 @@ export default function Consultar() {
                     </table>
                 </div>
 
+            
+            
+            {mostrarVermais &&
                 <div className="verMais">
                     <hr />
-                        <button onClick={VerMais}>Ver Mais</button>
+                    <button onClick={VerMais}>Ver Mais</button>
                     <hr />
                 </div>
+                 }
             </main>
 
             <footer>

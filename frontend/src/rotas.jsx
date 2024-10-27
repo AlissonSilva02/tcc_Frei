@@ -9,9 +9,12 @@ import Cadastrar from "./pages/cadastrar/index.jsx";
 import Login from "./pages/Login/index.jsx";
 import Not from "./pages/not_found/index.jsx";
 import Sobre from "./pages/sobrenos/index.jsx";
-import TesteMenu from "./pages/testMenu/index.jsx";
 import Ajuda from "./pages/ajuda/index.jsx"
 
+
+//excluir depois
+import TesteMenu from "./pages/testMenu/index.jsx";
+import Cabe from "./components/cabecalho/index.jsx";
 
 export default function Navegacao() {
     return(
@@ -27,7 +30,10 @@ export default function Navegacao() {
                 <Route path="/login" element={<Login/>} />
                 <Route path="/sobre" element={<Sobre/>} />
                 <Route path="/ajuda" element={<Ajuda/>} />
-                <Route path="/testMenu" element={<TesteMenu />} />
+
+                
+                <Route path="/Menu" element={<TesteMenu />} />
+                <Route path="/Cabecalho" element={<Cabe />} />
 
                 <Route path="*" element={<Not />} />
             </Routes>
