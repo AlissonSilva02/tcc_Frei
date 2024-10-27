@@ -7,7 +7,7 @@ export default function Cabe() {
                 <div className="logo">
                     <img
                         className="aura"
-                        src="/assets/images/logo1.png"
+                        src="/assets/images/Ashey_Logo.svg"
                         alt="logo"
                         width={370}
                     />

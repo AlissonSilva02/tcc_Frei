@@ -9,9 +9,9 @@ export default function Cabecalho_login() {
           <p>VOLTAR</p>
         </a>
       </div>
-
+    
       <div className="logo">
-        <img src="/assets/images/logo1.png" alt="Logo" width={500} />
+        <img src="/assets/images/Ashey_Logo.svg" alt="Logo" width={400} />
       </div>
     </div>
   );

@@ -1,73 +1,145 @@
 .Pagina-login {
-    background-size: cover;
-    background-attachment: fixed;
-    background-image: url(../../../public/assets/images/fundo_login.png);
-    font-family: inter;
-    
+  background-size: cover;
+  background-attachment: fixed;
+  background-image: url(../../../public/assets/images/fundo_login.png);
+  font-family: inter;
 
-    .container {
-        display: flex;        
-        padding-bottom: 50px;
-        .formulario {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+  .container {
+    display: flex;
+    padding-bottom: 50px;
+    .formulario {
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
+      .campos {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
-            .campos {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
+        padding: 20px 30px;
+        gap: 20px;
 
-                padding: 20px 30px;
-                gap: 20px;
+        background-color: #ffffff;
 
-                background-color: #ffffff;
+        border-radius: 30px;
+        border: 2px solid #000000;
 
-                border-radius: 30px;
-                border: 2px solid #000000;
-
-                h1 {
-                    font-size: 50px;
-                    text-align: center;
-                }
-
-                .campo {
-                    display: flex;
-                    flex-direction: column  ;
-                    input {
-                        width: 20rem;
-                        padding: 10px 15px;
-                        margin: 5px 0px;
-
-                        box-shadow: 2px 2px 4px 0px #eeeeee;
-                        border-color: #e2e2e2;
-                        border-style: solid;
-
-                        border-radius: 5px;
-                    }
-                    a{
-                        text-decoration: none;
-                        font-weight: 500;
-
-                    }
-                }
-
-                button {
-                    cursor: pointer;
-                    background-color: black;
-                    color: white;
-                    padding: 10px 0px;
-                    border: none;
-                    border-radius: 5px;
-                }
-
-                .linha {
-                    background-color: rgb(19, 19, 19);
-                    border: none;
-                    height: 2px;
-                }
-            }
+        h1 {
+          font-size: 50px;
+          text-align: center;
         }
+
+        .campo {
+          display: flex;
+          flex-direction: column;
+          input {
+            width: 20rem;
+            padding: 10px 15px;
+            margin: 5px 0px;
+
+            box-shadow: 2px 2px 4px 0px #eeeeee;
+            border-color: #e2e2e2;
+            border-style: solid;
+
+            border-radius: 5px;
+          }
+          a {
+            text-decoration: none;
+            font-weight: 500;
+          }
+        }
+
+        button {
+          cursor: pointer;
+          background-color: black;
+          color: white;
+          padding: 10px 0px;
+          border: none;
+          border-radius: 5px;
+        }
+
+        .linha {
+          background-color: rgb(19, 19, 19);
+          border: none;
+          height: 2px;
+        }
+      }
     }
+  }
 }
+
+
+
+  /* Celulares médios a grandes (375px - 425px) */
+  @media (min-width: 325px) and (max-width: 450px) {
+    .container {
+      .formulario {
+        .campos {
+          padding: 15px;
+          h1 {
+            font-size: 36px;
+          }
+          .campo input {
+            width: 100%;
+          }
+          button {
+            padding: 10px 0px;
+          }
+        }
+      }
+    }
+  }
+
+  /* Tablets padrão (768px - 1024px) */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .container {
+      flex-direction: column;
+
+      .formulario {
+        .campos {
+          padding: 20px;
+          h1 {
+            font-size: 42px;
+          }
+          .campo input {
+            width: 18rem;
+          }
+        }
+      }
+    }
+  }
+
+  /* Laptops médios (1280px - 1440px) */
+  @media (min-width: 1280px) and (max-width: 1440px) {
+    .container {
+      .formulario {
+        .campos {
+          padding: 25px;
+          h1 {
+            font-size: 48px;
+          }
+          .campo input {
+            width: 22rem;
+          }
+        }
+      }
+    }
+  }
+
+  /* Monitores Full HD (1440px - 1920px) */
+  @media (min-width: 1440px) and (max-width: 1920px) {
+    .container {
+      .formulario {
+        .campos {
+          padding: 30px;
+          h1 {
+            font-size: 50px;
+          }
+          .campo input {
+            width: 25rem;
+          }
+        }
+      }
+    }
+  }
