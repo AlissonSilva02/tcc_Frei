@@ -7,7 +7,8 @@ export default function Cabecalho_login() {
         <a href="/">
           <img src="/assets/images/Arrowleft.png" alt="voltar" />
           <p>VOLTAR</p>
-        </a>
+         
+        </a> 
       </div>
     
       <div className="logo">

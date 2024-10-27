@@ -1,30 +1,13 @@
 import Rodape from '../../components/rodape'
-import Menu from '../../components/menu'
-import Cabe from '../../components/cabecalho'
-import iconeHome from "../../assets/home.svg";
 import { Link } from 'react-router-dom';
 import './index.scss'
+import Cabecalho_sem from '../../components/cabecalho_sem_pesquisa';
 
 export default function () {
     return (
         <div>
             <header>
-                <Menu
-                    itens={[
-                        {
-                            icone: iconeHome,
-                            nome: "Home",
-                        },
-                        {
-                            icone: iconeHome,
-                            nome: "Outro Home",
-                        },
-                        {
-                            nome: "item sem icone",
-                        },
-                    ]}
-                />
-                <Cabe />
+                 <Cabecalho_sem />
             </header>
             <main>
                 <div className='pagina-ajuda'>

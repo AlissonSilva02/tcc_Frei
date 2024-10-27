@@ -32,15 +32,15 @@
         padding: 50px;
         align-items: center;
 
+
         .perguntasErespostas {
             display: flex;
             gap: 50px;
             align-items: center;
             margin-top: 50px;
             margin-bottom: 20px;
-            font-size: 18px;
+            font-size: 28px;
             font-weight: 500;
-
             details {
                 
                 p {
@@ -51,5 +51,8 @@
    
    
     }
-    
+    img{
+        width: 60%;
+        margin-left: 20%;
+    }    
 }

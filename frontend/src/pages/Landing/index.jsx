@@ -1,30 +1,13 @@
 import "./index.scss";
-import Menu from "../../components/menu/index.jsx";
-import iconeHome from "../../assets/home.svg";
-import Cabe from "../../components/cabecalho/index.jsx";
 import Rodape from "../../components/rodape/index.jsx";
 import { Link, useNavigate } from "react-router-dom";
+import Cabecalho_sem from "../../components/cabecalho_sem_pesquisa/index.jsx";
 
 export default function App() {
   return (
     <div>
       <header>
-      <Menu
-                    itens={[
-                        {
-                            icone: iconeHome,
-                            nome: "Home",
-                        },
-                        {
-                            icone: iconeHome,
-                            nome: "Outro Home",
-                        },
-                        {
-                            nome: "item sem icone",
-                        }
-                    ]}
-                />
-        <Cabe />
+        <Cabecalho_sem />
       </header>
 
       <div className="secao-landing">

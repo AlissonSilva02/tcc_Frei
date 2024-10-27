@@ -1,12 +1,10 @@
-import Menu from "../../components/menu/index.jsx";
-import iconeHome from "../../assets/home.svg";
-import Cabe from "../../components/cabecalho/index.jsx";
 import Rodape from "../../components/rodape/index.jsx";
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./index.scss";
+import Cabecalho_sem from "../../components/cabecalho_sem_pesquisa/index.jsx";
 
 
 export default function Cadastrar() {
@@ -90,22 +88,7 @@ export default function Cadastrar() {
     return (
         <div className="pagina-cadastrar">
             <header>
-            <Menu
-                    itens={[
-                        {
-                            icone: iconeHome,
-                            nome: "Home",
-                        },
-                        {
-                            icone: iconeHome,
-                            nome: "Outro Home",
-                        },
-                        {
-                            nome: "item sem icone",
-                        },
-                    ]}
-                />
-                <Cabe />
+                <Cabecalho_sem />
             </header>
 
             <main>

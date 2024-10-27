@@ -1,8 +1,6 @@
 import "./index.scss";
 import Cabe from "../../components/cabecalho/index.jsx";
-import Menu from "../../components/menu/index.jsx";
 
-import iconeHome from '../../assets/home.svg'
 
 import { Link } from "react-router-dom";
 
@@ -28,21 +26,6 @@ export default function Produto() {
 		<div className="pagina-produto">
 
 			<header>
-				<Menu
-					itens={[
-						{
-							icone: iconeHome,
-							nome: "Home",
-						},
-						{
-							icone: iconeHome,
-							nome: "Outro Home",
-						},
-						{
-							nome: "item sem icone",
-						}
-					]}
-				/>
 				<Cabe />
 			</header>
 

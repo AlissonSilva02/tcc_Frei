@@ -71,17 +71,18 @@
 
 
 
-  /* Celulares médios a grandes (375px - 425px) */
-  @media (min-width: 325px) and (max-width: 450px) {
+  
+  @media (max-width: 450px) {
     .container {
       .formulario {
         .campos {
-          padding: 15px;
+          padding: 15px 30px !important;
           h1 {
             font-size: 36px;
           }
           .campo input {
-            width: 100%;
+            width: 100%  !important;
+
           }
           button {
             padding: 10px 0px;
