@@ -26,7 +26,7 @@ export default function Cabecalho_sem() {
             className="logo-ashey"
             src="/assets/images/Ashey_Logo.svg"
             alt="logo"
-            
+            width="65%" 
           />
         </div>
       </div>

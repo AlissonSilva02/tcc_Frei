@@ -1,18 +1,6 @@
 .secao-cabecalho {
-
+    margin: 15px;
     .super {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 30px;
-
-        .logo {
-            display: flex;
-            justify-content: space-around;
-            width: 350px;
-        }
-
-    
     }
 }
