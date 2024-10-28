@@ -7,11 +7,12 @@ export default function Cabecalho_login() {
         <a href="/">
           <img src="/assets/images/Arrowleft.png" alt="voltar" />
           <p>VOLTAR</p>
-        </a>
+         
+        </a> 
       </div>
-
+    
       <div className="logo">
-        <img src="/assets/images/logo1.png" alt="Logo" width={500} />
+        <img src="/assets/images/Ashey_Logo.svg" alt="Logo" width={400} />
       </div>
     </div>
   );

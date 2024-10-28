@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import Rodape from '../../components/rodape';
 import Cabecalho_login from '../../components/cabecalho_login';
+import { toast } from 'react-toastify';
+
 
 export default function Login() {
     const [nome, setNome] = useState("");
@@ -21,10 +23,12 @@ export default function Login() {
         let resp = await axios.post(url, usuario);
 
         if (resp.data.erro !== undefined) {
-            alert(resp.data.erro);
+            toast.error('Usuario ou senha incorreto!');
+            
         } else {
             localStorage.setItem("USUARIO", resp.data.token);
-            navigate("/consultar");
+            toast.success('Acesso liberado')
+            navigate('/consultar')
         }
     }
 
@@ -37,19 +41,19 @@ export default function Login() {
                         <h1>Login</h1>
 
                         <div className="campo">
-                            <h4>CPF/CNPJ</h4>
+                            <h4>Usuário</h4>
                             <input
                                 type="text"
-                                placeholder="Digite seu CPF/CNPJ"
+                                placeholder="Digite seu Usuário"
                                 onChange={(e) => setNome(e.target.value)}
                             />
                         </div>
 
                         <div className="campo">
-                            <h4>SENHA</h4>
+                            <h4>Senha</h4>
                             <input
                                 type="text"
-                                placeholder="Digite sua senha"
+                                placeholder="Digite sua Senha"
                                 onChange={(e) => setSenha(e.target.value)}
                             />
                             <a href='/esqueceu_senha_email'>Esqueci a Senha</a>

@@ -1,4 +1,6 @@
 import "./index.scss";
+import Menu from "../../components/menu/index.jsx";
+import iconeHome from "../../assets/home.svg";
 
 export default function Cabe({ pesquisar }) {
     return (
