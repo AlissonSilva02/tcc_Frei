@@ -2,12 +2,31 @@ import Rodape from '../../components/rodape'
 import { Link } from 'react-router-dom';
 import './index.scss'
 import Cabecalho_sem from '../../components/cabecalho_sem_pesquisa';
+import Cabe from '../../components/cabecalho';
+import Menu from '../../components/menu';
 
 export default function () {
     return (
         <div>
             <header>
-                 <Cabecalho_sem />
+            <Menu
+                    itens={[
+                        {
+                            icone: "/assets/images/menu/home.svg",
+                            nome: "Home",
+                        },
+                        {
+                            icone: "/assets/images/menu/home.svg",
+                            nome: "Outro Home",
+                        },
+                        {
+                            nome: "Sobre",
+                        },
+                    ]}
+                />
+                <Cabe
+                    pesquisar={false}
+                />
             </header>
             <main>
                 <div className='pagina-ajuda'>
@@ -81,7 +100,7 @@ export default function () {
                             </div>
                         </div>
                     </div>
-                    
+
                     <img src="/assets/images/faq/faq.svg" alt="" />
                 </div>
             </main>

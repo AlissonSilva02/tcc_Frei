@@ -9,7 +9,7 @@ export default function Rodape() {
 
       <div className="cor">
         <div className="linha"></div>
-        <img className="logo" src="assets\images\Ashey_logo.svg" alt="logo" />
+        <img className="logo" src="assets\images\logo\Ashey-logo.svg" alt="logo" />
 
         <div className="grupo">
           <img src="assets/images/RedesSociais/face.png" alt="face" />

@@ -12,7 +12,7 @@ export default function Cabecalho_login() {
       </div>
     
       <div className="logo">
-        <img src="/assets/images/Ashey_Logo.svg" alt="Logo" width={400} />
+        <img src="/assets/images/logo/ashey-logo.svg" alt="Logo" width={400} />
       </div>
     </div>
   );

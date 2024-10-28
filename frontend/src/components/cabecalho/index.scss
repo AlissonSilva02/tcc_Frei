@@ -53,6 +53,7 @@
             justify-content: center;
             gap: 10px;
             width: 150px;
+            margin-left: 10%;
             margin-right: 5%;
         }
 
@@ -108,7 +109,7 @@
             }
 
             .pesquisa {
-                width: 100%;
+                width: 90%;
             }
         }
     }
@@ -118,4 +119,10 @@
     .secao-cabecalho {
         flex-direction: column;
     }
+
+    .secao-navegacao{
+        flex-direction: column;
+    }
+
+
 }

@@ -15,7 +15,7 @@ import removerProdutoService from "../service/RemoverProdutoService.js";
 const endpoints = Router();
 
 //seleciona todos os produtos
-endpoints.get("/select/produto", autenticar, async (req, resp) => {
+endpoints.get("/select/produto", async (req, resp) => {
     try {
         //Recebe o id pelo Token
         let idUsuario = req.user.id;
@@ -47,7 +47,7 @@ endpoints.get("/select/produto/:id", async (req, resp) => {
 });
 
 //Busca produtos por nome ou pela descrição
-endpoints.get("/produto/nome", autenticar, async (req, resp) => {
+endpoints.get("/produto/nome", async (req, resp) => {
     try {
         let buscar = req.body;
 
@@ -60,6 +60,8 @@ endpoints.get("/produto/nome", autenticar, async (req, resp) => {
         });
     }
 });
+
+
 
 //insere um novo produto
 let uploadImagemProduto = multer({dest: './storage/produtos'})

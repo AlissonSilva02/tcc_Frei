@@ -25,7 +25,8 @@ export default function Login() {
         if (resp.data.erro !== undefined) {
             toast.error('Usuario ou senha incorreto!');
             
-        } else {
+        }
+        else {
             localStorage.setItem("USUARIO", resp.data.token);
             toast.success('Acesso liberado')
             navigate('/consultar')
