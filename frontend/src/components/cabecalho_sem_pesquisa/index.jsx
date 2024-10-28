@@ -1,6 +1,5 @@
 import Menu from "../menu/index.jsx";
 import "./index.scss";
-import iconeHome from "../../assets/home.svg";
 
 export default function Cabecalho_sem() {
   return (
@@ -8,11 +7,11 @@ export default function Cabecalho_sem() {
       <Menu
         itens={[
           {
-            icone: iconeHome,
+            icone: "/assets/images/menu/home.svg",
             nome: "Home",
           },
           {
-            icone: iconeHome,
+            icone: "/assets/images/menu/home.svg",
             nome: "Outro Home",
           },
           {

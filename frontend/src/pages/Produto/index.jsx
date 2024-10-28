@@ -50,8 +50,10 @@ export default function Produto() {
 						<h1>Sérum Revitalizante loreal</h1>
 						<h2>R$ 79,90</h2>
 						
+						<hr />
+
 						<div>
-							<h2>categoria</h2>
+							<h2>Categoria</h2>
 							<p>pentes/escovas</p>
 						</div>
 

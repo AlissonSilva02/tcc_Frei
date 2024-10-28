@@ -6,27 +6,25 @@ import Cabe from "../../components/cabecalho/index.jsx";
 export default function TesteMenu() {
     return (
         <div className="pagina-testMenu">
-            <div>
+            <header>
                 <Menu
                     itens={[
                         {
-                            icone: '/assets/images/menu/home.svg',
+                            icone: "/assets/images/menu/home.svg",
                             nome: "Home",
                         },
                         {
-                            icone: '/assets/images/menu/home.svg',
+                            icone: "/assets/images/menu/home.svg",
                             nome: "Outro Home",
                         },
                         {
                             nome: "item sem icone",
-                        }
+                        },
                     ]}
                 />
-            </div>
-
-            <Cabe 
-                pesquisar={true}
-            />
+                <Cabe pesquisar={true} />
+                
+            </header>
         </div>
     );
 }

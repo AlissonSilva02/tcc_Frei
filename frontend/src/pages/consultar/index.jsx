@@ -63,11 +63,11 @@ export default function Consultar() {
                 <Menu
                     itens={[
                         {
-                            icone: '/assets/images/home.svg',
+                            icone: "/assets/images/menu/home.svg",
                             nome: "Home",
                         },
                         {
-                            icone: '/assets/images/home.svg',
+                            icone: "/assets/images/menu/home.svg",
                             nome: "Outro Home",
                         },
                         {

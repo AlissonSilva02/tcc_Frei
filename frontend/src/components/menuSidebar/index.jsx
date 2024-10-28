@@ -5,7 +5,7 @@ import SidebarItem from '../menuItens';
 
 export default function SideBar ({ active, item}) {
 
-    const closeSidebar = () => {
+    function closeSidebar() {
         active(false);
     };
 
@@ -20,10 +20,14 @@ export default function SideBar ({ active, item}) {
                 </svg>
 
 
+
                 <div className='itens-menu'>
-     
+
+
+                    <img src="/assets/images/logo/Ashey-Logo.svg" alt="logo" className='logo' width={200}/>
+
                   {itens.map((item) => (
-                    <div>
+                    <div className='itens'>
                         <SidebarItem Icon={item.icone} Text={item.nome}/>
                     </div>
                   ))}

@@ -1,70 +1,121 @@
 .secao-cabecalho {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-
-    padding: 15px 0px;
-
     width: 100%;
+    background-color: #ffffff;
+    border-bottom: 2px solid #dfdfdf;
+    font-family: "inter";
 
-    .logo {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        width: 150px;
-        margin-right: 5%;
+    a{
+        text-decoration: none;
+        color: inherit;
     }
 
-    .navegacao {
+    a:hover{
+        text-decoration: underline;
+    }
+
+
+    .barraInfo{
         display: flex;
-        flex-direction: row;
+        justify-content: space-around;
+
         align-items: center;
-        justify-content: center;
-
-        padding: 1.5rem 4rem;
-
-        border-radius: 15px;
-        font-family: "inter";
-
-        background-color: white;
-       
         gap: 15px;
-    }
 
-    .pesquisa {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        color: antiquewhite;
+        padding: 10px 5vw;
+        background-color: #181818;
+        border-bottom: solid 1px black;
 
-        padding: 0px 20px;
-        height: 35px;
+        .telefone{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
 
-        border-radius: 20px;
-
-        border: 2px solid rgb(158, 158, 158);
-
-        input {
-            background-color: transparent;
-            border: none;
-            outline: none;
+        .localizacao{
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
     }
 
-    @media (max-width: 950px) {
+    .secao-navegacao {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+        padding: 15px 0px;
+
+        width: 100%;
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            width: 150px;
+            margin-right: 5%;
+        }
+
         .navegacao {
-            display: none;
-            font-family: inter;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            padding: 1.5rem 4rem;
+
+            border-radius: 10px;
+            font-family: "inter";
+
+            color: rgb(26, 26, 26);
+            //background-color: rgb(235, 235, 235);
+            //border: 1px solid rgb(29, 29, 29);
+
+            gap: 15px;
+
+            .linha{
+                background-color: rgb(14, 14, 14);
+
+                 height: 30px;
+                 width: 2px;
+            }
         }
 
         .pesquisa {
-            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0px 20px;
+            height: 35px;
+
+            border-radius: 20px;
+
+            border: 2px solid rgb(158, 158, 158);
+
+            input {
+                color: black;
+                background-color: transparent;
+                border: none;
+                outline: none;
+            }
+        }
+
+        @media (max-width: 950px) {
+            .navegacao {
+                display: none;
+                font-family: inter;
+            }
+
+            .pesquisa {
+                width: 100%;
+            }
         }
     }
-
 }
 
 @media (max-width: 500px) {
-   .secao-cabecalho{
+    .secao-cabecalho {
         flex-direction: column;
-   }
+    }
 }
