@@ -3,6 +3,7 @@ import "./index.scss";
 import { Link, useNavigate } from "react-router-dom";
 import Cabe from "../../components/cabecalho/index.jsx";
 import Rodape from "../../components/rodape/index.jsx";
+import Menu from "../../components/menu/index.jsx";
 
 import axios from "axios";
 
@@ -35,13 +36,7 @@ export default function Consultar() {
     }
 
     async function VerMais() {
-        if (limite === produtos.length) {
-            alert(`
-            limite: ${limite}
-            resultados: ${produtos.length}
-            `);
-        }else{
-            alert('deletar botão de ver mais')
+        if (limite !== produtos.length) {
             setMostrarVermais(false)
         }
 
@@ -68,11 +63,11 @@ export default function Consultar() {
                 <Menu
                     itens={[
                         {
-                            icone: iconeHome,
+                            icone: '/assets/images/home.svg',
                             nome: "Home",
                         },
                         {
-                            icone: iconeHome,
+                            icone: '/assets/images/home.svg',
                             nome: "Outro Home",
                         },
                         {
