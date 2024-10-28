@@ -4,6 +4,7 @@ import './index.scss'
 
 export default function Sobre() {
   return (
+    <div>
     <div className="pagina-SobreNos">
       <div className="sobre">
         <header>
@@ -60,7 +61,7 @@ export default function Sobre() {
             combinando inovação e respeito pelo meio ambiente. Junte-se a nós e
             descubra como a AuraStyle pode transformar sua rotina de cuidados
             pessoais.
-          </h2>
+          </p>
           </div>
 
             <hr />
