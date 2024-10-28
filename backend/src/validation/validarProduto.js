@@ -16,7 +16,6 @@ export default function validarProduto(produto, caminho) {
         throw new Error("O Valor do produto é obrigatório");
     }
     
-    console.log(produto.disponivel);  //false
     if (typeof produto.disponivel !== "boolean") {
         throw new Error("A disponibilidade do produto é obrigatória e deve ser um valor booleano");
     }

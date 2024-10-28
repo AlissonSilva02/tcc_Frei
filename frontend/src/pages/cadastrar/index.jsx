@@ -1,11 +1,10 @@
-import { Cabe } from "../../components/cabecalho/index.jsx";
 import Rodape from "../../components/rodape/index.jsx";
-import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useParams, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./index.scss";
-
-import { useNavigate } from "react-router-dom";
+import Cabecalho_sem from "../../components/cabecalho_sem_pesquisa/index.jsx";
 
 
 export default function Cadastrar() {
@@ -89,7 +88,7 @@ export default function Cadastrar() {
     return (
         <div className="pagina-cadastrar">
             <header>
-                <Cabe />
+                <Cabecalho_sem />
             </header>
 
             <main>

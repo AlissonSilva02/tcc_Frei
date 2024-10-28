@@ -1,0 +1,25 @@
+.componente-sidebarItem{
+    
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    background-color: #1A202C;
+    font-size: 28px;
+    color: white;
+    
+    border-radius: 10px;
+
+    padding: 10px;
+    margin: 0 15px 20px 0;
+    cursor: pointer;
+
+    svg{
+        margin: 0 28px
+    }
+
+    &:hover {
+        background-color: black;
+    }
+
+}

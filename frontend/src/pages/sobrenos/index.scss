@@ -2,11 +2,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
   flex-direction: column;
 
-  *{
 
+  header{
+    width:100%;
+  }
+  
+
+  *{
+    
     font-family: Inter;
   }
 
@@ -16,6 +21,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    justify-content: start;
     flex-direction: column;
     width: 100vw;
 
@@ -25,8 +31,6 @@
     justify-content: start;
     align-items: center;
     padding: 170px 600px;
-    width: 100vw;
-
     background-color: #ffffff;
       background-image: url("../../../public/assets/images/imageasd.png");
     }
@@ -37,40 +41,22 @@
         align-items: center;
         flex-direction: column;
         padding: 150px 600px;
-        width: 100vw;
-
       color: #ffffff;
       background-color: #171717;
 
       h3{
-        padding: 50px;
-        width: 90vw;
+        margin: 50px;
+        width: 400px;
       }
       
     }
 
-
-      .comentarios0{
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;   
-        justify-content: center;
-        padding: 150px 600px;
-        width: 100vw;
-
-      background-color: #fcbf58;
-
     .comentarios {
         display: flex;
         justify-content: space-between;
-        border: 1px solid;
-        width: 90vw;
-        height: auto;
         align-items: center;
-        
         flex-direction: row;
-     
+        padding: 150px 600px;
+      background-color: #fcbf58;
     }
-      }
 }

@@ -1,19 +1,20 @@
 import con from './connection.js'
 
-export async function consultarProdutos(idUsuario) {
+export async function consultarProdutos(idUsuario, total) {
     let comando = `
-       SELECT   id_produto    id,  
-                tipo,		
-                img,
-                descricao,	
-                valor,
-                disponivel,
-                estoque  
-	    FROM produtos
+    SELECT   id_produto id,  
+        tipo,		
+        img,
+        descricao,	
+        valor,
+        disponivel,
+        estoque  
+        FROM produtos
         WHERE id_autonomo = ?
+    LIMIT ?
     `
 
-    let resposta = await con.query(comando, [idUsuario]);
+    let resposta = await con.query(comando, [idUsuario, Number(total)]);
     let registros = resposta[0]
 
     return registros;
@@ -58,7 +59,7 @@ export async function consultarProdutosNome(info) {
 }
 
 export async function inserirProdutos(produto, caminhoImagem, id) {
-    let comando =`
+    let comando = `
     INSERT INTO produtos (tipo, img, descricao, valor, disponivel, estoque, id_autonomo) VALUES
     (?, ?, ?, ?, ?, ?, ?)
     `
@@ -106,12 +107,12 @@ export async function deletarProduto(id) {
         delete from produtos
         where id_produto = ?
     `
-    
+
     let resposta = await con.query(comando, [id]);
 
     let info = resposta[0]
 
-    let linhasAfetadas= info.affectedRows;
+    let linhasAfetadas = info.affectedRows;
 
     return linhasAfetadas;
 }

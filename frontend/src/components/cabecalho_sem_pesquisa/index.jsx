@@ -1,8 +1,8 @@
+import Menu from "../menu/index.jsx";
 import "./index.scss";
-import Menu from "../../components/menu/index.jsx";
 import iconeHome from "../../assets/home.svg";
 
-export default function Cabe() {
+export default function Cabecalho_sem() {
   return (
     <div className="secao-cabecalho">
       <Menu
@@ -23,24 +23,11 @@ export default function Cabe() {
       <div className="super">
         <div className="logo">
           <img
-            className="aura"
+            className="logo-ashey"
             src="/assets/images/Ashey_Logo.svg"
             alt="logo"
-            width={370}
+            width="65%" 
           />
-        </div>
-
-        <div className="pesquisar">
-          <div className="pesquisa">
-            <input type="search" placeholder="Pesquisar" />
-
-            <img
-              src="\assets\images\search.png"
-              alt="pesquisar"
-              width={25}
-              height={25}
-            />
-          </div>
         </div>
       </div>
     </div>
