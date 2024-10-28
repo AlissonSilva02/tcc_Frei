@@ -37,28 +37,25 @@ export default function Sobre() {
             </h3></div>
           </div>
 
+
+          <div className="comentarios0">
+             <h2>Comentarios</h2>
+              
           <div className="comentarios">
-
-
-            
             <h2>Comentarios</h2>
-
-            <div className="comments-txt">
-            <img className="seta" src="assets/images/seta.esq.png" alt="" />{" "}
-            <h3  className="pe">
+            
+            <img src="assets/images/seta.esq.png" alt="" />{" "}
+            <h2 className="pe">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Accusantium cupiditate alias quibusdam non placeat tempora,
               temporibus amet. Accusantium, enim consequuntur explicabo
               blanditiis cum exercitationem totam praesentium saepe possimus
               beatae. Vero.
-            </h3>{" "}
-            <img className="seta" src="assets/images/seta.direita.png" alt="" />
-            </div>
+            </h2>{" "}
+            <img src="assets/images/seta.direita.png" alt="" />
           </div>
 
-          <div className="yap0">
-          <div className="yap1">
-          <h2>
+          <p>
             Nossos cosméticos são formulados com ingredientes de alta qualidade,
             combinando inovação e respeito pelo meio ambiente. Junte-se a nós e
             descubra como a AuraStyle pode transformar sua rotina de cuidados
