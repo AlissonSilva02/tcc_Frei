@@ -32,7 +32,7 @@ endpoints.get("/select/produto", autenticar, async (req, resp) => {
 });
 
 //Seleciona um id especifico
-endpoints.get("/select/produto/:id", autenticar, async (req, resp) => {
+endpoints.get("/select/produto/:id", async (req, resp) => {
     try {
         let id = req.params.id;
 

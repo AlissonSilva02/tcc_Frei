@@ -24,7 +24,7 @@ export default function Cabe({ pesquisar }) {
                     
                             <img
                                 className="logo"
-                                src="assets/images/logo/Ashey-Logo.svg"
+                                src="/assets/images/logo/Ashey-Logo.svg"
                                 alt="logo"
                             />
                         </Link>
