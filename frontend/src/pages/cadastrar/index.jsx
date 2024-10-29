@@ -4,7 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./index.scss";
-import Cabecalho_sem from "../../components/cabecalho_sem_pesquisa/index.jsx";
+import Cabe from "../../components/cabecalho/index.jsx";
 
 
 export default function Cadastrar() {
@@ -88,7 +88,7 @@ export default function Cadastrar() {
     return (
         <div className="pagina-cadastrar">
             <header>
-                <Cabecalho_sem />
+            <Cabe pesquisar={false}/>
             </header>
 
             <main>
@@ -170,10 +170,11 @@ export default function Cadastrar() {
                 <div className="lile">
                     <Link to={`/consultar`}>
                         <button onClick={salvar}>
-                            Alterar e ir para consulta
+                            inserir e ir para  a tela de consulta
+
                         </button>
                     </Link>
-                    <button onClick={salvar}> Alterar </button>
+                    <button onClick={salvar}> alterar </button>
                 </div>
             </main>
 

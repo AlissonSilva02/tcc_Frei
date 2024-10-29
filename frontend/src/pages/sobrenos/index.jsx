@@ -1,4 +1,4 @@
-import Cabecalho_sem from "../../components/cabecalho_sem_pesquisa";
+import Cabe from "../../components/cabecalho";
 import Rodape from "../../components/rodape";
 import "./index.scss";
 
@@ -7,7 +7,7 @@ export default function Sobre() {
         <div className="pagina-SobreNos">
             <div className="sobre">
                 <header>
-                    <Cabecalho_sem />
+                <Cabe pesquisar={false}/>
                 </header>
 
                 <div className="fale">
