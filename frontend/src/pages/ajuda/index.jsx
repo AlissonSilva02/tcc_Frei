@@ -1,7 +1,6 @@
 import Rodape from '../../components/rodape'
 import { Link } from 'react-router-dom';
-import './index.scss'
-import Cabecalho_sem from '../../components/cabecalho_sem_pesquisa';
+import './index.scss';
 import Cabe from '../../components/cabecalho';
 import Menu from '../../components/menu';
 
