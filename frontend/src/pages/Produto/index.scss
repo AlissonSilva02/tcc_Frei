@@ -1,18 +1,19 @@
 .pagina-produto {
-
-    font-family: 'Inter';
-
+   
     a {
         text-decoration: none;
-        color: black;
+        color: inherit;
     }
 
+    font-family: 'Inter';
 
     main {
         padding: 2vw 5vw ;
 
         .botao-voltar {
             display: flex;
+
+           
 
             .voltar {
 
