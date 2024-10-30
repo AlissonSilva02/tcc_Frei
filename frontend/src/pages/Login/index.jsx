@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import Rodape from '../../components/rodape';
 import Cabecalho_login from '../../components/cabecalho_login';
+
+import {Eye, EyeOff} from "lucide-react"
 import { toast } from 'react-toastify';
 
 
@@ -11,7 +13,11 @@ export default function Login() {
     const [nome, setNome] = useState("");
     const [senha, setSenha] = useState("");
 
+    const [olho,setOlho] = useState(false)
+
     const navigate = useNavigate();
+
+    const verificaOlho = () => setOlho(!olho)
 
     function teclaApertada(e) {
         if (e.key == 'Enter') {
@@ -57,19 +63,27 @@ export default function Login() {
                         </div>
 
                         <div className="campo">
-                            <h4>Senha</h4>
+                            
+                           <h4>Senha</h4> <div className='mestica'>
                             <input
-                                type="text"
+                                type={olho ? "text" : "password"}
                                 placeholder="Digite sua Senha"
                                 onKeyUp={teclaApertada}
                                 onChange={(e) => setSenha(e.target.value)}
-                            />
+                            /> 
+                            <button className='olho' onClick={verificaOlho} type='button'>
+                                {!olho  && <EyeOff className='oiof' />}
+                                {olho && <Eye className='oio' />}
+                            </button></div>
+                            
+                            
+                            </div>
                             <a href='/esqueceu_senha_email'>Esqueci a Senha</a>
-                        </div>
+                       
 
                         <hr className="linha" />
 
-                        <button onClick={entrar}>ENTRAR</button>
+                        <button className='mes' onClick={entrar}>ENTRAR</button>
                     </div>
                 </div>
             </div>
