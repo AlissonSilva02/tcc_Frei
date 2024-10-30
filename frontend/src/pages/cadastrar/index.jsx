@@ -43,7 +43,7 @@ export default function Cadastrar() {
   }
 
   function teclaApertada(e) {
-    if (e.key == "Enter") {
+    if (e.key === "Enter") {
       salvar();
     }
   }

@@ -18,15 +18,14 @@ const endpoints = Router();
 endpoints.get("/select/produto", async (req, resp) => {
     try {
         //Recebe o id pelo Token
-        let idUsuario = req.user.id;
         let total = req.query.total
-
-        let produto = await db.consultarProdutos(idUsuario, total);
+    
+        let produto = await db.consultarProdutos(total);
 
         resp.send(produto);
     } catch (error) {
         resp.send({
-            Error: error.message,
+            Error: error.message
         });
     }
 });
@@ -35,7 +34,6 @@ endpoints.get("/select/produto", async (req, resp) => {
 endpoints.get("/select/produto/:id", async (req, resp) => {
     try {
         let id = req.params.id;
-
         let produto = await consultarProdutosIDService(id);
 
         resp.send(produto[0]);

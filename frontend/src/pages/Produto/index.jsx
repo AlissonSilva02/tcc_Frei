@@ -1,5 +1,6 @@
 import "./index.scss";
 
+import MenuUsuario from "../../components/MenuUsuario/index.jsx";
 import Cabe from "../../components/cabecalho/index.jsx";
 import Rodape from "../../components/rodape/index.jsx";
 import Card from "../../components/CardProduto/index.jsx";
@@ -18,7 +19,7 @@ export default function Produto() {
 		let resp = await axios.get(url)
 		setProduto(resp.data)
 
-		//alert(JSON.stringify(produto)) 
+		alert(JSON.stringify(produto)) 
 	}
 
 	useEffect( () => {
@@ -27,9 +28,20 @@ export default function Produto() {
     }, []);
 
 
+    /*
+        "id":5,
+        "tipo":"Batom",
+        "img":"batom.jpg",
+        "descricao":"Batom matte vermelho intenso",
+        "valor":20,
+        "disponivel":true,
+        "estoque":100}
+    */
+
     return (
         <div className="pagina-produto">
             <header>
+                <MenuUsuario />
                 <Cabe />
             </header>
 
@@ -65,7 +77,7 @@ export default function Produto() {
 
                         <div className="info">
                             <h1>Sérum Revitalizante loreal</h1>
-                            <h2>R$ 79,90</h2>
+                            <h2>R$ {Number(produto.valor).toFixed(2)}</h2>
 
                             <hr />
 
@@ -88,20 +100,7 @@ export default function Produto() {
                         <hr className="linha" />
                         <h1>Descrição</h1>
                         <p>
-                            Material de Alta Qualidade: Cerdas feitas de nylon
-                            flexível, ideais para desembaraçar sem puxar ou
-                            quebrar os fios. Design Ergonômico: Cabo
-                            antideslizante e confortável, projetado para fácil
-                            manuseio. Desembaraço Eficiente: Ideal para todos os
-                            tipos de cabelo, desde os mais finos até os mais
-                            grossos e encaracolados. Uso Versátil: Perfeita para
-                            uso diário, tanto em cabelos secos quanto molhados.
-                            Cuidado com o Couro Cabeludo: Cerdas com pontas
-                            arredondadas, que massageiam o couro cabeludo e
-                            estimulam a circulação sanguínea. Fácil de Limpar:
-                            Material resistente à água e de fácil manutenção,
-                            garantindo uma escova sempre limpa e pronta para o
-                            uso.
+                            {produto.descricao}
                         </p>
                     </div>
                 </div>

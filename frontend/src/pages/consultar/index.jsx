@@ -143,8 +143,6 @@ export default function Consultar() {
                     </table>
                 </div>
 
-            
-            
             {mostrarVermais &&
                 <div className="verMais">
                     <hr />

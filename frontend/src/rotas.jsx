@@ -11,8 +11,8 @@ import Sobre from "./pages/sobrenos/index.jsx";
 import Ajuda from "./pages/ajuda/index.jsx"
 
 //excluir depois
-import TesteMenu from "./pages/testMenu/index.jsx";
 import Cabe from "./components/cabecalho/index.jsx";
+import MenuUsuario from "./components/MenuUsuario/index.jsx";
 
 export default function Navegacao() {
     return(
@@ -33,7 +33,7 @@ export default function Navegacao() {
                 <Route path="/ajuda" element={<Ajuda/>} />
 
                 
-                <Route path="/Menu" element={<TesteMenu />} />
+                <Route path="/Menu" element={<MenuUsuario />} />
                 <Route path="/Cabecalho" element={<Cabe />} />
 
                 <Route path="*" element={<Not />} />

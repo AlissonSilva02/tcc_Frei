@@ -1,20 +1,19 @@
 import con from './connection.js'
 
-export async function consultarProdutos(idUsuario, total) {
+export async function consultarProdutos(total) {
     let comando = `
-    SELECT   id_produto id,  
-        tipo,		
-        img,
-        descricao,	
-        valor,
-        disponivel,
-        estoque  
-        FROM produtos
-        WHERE id_autonomo = ?
+    SELECT  id_produto id,  
+            tipo,		
+            img,
+            descricao,	
+            valor,
+            disponivel,
+            estoque  
+    FROM produtos
     LIMIT ?
     `
 
-    let resposta = await con.query(comando, [idUsuario, Number(total)]);
+    let resposta = await con.query(comando, [Number(total)]);
     let registros = resposta[0]
 
     return registros;
