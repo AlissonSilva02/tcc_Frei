@@ -45,7 +45,7 @@ endpoints.get("/select/produto/:id", async (req, resp) => {
 });
 
 //Busca produtos por nome ou pela descrição
-endpoints.get("/produto/nome", async (req, resp) => {
+endpoints.post("/produto/nome", async (req, resp) => {
     try {
         let buscar = req.body;
 
@@ -58,7 +58,6 @@ endpoints.get("/produto/nome", async (req, resp) => {
         });
     }
 });
-
 
 
 //insere um novo produto
