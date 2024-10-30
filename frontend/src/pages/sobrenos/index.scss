@@ -23,12 +23,12 @@
     align-items: center;
     justify-content: start;
     flex-direction: column;
-    width: 100vw;
+    width: 100%;
 
    
-  } .fale {
+  .fale {
     display: flex;
-    justify-content: start;
+    justify-content:start;
     align-items: start;
     width: 100%;
     padding: 20vh 0;
@@ -56,7 +56,7 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        width: 100vw;
+        width: 100%;
         color: #ffffff;
         padding: 20vh 0;
 
@@ -86,7 +86,7 @@
         align-items: center;
         border: 1px solid;
         height: 20vh; 
-        width: 90vw;       
+        width: 90%;       
 
 
       }
@@ -135,6 +135,7 @@
       font-size: 1.5vw;
     }
     
+   }
     .tiny{
 
 

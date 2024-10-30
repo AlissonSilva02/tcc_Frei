@@ -56,10 +56,14 @@
         color: #EFB820;
         border: 1px solid #EFB820;
         border-radius: 10px;
-        padding: 6% 90% 6% 90%;
+        padding:6px 40px 6px 40px;
         display: flex;
         align-items: center;
         justify-content: center;
+        
+        h3{
+          font-size: 1rem;
+        }
       }
 
       .grupo {
