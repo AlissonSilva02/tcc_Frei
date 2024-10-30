@@ -1,11 +1,13 @@
 import Rodape from "../../components/rodape";
 import { Link } from "react-router-dom";
+import { MagicMotion } from "react-magic-motion";
 import "./index.scss";
 import Cabe from "../../components/cabecalho";
 import Menu from "../../components/menu";
 
 export default function () {
   return (
+    <MagicMotion>
     <div>
       <header>
         <Menu
@@ -147,5 +149,5 @@ export default function () {
         <Rodape />
       </footer>
     </div>
-  );
+    </MagicMotion>);
 }
