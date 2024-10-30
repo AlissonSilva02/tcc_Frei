@@ -29,7 +29,7 @@ export default function Rodape() {
 
           <img
             className="logo"
-            src="assets\images\logo\Ashey-logo.svg"
+            src="/assets\images\logo\Ashey-logo.svg"
             alt="logo"
           />
         </div>
@@ -47,17 +47,17 @@ export default function Rodape() {
             </Link>
             <div className="grupo">
               <div className="redes">
-                <img src="assets/images/RedesSociais/face.png" alt="face" />
+                <img src="/assets/images/RedesSociais/face.png" alt="face" />
                 <p>Ashey_Ofc</p>
               </div>
 
               <div className="redes">
-                <img src="assets/images/RedesSociais/insta.png" alt="insta" />
+                <img src="/assets/images/RedesSociais/insta.png" alt="insta" />
                 <p>Ashey_Ofc</p>
               </div>
 
               <div className="redes">
-                <img src="assets/images/yt.png" alt="yt" />
+                <img src="/assets/images/yt.png" alt="yt" />
                 <p>(11)94033-0018</p>
               </div>
             </div>

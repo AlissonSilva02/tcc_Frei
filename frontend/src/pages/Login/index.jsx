@@ -13,6 +13,11 @@ export default function Login() {
 
     const navigate = useNavigate();
 
+    function teclaApertada(e) {
+        if (e.key == 'Enter') {
+            entrar();
+        }
+    }
     async function entrar() {
         const usuario = {
             nome: nome,
@@ -29,7 +34,7 @@ export default function Login() {
         else {
             localStorage.setItem("USUARIO", resp.data.token);
             toast.success('Acesso liberado')
-            navigate('/consultar')
+            navigate('/consultar/')
         }
     }
 
@@ -46,6 +51,7 @@ export default function Login() {
                             <input
                                 type="text"
                                 placeholder="Digite seu Usuário"
+                                onKeyUp={teclaApertada}
                                 onChange={(e) => setNome(e.target.value)}
                             />
                         </div>
@@ -55,6 +61,7 @@ export default function Login() {
                             <input
                                 type="text"
                                 placeholder="Digite sua Senha"
+                                onKeyUp={teclaApertada}
                                 onChange={(e) => setSenha(e.target.value)}
                             />
                             <a href='/esqueceu_senha_email'>Esqueci a Senha</a>

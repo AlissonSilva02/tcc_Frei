@@ -32,7 +32,7 @@ export default function () {
                     <div className="botao-voltar">
                         <Link to={'/'}>
                             <div className="voltar">
-                                <img src="/assets/images/Arrowleft.png" alt="seta" width={30} />
+                                <img src="/assets/images/Arrowleft.png" alt="seta" />
                                 <h1>VOLTAR</h1>
                             </div>
                         </Link>
