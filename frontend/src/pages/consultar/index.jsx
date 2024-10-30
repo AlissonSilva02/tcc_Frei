@@ -3,7 +3,7 @@ import "./index.scss";
 import { Link, useNavigate } from "react-router-dom";
 import Cabe from "../../components/cabecalho/index.jsx";
 import Rodape from "../../components/rodape/index.jsx";
-import Menu from "../../components/menu/index.jsx";
+import MenuUsuario from "../../components/MenuUsuario/index.jsx";
 
 import axios from "axios";
 
@@ -60,21 +60,7 @@ export default function Consultar() {
     return (
         <div className="pagina-consultar">
             <header className="cabecalho">
-                <Menu
-                    itens={[
-                        {
-                            icone: "/assets/images/menu/home.svg",
-                            nome: "Home",
-                        },
-                        {
-                            icone: "/assets/images/menu/home.svg",
-                            nome: "Outro Home",
-                        },
-                        {
-                            nome: "item sem icone",
-                        },
-                    ]}
-                />
+                <MenuUsuario />
                 <Cabe />
             </header>
 
