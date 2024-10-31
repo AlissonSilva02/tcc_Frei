@@ -115,3 +115,23 @@ export async function deletarProduto(id) {
 
     return linhasAfetadas;
 }
+
+
+export async function consultarProdutosPorPreco(precoMax) {
+    let comando = `
+    SELECT id_produto id,  
+           tipo,		
+           img,
+           descricao,	
+           valor,
+           disponivel,
+           estoque  
+    FROM produtos
+    WHERE valor <= ?;
+    `;
+
+    let resposta = await con.query(comando, [precoMax]);
+    let registros = resposta[0];
+
+    return registros;
+}

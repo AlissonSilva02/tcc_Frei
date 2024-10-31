@@ -6,8 +6,9 @@ import Rodape from "../../components/rodape/index.jsx";
 import Card from "../../components/CardProduto/index.jsx";
 
 import axios from "axios";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import FiltroPreco from "../../components/filtro/index.jsx";
 
 export default function Produtos() {
   const [pentes, setPentes] = useState(false);
@@ -26,31 +27,41 @@ export default function Produtos() {
   const [delineador, setDelineador] = useState(false);
 
   const [produto, setProduto] = useState([]);
-  const [relacionados, setRelacionados] = useState([]);
 
-  async function buscar() {
-    const url = `http://localhost:5002/select/produto/`;
-    let resp = await axios.get(url);
-    setProduto(resp.data);
+  const [precoMax, setPrecoMax] = useState(2000);
+
+
+  async function buscarProdutos(valorMaximo) {
+    const url = `http://localhost:5002/produto/preco/`;
+    try {
+      let resp = await axios.post(url, { precoMax: valorMaximo });
+    
+      setProduto(Array.isArray(resp.data) ? resp.data : []);
+    } catch (error) {
+      console.error("Erro ao buscar produtos:", error.message);
+    }
   }
-
-  async function buscarRelacionados() {
-    let paramCorpo = {
-      buscar: produto.tipo,
-    };
-
-    const url = `http://localhost:5002/produto/nome`;
-    let resp = await axios.post(url, paramCorpo);
-
-    setRelacionados(resp.data);
-  }
+   
 
   useEffect(() => {
+    buscarProdutos(precoMax);
+  }, [precoMax]);
+
+  async function buscar() {
+    const url = `http://localhost:5002/select/produto/32`;
+    try {
+      let resp = await axios.get(url);
+      console.log(resp.data); // Verifique o que está sendo retornado
+      // Assegure que resp.data seja um array
+      setProduto(Array.isArray(resp.data) ? resp.data : []);
+    } catch (error) {
+      console.error("Erro ao buscar produto:", error.message);
+    }
+  }
+  
+  useEffect(() => {
     buscar();
-    buscarRelacionados();
-  }, [buscar, buscarRelacionados]);
-
-
+  }, []);
 
   return (
     <div className="pagina-produtos">
@@ -63,13 +74,7 @@ export default function Produtos() {
         <div className="container_principal">
           <div className="filtros">
             <h2>Filtros</h2>
-            <div className="filtro_preco">
-              <div className="precinho">
-                <p>Preco</p>
-                <p>R$20-2000</p>
-              </div>
-              <hr />
-            </div>
+              <FiltroPreco />
             <h2>Tipo de produto</h2>
 
             <div className="cabelos">
@@ -237,55 +242,59 @@ export default function Produtos() {
             <h1>Resultados Principais</h1>
 
             <div className="produtos">
-                 {relacionados.map((item) => (
+              {produto.map((item) => (
+                <Link to={`/produto/${item.id}`} key={item.id}>
                   <Card
-                     imagem={item.img}
-                     alt={item.img}
-                     preco={item.valor}
-                     nome={item.valor}
-                   />
-                 ))}
+                    imagem={item.img}
+                    alt={item.img}
+                    preco={item.valor}
+                    nome={item.nome}
+                  />
+                </Link>
+              ))}
             </div>
-
 
             <h1>Cremes Capilares</h1>
             <div className="produtos">
-                        {relacionados.map((item, index) => (
-                            <Card
-                                imagem={item.img}
-                                alt={item.img}
-                                preco={item.valor}
-                                nome={item.valor}
-                            />
-                        ))} 
-
-                    </div>
-
+              {produto.map((item) => (
+                <Link to={`/produto/${item.id}`} key={item.id}>
+                  <Card
+                    imagem={item.img}
+                    alt={item.img}
+                    preco={item.valor}
+                    nome={item.nome}
+                  />
+                </Link>
+              ))}
+            </div>
 
             <h1>Pentes e Escovas</h1>
             <div className="produtos">
-                        {relacionados.map((item, index) => (
-                            <Card
-                                imagem={item.img}
-                                alt={item.img}
-                                preco={item.valor}
-                                nome={item.valor}
-                            />
-                        ))} 
-                    </div>
-
+              {produto.map((item) => (
+                <Link to={`/produto/${item.id}`} key={item.id}>
+                  <Card
+                    imagem={item.img}
+                    alt={item.img}
+                    preco={item.valor}
+                    nome={item.nome}
+                  />
+                </Link>
+              ))}
+            </div>
 
             <h1>Skin Care</h1>
             <div className="produtos">
-                        {relacionados.map((item, index) => (
-                            <Card
-                                imagem={item.img}
-                                alt={item.img}
-                                preco={item.valor}
-                                nome={item.valor}
-                            />
-                        ))} 
-                    </div>
+              {produto.map((item) => (
+                <Link to={`/produto/${item.id}`} key={item.id}>
+                  <Card
+                    imagem={item.img}
+                    alt={item.img}
+                    preco={item.valor}
+                    nome={item.nome}
+                  />
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </main>

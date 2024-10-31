@@ -167,4 +167,32 @@ endpoints.delete("/delete/produto/:id", autenticar, async (req, resp) => {
     }
 });
 
+
+
+
+endpoints.post("/produto/preco/", async (req, resp) => {
+    try {
+        // Aqui, extraímos o valor de precoMax diretamente
+        const { precoMax } = req.body; // Use a desestruturação para pegar apenas o valor
+
+        // Verifica se o preço máximo foi fornecido
+        if (!precoMax) {
+            return resp.status(400).send({
+                Error: "O parâmetro precoMax é obrigatório."
+            });
+        }
+
+        // Chama o método no repositório que busca produtos com preço até o limite
+        let produtos = await db.consultarProdutosPorPreco(precoMax);
+        
+        resp.send(produtos);
+    } catch (error) {
+        resp.send({
+            Error: error.message
+        });
+    }
+});
+
+
+
 export default endpoints;
