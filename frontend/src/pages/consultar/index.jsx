@@ -52,9 +52,9 @@ export default function Consultar() {
         let token = localStorage.getItem("USUARIO");
         setToken(token);
 
-        if (token === null) {
+        if (token === "null") {
             Navigate("/");
-        } else {
+        } else { 
             buscar(token);
         }
     }, [Navigate, limite, buscar]);
@@ -82,8 +82,8 @@ export default function Consultar() {
                         <thead>
                             <tr className="bak">
                                 <th>ID</th>
-                                <th>Produto</th>
-                                <th>Imagem</th>
+                                <th>nome</th>
+                                <th>categoria</th>
                                 <th>Descricao</th>
                                 <th>Valor</th>
                                 <th>Estoque</th>
@@ -98,8 +98,8 @@ export default function Consultar() {
                                     <td>
                                         #{item.id.toString().padStart(2, "0")}
                                     </td>
-                                    <td>{item.tipo}</td>
-                                    <td>{item.img}</td>
+                                    <td>{item.nome}</td>
+                                    <td>{item.categoria}</td>
                                     <td>{item.descricao}</td>
                                     <td>{item.valor}</td>
                                     <td>{item.estoque}</td>

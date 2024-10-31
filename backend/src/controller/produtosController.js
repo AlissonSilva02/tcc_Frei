@@ -69,14 +69,13 @@ endpoints.post("/insert/produto", autenticar, uploadImagemProduto.single('produt
         let produto = null
         let caminhoImagem = null
 
-        if (!req.body.data){
+        if (!req.body.info){
             //Usar o body ainda funciona
             produto = req.body
             caminhoImagem = produto.img 
         } else {
-            produto = JSON.parse(req.body.data)
-            
             //verifica se algum arquivo foi enviado
+            produto = JSON.parse(req.body.info)
             if (req.file && req.file.path) {
                 caminhoImagem = req.file.path;
             } else {
@@ -97,15 +96,6 @@ endpoints.post("/insert/produto", autenticar, uploadImagemProduto.single('produt
     }
 });
 
-/* Thunder client
-            Body > Form
-
-            Marca a caxinha "Files"
-
-            Files
-            field name = produto
-            "escolher imagem"
-        */
 //inserindo uma imagem
 let atualizarImagemProduto = multer({dest: './storage/produtos'})
 endpoints.put("/update/imagem/:id", autenticar, atualizarImagemProduto.single('produto'), async (req, resp) => {

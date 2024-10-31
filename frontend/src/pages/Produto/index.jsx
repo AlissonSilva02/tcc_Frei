@@ -89,14 +89,14 @@ export default function Produto() {
                         </div>
 
                         <div className="info">
-                            <h1>Sérum Revitalizante loreal</h1>
+                            <h1>{produto.nome}</h1>
                             <h2>R$ {Number(produto.valor).toFixed(2)}</h2>
 
                             <hr />
 
                             <div>
                                 <h2>Categoria</h2>
-                                <p>pentes/escovas</p>
+                                <p>{produto.categoria}</p>
                             </div>
 
                             <div className="numero">
@@ -104,7 +104,7 @@ export default function Produto() {
                                     src="/assets/images/RedesSociais/whatsapp.svg"
                                     alt="whatsapp"
                                 />
-                                <p>(11) 9999-9999</p>
+                                <p>{"(11) 9999-9999"}</p>
                             </div>
                         </div>
                     </div>
