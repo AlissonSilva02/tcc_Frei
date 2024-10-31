@@ -1,20 +1,20 @@
 import con from './connection.js'
 
-export async function consultarProdutos(idUsuario, total) {
+export async function consultarProdutos(total) {
     let comando = `
-    SELECT   id_produto id,  
-        tipo,		
-        img,
-        descricao,	
-        valor,
-        disponivel,
-        estoque  
-        FROM produtos
-        WHERE id_autonomo = ?
+    SELECT  id_produto id,  
+            nome,
+            categoria,
+            img,
+            descricao,
+            valor,
+            disponivel,
+            estoque
+    FROM produtos
     LIMIT ?
     `
 
-    let resposta = await con.query(comando, [idUsuario, Number(total)]);
+    let resposta = await con.query(comando, [Number(total)]);
     let registros = resposta[0]
 
     return registros;
@@ -23,12 +23,13 @@ export async function consultarProdutos(idUsuario, total) {
 export async function consultarProdutosid(id) {
     let comando = `
     SELECT id_produto   id,  
-                        tipo,		
+                        nome,
+                        categoria,
                         img,
-                        descricao,	
+                        descricao,
                         valor,
                         disponivel,
-                        estoque  
+                        estoque
     FROM produtos
         WHERE id_produto = ?;
     `
@@ -42,14 +43,15 @@ export async function consultarProdutosid(id) {
 export async function consultarProdutosNome(info) {
     let comando = `
     select id_produto   id,  
-            tipo,		
+            nome,
+            categoria,
             img,
-            descricao,	
+            descricao,
             valor,
             disponivel,
             estoque
     from produtos
-    where tipo or descricao like ?;
+    where nome or descricao like ?;
     `
 
     let resposta = await con.query(comando, ['%' + info.buscar + '%']);
@@ -60,11 +62,11 @@ export async function consultarProdutosNome(info) {
 
 export async function inserirProdutos(produto, caminhoImagem, id) {
     let comando = `
-    INSERT INTO produtos (tipo, img, descricao, valor, disponivel, estoque, id_autonomo) VALUES
-    (?, ?, ?, ?, ?, ?, ?)
+    INSERT INTO produtos (nome, categoria, img, descricao, valor, disponivel, estoque, id_autonomo) VALUES
+    (?, ?, ?, ?, ?, ?, ?, ?)
     `
 
-    let resposta = await con.query(comando, [produto.tipo, caminhoImagem, produto.descricao, produto.valor, produto.disponivel, produto.estoque, id]);
+    let resposta = await con.query(comando, [produto.nome ,produto.categoria, caminhoImagem, produto.descricao, produto.valor, produto.disponivel, produto.estoque, id]);
     let info = resposta[0]
 
     return info.insertId;
@@ -73,16 +75,18 @@ export async function inserirProdutos(produto, caminhoImagem, id) {
 export async function alterarProdutos(produto, id) {
     let comando = `
     UPDATE produtos
-    SET tipo = ?,
+    SET 
+        nome = ?,
+        categoria = ?,
         img = ?,
         descricao = ?, 
         valor = ?, 
         disponivel = ?,
         estoque = ? 
-    WHERE id_produto = ?;
+    WHERE id_produto = ?
     `
 
-    let resposta = await con.query(comando, [produto.tipo, produto.img, produto.descricao, produto.valor, produto.disponivel, produto.estoque, id]);
+    let resposta = await con.query(comando, [produto.nome, produto.categoria, produto.img, produto.descricao, produto.valor, produto.disponivel, produto.estoque, id]);
     let info = resposta[0]
 
     return info.affectedRows;
@@ -115,4 +119,24 @@ export async function deletarProduto(id) {
     let linhasAfetadas = info.affectedRows;
 
     return linhasAfetadas;
+}
+
+
+export async function consultarProdutosPorPreco(precoMax) {
+    let comando = `
+    SELECT id_produto id,  
+           tipo,		
+           img,
+           descricao,	
+           valor,
+           disponivel,
+           estoque  
+    FROM produtos
+    WHERE valor <= ?;
+    `;
+
+    let resposta = await con.query(comando, [precoMax]);
+    let registros = resposta[0];
+
+    return registros;
 }

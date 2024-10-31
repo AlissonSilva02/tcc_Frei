@@ -1,155 +1,149 @@
 import "./index.scss";
+
+import MenuUsuario from "../../components/MenuUsuario/index.jsx";
 import Cabe from "../../components/cabecalho/index.jsx";
-
-
-import { Link } from "react-router-dom";
-
 import Rodape from "../../components/rodape/index.jsx";
-
 import Card from "../../components/CardProduto/index.jsx";
-import Card_grande from "../../components/Card_grande/index.jsx";
+
+import axios from "axios";
+import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export default function Produto() {
 
-	let produtos = [
-		{
-			produto: ""
-		},
-		{
-			produto: ""
-		}
-	]
+    const { id } = useParams()
+    const [produto, setProduto] = useState([]);
+    const [relacionados, setRelacionados] = useState([])
+
+    async function buscar() {
+        const url = `http://localhost:5002/select/produto/${id}`
+        let resp = await axios.get(url)
+        setProduto(resp.data)
+    }
+
+    async function buscarRelacionados() {
+        let paramCorpo = {
+            "buscar": produto.tipo
+        }
+    
+        const url = `http://localhost:5002/produto/nome`
+        let resp = await axios.post(url, paramCorpo)
+    
+        setRelacionados(resp.data)
+    }
+
+    useEffect(() => {
+        buscar()
+        buscarRelacionados()
+    }, [buscar, buscarRelacionados]);
+
+    function testar() {
+        alert(relacionados)
+    }
+
+    /*
+        "id":5,
+        "tipo":"Batom",
+        "img":"batom.jpg",
+        "descricao":"Batom matte vermelho intenso",
+        "valor":20,
+        "disponivel":true,
+        "estoque":100
+    */
+
+    return (
+        <div className="pagina-produto">
+            <header>
+                <MenuUsuario />
+                <Cabe />
+            </header>
+
+            <main>
+                <button onClick={testar}>Testar</button>
 
 
+                <div className="botao-voltar">
+                    <Link to={"/"}>
+                        <div className="voltar">
+                            <img
+                                src="/assets/images/Arrowleft.png"
+                                alt="seta"
+                                width={25}
+                            />
+                            <h1>VOLTAR</h1>
+                        </div>
+                    </Link>
+                </div>
 
-	return (
-		<div className="pagina-produto">
+                <div className="guia">
+                    <p> home / </p>
+                    <p> produtos /  </p>
+                    <p> cremes capilares</p>
+                </div>
 
-			<header>
-				<Cabe />
-			</header>
+                <div className="secao-produto">
 
-			<main>
+                    <div className="container-flex">
+                        <div className="imagem-produto">
+                            <img src={produto.img} alt={produto.img} />
+                        </div>
 
-				<div className="botao-voltar">
-					<Link to={'/'}>
-						<div className="voltar">
-							<img src="/assets/images/Arrowleft.png" alt="seta" width={30} />
-							<h1>VOLTAR</h1>
-						</div>
-					</Link>
-				</div>
+                        <div className="info">
+                            <h1>{produto.nome}</h1>
+                            <h2>R$ {Number(produto.valor).toFixed(2)}</h2>
 
-				<div className="secao-produto">
-					<div className="imagem-produto">
-						<img src="assets/images/Creme1.png" alt="" />
-						
-					</div>
+                            <hr />
 
-					<div className="info">
-						<h1>Sérum Revitalizante loreal</h1>
-						<h2>R$ 79,90</h2>
-						
-						<div>
-							<h2>categoria</h2>
-							<p>pentes/escovas</p>
-						</div>
+                            <div>
+                                <h2>Categoria</h2>
+                                <p>{produto.categoria}</p>
+                            </div>
 
-						<div className="numero">
-							<svg class="w-[48px] h-[48px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-								<path fill="currentColor" fill-rule="evenodd" d="M12 4a8 8 0 0 0-6.895 12.06l.569.718-.697 2.359 2.32-.648.379.243A8 8 0 1 0 12 4ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.96 9.96 0 0 1-5.016-1.347l-4.948 1.382 1.426-4.829-.006-.007-.033-.055A9.958 9.958 0 0 1 2 12Z" clip-rule="evenodd" />
-								<path fill="currentColor" d="M16.735 13.492c-.038-.018-1.497-.736-1.756-.83a1.008 1.008 0 0 0-.34-.075c-.196 0-.362.098-.49.291-.146.217-.587.732-.723.886-.018.02-.042.045-.057.045-.013 0-.239-.093-.307-.123-1.564-.68-2.751-2.313-2.914-2.589-.023-.04-.024-.057-.024-.057.005-.021.058-.074.085-.101.08-.079.166-.182.249-.283l.117-.14c.121-.14.175-.25.237-.375l.033-.066a.68.68 0 0 0-.02-.64c-.034-.069-.65-1.555-.715-1.711-.158-.377-.366-.552-.655-.552-.027 0 0 0-.112.005-.137.005-.883.104-1.213.311-.35.22-.94.924-.94 2.16 0 1.112.705 2.162 1.008 2.561l.041.06c1.161 1.695 2.608 2.951 4.074 3.537 1.412.564 2.081.63 2.461.63.16 0 .288-.013.4-.024l.072-.007c.488-.043 1.56-.599 1.804-1.276.192-.534.243-1.117.115-1.329-.088-.144-.239-.216-.43-.308Z" />
-							</svg>
-							<p>(11) 9999-9999</p>
-						</div>
-					</div>
-				</div>
+                            <div className="numero">
+                                <img
+                                    src="/assets/images/RedesSociais/whatsapp.svg"
+                                    alt="whatsapp"
+                                />
+                                <p>{"(11) 9999-9999"}</p>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div className="descricao">
+                        <hr className="linha" />
+                        <h1>Descrição</h1>
+                        <p>
+                            {produto.descricao}
+                        </p>
+                    </div>
+                </div>
 
-				<div className="descricao">
-					<hr className="linha" />
-					<h1>Descrição</h1>
-					<p>
-						Material de Alta Qualidade: Cerdas feitas de nylon flexível, ideais para desembaraçar sem puxar ou quebrar os fios.
+                <div className="Produtos-relacionados">
+                    <h1>Produtos Relacionados</h1>
 
-						Design Ergonômico: Cabo antideslizante e confortável, projetado para fácil manuseio.
+                    <div className="produtos">
+                        {relacionados.map((item, index) => (
+                            <Card
+                                imagem={item.img}
+                                alt={item.img}
+                                preco={item.valor}
+                                nome={item.valor}
+                            />
+                        ))} 
 
-						Desembaraço Eficiente: Ideal para todos os tipos de cabelo, desde os mais finos até os mais grossos e encaracolados.
+                        {/* <Card
+                            imagem="/assets/images/RedesSociais/whatsapp.svg"
+                            alt="imagem"
+                            preco={50}
+                            nome="nome"
+                        /> */}
+                    </div>
+                </div>
+            </main>
 
-						Uso Versátil: Perfeita para uso diário, tanto em cabelos secos quanto molhados.
-
-						Cuidado com o Couro Cabeludo: Cerdas com pontas arredondadas, que massageiam o couro cabeludo e estimulam a circulação sanguínea.
-
-						Fácil de Limpar: Material resistente à água e de fácil manutenção, garantindo uma escova sempre limpa e pronta para o uso.
-					</p>
-					<hr className="linha" />
-				</div>
-				
-
-
-				<div className="Produtos-relacionados">
-
-					<h1>Produtos Relacionados</h1>
-
-					<div className="produtos">
-						<Card
-							imagem='\assets\images\Makeup_Blue2.png'
-							alt='imagem produto'
-							preco={50}
-							nome='Nome do produto'
-						/>
-
-						<Card
-							imagem='\assets\images\Makeup_Blue2.png'
-							alt='imagem produto'
-							preco={50}
-							nome='Nome do produto'
-						/>
-
-						<Card
-							imagem='\assets\images\Makeup_Blue2.png'
-							alt='imagem produto'
-							preco={50}
-							nome='Nome do produto'
-						/>
-
-						<Card
-							imagem='\assets\images\Makeup_Blue2.png'
-							alt='imagem produto'
-							preco={50}
-							nome='Nome do produto'
-						/>
-						
-						<Card
-							imagem='\assets\images\Makeup_Blue2.png'
-							alt='imagem produto'
-							preco={50}
-							nome='Nome do produto'
-						/>
-						<Card
-							imagem='\assets\images\Makeup_Blue2.png'
-							alt='imagem produto'
-							preco={50}
-							nome='Nome do produto'
-						/>
-
-						<Card
-							imagem='\assets\images\Makeup_Blue2.png'
-							alt='imagem produto'
-							preco={50}
-							nome='Nome do produto'
-						/>
-					</div>
-				</div>
-
-
-
-			</main>
-
-			<footer>
-				<Rodape />
-			</footer>
-
-		</div>
-	);
+            <footer>
+                <Rodape />
+            </footer>
+        </div>
+    );
 }

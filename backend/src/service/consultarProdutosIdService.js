@@ -7,7 +7,8 @@ export default async function consultarProdutosIDService(id) {
      
     let produto = await consultarProdutosid(id)
 
-    if  (produto === '') {
+    if  (produto == '') {
+
         throw new Error("Produto não encontrado");
     }
 

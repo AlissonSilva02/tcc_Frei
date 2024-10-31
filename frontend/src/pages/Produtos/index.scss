@@ -1,0 +1,112 @@
+.pagina-produtos {
+  margin: 0px;
+  font-family: inter;
+
+  .container_principal {
+    display: flex;
+    flex-wrap: wrap;
+    h3 {
+      font-size: 1.5rem;
+      font-family: lobster;
+    }
+
+    h1 {
+      font-size: 4rem;
+      font-family: lobster;
+    }
+
+    .filtros {
+      display: flex;
+      flex-direction: column;
+      padding: 1%;
+
+      .filtro_preco {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        border: 2px solid #d3d3d3;
+        height: 10vh;
+        width: 40vh;
+        padding: 2%;
+        .precinho {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+
+      h2 {
+        font-size: 2rem;
+        padding-top: 3vh;
+        padding-bottom: 3vh;
+        font-family: lobster;
+      }
+      .cabelos {
+        display: flex;
+        flex-direction: column;
+        border: 2px solid #d3d3d3;
+        padding: 1vh;
+
+        .click {
+          display: flex;
+          gap: 2vh;
+          padding: 1vh;
+        }
+
+        .linha {
+          background-color: black;
+          height: 3px;
+        }
+      }
+
+      .skinCare {
+        display: flex;
+        flex-direction: column;
+        border: 2px solid #d3d3d3;
+        padding: 1vh;
+        margin-top: 5vh;
+        .click {
+          display: flex;
+          gap: 2vh;
+          padding: 1vh;
+        }
+
+        .linha {
+          background-color: black;
+          height: 3px;
+        }
+      }
+
+      .beleza {
+        display: flex;
+        flex-direction: column;
+        border: 2px solid #d3d3d3;
+        padding: 1vh;
+        margin-top: 5vh;
+        .click {
+          display: flex;
+          gap: 2vh;
+          padding: 1vh;
+        }
+
+        .linha {
+          background-color: black;
+          height: 3px;
+        }
+      }
+    }
+
+    .listaProdutos {
+      display: flex;
+      flex-direction: column;
+      padding: 2.5%;
+
+
+      .produtos {
+        display: flex;
+        padding-top: 3vh;
+        padding-bottom: 5vh;
+        flex-wrap: wrap;
+      }
+    }
+  }
+}

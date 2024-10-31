@@ -15,27 +15,25 @@ import removerProdutoService from "../service/RemoverProdutoService.js";
 const endpoints = Router();
 
 //seleciona todos os produtos
-endpoints.get("/select/produto", autenticar, async (req, resp) => {
+endpoints.get("/select/produto", async (req, resp) => {
     try {
         //Recebe o id pelo Token
-        let idUsuario = req.user.id;
         let total = req.query.total
-
-        let produto = await db.consultarProdutos(idUsuario, total);
+    
+        let produto = await db.consultarProdutos(total);
 
         resp.send(produto);
     } catch (error) {
         resp.send({
-            Error: error.message,
+            Error: error.message
         });
     }
 });
 
 //Seleciona um id especifico
-endpoints.get("/select/produto/:id", autenticar, async (req, resp) => {
+endpoints.get("/select/produto/:id", async (req, resp) => {
     try {
         let id = req.params.id;
-
         let produto = await consultarProdutosIDService(id);
 
         resp.send(produto[0]);
@@ -47,7 +45,7 @@ endpoints.get("/select/produto/:id", autenticar, async (req, resp) => {
 });
 
 //Busca produtos por nome ou pela descrição
-endpoints.get("/produto/nome", autenticar, async (req, resp) => {
+endpoints.post("/produto/nome", async (req, resp) => {
     try {
         let buscar = req.body;
 
@@ -61,6 +59,7 @@ endpoints.get("/produto/nome", autenticar, async (req, resp) => {
     }
 });
 
+
 //insere um novo produto
 let uploadImagemProduto = multer({dest: './storage/produtos'})
 endpoints.post("/insert/produto", autenticar, uploadImagemProduto.single('produto'), async (req, resp) => {
@@ -70,14 +69,13 @@ endpoints.post("/insert/produto", autenticar, uploadImagemProduto.single('produt
         let produto = null
         let caminhoImagem = null
 
-        if (!req.body.data){
+        if (!req.body.info){
             //Usar o body ainda funciona
             produto = req.body
             caminhoImagem = produto.img 
         } else {
-            produto = JSON.parse(req.body.data)
-            
             //verifica se algum arquivo foi enviado
+            produto = JSON.parse(req.body.info)
             if (req.file && req.file.path) {
                 caminhoImagem = req.file.path;
             } else {
@@ -98,15 +96,6 @@ endpoints.post("/insert/produto", autenticar, uploadImagemProduto.single('produt
     }
 });
 
-/* Thunder client
-            Body > Form
-
-            Marca a caxinha "Files"
-
-            Files
-            field name = produto
-            "escolher imagem"
-        */
 //inserindo uma imagem
 let atualizarImagemProduto = multer({dest: './storage/produtos'})
 endpoints.put("/update/imagem/:id", autenticar, atualizarImagemProduto.single('produto'), async (req, resp) => {
@@ -167,5 +156,33 @@ endpoints.delete("/delete/produto/:id", autenticar, async (req, resp) => {
         });
     }
 });
+
+
+
+
+endpoints.post("/produto/preco/", async (req, resp) => {
+    try {
+        // Aqui, extraímos o valor de precoMax diretamente
+        const { precoMax } = req.body; // Use a desestruturação para pegar apenas o valor
+
+        // Verifica se o preço máximo foi fornecido
+        if (!precoMax) {
+            return resp.status(400).send({
+                Error: "O parâmetro precoMax é obrigatório."
+            });
+        }
+
+        // Chama o método no repositório que busca produtos com preço até o limite
+        let produtos = await db.consultarProdutosPorPreco(precoMax);
+        
+        resp.send(produtos);
+    } catch (error) {
+        resp.send({
+            Error: error.message
+        });
+    }
+});
+
+
 
 export default endpoints;

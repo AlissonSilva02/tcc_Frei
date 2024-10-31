@@ -1,7 +1,7 @@
 .componente-menuSidebar {
 
     .container-sidebar {
-        background-color: #171923;
+        background-color: #181818;
         position: fixed;
         height: 100%;
         top: 0;
@@ -37,9 +37,23 @@
     }
 
     .itens-menu {
-        margin-top: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        gap: 5px;
+
+        margin-top: 20px;
         margin-left: 20%;
         margin-right: 5%;
+
+        .itens{
+            width: 100%;
+        }
+
+        .logo{
+            margin-bottom: 20px;
+        }
     }
 
     @media (max-width: 500px) {

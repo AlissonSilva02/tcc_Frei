@@ -2,7 +2,7 @@ import "./index.scss";
 import Menu from "../../components/menu/index.jsx";
 import Cabe from "../../components/cabecalho/index.jsx";
 import Rodape from "../../components/rodape/index.jsx";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 export default function App() {
     return (
@@ -12,15 +12,20 @@ export default function App() {
                     itens={[
                         {
                             icone: "/assets/images/menu/home.svg",
-                            nome: "Home",
+                            nome: "Inicio",
                         },
                         {
-                            icone: "/assets/images/menu/home.svg",
-                            nome: "Outro Home",
+                            icone: "/assets/images/menu/home.svg", 
+                            nome: "Produtos",
                         },
                         {
+                            icone: "/assets/images/menu/home.svg", 
                             nome: "Sobre",
                         },
+                        {
+                            icone: "/assets/images/menu/home.svg", 
+                            nome: "FAQ",
+                        }
                     ]}
                 />
                 <Cabe pesquisar={true}/>

@@ -3,7 +3,9 @@ import "./index.scss";
 import { Link, useNavigate } from "react-router-dom";
 import Cabe from "../../components/cabecalho/index.jsx";
 import Rodape from "../../components/rodape/index.jsx";
-import Menu from "../../components/menu/index.jsx";
+import MenuUsuario from "../../components/MenuUsuario/index.jsx";
+import { MagicMotion } from "react-magic-motion";
+
 
 import axios from "axios";
 
@@ -50,31 +52,18 @@ export default function Consultar() {
         let token = localStorage.getItem("USUARIO");
         setToken(token);
 
-        if (token === null) {
+        if (token === "null") {
             Navigate("/");
-        } else {
+        } else { 
             buscar(token);
         }
     }, [Navigate, limite, buscar]);
 
     return (
+      
         <div className="pagina-consultar">
             <header className="cabecalho">
-                <Menu
-                    itens={[
-                        {
-                            icone: '/assets/images/home.svg',
-                            nome: "Home",
-                        },
-                        {
-                            icone: '/assets/images/home.svg',
-                            nome: "Outro Home",
-                        },
-                        {
-                            nome: "item sem icone",
-                        },
-                    ]}
-                />
+                <MenuUsuario />
                 <Cabe />
             </header>
 
@@ -93,8 +82,8 @@ export default function Consultar() {
                         <thead>
                             <tr className="bak">
                                 <th>ID</th>
-                                <th>Produto</th>
-                                <th>Imagem</th>
+                                <th>nome</th>
+                                <th>categoria</th>
                                 <th>Descricao</th>
                                 <th>Valor</th>
                                 <th>Estoque</th>
@@ -109,14 +98,15 @@ export default function Consultar() {
                                     <td>
                                         #{item.id.toString().padStart(2, "0")}
                                     </td>
-                                    <td>{item.tipo}</td>
-                                    <td>{item.img}</td>
+                                    <td>{item.nome}</td>
+                                    <td>{item.categoria}</td>
                                     <td>{item.descricao}</td>
                                     <td>{item.valor}</td>
                                     <td>{item.estoque}</td>
                                     {/* <td>{new Date(item.vinganca).toLocaleDateString()}</td> */}
                                     <td>{item.disponivel ? "Sim" : "Não"}</td>
-                                    <td>
+                                    <td> 
+                                        <MagicMotion>
                                         <Link to={`/cadastrar/${item.id}`}>
                                             <img
                                                 src="/assets/images/editar.png"
@@ -124,7 +114,7 @@ export default function Consultar() {
                                                 width={48}
                                             />
                                         </Link>
-
+ 
                                         <Link
                                             onClick={() =>
                                                 deletar(item.id, token)
@@ -136,6 +126,7 @@ export default function Consultar() {
                                                 width={48}
                                             />
                                         </Link>
+                                        </MagicMotion>
                                     </td>
                                 </tr>
                             ))}
@@ -143,8 +134,6 @@ export default function Consultar() {
                     </table>
                 </div>
 
-            
-            
             {mostrarVermais &&
                 <div className="verMais">
                     <hr />

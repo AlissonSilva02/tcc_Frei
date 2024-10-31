@@ -1,25 +1,30 @@
 .componente-sidebarItem{
-    
-    display: flex;
-    align-items: center;
-    gap: 10px;
 
-    background-color: #1A202C;
-    font-size: 28px;
+    background-color: #222222;
     color: white;
-    
-    border-radius: 10px;
+    font-size: 28px;
+    font-family: 'Inter';
 
+    border-radius: 10px;
     padding: 10px;
     margin: 0 15px 20px 0;
+
     cursor: pointer;
 
-    svg{
-        margin: 0 28px
+    .item{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
     }
 
     &:hover {
         background-color: black;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
     }
 
 }
