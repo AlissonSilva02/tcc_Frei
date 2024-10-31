@@ -9,6 +9,7 @@ import Login from "./pages/Login/index.jsx";
 import Not from "./pages/not_found/index.jsx";
 import Sobre from "./pages/sobrenos/index.jsx";
 import Ajuda from "./pages/ajuda/index.jsx"
+import  Produtos  from "./pages/Produtos/index.jsx";
 
 //excluir depois
 import Cabe from "./components/cabecalho/index.jsx";
@@ -31,7 +32,7 @@ export default function Navegacao() {
                 <Route path="/login" element={<Login/>} />
                 <Route path="/sobre" element={<Sobre/>} />
                 <Route path="/ajuda" element={<Ajuda/>} />
-
+                <Route path="/produtos" element={<Produtos/>} />
                 
                 <Route path="/Menu" element={<MenuUsuario />} />
                 <Route path="/Cabecalho" element={<Cabe />} />

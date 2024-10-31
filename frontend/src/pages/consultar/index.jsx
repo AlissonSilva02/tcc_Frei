@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Cabe from "../../components/cabecalho/index.jsx";
 import Rodape from "../../components/rodape/index.jsx";
 import MenuUsuario from "../../components/MenuUsuario/index.jsx";
+import { MagicMotion } from "react-magic-motion";
+
 
 import axios from "axios";
 
@@ -58,6 +60,7 @@ export default function Consultar() {
     }, [Navigate, limite, buscar]);
 
     return (
+      
         <div className="pagina-consultar">
             <header className="cabecalho">
                 <MenuUsuario />
@@ -102,7 +105,8 @@ export default function Consultar() {
                                     <td>{item.estoque}</td>
                                     {/* <td>{new Date(item.vinganca).toLocaleDateString()}</td> */}
                                     <td>{item.disponivel ? "Sim" : "Não"}</td>
-                                    <td>
+                                    <td> 
+                                        <MagicMotion>
                                         <Link to={`/cadastrar/${item.id}`}>
                                             <img
                                                 src="/assets/images/editar.png"
@@ -110,7 +114,7 @@ export default function Consultar() {
                                                 width={48}
                                             />
                                         </Link>
-
+ 
                                         <Link
                                             onClick={() =>
                                                 deletar(item.id, token)
@@ -122,6 +126,7 @@ export default function Consultar() {
                                                 width={48}
                                             />
                                         </Link>
+                                        </MagicMotion>
                                     </td>
                                 </tr>
                             ))}
