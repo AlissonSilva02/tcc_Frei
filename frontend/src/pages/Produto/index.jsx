@@ -10,23 +10,36 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export default function Produto() {
+
+    const { id } = useParams()
+    const [produto, setProduto] = useState([]);
+    const [relacionados, setRelacionados] = useState([])
+
+    async function buscar() {
+        const url = `http://localhost:5002/select/produto/${id}`
+        let resp = await axios.get(url)
+        setProduto(resp.data)
+    }
+
+    async function buscarRelacionados() {
+        let paramCorpo = {
+            "buscar": produto.tipo
+        }
     
-	const {id} = useParams()
-	const [produto, setProduto] = useState([]);
+        const url = `http://localhost:5002/produto/nome`
+        let resp = await axios.post(url, paramCorpo)
+    
+        setRelacionados(resp.data)
+    }
 
-	async function buscar() {
-		const url = `http://localhost:5002/select/produto/${id}`
-		let resp = await axios.get(url)
-		setProduto(resp.data)
+    useEffect(() => {
+        buscar()
+        buscarRelacionados()
+    }, [buscar, buscarRelacionados]);
 
-		alert(JSON.stringify(produto)) 
-	}
-
-	useEffect( () => {
-       buscar();
-
-    }, []);
-
+    function testar() {
+        alert(relacionados)
+    }
 
     /*
         "id":5,
@@ -35,7 +48,7 @@ export default function Produto() {
         "descricao":"Batom matte vermelho intenso",
         "valor":20,
         "disponivel":true,
-        "estoque":100}
+        "estoque":100
     */
 
     return (
@@ -46,7 +59,7 @@ export default function Produto() {
             </header>
 
             <main>
-				<button onClick={buscar}>mostrar produto encontrado</button>
+                <button onClick={testar}>Testar</button>
 
 
                 <div className="botao-voltar">
@@ -64,15 +77,15 @@ export default function Produto() {
 
                 <div className="guia">
                     <p> home / </p>
-					<p> produtos /  </p>
-					<p> cremes capilares</p>
+                    <p> produtos /  </p>
+                    <p> cremes capilares</p>
                 </div>
 
                 <div className="secao-produto">
-                    
-					<div className="container-flex">
+
+                    <div className="container-flex">
                         <div className="imagem-produto">
-                            <img src="/assets/images/Creme1.png" alt="" />
+                            <img src={produto.img} alt={produto.img} />
                         </div>
 
                         <div className="info">
@@ -109,53 +122,21 @@ export default function Produto() {
                     <h1>Produtos Relacionados</h1>
 
                     <div className="produtos">
-                        <Card
-                            imagem="\assets\images\Makeup_Blue2.png"
-                            alt="imagem produto"
-                            preco={50}
-                            nome="Nome do produto"
-                        />
+                        {relacionados.map((item, index) => (
+                            <Card
+                                imagem={item.img}
+                                alt={item.img}
+                                preco={item.valor}
+                                nome={item.valor}
+                            />
+                        ))} 
 
-                        <Card
-                            imagem="\assets\images\Makeup_Blue2.png"
-                            alt="imagem produto"
+                        {/* <Card
+                            imagem="/assets/images/RedesSociais/whatsapp.svg"
+                            alt="imagem"
                             preco={50}
-                            nome="Nome do produto"
-                        />
-
-                        <Card
-                            imagem="\assets\images\Makeup_Blue2.png"
-                            alt="imagem produto"
-                            preco={50}
-                            nome="Nome do produto"
-                        />
-
-                        <Card
-                            imagem="\assets\images\Makeup_Blue2.png"
-                            alt="imagem produto"
-                            preco={50}
-                            nome="Nome do produto"
-                        />
-
-                        <Card
-                            imagem="\assets\images\Makeup_Blue2.png"
-                            alt="imagem produto"
-                            preco={50}
-                            nome="Nome do produto"
-                        />
-                        <Card
-                            imagem="\assets\images\Makeup_Blue2.png"
-                            alt="imagem produto"
-                            preco={50}
-                            nome="Nome do produto"
-                        />
-
-                        <Card
-                            imagem="\assets\images\Makeup_Blue2.png"
-                            alt="imagem produto"
-                            preco={50}
-                            nome="Nome do produto"
-                        />
+                            nome="nome"
+                        /> */}
                     </div>
                 </div>
             </main>

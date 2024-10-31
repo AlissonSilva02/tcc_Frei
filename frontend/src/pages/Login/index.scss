@@ -8,6 +8,26 @@
   font-family: inter;
 
 
+.mestica{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+ .olho{
+  position: absolute;
+  justify-content: center;
+  background-color: #ffffff;
+  border: 0px;
+ }
+
+  .oio, .oiof{
+
+    display: flex;
+    
+  }
+
   .container {
     flex: 1;
     display: flex;
@@ -41,6 +61,7 @@
             width: 25rem;
             height: auto;
             padding: 10px 15px;
+            padding-right: 5px;
             margin: 5px 0px;
 
             box-shadow: 2px 2px 4px 0px #eeeeee;
@@ -55,11 +76,11 @@
           }
         }
 
-        button {
+         .mes {
           cursor: pointer;
-          background-color: black;
-          color: white;
-          padding: 10px 0px;
+          background-color: rgb(0, 0, 0);
+          color: rgb(255, 255, 255);
+          padding: 1.2vw;
           border: none;
           border-radius: 5px;
         }

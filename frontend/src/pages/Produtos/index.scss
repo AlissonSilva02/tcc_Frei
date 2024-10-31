@@ -1,0 +1,35 @@
+.pagina-produtos{
+    margin: 0px;
+    font-family: inter;
+
+
+    .container_principal{
+        display: flex;
+
+        .filtros{
+            display: flex;
+            flex-direction: column;
+            padding: 1%;
+
+            .filtro_preco{
+                    display: flex;
+                    flex-direction: column;
+                .precinho{
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+        }
+
+        .listaProdutos{
+            display: flex;
+            flex-direction: column;
+            padding: 2.5%;
+
+            .produtos{
+                display: flex;
+                
+            }
+        }
+    }
+}
