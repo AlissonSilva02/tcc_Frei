@@ -37,7 +37,7 @@ export default function Produtos() {
 
   async function buscarProdutos() {
     try {
-      const url = `http://localhost:5002/produto/preco/`;
+      const url = `http://4.172.207.208:5031/produto/preco/`;
       const resp = await axios.post(url, { precoMax });
       const produtos = Array.isArray(resp.data) ? resp.data : [];
       setProduto(produtos);

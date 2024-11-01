@@ -82,7 +82,7 @@ export default function Cadastrar() {
 
         if (id === undefined) {
             //inserir
-            const url = `http://localhost:5002/insert/produto?x-access-token=${token}`;
+            const url = `http://4.172.207.208:5031/insert/produto?x-access-token=${token}`;
             let resp = await axios.post(url, paramCorpo);
             
             navigate(-1)
@@ -95,7 +95,7 @@ export default function Cadastrar() {
                     "x-access-token": token,
                 },
             };
-            const url = `http://localhost:5002/update/produto/${id}`;
+            const url = `http://4.172.207.208:5031/update/produto/${id}`;
             await axios.put(url, paramCorpo, config);
 
             navigate(-1)
@@ -106,7 +106,7 @@ export default function Cadastrar() {
     
 
     // async function Buscar(token) {
-    //     const url = `http://localhost:5002/select/produto/${id}?x-access-token=${token}`;
+    //     const url = `http://4.172.207.208:5031/select/produto/${id}?x-access-token=${token}`;
     //     let resp = await axios.get(url);
 
     //     setnome(resp.data.nome);
@@ -120,7 +120,7 @@ export default function Cadastrar() {
 
 
 const Buscar = useCallback(async (token) => {
-    const url = `http://localhost:5002/select/produto/${id}?x-access-token=${token}`
+    const url = `http://4.172.207.208:5031/select/produto/${id}?x-access-token=${token}`
     let resp =  await axios.get(url)
 
     setnome(resp.data.nome);
@@ -135,7 +135,7 @@ const Buscar = useCallback(async (token) => {
 
     /*
     const buscar = useCallback(async (token) => {
-        const url = `http://localhost:5002/select/produto/?total=${limite}&x-access-token=${token}`;
+        const url = `http://4.172.207.208:5031/select/produto/?total=${limite}&x-access-token=${token}`;
         let resp = await axios.get(url);
         setProdutos(resp.data);
     }, [limite]);

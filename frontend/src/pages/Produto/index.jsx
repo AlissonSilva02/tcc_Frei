@@ -16,7 +16,7 @@ export default function Produto() {
 	const [relacionados, setRelacionados] = useState([])
 
 	async function buscar() {
-		const url = `http://localhost:5002/select/produto/${id}`
+		const url = `http://4.172.207.208:5031/select/produto/${id}`
 		let resp = await axios.get(url)
 		setProduto(resp.data)
 	}
@@ -26,7 +26,7 @@ export default function Produto() {
 			"buscar": produto.categoria
 		}
 
-		const url = `http://localhost:5002/produto/nome`;
+		const url = `http://4.172.207.208:5031/produto/nome`;
 
 		let resp = await axios.post(url, paramCorpo);
 		setRelacionados(resp.data);
