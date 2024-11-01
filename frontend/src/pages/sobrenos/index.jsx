@@ -2,6 +2,7 @@ import Cabe from "../../components/cabecalho";
 import MenuUsuario from "../../components/MenuUsuario";
 
 import Rodape from "../../components/rodape";
+import MenuUsuario from "../../components/MenuUsuario/index.jsx";
 import "./index.scss";
 
 export default function Sobre() {
@@ -58,14 +59,16 @@ export default function Sobre() {
                     </div>
                 </div>
 
-                <div>
-                    <p>
-                        Nossos cosméticos são formulados com ingredientes de
-                        alta qualidade, combinando inovação e respeito pelo meio
-                        ambiente. Junte-se a nós e descubra como a AuraStyle
-                        pode transformar sua rotina de cuidados pessoais.
-                    </p>
-                </div>
+        <div className="yap0">
+          <div className="yap1">
+            <h2>
+              Nossos cosméticos são formulados com ingredientes de alta
+              qualidade, combinando inovação e respeito pelo meio ambiente.
+              Junte-se a nós e descubra como a AuraStyle pode transformar sua
+              rotina de cuidados pessoais.
+            </h2>
+          </div>
+		  </div>
 
                 <hr />
               

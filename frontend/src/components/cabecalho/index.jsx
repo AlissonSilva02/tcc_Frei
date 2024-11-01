@@ -33,9 +33,10 @@ export default function Cabe({ pesquisar }) {
 
                 <div className="navegacao">
                     
-                    <h3>Inicio</h3>
-                    <div className="linha"></div>
-                    <h3>Produtos</h3>
+                   <Link to="/">  <h3>Inicio</h3></Link>
+                   <div className="linha"></div>        
+                    <Link to="/produtos">
+                    <h3>Produtos</h3></Link>
                     <div className="linha"></div>
                     <Link to="/sobre">
 
