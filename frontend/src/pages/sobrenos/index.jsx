@@ -1,8 +1,8 @@
 import Cabe from "../../components/cabecalho";
+import Rodape from "../../components/rodape";
+
 import MenuUsuario from "../../components/MenuUsuario";
 
-import Rodape from "../../components/rodape";
-import MenuUsuario from "../../components/MenuUsuario/index.jsx";
 import "./index.scss";
 
 export default function Sobre() {
@@ -13,7 +13,6 @@ export default function Sobre() {
                     <MenuUsuario />
                     <Cabe />
                 </header>
-
                 <div className="faleConosco">
                     <button className="butao">Fale Conosco</button>
                 </div>
@@ -28,29 +27,21 @@ export default function Sobre() {
                     </p>
                 </div>
 
-                <div className="comments-txt">
-
-
-				</div>
-
                 <div className="comentarios">
-					<div className="comments-title"> 
-						<h2>Comentarios</h2>
-					</div>
+                    <h2>Comentarios</h2>
 
                     <div className="comments-txt">
                         <img
                             className="seta"
                             src="assets/images/seta.esq.png"
-                            alt=""
+                            alt="seta"
                         />
-                        <h3 className="pe">
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Accusantium cupiditate alias quibusdam non
-                            placeat tempora, temporibus amet. Accusantium, enim
-                            consequuntur explicabo blanditiis cum exercitationem
-                            totam praesentium saepe possimus beatae. Vero.
-                        </h3>
+                        <p>
+							Este produto de cosmético é incrível! A qualidade
+							é evidente desde a primeira aplicação - textura leve, fragrância suave e 
+							resultados que realmente entregam o que prometem. É perfeito para quem busca 
+							cuidados com a pele sem abrir mão de um toque de luxo.
+                        </p>
                         <img
                             className="seta"
                             src="assets/images/seta.direita.png"
@@ -59,31 +50,27 @@ export default function Sobre() {
                     </div>
                 </div>
 
-        <div className="yap0">
-          <div className="yap1">
-            <h2>
-              Nossos cosméticos são formulados com ingredientes de alta
-              qualidade, combinando inovação e respeito pelo meio ambiente.
-              Junte-se a nós e descubra como a AuraStyle pode transformar sua
-              rotina de cuidados pessoais.
-            </h2>
-          </div>
-		  </div>
+                <div className="recado">
+                    <p>
+                        Nossos cosméticos são formulados com ingredientes de
+                        alta qualidade, combinando inovação e respeito pelo meio
+                        ambiente. Junte-se a nós e descubra como a Ashey pode
+                        transformar sua rotina de cuidados pessoais.
+                    </p>
+                </div>
 
                 <hr />
-              
 
-                <div className="yap3">
-                    <h2>
-                        Com carinho,
-                        <br />
-                        Equipebr Aurastyle
-                    </h2>
+                <div className="creditos">
+                    <p>
+                        Com carinho, <br />
+                        Equipe Ashey
+                    </p>
                 </div>
             </div>
 
-            <div>
-                <img className="tiny " src="assets/images/tiny.png" alt="" />
+            <div className="tiny">
+                <img src="assets/images/tiny.png" alt="tiny" />
             </div>
 
             <footer>
