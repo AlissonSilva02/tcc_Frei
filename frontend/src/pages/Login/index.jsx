@@ -5,7 +5,6 @@ import axios from 'axios'
 import Rodape from '../../components/rodape';
 import Cabecalho_login from '../../components/cabecalho_login';
 
-import {Eye, EyeOff} from "lucide-react"
 import { toast } from 'react-toastify';
 
 
@@ -17,7 +16,10 @@ export default function Login() {
 
     const navigate = useNavigate();
 
-    const verificaOlho = () => setOlho(!olho)
+    function verificaOlho() {
+        setOlho(!olho)
+    }
+
 
     function teclaApertada(e) {
         if (e.key == 'Enter') {
@@ -72,8 +74,8 @@ export default function Login() {
                                 onChange={(e) => setSenha(e.target.value)}
                             /> 
                             <button className='olho' onClick={verificaOlho} type='button'>
-                                {!olho  && <EyeOff className='oiof' />}
-                                {olho && <Eye className='oio' />}
+                                {!olho  && <hr className='oiof' />}
+                                {olho && <hr className='oio' />}
                             </button></div>
                             
                             

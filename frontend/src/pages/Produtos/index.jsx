@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import FiltroPreco from "../../components/filtro/index.jsx";
 import VoltarButton from "../../components/voltar/index.jsx";
+import { toast } from "react-toastify";
 
 export default function Produtos() {
   const [produto, setProduto] = useState([]);
@@ -42,7 +43,7 @@ export default function Produtos() {
       setProduto(produtos);
       setProdutosFiltrados(produtos);
     } catch (error) {
-      console.error("Erro ao buscar produtos:", error);
+      toast.error("Erro ao buscar produtos:", error);
     }
   }
 
