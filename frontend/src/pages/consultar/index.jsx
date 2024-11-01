@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import "./index.scss";
 import { Link, useNavigate } from "react-router-dom";
 import Cabe from "../../components/cabecalho/index.jsx";
@@ -19,11 +19,11 @@ export default function Consultar() {
 
     const Navigate = useNavigate();
 
-    async function buscar(token) {
+    const buscar = useCallback(async (token) => {
         const url = `http://localhost:5002/select/produto/?total=${limite}&x-access-token=${token}`;
         let resp = await axios.get(url);
         setProdutos(resp.data);
-    }
+    }, [limite]);
 
     async function deletar(id, token) {
         // Remova o parâmetro id

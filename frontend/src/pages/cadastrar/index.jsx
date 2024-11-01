@@ -1,13 +1,18 @@
 import Rodape from "../../components/rodape/index.jsx";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useParams, Link } from "react-router-dom";
+
 import { useNavigate } from "react-router-dom";
+
 import axios from "axios";
 import "./index.scss";
 import Cabe from "../../components/cabecalho/index.jsx";
 import VoltarButton from "../../components/voltar/index.jsx";
+import { toast } from "react-toastify";
 
 export default function Cadastrar() {
+    const navigate = useNavigate();
+
     const [token, setToken] = useState(null);
     const Navigate = useNavigate();
 
@@ -39,6 +44,7 @@ export default function Cadastrar() {
             setEstoque(Number(estoque) + 1);
         }
     }
+
     function diminuir() {
         if (estoque > 0) {
             setEstoque(estoque - 1);
@@ -62,11 +68,25 @@ export default function Cadastrar() {
             estoque: estoque,
         };
 
+        
+
+        for (const [chave, valor] of Object.entries(paramCorpo)) {
+            if (valor === undefined || valor === null || valor === '') {
+
+                toast.warning(`preencha o campo ${chave}`)
+                return
+            }
+        }
+
+        
+
         if (id === undefined) {
             //inserir
             const url = `http://localhost:5002/insert/produto?x-access-token=${token}`;
             let resp = await axios.post(url, paramCorpo);
-            alert("Produto adicionado Id: " + resp.data.id);
+            
+            navigate(-1)
+            toast.success("Produto adicionado Id: " + resp.data.id);
         } else {
             //atualizar
 
@@ -78,35 +98,61 @@ export default function Cadastrar() {
             const url = `http://localhost:5002/update/produto/${id}`;
             await axios.put(url, paramCorpo, config);
 
-            alert("Produto alterado Id: " + id);
+            navigate(-1)
+            toast.info("Produto alterado Id: " + id);
         }
     }
 
-    async function Buscar(token) {
-        const url = `http://localhost:5002/select/produto/${id}?x-access-token=${token}`;
-        let resp = await axios.get(url);
+    
 
-        setnome(resp.data.nome);
-        setcategoria(resp.data.categoria);
-        setImg(resp.data.img);
-        setDescricao(resp.data.descricao);
-        setValor(resp.data.valor);
-        setDisponivel(resp.data.disponivel);
-        setEstoque(resp.data.estoque);
-    }
+    // async function Buscar(token) {
+    //     const url = `http://localhost:5002/select/produto/${id}?x-access-token=${token}`;
+    //     let resp = await axios.get(url);
+
+    //     setnome(resp.data.nome);
+    //     setcategoria(resp.data.categoria);
+    //     setImg(resp.data.img);
+    //     setDescricao(resp.data.descricao);
+    //     setValor(resp.data.valor);
+    //     setDisponivel(resp.data.disponivel);
+    //     setEstoque(resp.data.estoque);
+    // }
+
+
+const Buscar = useCallback(async (token) => {
+    const url = `http://localhost:5002/select/produto/${id}?x-access-token=${token}`
+    let resp =  await axios.get(url)
+
+    setnome(resp.data.nome);
+    setcategoria(resp.data.categoria);
+    setImg(resp.data.img);
+    setDescricao(resp.data.descricao);
+    setValor(resp.data.valor);
+    setDisponivel(resp.data.disponivel);
+    setEstoque(resp.data.estoque);
+}, [id])
+
+
+    /*
+    const buscar = useCallback(async (token) => {
+        const url = `http://localhost:5002/select/produto/?total=${limite}&x-access-token=${token}`;
+        let resp = await axios.get(url);
+        setProdutos(resp.data);
+    }, [limite]);
+    */
 
     useEffect(() => {
         let token = localStorage.getItem("USUARIO");
         setToken(token);
 
-        if (token === null) {
+        if (token === "null") {
             Navigate("/");
         }
-
+ 
         if (id) {
             Buscar(token);
         }
-    }, [id, Navigate]);
+    }, [id, Navigate, Buscar]);
 
     return (
         <div className="pagina-cadastrar">
@@ -249,12 +295,12 @@ export default function Cadastrar() {
                 </div>
 
                 <div className="lile">
-                    <Link to={`/consultar`}>
+                   
                         <button className="inserir" onClick={salvar}>
                             {id === undefined ? "Inserir" : "Atualizar"}
                         </button>
-                    </Link>
-                    <Link to={"/"}>
+                
+                    <Link to={"/consultar"}>
                         <button className="cancelar"> Cancelar </button>
                     </Link>
                 </div>

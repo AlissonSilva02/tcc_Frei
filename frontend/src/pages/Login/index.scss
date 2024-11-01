@@ -1,5 +1,6 @@
 .Pagina-login {
-  min-height: 100vh; /* Garante que ocupe toda a altura da tela */
+  min-height: 100vh;
+  /* Garante que ocupe toda a altura da tela */
   display: flex;
   flex-direction: column;
   background-size: cover;
@@ -8,34 +9,36 @@
   font-family: inter;
 
 
-.mestica{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-}
+  .mestica {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+  }
 
- .olho{
-  position: absolute;
-  justify-content: center;
-  background-color: #ffffff;
-  border: 0px;
- }
+  .olho {
+    position: absolute;
+    justify-content: center;
+    border: 0px;
+	background-color: none;
+  }
 
-  .oio, .oiof{
+  .oio, .oiof {
 
     display: flex;
-    
+
   }
 
   .container {
     flex: 1;
     display: flex;
     padding-bottom: 9%;
+
     .formulario {
       display: flex;
       justify-content: center;
       align-items: center;
+
       .campos {
         display: flex;
         flex-direction: column;
@@ -57,6 +60,7 @@
         .campo {
           display: flex;
           flex-direction: column;
+
           input {
             width: 25rem;
             height: auto;
@@ -70,13 +74,14 @@
 
             border-radius: 5px;
           }
+
           a {
             text-decoration: none;
             font-weight: 500;
           }
         }
 
-         .mes {
+        .mes {
           cursor: pointer;
           background-color: rgb(0, 0, 0);
           color: rgb(255, 255, 255);
@@ -97,70 +102,76 @@
 
 
 
-  
-  @media (max-width: 450px) {
-    .container {
-      .formulario {
-        .campos {
 
-          .campo input {
-            width: 30vh  !important;
-          }
-        
+@media (max-width: 450px) {
+  .container {
+    .formulario {
+      .campos {
+
+        .campo input {
+          width: 30vh !important;
+        }
+
+      }
+    }
+  }
+}
+
+/* Tablets padrão (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+
+    .formulario {
+      .campos {
+        padding: 20px;
+
+        h1 {
+          font-size: 42px;
+        }
+
+        .campo input {
+          width: 18rem;
         }
       }
     }
   }
+}
 
-  /* Tablets padrão (768px - 1024px) */
-  @media (min-width: 768px) and (max-width: 1024px) {
-    .container {
-      flex-direction: column;
+/* Laptops médios (1280px - 1440px) */
+@media (min-width: 1280px) and (max-width: 1440px) {
+  .container {
+    .formulario {
+      .campos {
+        padding: 25px;
 
-      .formulario {
-        .campos {
-          padding: 20px;
-          h1 {
-            font-size: 42px;
-          }
-          .campo input {
-            width: 18rem;
-          }
+        h1 {
+          font-size: 48px;
+        }
+
+        .campo input {
+          width: 22rem;
         }
       }
     }
   }
+}
 
-  /* Laptops médios (1280px - 1440px) */
-  @media (min-width: 1280px) and (max-width: 1440px) {
-    .container {
-      .formulario {
-        .campos {
-          padding: 25px;
-          h1 {
-            font-size: 48px;
-          }
-          .campo input {
-            width: 22rem;
-          }
+/* Monitores Full HD (1440px - 1920px) */
+@media (min-width: 1440px) and (max-width: 1920px) {
+  .container {
+    .formulario {
+      .campos {
+        padding: 30px;
+
+        h1 {
+          font-size: 50px;
+        }
+
+        .campo input {
+          width: 25rem;
         }
       }
     }
   }
-
-  /* Monitores Full HD (1440px - 1920px) */
-  @media (min-width: 1440px) and (max-width: 1920px) {
-    .container {
-      .formulario {
-        .campos {
-          padding: 30px;
-          h1 {
-            font-size: 50px;
-          }
-          .campo input {
-            width: 25rem;
-          }
-        }
-      }
-    }
-  }
+}
