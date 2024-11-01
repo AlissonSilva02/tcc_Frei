@@ -3,26 +3,26 @@ import Rodape from "../../components/rodape";
 import "./index.scss";
 
 export default function Sobre() {
-  return (
-    <div className="super">
-      <div className="sobre">
-        <header>
-          <Cabe />
-        </header>
+    return (
+        <div className="pagina-SobreNos">
+            <div className="sobre">
+                <header>
+                    <Cabecalho_sem />
+                </header>
 
-        <div className="fale">
-          <div className="boto">
-            <button className="butao">Fale Conosco</button>
-          </div>
-        </div>
+                <div className="fale">
+                    <div className="boto">
+                        <button className="butao">Fale Conosco</button>
+                    </div>
 
-        <div className="nossa">
-          <div className="comments-title">
-            <h2>Nossa Missão</h2>
-            <br />
-            <br />
-            <br />
-          </div>
+                    <div className="nossa">
+                        <div className="comments-title">
+                            <h2>Nossa Missão</h2>
+                            <br />
+                            <br />
+                            <br />
+                        </div>
+                    </div>
 
           <div className="comments-txt">
             <h3 className="pe">
@@ -50,15 +50,15 @@ export default function Sobre() {
           </div>
         </div>
 
-        <div className="yap0">
-          <div className="yap1">
-            <h2>
-              Nossos cosméticos são formulados com ingredientes de alta
-              qualidade, combinando inovação e respeito pelo meio ambiente.
-              Junte-se a nós e descubra como a AuraStyle pode transformar sua
-              rotina de cuidados pessoais.
-            </h2>
-          </div>
+                    <div>
+                        <p>
+                            Nossos cosméticos são formulados com ingredientes de
+                            alta qualidade, combinando inovação e respeito pelo
+                            meio ambiente. Junte-se a nós e descubra como a
+                            AuraStyle pode transformar sua rotina de cuidados
+                            pessoais.
+                        </p>
+                    </div>
 
           <hr />
           <br />
