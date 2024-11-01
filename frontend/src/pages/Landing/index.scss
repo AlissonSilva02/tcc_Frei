@@ -1,12 +1,16 @@
 .pagina-landing {
     width: 100%;
+  
+
 
     
     .secao-landing {
         font-family: inter;
-        flex-direction: column;
+        width: 100%;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
+        display: flex;
 
         .catch {
             display: flex;
@@ -14,33 +18,34 @@
             margin-top: 20px;
             align-items: center;
             justify-content: center;
-            width: 600px;
-            margin-bottom: 100px;
+            width: 60vw;
+            margin-bottom: 1vh;
+            font-size: 1.5vw;
 
             text-align: center;
             font-family: Inter;
 
+
+
+              }
+
             .garanta {
-                width: 500px;
-                margin-top: 65px;
-                columns: 200px;
+                width: 30vw;
+                margin-top: 10vh
             }
 
-            .gold {
-                width: 500px;
-                margin: 5px;
-            }
-        }
+    
+      
 
-        .cat1,
-        .cat2,
+        .cat1 h1,
+        .cat2 h1,
         .cat3 h1 {
             font-family: lobster;
             text-shadow: 0px 3px 0px #e6e210, 0px 14px 10px rgba(0, 0, 0, 0.15),
                 0px 24px 2px rgba(0, 0, 0, 0.1),
                 0px 34px 30px rgba(0, 0, 0, 0.1);
-
-            font-size: 44px;
+            color: #551a8b;
+            font-size: 3.5vw;
             opacity: 0.9;
         }
 
@@ -67,7 +72,7 @@
 
         .ver {
             margin-top: 30px;
-            padding: 15px 80px;
+            padding: 1vw 5vw;
             border-radius: 27px;
             color: #000000;
             background-color: #524f4f;
@@ -77,182 +82,85 @@
         .dona {
             display: flex;
             flex-direction: column;
+            flex-wrap: wrap;
+            width: 95vw;
             justify-content: center;
             align-items: center;
 
-            .tec {
+            
+
+
+            .nomes{
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                width: fit-content;
+
+
+                img{
+                        width: 30vw;
+                        height: 23vw;
+                        
+                }
+
+
+                .cat1,
+                .cat2,
+                .cat3{
+                    display: flex;
+
+                    flex-direction: row;
+
+
+                }
+            }
+
+            h1{
                 position: absolute;
             }
 
-            .nomes {
+            .crem,
+            .verd,
+            .cat2,
+            .amarel,
+            .rox
+            {
                 display: flex;
-                width: 1100px;
+                flex-direction: row;
+                justify-content: center;
                 align-items: center;
-                flex-direction: column;
-                justify-content: center;
-                gap: 20px;
+                border: 1px solid;
             }
 
-            .cat1 {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                gap: 15px;
-                margin-top: 20px;
-                width: 1100px;
-
-                .crem h1 {
-                    position: absolute;
-                    display: flex;
-                    color: #000000;
-                    justify-self: center;
-                    text-align: center;
-                    justify-content: center;
-                    margin-top: 160px;
-                    width: 420px;
-                    height: 420px;
-                    font-size: 54px;
-                }
-
-                .creme {
-                    background-color: #da6565;
-                }
-
-                .verd h1 {
-                    position: absolute;
-                    display: flex;
-                    color: #000000;
-                    justify-self: center;
-                    text-align: center;
-                    justify-content: center;
-                    margin-top: 160px;
-                    font-size: 44px;
-                    width: 420px;
-                    font-family: Lobster;
-                    height: 420px;
-                }
-
-                .verde {
-                    padding: 20px 0px;
-                    background-color: #22af37;
-                }
+            .creme{
+                background-color: #DA6565;
             }
 
-            img {
-                width: 442px;
+            .verde{
+                background-color: #22AF37;
             }
-
-            .crem:hover {
-                transform: scale(1.02);
-                opacity: 2.4;
-                transition: all 0.5s ease-in-out;
-            }
-
-            .verd:hover {
-                transform: scale(1.02);
-                transition: all 0.5s ease-in-out;
-            }
-
-            .cat2 {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                gap: 15px;
-
-                background-color: #228aaf;
-                width: 900px;
-
-                img {
-                    width: 500px;
-                }
-
-                h1 {
-                    position: absolute;
-                    display: flex;
-                    color: #000000;
-                    justify-self: center;
-                    text-align: center;
-                    font-family: lobster;
-                    justify-content: center;
-                    margin-top: 160px;
-                    width: 420px;
-                    height: 420px;
-
-                    font-size: 104px;
-                }
-            }
-        }
-
-        .cat2:hover {
-            transform: scale(1.02);
-            transition: all 0.5s ease-in-out;
-        }
-
-        .cat3 {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 150px;
-            width: 1100px;
-            height: fit-content;
-
-            .roxo {
-                background-color: #cc66ff;
+            
+            .azul{
+                background-color: #228AAF;
             }
 
             .amarelo {
-                background-color: #efb820;
-                padding: 67.2px 0px;
+                background-color: #EFB820;
             }
 
-            img {
-                width: 442px;
+            .roxo{
+                background-color: #CC66FF;
             }
+            
 
-            h1 {
-                position: absolute;
-                display: flex;
-                color: #000000;
-                justify-self: center;
-                text-align: center;
-                justify-content: center;
-                margin-top: 160px;
-                width: 420px;
-                height: 420px;
-                font-family: lobster;
-            }
-
-            .masc:hover {
-                transform: scale(1.02);
-                transition: all 0.5s ease-in-out;
-            }
-
-            .oil:hover {
-                transform: scale(1.02);
-                transition: all 0.5s ease-in-out;
-            }
-        }
-
-        .ji {
-            display: flex;
-            justify-self: start;
-            align-self: stretch;
-            margin-left: 235px;
-            margin-bottom: 20px;
-        }
-
-        .cards {
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            width: 1100px;
-            .c2 {
-                display: flex;
-                flex-direction: row;
-                justify-content: start;
-            }
         }
 
     }
+
+    .rodape{
+        margin-top: 10vh;
+        width: 100%;
+    }
+
+
 }
