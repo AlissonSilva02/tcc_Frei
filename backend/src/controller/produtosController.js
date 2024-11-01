@@ -5,14 +5,6 @@ import { autenticar } from "../utils/jwt.js";
 import multer from 'multer'
 
 import { Router } from "express";
-import consultarProdutosIDService from "../service/consultarProdutosIDService.js";
-import consultarProdutosNomeService from "../service/consultarProdutosNomeService.js";
-import inserirProdutoService from "../service/inserirProdutoService.js";
-import alterarProdutoService from "../service/alterarProdutoService.js";
-import removerProdutoService from "../service/RemoverProdutoService.js";
-import consultarProdutospreco from "../service/filtrarProdutos.js";
-import consultarTodosprodutos from "../service/consultarTodosService.js"
-import alterarImagemService from "../service/alterarImagemService.js";
 
 const endpoints = Router();
 
@@ -36,7 +28,7 @@ endpoints.get("/select/produto", async (req, resp) => {
 endpoints.get("/select/produto/:id", async (req, resp) => {
     try {
         let id = req.params.id;
-        let produto = await consultarProdutosIDService(id);
+        let produto = await db.consultarProdutos(id);
 
         resp.send(produto[0]);
     } catch (error) {
@@ -49,7 +41,7 @@ endpoints.get("/select/produto/:id", async (req, resp) => {
 endpoints.get("/select/todosproduto", async (req, resp) => {
     try {
         let total= req.body
-        let produto = await consultarTodosprodutos(total);
+        let produto = await db.consultarTodos(total);
 
         resp.send(produto[0]);
     } catch (error) {
@@ -64,7 +56,7 @@ endpoints.post("/produto/nome", async (req, resp) => {
     try {
         let buscar = req.body;
 
-        let produtos = await consultarProdutosNomeService(buscar)
+        let produtos = await db.consultarProdutosNome(buscar)
         
         resp.send(produtos);
     } catch (err) {
@@ -99,7 +91,7 @@ endpoints.post("/insert/produto", autenticar, uploadImagemProduto.single('produt
             }
         }
 
-        let resposta = await inserirProdutoService(produto, caminhoImagem, id)
+        let resposta = await db.inserirProdutos(produto, caminhoImagem, id)
 
         resp.send({
             id: resposta
@@ -143,7 +135,7 @@ endpoints.put("/update/produto/:id", autenticar, async (req, resp) => {
         let idProduto = req.params.id;
         let produto = req.body;
 
-        let resposta = await alterarProdutoService(produto, idProduto)
+        let resposta = await db.alterarProdutos(produto, idProduto)
 
         resp.send({
             linhasAfetadas: resposta
