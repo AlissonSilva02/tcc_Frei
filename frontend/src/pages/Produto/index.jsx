@@ -17,6 +17,7 @@ export default function Produto() {
 
 
 
+<<<<<<< HEAD
   async function buscar() {
     const url = `http://localhost:5002/select/produto/${id}`;
     let resp = await axios.get(url);
@@ -27,6 +28,29 @@ export default function Produto() {
     let paramCorpo = {
       buscar: produto.tipo,
     };
+=======
+    async function buscarRelacionados() {
+        const paramCorpo = {
+            "buscar": produto.categoria
+        }
+    
+        const url = `http://localhost:5002/produto/nome`;
+        try {
+            let resp = await axios.post(url, paramCorpo);
+            setRelacionados(resp.data);
+        } catch (error) {
+            console.error("Erro ao buscar produtos relacionados:", error);
+        }
+    }
+
+    useEffect(() => {
+        buscarRelacionados()
+    }, [buscarRelacionados]);
+
+    useEffect(() => {
+        buscar()
+    }, [buscar]);
+>>>>>>> 569575e32589476cd860202567b6b732aa762c27
 
     const url = `http://localhost:5002/produto/nome`;
     let resp = await axios.post(url, paramCorpo);
@@ -60,6 +84,7 @@ export default function Produto() {
         <Cabe />
       </header>
 
+<<<<<<< HEAD
       <main>
         <button onClick={testar}>Testar</button>
 
@@ -70,6 +95,22 @@ export default function Produto() {
           <p> produtos / </p>
           <p> cremes capilares</p>
         </div>
+=======
+            <main>
+                <button onClick={testar}>Testar</button>
+                <button onClick={(e) => alert(JSON.stringify(produto.categoria))}>produto</button>
+
+                <div className="botao-voltar">
+                    <Link to={"/"}>
+                        <div className="voltar">
+                        <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m15 19-7-7 7-7"/>
+                        </svg>
+                            <h1>VOLTAR</h1>
+                        </div>
+                    </Link>
+                </div>
+>>>>>>> 569575e32589476cd860202567b6b732aa762c27
 
         <div className="secao-produto">
           <div className="container-flex">
@@ -118,7 +159,25 @@ export default function Produto() {
               />
             ))}
 
+<<<<<<< HEAD
             {/* <Card
+=======
+                <div className="Produtos-relacionados">
+                    <h1>Produtos Relacionados</h1>
+
+                    <div className="produtos">
+                        {relacionados.map((item, index) => (
+                            <Card
+                                key={index}
+                                imagem={item.img}
+                                alt={item.img}
+                                preco={item.valor}
+                                nome={item.valor}
+                            />
+                        ))} 
+
+                        {/* <Card
+>>>>>>> 569575e32589476cd860202567b6b732aa762c27
                             imagem="/assets/images/RedesSociais/whatsapp.svg"
                             alt="imagem"
                             preco={50}

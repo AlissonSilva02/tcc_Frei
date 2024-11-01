@@ -190,8 +190,8 @@ export default function Cadastrar() {
 
                         <div className="campo">
                             <h3>Imagem:</h3>
-                            <label for="file" class="custum-file-upload">
-                                <div class="icon">
+                            <label for="file" className="custum-file-upload">
+                                <div className="icon">
                                     {!img ? (
                                         <img
                                             src="/assets/images/icones/enviarArquivo.svg"
@@ -210,7 +210,7 @@ export default function Cadastrar() {
                                         </div>
                                     )}
                                 </div>
-                                <div class="text">
+                                <div className="text">
                                     <span>Click to upload image</span>
                                 </div>
 
