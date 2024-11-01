@@ -14,6 +14,7 @@ export default function MenuUsuario() {
                     {
                         icone: "/assets/images/menu/shop.svg",
                         nome: "Produtos",
+                        link:"/produtos"
                     },
                     {
                         icone: "/assets/images/menu/sobre.svg",

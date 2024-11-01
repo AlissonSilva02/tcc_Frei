@@ -10,10 +10,8 @@ export default function Card({ imagem, alt, preco, nome }) {
             <Link>
                 <div>
                     <img src={imagem} alt={alt} />
-
+                        <p>{nome}</p>
                     <h3>R${Number(preco).toFixed(2)}</h3>
-
-                    <p>{nome}</p>
                 </div>
             </Link>
         </div>

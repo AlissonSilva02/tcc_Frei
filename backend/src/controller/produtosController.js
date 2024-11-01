@@ -11,7 +11,8 @@ import consultarProdutosNomeService from "../service/consultarProdutosNomeServic
 import inserirProdutoService from "../service/inserirProdutoService.js";
 import alterarProdutoService from "../service/alterarProdutoService.js";
 import removerProdutoService from "../service/RemoverProdutoService.js";
-
+import consultarProdutospreco from "../service/filtrarProdutos.js";
+import consultarTodosprodutos from "../service/consultarTodosService.js"
 const endpoints = Router();
 
 //seleciona todos os produtos
@@ -35,6 +36,19 @@ endpoints.get("/select/produto/:id", async (req, resp) => {
     try {
         let id = req.params.id;
         let produto = await consultarProdutosIDService(id);
+
+        resp.send(produto[0]);
+    } catch (error) {
+        resp.send({
+            Error: error.message
+        });
+    }
+});
+
+endpoints.get("/select/todosproduto", async (req, resp) => {
+    try {
+        let total= req.body
+        let produto = await consultarTodosprodutos(total);
 
         resp.send(produto[0]);
     } catch (error) {
@@ -162,8 +176,7 @@ endpoints.delete("/delete/produto/:id", autenticar, async (req, resp) => {
 
 endpoints.post("/produto/preco/", async (req, resp) => {
     try {
-        // Aqui, extraímos o valor de precoMax diretamente
-        const { precoMax } = req.body; // Use a desestruturação para pegar apenas o valor
+        const { precoMax } = req.body; 
 
         // Verifica se o preço máximo foi fornecido
         if (!precoMax) {
@@ -173,7 +186,7 @@ endpoints.post("/produto/preco/", async (req, resp) => {
         }
 
         // Chama o método no repositório que busca produtos com preço até o limite
-        let produtos = await db.consultarProdutosPorPreco(precoMax);
+        let produtos = await consultarProdutospreco(precoMax);
         
         resp.send(produtos);
     } catch (error) {
