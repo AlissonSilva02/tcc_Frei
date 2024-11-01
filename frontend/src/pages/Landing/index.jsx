@@ -41,7 +41,7 @@ export default function App() {
             <div className="dona">
               <div className="nomes">
                 <div className="cat1">
-                  <Link>
+                  
                     <div className="crem">
                       <h1 className="tec">Cremes</h1>
                       <img
@@ -50,9 +50,9 @@ export default function App() {
                         alt=""
                       />
                     </div>
-                  </Link>
+                  
 
-                  <Link>
+                  
                     <div className="verd">
                       {" "}
                       <h1>Skin-care</h1>
@@ -62,20 +62,11 @@ export default function App() {
                         alt=""
                       />
                     </div>
-                  </Link>
+                  
                 </div>
 
-                <Link>
-                  <div className="cat2">
-                    <h1>Maquiagem</h1>
-
-                    <img
-                      className="azul"
-                      src="assets/images/makeup_blue2.png"
-                      alt=""
-                    />
-                  </div>
-                </Link>
+             
+                
 
                 <div className="cat3">
                   <div className="amarel">
@@ -87,7 +78,7 @@ export default function App() {
                     />
                   </div>
 
-                  <Link>
+                  
                     {" "}
                     <div className="rox">
                       <h1 className="tec">Perfumes</h1>
@@ -97,7 +88,7 @@ export default function App() {
                         alt=""
                       />
                     </div>
-                  </Link>
+                  
                 </div>
               </div>
             </div>
