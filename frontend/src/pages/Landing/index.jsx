@@ -65,16 +65,7 @@ export default function App() {
                   
                 </div>
 
-                
-                  <div className="cat2">
-                    <h1>Maquiagem</h1>
-
-                    <img
-                      className="azul"
-                      src="assets/images/makeup_blue2.png"
-                      alt=""
-                    />
-                  </div>
+             
                 
 
                 <div className="cat3">
