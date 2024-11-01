@@ -51,7 +51,7 @@ export async function consultarProdutosNome(info) {
             disponivel,
             estoque
     from produtos
-    where nome or descricao like ?;
+    where nome or categoria like ?;
     `
 
     let resposta = await con.query(comando, ['%' + info.buscar + '%']);

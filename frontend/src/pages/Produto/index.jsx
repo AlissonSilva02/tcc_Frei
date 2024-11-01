@@ -22,20 +22,26 @@ export default function Produto() {
     }
 
     async function buscarRelacionados() {
-        let paramCorpo = {
-            "buscar": produto.tipo
+        const paramCorpo = {
+            "buscar": produto.categoria
         }
     
-        const url = `http://localhost:5002/produto/nome`
-        let resp = await axios.post(url, paramCorpo)
-    
-        setRelacionados(resp.data)
+        const url = `http://localhost:5002/produto/nome`;
+        try {
+            let resp = await axios.post(url, paramCorpo);
+            setRelacionados(resp.data);
+        } catch (error) {
+            console.error("Erro ao buscar produtos relacionados:", error);
+        }
     }
 
     useEffect(() => {
-        buscar()
         buscarRelacionados()
-    }, [buscar, buscarRelacionados]);
+    }, [buscarRelacionados]);
+
+    useEffect(() => {
+        buscar()
+    }, [buscar]);
 
     function testar() {
         alert(relacionados)
@@ -60,16 +66,14 @@ export default function Produto() {
 
             <main>
                 <button onClick={testar}>Testar</button>
-
+                <button onClick={(e) => alert(JSON.stringify(produto.categoria))}>produto</button>
 
                 <div className="botao-voltar">
                     <Link to={"/"}>
                         <div className="voltar">
-                            <img
-                                src="/assets/images/Arrowleft.png"
-                                alt="seta"
-                                width={25}
-                            />
+                        <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m15 19-7-7 7-7"/>
+                        </svg>
                             <h1>VOLTAR</h1>
                         </div>
                     </Link>
@@ -124,6 +128,7 @@ export default function Produto() {
                     <div className="produtos">
                         {relacionados.map((item, index) => (
                             <Card
+                                key={index}
                                 imagem={item.img}
                                 alt={item.img}
                                 preco={item.valor}

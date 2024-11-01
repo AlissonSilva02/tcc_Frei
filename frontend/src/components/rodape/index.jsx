@@ -58,7 +58,7 @@ export default function Rodape() {
 
               <div className="redes">
                 <img src="/assets/images/yt.png" alt="yt" />
-                <p>(11)94033-0018</p>
+                <p>(11) 94033-0018</p>
               </div>
             </div>
           </div>

@@ -44,7 +44,7 @@ export default function () {
               <div className="perguntasErespostas">
                 <details>
                   <summary>Não encontrei um produto</summary>
-                  <div class="conteudo">
+                  <div className="conteudo">
                     <p>
                       Se você não encontrou o que procura na nossa vitrine,
                       entre em contato conosco pelo WhatsApp. Podemos ajudar a
@@ -58,7 +58,7 @@ export default function () {
               <div className="perguntasErespostas">
                 <details>
                   <summary>Quero fazer parte da equipe</summary>
-                  <div class="conteudo">
+                  <div className="conteudo">
                     <p>
                       Ficamos felizes com seu interesse! Envie uma mensagem pelo
                       WhatsApp com seu currículo e uma breve apresentação. Nossa
@@ -74,7 +74,7 @@ export default function () {
                   <summary>
                     Quais são os horários de atendimento ao cliente?
                   </summary>
-                  <div class="conteudo">
+                  <div className="conteudo">
                     <p>
                       Atendemos pelo WhatsApp de segunda a sexta-feira, das 9h
                       às 18h. Sinta-se à vontade para nos enviar uma mensagem
@@ -87,7 +87,7 @@ export default function () {
               <div className="perguntasErespostas">
                 <details>
                   <summary>Como posso comprar os produtos?</summary>
-                  <div class="conteudo">
+                  <div className="conteudo">
                     <p>
                       Para comprar, basta enviar uma mensagem pelo WhatsApp com
                       os produtos que você deseja. Nossa equipe irá ajudá-lo com
@@ -100,7 +100,7 @@ export default function () {
               <div className="perguntasErespostas">
                 <details>
                   <summary>Qual é o prazo de entrega?</summary>
-                  <div class="conteudo">
+                  <div className="conteudo">
                     <p>
                       O prazo de entrega varia de acordo com a sua localização,
                       mas geralmente leva de 3 a 10 dias úteis após a
@@ -115,7 +115,7 @@ export default function () {
                   <summary>
                     O que faço se eu tiver dúvidas sobre um produto?
                   </summary>
-                  <div class="conteudo">
+                  <div className="conteudo">
                     <p>
                       Sinta-se à vontade para nos enviar suas dúvidas pelo
                       WhatsApp. Nossa equipe está pronta para ajudar com
@@ -130,7 +130,7 @@ export default function () {
                   <summary>
                     Como posso entrar em contato com o suporte ao cliente?
                   </summary>
-                  <div class="conteudo">
+                  <div className="conteudo">
                     <p>
                       Você pode entrar em contato conosco pelo WhatsApp a
                       qualquer momento durante nosso horário de atendimento.
