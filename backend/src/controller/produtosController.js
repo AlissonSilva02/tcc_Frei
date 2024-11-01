@@ -1,5 +1,4 @@
 import * as db from "../repository/produtosRepository.js";
-import alterarImagemService from "../service/AlterarImagemService.js";
 
 import { autenticar } from "../utils/jwt.js";
 
@@ -13,6 +12,8 @@ import alterarProdutoService from "../service/alterarProdutoService.js";
 import removerProdutoService from "../service/RemoverProdutoService.js";
 import consultarProdutospreco from "../service/filtrarProdutos.js";
 import consultarTodosprodutos from "../service/consultarTodosService.js"
+import alterarImagemService from "../service/alterarImagemService.js";
+
 const endpoints = Router();
 
 //seleciona todos os produtos
@@ -120,7 +121,7 @@ endpoints.put("/update/imagem/:id", autenticar, atualizarImagemProduto.single('p
             let nome = req.file.originalname
 
             //processamento (service)
-            let linhasAfetadas = await alterarImagemService(id, caminhoImagem)
+            let linhasAfetadas = await db.alterarImagem(id, caminhoImagem)
 
             //saida
             resp.send({
