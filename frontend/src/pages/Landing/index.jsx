@@ -2,7 +2,7 @@ import "./index.scss";
 import MenuUsuario from "../../components/MenuUsuario/index.jsx"
 import Cabe from "../../components/cabecalho/index.jsx";
 import Rodape from "../../components/rodape/index.jsx";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function App() {
   return (

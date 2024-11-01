@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import Rodape from '../../components/rodape';
-import Cabecalho_login from '../../components/cabecalho_login';
+import CabecalhoLogin from '../../components/cabecalhoLogin';
 
 import { toast } from 'react-toastify';
 
@@ -22,7 +22,7 @@ export default function Login() {
 
 
     function teclaApertada(e) {
-        if (e.key == 'Enter') {
+        if (e.key === 'Enter') {
             entrar();
         }
     }
@@ -48,7 +48,11 @@ export default function Login() {
 
     return (
         <div className="Pagina-login">
-            <Cabecalho_login/>
+            
+            <header>
+                <CabecalhoLogin />
+            </header>
+
             <div className="container">
                 <div className="formulario">
                     <div className="campos">

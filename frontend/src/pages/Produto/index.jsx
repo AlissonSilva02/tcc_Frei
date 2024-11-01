@@ -7,7 +7,7 @@ import Card from "../../components/CardProduto/index.jsx";
 
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export default function Produto() {
 
@@ -15,23 +15,49 @@ export default function Produto() {
 	const [produto, setProduto] = useState([]);
 	const [relacionados, setRelacionados] = useState([])
 
-	async function buscar() {
+	// async function buscar() {
+	// 	const url = `http://localhost:5002/select/produto/${id}`
+	// 	let resp = await axios.get(url)
+	// 	setProduto(resp.data)
+	// }
+
+	const buscar = useCallback(async () => {
 		const url = `http://localhost:5002/select/produto/${id}`
 		let resp = await axios.get(url)
 		setProduto(resp.data)
-	}
+	}, [id]);
+	
 
-	async function buscarRelacionados() {
+	/*
+	const buscar = useCallback(async (token) => {
+        const url = `http://localhost:5002/select/produto/?total=${limite}&x-access-token=${token}`;
+        let resp = await axios.get(url);
+        setProdutos(resp.data);
+    }, [limite]);
+	*/
+	
+	// async function buscarRelacionados() {
+	// 	const paramCorpo = {
+	// 		"buscar": produto.categoria
+	// 	}
+
+	// 	const url = `http://localhost:5002/produto/nome`;
+
+	// 	let resp = await axios.post(url, paramCorpo);
+	// 	setRelacionados(resp.data);
+	// }
+
+	const buscarRelacionados = useCallback(async () => {
 		const paramCorpo = {
-			"buscar": produto.categoria
+	 		"buscar": produto.categoria
 		}
 
 		const url = `http://localhost:5002/produto/nome`;
 
-		let resp = await axios.post(url, paramCorpo);
-		setRelacionados(resp.data);
+	 	let resp = await axios.post(url, paramCorpo);
+	 	setRelacionados(resp.data);
+	}, [produto])
 
-	}
 
 	useEffect(() => {
 		buscarRelacionados()

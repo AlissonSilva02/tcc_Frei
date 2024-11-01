@@ -19,10 +19,10 @@ const endpoints = Router();
 //seleciona todos os produtos
 endpoints.get("/select/produto", async (req, resp) => {
     try {
-        //Recebe o id pelo Token
-        let total = req.query.total
+        //Recebe o limite de registros
+        let limite = req.query.total
     
-        let produto = await db.consultarProdutos(total);
+        let produto = await db.consultarProdutos(limite);
 
         resp.send(produto);
     } catch (error) {

@@ -85,7 +85,7 @@ export default function Cadastrar() {
             const url = `http://localhost:5002/insert/produto?x-access-token=${token}`;
             let resp = await axios.post(url, paramCorpo);
             
-            navigate(-1)
+            navigate('/consultar')
             toast.success("Produto adicionado Id: " + resp.data.id);
         } else {
             //atualizar
@@ -98,13 +98,12 @@ export default function Cadastrar() {
             const url = `http://localhost:5002/update/produto/${id}`;
             await axios.put(url, paramCorpo, config);
 
-            navigate(-1)
+            navigate('/consultar')
             toast.info("Produto alterado Id: " + id);
         }
     }
 
     
-
     // async function Buscar(token) {
     //     const url = `http://localhost:5002/select/produto/${id}?x-access-token=${token}`;
     //     let resp = await axios.get(url);

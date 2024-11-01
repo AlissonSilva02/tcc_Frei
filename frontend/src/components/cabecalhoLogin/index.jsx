@@ -3,7 +3,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 
-export default function Cabecalho_login() {
+export default function CabecalhoLogin() {
   const navigate = useNavigate();
 
   const handleVoltar = () => {
