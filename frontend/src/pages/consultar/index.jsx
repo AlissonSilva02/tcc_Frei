@@ -8,6 +8,7 @@ import { MagicMotion } from "react-magic-motion";
 
 
 import axios from "axios";
+import VoltarButton from "../../components/voltar/index.jsx";
 
 export default function Consultar() {
     const [produtos, setProdutos] = useState([]);
@@ -68,6 +69,7 @@ export default function Consultar() {
             </header>
 
             <main>
+                <VoltarButton/>
                 <div className="opcoes">
                     <button className="sair" onClick={sair}>
                         Sair

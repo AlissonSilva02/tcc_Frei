@@ -8,6 +8,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import FiltroPreco from "../../components/filtro/index.jsx";
+import VoltarButton from "../../components/voltar/index.jsx";
 
 export default function Produtos() {
   const [produto, setProduto] = useState([]);
@@ -16,9 +17,21 @@ export default function Produtos() {
   const [precoMax, setPrecoMax] = useState(2000);
 
   const categorias = [
-    "pentes", "escovas", "shampoo", "condicionador",
-    "mascara capilar", "creme", "esfoliante", "hidratante",
-    "protetor", "sabonete", "perfumes", "maquiagem", "batom", "delineador","cabelos"
+    "pentes",
+    "escovas",
+    "shampoo",
+    "condicionador",
+    "mascara capilar",
+    "creme",
+    "esfoliante",
+    "hidratante",
+    "protetor",
+    "sabonete",
+    "perfumes",
+    "maquiagem",
+    "batom",
+    "delineador",
+    "cabelos",
   ];
 
   async function buscarProdutos() {
@@ -41,7 +54,7 @@ export default function Produtos() {
         filtrosSelecionados.includes(item.categoria.toLowerCase())
       );
     }
-    
+
     setProdutosFiltrados(produtosFiltrados);
   };
 
@@ -69,6 +82,7 @@ export default function Produtos() {
       </header>
 
       <main>
+        <VoltarButton/>
         <div className="container_principal">
           <div className="filtros">
             <h2>Filtros</h2>
@@ -84,7 +98,9 @@ export default function Produtos() {
                     checked={filtrosSelecionados.includes(categoria)}
                     onChange={() => handleFiltroClick(categoria)}
                   />
-                  <p>{categoria.charAt(0).toUpperCase() + categoria.slice(1)}</p>
+                  <p>
+                    {categoria.charAt(0).toUpperCase() + categoria.slice(1)}
+                  </p>
                 </div>
               ))}
             </div>

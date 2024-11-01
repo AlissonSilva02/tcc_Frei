@@ -8,23 +8,24 @@
   display: flex;
   flex-direction: column;
 
-  .voltar {
+  .botao-voltar {
     display: flex;
-    padding: 30px 0px 0px 30px;
-    flex-direction: column;
-    a {
+    .voltar {
       display: flex;
-      color: black;
+      margin: 2%;
+      gap: 5%;
+      font-size: 70%;
+      border-bottom: 2px solid rgb(114, 114, 114);
       font-weight: 500;
-      font-size: 24px;
-      text-decoration: none;
+
       img {
-        width: 30px;
-        height: 30px;
+        width: 20%;
+        height: auto;
       }
     }
-    
   }
+
+
   .logo {
     display: flex;
     height: auto;
@@ -36,17 +37,16 @@
 @media (max-width: 480px) {
   .container {
     align-items: center;
+
+    .botao-voltar{
+      position:fixed;
     .voltar {
-      align-self: self-start;
-      align-items: center;
-      a {
-        font-size: 18px !important;
-      }
       img {
         width: 25px !important;
         height: auto !important;
       }
     }
+  }
     .logo {
       margin-top: 20px;
       width: 260px;

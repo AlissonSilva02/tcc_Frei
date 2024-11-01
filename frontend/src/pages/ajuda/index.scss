@@ -8,25 +8,6 @@
     color: black;
   }
 
-  .botao-voltar {
-    display: flex;
-    padding: 10px;
-    .voltar {
-      padding: 0px 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
-      font-size: 70%;
-      border-bottom: 2px solid rgb(114, 114, 114);
-      font-weight: 500;
-    }
-
-    img {
-      width: 25%;
-    }
-  }
-
   .ajuda {
     display: flex;
     flex-direction: column;
@@ -83,7 +64,7 @@
       }
     }
   }
-  img {
+  .cosmet {
     width: 60%;
     margin-left: 20%;
   }

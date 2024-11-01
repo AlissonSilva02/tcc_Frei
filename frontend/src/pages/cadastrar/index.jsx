@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./index.scss";
 import Cabe from "../../components/cabecalho/index.jsx";
+import VoltarButton from "../../components/voltar/index.jsx";
 
 export default function Cadastrar() {
     const [token, setToken] = useState(null);
@@ -114,6 +115,7 @@ export default function Cadastrar() {
             </header>
 
             <main>
+                <VoltarButton/>
                 <div className="titulo">
                     <h2> Cadastrar Produto: {id} </h2>
                     <hr />
