@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-
+import './index.scss'
 export default function FiltroPreco({ onChange }) {
-  const [precoMax, setPrecoMax] = useState(2000);
+  const [precoMax, setPrecoMax] = useState(1000);
 
   const handleSliderChange = (e) => {
     const value = e.target.value;
-    setPrecoMax(value)
+    setPrecoMax(value);
+    onChange(value); // Atualiza o preço máximo no componente pai
   };
 
   return (
@@ -17,8 +18,8 @@ export default function FiltroPreco({ onChange }) {
       <hr />
       <input
         type="range"
-        min="20"
-        max="2000"
+        min="0"
+        max="1000"
         value={precoMax}
         onChange={handleSliderChange}
         style={{ width: '100%', marginTop: '10px' }}

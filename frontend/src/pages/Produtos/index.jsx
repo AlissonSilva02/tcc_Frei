@@ -82,12 +82,11 @@ export default function Produtos() {
       </header>
 
       <main>
-        <VoltarButton/>
+        <VoltarButton />
         <div className="container_principal">
           <div className="filtros">
             <h2>Filtros</h2>
-            <FiltroPreco setPrecoMax={setPrecoMax} />
-
+            <FiltroPreco onChange={setPrecoMax} />
             <h2>Tipo de produto</h2>
             <div className="categorias">
               {categorias.map((categoria, idx) => (
@@ -107,7 +106,7 @@ export default function Produtos() {
           </div>
 
           <div className="listaProdutos">
-            <h1>Resultados Principais</h1>
+            <h1>Resultados Principais </h1>
             <div className="produtos">
               {produtosFiltrados.length > 0 ? (
                 produtosFiltrados.map((item) => (
