@@ -1,152 +1,98 @@
-.super {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+.pagina-SobreNos {
+	font-family: "inter";
 
-
-  header{
-    width:100%;
-  }
-  
-
-  *{
-    
-    font-family: Inter;
-  }
-
-
-
-  .sobre {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    justify-content: start;
-    flex-direction: column;
-    width: 100%;
-
-   
-  .fale {
-    display: flex;
-    justify-content:start;
-    align-items: start;
-    width: 100%;
-    padding: 20vh 0;
-
-    background-color: #ffffff;
-      background-image: url("../../../public/assets/images/imageasd.png");
-      background-size: 100vw;
-      background-position: 50%;
-      background-repeat: no-repeat;
-      .butao{
-
-        background-color: #171717;
-        color: #ffffff;
-        font-weight: 800;
-        padding: 10% 5vw;
-        margin-left:  2vw;
-        border-radius: 10px;
-
-        
-      }
-    }
-
-    .nossa {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+    .sobre {
         width: 100%;
-        color: #ffffff;
-        padding: 20vh 0;
 
-      background-color: #171717;
+        .faleConosco {
+            width: 100%;
+			height: 50vh;
+            padding: 20vh 0;
 
-    
-      
-    }
+            background-image: url("../../../public/assets/images/imageasd.png");
+            background-size: cover;
+            background-repeat: no-repeat;
 
-    .comentarios {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
-        height: 50vh;
-        padding: 0 20vh;
+            button {
+                margin-left: 4vw;
+				padding: 15px 60px;
+                background-color: #171717;
 
-      background-color: #fcbf58;
+				border: none;
+                border-radius: 5px;
 
-
-      .comments-txt{
-
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        border: 1px solid;
-        height: 20vh; 
-        width: 90%;       
-
-
-      }
-
-      .seta{
-          height: 10vh;
-          margin: 5vw 0;
+				color: #ffffff;
+                font-weight: 800;
+				font-size: 1rem;
+            }
         }
 
+        .nossaMissao {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
 
+            padding: 20vh 0vw;
+            background-color: #171717;
+			
+            color: #ffffff;
+		
+			p{
+				width: 30%;
+				font-weight: 200;
+			}
+        }
+
+        .comentarios {
+            height: 50vh;
+            padding: 0 20vh;
+
+            background-color: #fcbf58;
+
+            .comments-txt {
+                border: 1px solid;
+                height: 20vh;
+                width: 90%;
+            }
+
+            .seta {
+                height: 10vh;
+                margin: 5vw 0;
+            }
+        }
+
+        .pe {
+            width: 80vw;
+            margin: 0 5vw;
+        }
+
+        .yap0 {
+            width: 100%;
+            display: flex;
+
+            padding: 10vh 0;
+
+            h2 {
+                width: 50vw;
+            }
+        }
+
+        h1 {
+            font-size: 3vw;
+        }
+
+        h2 {
+            font-size: 2vw;
+        }
+        h3 {
+            font-size: 1.5vw;
+        }
+    }
+    .tiny {
+        width: 60vw;
     }
 
-      .pe{
-        width: 80vw;
-        margin: 0 5vw;
-        
-      }
-
-    .yap0{
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 10vh 0;
-      
-
-
-      h2{
-        width: 50vw;
-        
-      }
-
+    footer {
+        width: 100%;
     }
-
-    h1{
-
-      font-size: 3vw;
-
-
-    }
-    
-    h2{
-      font-size: 2vw;
-    } 
-    h3{
-      font-size: 1.5vw;
-    }
-    
-   }
-    .tiny{
-
-
-      width: 60vw;
-    }
-
-    footer{
-
-      width: 100%;
-    }
-
-
-    
 }
