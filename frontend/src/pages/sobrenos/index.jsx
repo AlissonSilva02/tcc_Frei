@@ -1,28 +1,33 @@
 import Cabe from "../../components/cabecalho";
 import Rodape from "../../components/rodape";
+import MenuUsuario from "../../components/MenuUsuario/index.jsx";
 import "./index.scss";
 
 export default function Sobre() {
-    return (
-        <div className="pagina-SobreNos">
-            <div className="sobre">
-                <header>
-                    <Cabecalho_sem />
-                </header>
+  return (
+    <div className="pagina-SobreNos">
+      <div className="sobre">
+      <header>
+                <MenuUsuario />
+                <Cabe/>
+            </header>
 
-                <div className="fale">
-                    <div className="boto">
-                        <button className="butao">Fale Conosco</button>
-                    </div>
 
-                    <div className="nossa">
-                        <div className="comments-title">
-                            <h2>Nossa Missão</h2>
-                            <br />
-                            <br />
-                            <br />
-                        </div>
-                    </div>
+
+        
+        <div className="fale">
+          <div className="boto">
+            <button className="butao">Fale Conosco</button>
+          </div>
+        </div>
+
+        <div className="nossa">
+          <div className="comments-title">
+            <h2>Nossa Missão</h2>
+            <br />
+            <br />
+            <br />
+          </div>
 
           <div className="comments-txt">
             <h3 className="pe">
@@ -50,15 +55,15 @@ export default function Sobre() {
           </div>
         </div>
 
-                    <div>
-                        <p>
-                            Nossos cosméticos são formulados com ingredientes de
-                            alta qualidade, combinando inovação e respeito pelo
-                            meio ambiente. Junte-se a nós e descubra como a
-                            AuraStyle pode transformar sua rotina de cuidados
-                            pessoais.
-                        </p>
-                    </div>
+        <div className="yap0">
+          <div className="yap1">
+            <h2>
+              Nossos cosméticos são formulados com ingredientes de alta
+              qualidade, combinando inovação e respeito pelo meio ambiente.
+              Junte-se a nós e descubra como a AuraStyle pode transformar sua
+              rotina de cuidados pessoais.
+            </h2>
+          </div>
 
           <hr />
           <br />
