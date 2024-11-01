@@ -3,8 +3,7 @@
     width: 100%;
 
     main {
-       padding: 3%;
-
+        padding: 5%;
 
         .titulo {
             display: flex;
@@ -16,7 +15,8 @@
         .formulario {
             flex-direction: column;
 
-            input {
+            input,
+            select {
                 padding: 10px 20px;
                 border-radius: 8px;
                 border: 1px solid rgba(128, 128, 128, 0.116);
@@ -27,39 +27,87 @@
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
-                gap: 100px;
+                align-items: flex-start;
+
+                gap: 10px;
+
                 margin-top: 20px;
 
                 .campo {
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
+
+                    width: 35%;
                     gap: 10px;
-                    
-                    width: 50%;
-                    margin-bottom: 10px;
-                    
-                    input{
-                        font-size: 16px;
-                        max-width: 80%;
+
+                    input {
+                        font-size: 0.8rem;
                     }
 
-                    .contador{
+                    .contador {
                         display: flex;
                         gap: 15px;
-                        
 
-                      
-                        button{
+                        input {
+                            width: 20%;
+                            text-align: center;
+                            font-family: inter;
+                        }
+
+                        input[type="number"]::-webkit-inner-spin-button {
+                            display: none; /* Oculta as setas */
+                        }
+
+                        button {
                             padding: 10px 20px;
                             background-color: white;
                             border-radius: 10px;
                         }
                     }
+
+                    /* From Uiverse.io by Yaya12085 */
+                    .custum-file-upload {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: space-between;
+                        gap: 20px;
+                        cursor: pointer;
+                        align-items: center;
+                        justify-content: center;
+                        border: 2px dashed #cacaca;
+                        background-color: rgba(255, 255, 255, 1);
+                        padding: 1.5rem;
+                        border-radius: 10px;
+                        box-shadow: 0px 48px 35px -48px rgba(0, 0, 0, 0.1);
+                    }
+
+                    .custum-file-upload .icon {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                
+                    .custum-file-upload .text {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    .custum-file-upload .text span {
+                        font-weight: 400;
+                        color: rgba(75, 85, 99, 1);
+                    }
+
+                    .custum-file-upload input {
+                        display: none;
+                    }
                 }
             }
 
-            .checkbox{
+            .checkbox {
+                width: 35%;
                 display: flex;
                 align-items: center;
             }
@@ -69,17 +117,18 @@
                 flex-direction: column;
                 width: 100%;
                 align-items: flex-start;
+                margin-top: 30px;
 
                 textarea {
-                    font-family: 'inter';
-                    font-size: 16px;
+                    font-family: "inter";
+                    font-size: 1rem;
 
                     border-radius: 10px;
-                    border-color: #E0E0E0;
+                    border-color: #e0e0e0;
 
                     text-align: left;
-                    vertical-align: top; 
-                    
+                    vertical-align: top;
+
                     width: 100%;
 
                     height: 200px;
@@ -111,23 +160,21 @@
         display: flex;
         justify-content: space-between;
         padding-top: 2%;
-        padding-right: 4%;
-        .inserir{
+
+        .inserir {
             background-color: black;
             color: white;
             border-radius: 10px;
         }
-        .cancelar{
+        .cancelar {
             background-color: rgba(194, 13, 13, 0.788);
             color: white;
-            border-radius: 10px;    
+            border-radius: 10px;
         }
 
         button {
-            padding: 10% 20% 10% 20%;
-            width: 150%;
+            padding: 10px 20px;
             font-size: 20px;
-
         }
     }
 }
