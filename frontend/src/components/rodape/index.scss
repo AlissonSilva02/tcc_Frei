@@ -5,19 +5,20 @@
 
   .link_image {
     display: flex;
+    align-items: center;
+    margin: 0 3%;
     justify-content: space-between;
-    padding: 2%;
     
     .links {
       display: flex;
-      gap: 20px;
-     
+      gap: 2vw;
+     font-size: 2.5vw;
 
 
       h3 {
         text-decoration: none;
         color: white; 
-        font-size: 1rem;
+        font-size: 1.5vw;
       }
     }
 
@@ -32,7 +33,7 @@
 
   .linha {
     width: 100%;
-    height: 3px;
+    height: 0.5vh;
     background-color: #967e32;
   }
 
@@ -48,7 +49,7 @@
       display: flex;
       width: 100%;
       justify-content: space-between;
-      padding-left: 35px;
+      padding-left: 5vw;
       align-items: center;
       margin-bottom: 5px;
 
@@ -56,20 +57,22 @@
         color: #EFB820;
         border: 1px solid #EFB820;
         border-radius: 10px;
-        padding:6px 40px 6px 40px;
+        padding: 2vh 4vw;
         display: flex;
         align-items: center;
         justify-content: center;
         
         h3{
-          font-size: 1rem;
+          font-size: 1.5vw;
         }
       }
 
       .grupo {
         display: flex;
+        align-items: center;
         flex-direction: column;
-        gap: 10px;
+        gap: 3vh;
+        font-size: 1.4vw;
 
 
 
@@ -79,7 +82,7 @@
           color: white;
 
           img {
-            width: 20px;
+            width: 1.6vw;
             height: auto;
           }
         }
@@ -92,5 +95,6 @@
   .copyright {
     color: white;
     padding: 10px;
+    font-size: 1vw;
   }
 }

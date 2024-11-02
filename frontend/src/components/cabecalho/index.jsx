@@ -10,12 +10,12 @@ export default function Cabe({ pesquisar }) {
 
             <div className="barraInfo">
                 <div className="telefone">
-                    <img src="/assets/images/icones/telefone.svg" alt="telefone" width={25}/>
+                    <img className="tel" src="/assets/images/icones/telefone.svg" alt="tel" width={25}/>
                     <p>(11) 94033-0018</p>
                 </div>
 
                 <div className="localizacao">
-                    <img src="/assets/images/icones/localização.svg" alt="localização" width={20}/>
+                    <img className="loc" src="/assets/images/icones/localização.svg" alt="localização" width={20}/>
                     <p> Rua Ricardo Lúcio da Gama, 123</p>
                 </div>
             </div>
