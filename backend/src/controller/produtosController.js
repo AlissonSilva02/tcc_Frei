@@ -3,18 +3,26 @@ import * as db from "../repository/produtosRepository.js";
 import { autenticar } from "../utils/jwt.js";
 
 import multer from 'multer'
+import fs from 'fs'
 
 import { Router } from "express";
+import consultarProdutosLimiteService from "../service/consultarProdutosLimiteService.js";
+import consultarProdutosIDService from "../service/consultarProdutosIdService.js";
+import consultarProdutosNomeService from "../service/consultarProdutosNomeService.js";
+import inserirProdutoService from "../service/inserirProdutoService.js";
+import alterarImagemService from "../service/alterarImagemService.js";
+import alterarProdutoService from "../service/alterarProdutoService.js";
+import removerProdutoService from "../service/RemoverProdutoService.js";
 
 const endpoints = Router();
 
-//seleciona todos os produtos
+//seleciona os produtos com um total de limite
 endpoints.get("/select/produto", async (req, resp) => {
     try {
         //Recebe o limite de registros
         let limite = req.query.total
     
-        let produto = await db.consultarProdutos(limite);
+        let produto = await consultarProdutosLimiteService(limite);
 
         resp.send(produto);
     } catch (error) {
@@ -28,7 +36,7 @@ endpoints.get("/select/produto", async (req, resp) => {
 endpoints.get("/select/produto/:id", async (req, resp) => {
     try {
         let id = req.params.id;
-        let produto = await db.consultarProdutos(id);
+        let produto = await consultarProdutosIDService(id);
 
         resp.send(produto[0]);
     } catch (error) {
@@ -52,11 +60,11 @@ endpoints.get("/select/todosproduto", async (req, resp) => {
 });
 
 //Busca produtos por nome ou pela descrição
-endpoints.post("/produto/nome", async (req, resp) => {
+endpoints.get("/produto/nome", async (req, resp) => {
     try {
-        let buscar = req.body;
-
-        let produtos = await db.consultarProdutosNome(buscar)
+        let buscar = req.query.buscar;
+    
+        let produtos = await consultarProdutosNomeService(buscar)
         
         resp.send(produtos);
     } catch (err) {
@@ -66,36 +74,23 @@ endpoints.post("/produto/nome", async (req, resp) => {
     }
 });
 
-
-//insere um novo produto
-let uploadImagemProduto = multer({dest: './storage/produtos'})
-endpoints.post("/insert/produto", autenticar, uploadImagemProduto.single('produto'), async (req, resp) => {
+endpoints.post("/insert/produto", autenticar, async (req, resp) => {
     try {
         let id = req.user.id;
         
         let produto = null
         let caminhoImagem = null
 
-        if (!req.body.info){
-            //Usar o body ainda funciona
-            produto = req.body
-            caminhoImagem = produto.img 
-        } else {
-            //verifica se algum arquivo foi enviado
-            produto = JSON.parse(req.body.info)
-            if (req.file && req.file.path) {
-                caminhoImagem = req.file.path;
-            } else {
-                console.log('Nenhum arquivo foi enviado.');
-                caminhoImagem = produto.img
-            }
-        }
+        //body
+        produto = req.body
+        caminhoImagem = produto.img 
 
-        let resposta = await db.inserirProdutos(produto, caminhoImagem, id)
+        let resposta = await inserirProdutoService(produto, caminhoImagem, id)
 
         resp.send({
             id: resposta
         });
+
     } catch (error) {
         resp.send({
             Error: error.message,
@@ -103,24 +98,19 @@ endpoints.post("/insert/produto", autenticar, uploadImagemProduto.single('produt
     }
 });
 
-//inserindo uma imagem
+//Atualizar imagem
 let atualizarImagemProduto = multer({dest: './storage/produtos'})
 endpoints.put("/update/imagem/:id", autenticar, atualizarImagemProduto.single('produto'), async (req, resp) => {
         try {
             let id = req.params.id;
-            let caminhoImagem = req.file.path;
-            let extensao = req.file.mimetype
-            let nome = req.file.originalname
 
-            //processamento (service)
-            let linhasAfetadas = await db.alterarImagem(id, caminhoImagem)
+            let caminhoImagem = req.file.path
+            const contents = fs.readFileSync(caminhoImagem, {encoding: 'base64'});
 
-            //saida
-            resp.send({
-                linhasAfetadas: linhasAfetadas,
-                Nome: nome,
-                Extensao: extensao
-            });
+            let resposta = await alterarImagemService(id,contents)
+
+            resp.send(caminhoImagem);
+
         } catch (error) {
             resp.send({
                 Error: error.message
@@ -135,7 +125,7 @@ endpoints.put("/update/produto/:id", autenticar, async (req, resp) => {
         let idProduto = req.params.id;
         let produto = req.body;
 
-        let resposta = await db.alterarProdutos(produto, idProduto)
+        let resposta = await alterarProdutoService(produto, idProduto)
 
         resp.send({
             linhasAfetadas: resposta
@@ -165,8 +155,6 @@ endpoints.delete("/delete/produto/:id", autenticar, async (req, resp) => {
 });
 
 
-
-
 endpoints.post("/produto/preco/", async (req, resp) => {
     try {
         const { precoMax } = req.body; 
@@ -188,7 +176,6 @@ endpoints.post("/produto/preco/", async (req, resp) => {
         });
     }
 });
-
 
 
 export default endpoints;

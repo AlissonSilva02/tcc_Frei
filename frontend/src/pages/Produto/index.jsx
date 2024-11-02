@@ -15,46 +15,21 @@ export default function Produto() {
 	const [produto, setProduto] = useState([]);
 	const [relacionados, setRelacionados] = useState([])
 
-	// async function buscar() {
-	// 	const url = `http://localhost:5002/select/produto/${id}`
-	// 	let resp = await axios.get(url)
-	// 	setProduto(resp.data)
-	// }
+	//4.172.207.208:5031
+	const host = 'localhost:5031'
 
 	const buscar = useCallback(async () => {
-		const url = `http://4.172.207.208:5031/select/produto/${id}`
+		const url = `http://${host}/select/produto/${id}`
+
 		let resp = await axios.get(url)
 		setProduto(resp.data)
 	}, [id]);
+
 	
-
-	/*
-	const buscar = useCallback(async (token) => {
-        const url = `http://localhost:5002/select/produto/?total=${limite}&x-access-token=${token}`;
-        let resp = await axios.get(url);
-        setProdutos(resp.data);
-    }, [limite]);
-	*/
-	
-	// async function buscarRelacionados() {
-	// 	const paramCorpo = {
-	// 		"buscar": produto.categoria
-	// 	}
-
-	// 	const url = `http://localhost:5002/produto/nome`;
-
-	// 	let resp = await axios.post(url, paramCorpo);
-	// 	setRelacionados(resp.data);
-	// }
-
 	const buscarRelacionados = useCallback(async () => {
-		const paramCorpo = {
-	 		"buscar": produto.categoria
-		}
+		const url = `http://${host}/produto/nome?buscar=${produto.categoria}`;
 
-		const url = `http://4.172.207.208:5031/produto/nome`;
-
-	 	let resp = await axios.post(url, paramCorpo);
+	 	let resp = await axios.get(url);
 	 	setRelacionados(resp.data);
 	}, [produto])
 
@@ -68,13 +43,14 @@ export default function Produto() {
 	}, [buscar]);
 
 	function testar() {
-		alert(relacionados)
+		alert(JSON.stringify(relacionados))
 	}
 
 	/*
 		"id":5,
-		"tipo":"Batom",
-		"img":"batom.jpg",
+		"nome": "Batom"
+		"categoria": "Maquiagem"
+		"img":"data:image/base64/",
 		"descricao":"Batom matte vermelho intenso",
 		"valor":20,
 		"disponivel":true,
@@ -90,7 +66,7 @@ export default function Produto() {
 
 			<main>
 				<button onClick={testar}>Testar</button>
-				<button onClick={(e) => alert(JSON.stringify(produto.categoria))}>produto</button>
+				<button onClick={() => alert(JSON.stringify(produto.categoria))}>produto</button>
 
 				<div className="botao-voltar">
 					<Link to={"/"}>
@@ -146,10 +122,14 @@ export default function Produto() {
 					</div>
 				</div>
 
+
+				{relacionados && 
+				
 				<div className="Produtos-relacionados">
 					<h1>Produtos Relacionados</h1>
 
 					<div className="produtos">
+
 						{relacionados.map((item, index) => (
 							<Card
 								key={index}
@@ -166,8 +146,9 @@ export default function Produto() {
                             preco={50}
                             nome="nome"
                         /> */}
-					</div>
+					</div> 
 				</div>
+				}
 			</main>
 
 			<footer>

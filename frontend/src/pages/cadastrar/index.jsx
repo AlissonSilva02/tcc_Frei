@@ -26,6 +26,9 @@ export default function Cadastrar() {
     const [disponivel, setDisponivel] = useState(false);
     const { id } = useParams();
 
+    //4.172.207.208:5031
+    const host = "localhost:5031";
+
     function alterarImagem(e) {
         const file = e.target.files[0];
 
@@ -68,24 +71,19 @@ export default function Cadastrar() {
             estoque: estoque,
         };
 
-        
-
         for (const [chave, valor] of Object.entries(paramCorpo)) {
-            if (valor === undefined || valor === null || valor === '') {
-
-                toast.warning(`preencha o campo ${chave}`)
-                return
+            if (valor === undefined || valor === null || valor === "") {
+                toast.warning(`preencha o campo ${chave}`);
+                return;
             }
         }
 
-        
-
         if (id === undefined) {
             //inserir
-            const url = `http://4.172.207.208:5031/insert/produto?x-access-token=${token}`;
+            const url = `http://${host}/insert/produto?x-access-token=${token}`;
             let resp = await axios.post(url, paramCorpo);
-            
-            navigate('/consultar')
+
+            navigate("/consultar");
             toast.success("Produto adicionado Id: " + resp.data.id);
         } else {
             //atualizar
@@ -95,50 +93,29 @@ export default function Cadastrar() {
                     "x-access-token": token,
                 },
             };
-            const url = `http://4.172.207.208:5031/update/produto/${id}`;
+            const url = `http://${host}/update/produto/${id}`;
             await axios.put(url, paramCorpo, config);
 
-            navigate('/consultar')
+            navigate("/consultar");
             toast.info("Produto alterado Id: " + id);
         }
     }
 
-    
-    // async function Buscar(token) {
-    //     const url = `http://4.172.207.208:5031/select/produto/${id}?x-access-token=${token}`;
-    //     let resp = await axios.get(url);
+    const Buscar = useCallback(
+        async (token) => {
+            const url = `http://${host}/select/produto/${id}?x-access-token=${token}`;
+            let resp = await axios.get(url);
 
-    //     setnome(resp.data.nome);
-    //     setcategoria(resp.data.categoria);
-    //     setImg(resp.data.img);
-    //     setDescricao(resp.data.descricao);
-    //     setValor(resp.data.valor);
-    //     setDisponivel(resp.data.disponivel);
-    //     setEstoque(resp.data.estoque);
-    // }
-
-
-const Buscar = useCallback(async (token) => {
-    const url = `http://4.172.207.208:5031/select/produto/${id}?x-access-token=${token}`
-    let resp =  await axios.get(url)
-
-    setnome(resp.data.nome);
-    setcategoria(resp.data.categoria);
-    setImg(resp.data.img);
-    setDescricao(resp.data.descricao);
-    setValor(resp.data.valor);
-    setDisponivel(resp.data.disponivel);
-    setEstoque(resp.data.estoque);
-}, [id])
-
-
-    /*
-    const buscar = useCallback(async (token) => {
-        const url = `http://4.172.207.208:5031/select/produto/?total=${limite}&x-access-token=${token}`;
-        let resp = await axios.get(url);
-        setProdutos(resp.data);
-    }, [limite]);
-    */
+            setnome(resp.data.nome);
+            setcategoria(resp.data.categoria);
+            setImg(resp.data.img);
+            setDescricao(resp.data.descricao);
+            setValor(resp.data.valor);
+            setDisponivel(resp.data.disponivel);
+            setEstoque(resp.data.estoque);
+        },
+        [id]
+    );
 
     useEffect(() => {
         let token = localStorage.getItem("USUARIO");
@@ -147,7 +124,7 @@ const Buscar = useCallback(async (token) => {
         if (token === "null") {
             Navigate("/");
         }
- 
+
         if (id) {
             Buscar(token);
         }
@@ -160,7 +137,7 @@ const Buscar = useCallback(async (token) => {
             </header>
 
             <main>
-                <VoltarButton/>
+                <VoltarButton />
                 <div className="titulo">
                     <h2> Cadastrar Produto: {id} </h2>
                     <hr />
@@ -294,11 +271,10 @@ const Buscar = useCallback(async (token) => {
                 </div>
 
                 <div className="lile">
-                   
-                        <button className="inserir" onClick={salvar}>
-                            {id === undefined ? "Inserir" : "Atualizar"}
-                        </button>
-                
+                    <button className="inserir" onClick={salvar}>
+                        {id === undefined ? "Inserir" : "Atualizar"}
+                    </button>
+
                     <Link to={"/consultar"}>
                         <button className="cancelar"> Cancelar </button>
                     </Link>

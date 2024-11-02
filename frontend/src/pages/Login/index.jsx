@@ -16,6 +16,9 @@ export default function Login() {
 
     const navigate = useNavigate();
 
+    //4.172.207.208:5031
+    const host = 'localhost:5031'
+
     function verificaOlho() {
         setOlho(!olho)
     }
@@ -32,7 +35,7 @@ export default function Login() {
             senha: senha,
         };
 
-        const url = "http://4.172.207.208:5031/entrar/";
+        const url = `http://${host}/entrar/`;
         let resp = await axios.post(url, usuario);
 
         if (resp.data.erro !== undefined) {
