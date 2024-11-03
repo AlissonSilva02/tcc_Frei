@@ -105,9 +105,13 @@ endpoints.put("/update/imagem/:id", autenticar, atualizarImagemProduto.single('p
             let id = req.params.id;
 
             let caminhoImagem = req.file.path
+            let extensao = req.file.mimetype // png, jpeg ...
+
             const contents = fs.readFileSync(caminhoImagem, {encoding: 'base64'});
 
-            let resposta = await alterarImagemService(id,contents)
+            let base64 = `data: ${extensao};base64,${contents}`
+
+            let resposta = await alterarImagemService(id, base64)
 
             resp.send(caminhoImagem);
 
