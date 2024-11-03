@@ -82,7 +82,7 @@ export default function Cadastrar() {
             //inserir
             const url = `http://${host}/insert/produto?x-access-token=${token}`;
             let resp = await axios.post(url, paramCorpo);
-
+            alert(resp)
             navigate("/consultar");
             toast.success("Produto adicionado Id: " + resp.data.id);
         } else {
