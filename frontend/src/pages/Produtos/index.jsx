@@ -5,7 +5,6 @@ import Rodape from "../../components/rodape/index.jsx";
 import Card from "../../components/CardProduto/index.jsx";
 
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { useCallback, useEffect, useState } from "react";
 import FiltroPreco from "../../components/filtro/index.jsx";
 import VoltarButton from "../../components/voltar/index.jsx";
@@ -108,14 +107,15 @@ export default function Produtos() {
 						<div className="produtos">
 							{produtosFiltrados.length > 0 ? (
 								produtosFiltrados.map((item) => (
-									<Link to={`/produto/${item.id}`} key={item.id}>
+									
 										<Card
 											imagem={item.img}
 											alt={item.img}
 											preco={item.valor}
 											nome={item.nome}
+											link={item.id}
 										/>
-									</Link>
+									
 								))
 							) : (
 								<p>Nenhum produto encontrado</p>
