@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import Rodape from '../../components/rodape';
-import CabecalhoLogin from '../../components/cabecalhoLogin';
+import CabecalhoLogin from '../../components/CabecalhoLogin/index.jsx';
 
 import { toast } from 'react-toastify';
 
@@ -32,7 +32,7 @@ export default function Login() {
             senha: senha,
         };
 
-        const url = "http://4.172.207.208:5031/entrar/";
+        const url = "http://localhost:5002/entrar/";
         let resp = await axios.post(url, usuario);
 
         if (resp.data.erro !== undefined) {
@@ -84,7 +84,7 @@ export default function Login() {
                             
                             
                             </div>
-                            <a href='/esqueceu_senha_email'>Esqueci a Senha</a>
+                            <a href='/esqueceue'>Esqueci a Senha</a>
                        
 
                         <hr className="linha" />

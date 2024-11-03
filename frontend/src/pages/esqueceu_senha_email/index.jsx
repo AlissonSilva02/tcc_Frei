@@ -2,7 +2,7 @@ import "./index.scss";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Rodape from "../../components/rodape";
-import Cabecalho_login from "../../components/cabecalho_login";
+import Cabecalhologin from "../../components/CabecalhoLogin/index.jsx";
 
 export default function Esqueceu_senha_email() {
   const [email, setEmail] = useState("");
@@ -12,13 +12,13 @@ export default function Esqueceu_senha_email() {
   async function confirmar() {
     if (setEmail === email) {
       alert("Código email valido");
-      navigate("/esqueceu_senha_codigo");
+      navigate("/esqueceuc");
     }
   }
 
   return (
     <div className="email">
-      <Cabecalho_login />
+      <Cabecalhologin />
       <div className="container">
         <div className="formulario">
           <div className="campo">
