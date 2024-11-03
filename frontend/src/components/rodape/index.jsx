@@ -42,7 +42,7 @@ export default function Rodape() {
           <div className="container_intermediario">
             <Link to={"/login"} style={{ textDecoration: "none" }}>
               <div className="admin">
-                <h3>Admin</h3>
+                <h3>Login</h3>
               </div>
             </Link>
             <div className="grupo">
