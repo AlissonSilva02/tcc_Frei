@@ -167,7 +167,7 @@ endpoints.post("/produto/preco/", async (req, resp) => {
         }
 
         // Chama o método no repositório que busca produtos com preço até o limite
-        let produtos = await consultarProdutospreco(precoMax);
+        let produtos = await db.consultarProdutosPorPreco(precoMax);
         
         resp.send(produtos);
     } catch (error) {

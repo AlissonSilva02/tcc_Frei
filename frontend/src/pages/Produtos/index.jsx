@@ -53,7 +53,6 @@ export default function Produtos() {
 			);
 		}
 
-		
 		setProdutosFiltrados(produtosFiltrados);
 	}, [filtrosSelecionados, produto]);
 
