@@ -1,177 +1,138 @@
 .Pagina-login {
-  min-height: 100vh;
-  /* Garante que ocupe toda a altura da tela */
-  display: flex;
-  flex-direction: column;
-  background-size: cover;
-  background-attachment: fixed;
-  background-image: url(../../../public/assets/images/fundo_login.png);
-  font-family: inter;
-
-
-  .mestica {
+    min-height: 100vh;
+    
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-  }
+    flex-direction: column;
+    justify-content: space-between;
 
-  .olho {
-    position: absolute;
-    justify-content: center;
-    border: 0px;
-	background-color: none;
-  }
+    background-size: cover;
+    background-attachment: fixed;
+    background-image: url(../../../public/assets/images/fundo_login.png);
+    font-family: inter;
 
-  .oio, .oiof {
-
-    display: flex;
-
-  }
-
-  .container {
-    flex: 1;
-    display: flex;
-    padding-bottom: 9%;
-
-    .formulario {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      .campos {
+    header {
         display: flex;
-        flex-direction: column;
         justify-content: center;
 
-        padding: 30px 30px;
-        gap: 23px;
-
-        background-color: #ffffff;
-
-        border-radius: 30px;
-        border: 2px solid #000000;
-
-        h1 {
-          font-size: 4rem;
-          text-align: center;
+        img {
+            width: 300px;
         }
-
-        .campo {
-          display: flex;
-          flex-direction: column;
-
-          input {
-            width: 25rem;
-            height: auto;
-            padding: 10px 15px;
-            padding-right: 5px;
-            margin: 5px 0px;
-
-            box-shadow: 2px 2px 4px 0px #eeeeee;
-            border-color: #e2e2e2;
-            border-style: solid;
-
-            border-radius: 5px;
-          }
-
-          a {
-            text-decoration: none;
-            font-weight: 500;
-          }
-        }
-
-        .mes {
-          cursor: pointer;
-          background-color: rgb(0, 0, 0);
-          color: rgb(255, 255, 255);
-          padding: 1.2vw;
-          border: none;
-          border-radius: 5px;
-        }
-
-        .linha {
-          background-color: rgb(19, 19, 19);
-          border: none;
-          height: 2px;
-        }
-      }
     }
-  }
-}
-
-
-
-
-@media (max-width: 450px) {
-  .container {
-    .formulario {
-      .campos {
-
-        .campo input {
-          width: 30vh !important;
-        }
-
-      }
-    }
-  }
-}
-
-/* Tablets padrão (768px - 1024px) */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .container {
-    flex-direction: column;
 
     .formulario {
-      .campos {
-        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2% 0% 5% 0%;
 
-        h1 {
-          font-size: 42px;
-        }
+        .campos {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
 
-        .campo input {
-          width: 18rem;
+			width: 50%;
+			max-width: 1500px;
+			min-width: 300px;
+            padding: 2em 4em;
+            gap: 23px;
+
+            background-color: #ffffff;
+
+            border-radius: 30px;
+            border: 2px solid #000000;
+
+            h1 {
+                font-size: 4rem;
+                text-align: center;
+            }
+
+            .campo {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+
+
+				.senha, .usuario {
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+
+			        box-shadow: 2px 2px 4px 0px #eeeeee;
+
+					border: 1px solid #cccccc;
+            		border-radius: 5px;
+					padding: 0px 5% 0px 5%;
+
+				
+					.olho {
+						display: flex;
+						justify-content: center;
+						
+						border: none;
+						background: none;
+					}
+					
+					input {
+						width: 100%;
+						padding: 10px;
+	
+						margin: 5px 0px;
+	
+						outline: none;
+						border: none;
+					}
+
+				}
+				
+				h4{
+					font-size: 1.5rem;
+				}
+            }
+
+			.senha:focus-within {
+				outline: 1px solid #0099ff; /* ativa quando o input dentro do elemento é clicado*/
+				
+			}
+
+			.usuario:focus-within {
+				outline: 1px solid #0099ff; /* ativa quando o input dentro do elemento é clicado*/
+			}
+			
+
+			a {
+				width: fit-content;
+				font-weight: 500;
+			}
+
+			a:hover {
+				text-decoration: underline;
+			}
+
+            .botaoEntrar {
+                cursor: pointer;
+                background-color: rgb(0, 0, 0);
+                color: rgb(255, 255, 255);
+                padding: 1.2em 2em;
+                border: none;
+                border-radius: 5px;
+            }
+
+            .linha {
+                background-color: rgb(19, 19, 19);
+                border: none;
+                height: 2px;
+            }
         }
-      }
     }
-  }
 }
 
-/* Laptops médios (1280px - 1440px) */
-@media (min-width: 1280px) and (max-width: 1440px) {
-  .container {
-    .formulario {
-      .campos {
-        padding: 25px;
+@media (max-width: 750px) {
+	.Pagina-login{
 
-        h1 {
-          font-size: 48px;
-        }
-
-        .campo input {
-          width: 22rem;
-        }
-      }
-    }
-  }
-}
-
-/* Monitores Full HD (1440px - 1920px) */
-@media (min-width: 1440px) and (max-width: 1920px) {
-  .container {
-    .formulario {
-      .campos {
-        padding: 30px;
-
-        h1 {
-          font-size: 50px;
-        }
-
-        .campo input {
-          width: 25rem;
-        }
-      }
-    }
-  }
+		.formulario{
+			.campos{
+				padding: 1em 2em;
+			}
+		}
+	}
 }

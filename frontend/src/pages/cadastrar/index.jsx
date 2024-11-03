@@ -139,7 +139,10 @@ export default function Cadastrar() {
             <main>
                 <VoltarButton />
                 <div className="titulo">
-                    <h2> Cadastrar Produto: {id} </h2>
+                    
+                    {id && 
+                    <h2>Cadastrar Produto: {id} </h2>
+                    }
                     <hr />
                 </div>
 
