@@ -3,14 +3,35 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Rodape from "../../components/rodape";
 import Cabecalhologin from "../../components/CabecalhoLogin/index.jsx";
+import emailjs from '@emailjs/browser'
 
 export default function Esqueceu_senha_email() {
-  const [email, setEmail] = useState("");
+  const [Emailuser, setEmailuser] = useState("");
+ 
+  function mandarEmail(e) {
+    e.preventDefault()
+    if (Emailuser === '') {
+      alert('preencha todos os campos')
+      return
+    }
+    
+    const templateParams = {
+      to_email: Emailuser 
+    }
+
+   emailjs.send(  process.env.REACT_APP_SERVICE_ID,process.env.REACT_APP_TEMPLATE_ID, templateParams, process.env.REACT_APP_PUBLIC_KEY,  )
+    .then((response) => {
+      alert("E-mail enviado", response.status, response.text)
+    }, (err) => {
+      alert("Erro: ", err)
+    })
+    
+  }
 
   const navigate = useNavigate();
 
   async function confirmar() {
-    if (setEmail === email) {
+    if (setEmailuser === Emailuser) {
       alert("Código email valido");
       navigate("/esqueceuc");
     }
@@ -27,12 +48,13 @@ export default function Esqueceu_senha_email() {
               Enviaremos um código no seu email para que você possa redefinir
               sua senha
             </p>
+            <form onSubmit={mandarEmail}/>
             <input
               type="text"
               placeholder="Digite seu email"
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setEmailuser(e.target.value)}
             />
-            <button onClick={confirmar}>Enviar Código</button>
+            <button onClick={mandarEmail}>Enviar Código</button>
           </div>
         </div>
       </div>
