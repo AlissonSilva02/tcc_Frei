@@ -74,16 +74,38 @@ endpoints.get("/produto/nome", async (req, resp) => {
     }
 });
 
-endpoints.post("/insert/produto", autenticar, async (req, resp) => {
+let inserirImagem = multer({dest: './storage/produtos'})
+endpoints.post("/insert/produto", autenticar, inserirImagem.single('produto'), async (req, resp) => {
     try {
         let id = req.user.id;
         
         let produto = null
         let caminhoImagem = null
 
-        //body
-        produto = req.body
-        caminhoImagem = produto.img 
+
+        if (!req.body.info){
+            //BODY
+            produto = req.body
+            caminhoImagem = produto.img 
+        
+        } else {
+            //FORM-DATA
+            produto = JSON.parse(req.body.info)
+            
+            //verifica se algum arquivo foi enviado
+            if (req.file && req.file.path) {
+                caminhoImagem = req.file.path;
+
+                //salva o arquivo em base64
+                const base64 = fs.readFileSync(caminhoImagem, {encoding: 'base64'});
+                let extensao = req.file.mimetype
+                caminhoImagem = `data: ${extensao};base64,${base64}`
+
+            } else {
+                console.log('Nenhum arquivo foi enviado.');
+                caminhoImagem = produto.img
+            }
+        }
 
         let resposta = await inserirProdutoService(produto, caminhoImagem, id)
 
