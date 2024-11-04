@@ -1,100 +1,126 @@
+.secao-cabecalho {
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 2px solid #dfdfdf;
+    font-family: "inter";
 
-.super{
+    a{
+        text-decoration: none;
+        color: inherit;
+    }
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-.secao-cabecalho{
-
-
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-width: 1260px;
-margin-bottom: 50px;
+    a:hover{
+        text-decoration: underline;
+    }
 
 
+    .barraInfo{
+        display: flex;
+        justify-content: space-around;
 
+        align-items: center;
+        gap: 15px;
 
+        color: antiquewhite;
+        padding: 10px 5vw;
+        background-color: #181818;
+        border-bottom: solid 1px black;
 
-.sub{
-display: flex;
-gap: 55px;
-width: 1200px;
-flex-direction: row;
-    
-
-    .men{
-    gap: 20px;
-    display: flex;
-    width: 300px;
-    align-self: center;
-    align-content: center;
-    align-items: center;
-
-
-        }
-
-    .logo{
-
-    display: flex;
-    justify-content: space-around;
-    width: 450px;
-
- 
-
-        }
-}
-
-
-
-.pesquisa{
-
-margin-top: 50px;
-display: flex;
-flex-direction: row;
-width: 1010px;
-height: 40px;
-margin-left: 120px;
-justify-content: space-between;
-box-shadow: 0px 2px 0px 0px rgba(0,0,0,0.4),0px 10px 15px -3px rgba(0,0,0,0.1);
-margin-right: 140px;
-
-
-.pesq {
-    display: flex;
-    justify-content: start;
-    width: 1200px;
-    margin-bottom: 50px;
-    
-    height: 40px;
-    border-radius: 5px;
-    border: 0;
-    
-    
-  }
-            
-        }
-        .pesq::placeholder {
-            position: absolute;
-            left: 10px;
-        }
-
-        .lup{
+        .telefone{
             display: flex;
-
-            height: 20px;
-            margin-top: 15px;
-            
-            
+            align-items: center;
+            gap: 15px;
         }
 
-} 
+        .localizacao{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+    }
 
+    .secao-navegacao {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
 
+        padding: 15px 0px;
 
+        width: 100%;
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            width: 150px;
+            margin-left: 10%;
+            margin-right: 5%;
+        }
+
+        .navegacao {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            padding: 1.5rem 4rem;
+
+            border-radius: 10px;
+            font-family: "inter";
+
+            color: rgb(26, 26, 26);
+            //background-color: rgb(235, 235, 235);
+            //border: 1px solid rgb(29, 29, 29);
+
+            gap: 15px;
+
+            .linha{
+                background-color: rgb(14, 14, 14);
+
+                 height: 30px;
+                 width: 2px;
+            }
+        }
+
+        .pesquisa {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0px 20px;
+            height: 35px;
+
+            border-radius: 20px;
+
+            border: 2px solid rgb(158, 158, 158);
+
+            input {
+                color: black;
+                background-color: transparent;
+                border: none;
+                outline: none;
+            }
+        }
+
+        @media (max-width: 950px) {
+            .navegacao {
+                display: none;
+                font-family: inter;
+            }
+
+            .pesquisa {
+                width: 90%;
+            }
+        }
+    }
 }
 
+@media (max-width: 500px) {
+    .secao-cabecalho {
+        flex-direction: column;
+    }
+
+    .secao-navegacao{
+        flex-direction: column;
+    }
+}

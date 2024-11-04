@@ -1,122 +1,188 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import "./index.scss";
 import { Link, useNavigate } from "react-router-dom";
 import Cabe from "../../components/cabecalho/index.jsx";
 import Rodape from "../../components/rodape/index.jsx";
-
+import MenuUsuario from "../../components/MenuUsuario/index.jsx";
+import { MagicMotion } from "react-magic-motion";
 
 import axios from "axios";
 
 export default function Consultar() {
-	const [id, setId] = useState(""); // Inicialize com uma string vazia
-	const [produtos, setProdutos] = useState([]);
-	const [token, setToken] = useState(null);
+    const [produtos, setProdutos] = useState([]);
+    const [token, setToken] = useState(null);
+    const [limite, setLimite] = useState(5);
 
-	const Navigate = useNavigate();
+    const [mostrarVermais , setMostrarVermais] = useState(true);
 
-	async function buscar(token) {
-		const url = `http://localhost:5002/select/produto?x-access-token=${token}`;
-		let resp = await axios.get(url);
-		setProdutos(resp.data);
-	}
+    //4.172.207.208:5031
+    const host = 'localhost:5031'
 
-	async function deletar(id, token) {
-		// Remova o parâmetro id
-		const url = `http://localhost:5002/delete/produto/${id}?x-access-token=${token}`; // Substitua o parâmetro id
-		await axios.delete(url);
+    const Navigate = useNavigate();
 
-		await buscar();
-	}
+    const buscar = useCallback(async (token) => {
+        const url = `http://${host}/select/produto/?total=${limite}&x-access-token=${token}`;
+        let resp = await axios.get(url);
+        setProdutos(resp.data);
+    }, [limite]);
 
-	async function sair() {
-		localStorage.setItem('USUARIO', null)
-		Navigate('/')
-	}
+    async function deletar(id, token) {
+        // Remova o parâmetro id
+        const url = `http://${host}/delete/produto/${id}?x-access-token=${token}`; // Substitua o parâmetro id
+        await axios.delete(url);
 
+        await buscar(token);
+    }
 
-	useEffect(() => {
-		let token = localStorage.getItem('USUARIO')
-		setToken(token)
+    async function sair() {
+        localStorage.setItem("USUARIO", null);
+        Navigate("/");
+    }
 
-		if (token === null) {
-			Navigate('/')
-		}
-		buscar(token)
-	}, [Navigate])
+    async function VerMais() {
+        if (limite !== produtos.length) {
+            setMostrarVermais(false)
+        }
 
+        let novoLimite = limite + 5;
+        setLimite(novoLimite);
 
-	return (
-		<div className="a1">
-			<div className="pagina-consultar">
-				<header>
-					<Cabe />
-				</header>
+        await buscar(token);
+    }
 
+    function voltar() {
+        Navigate('/')
+    }
 
-				<div>
-					<button onClick={sair}>Sair</button>
-					<button><Link to={'/cadastrar'}>Cadastrar</Link></button>
-					<label>Insira um id</label>
-					<input type="text" value={id} onChange={(e) => setId(e.target.value)} />
-					<button onClick={deletar}>deletar </button>
-				</div>
+    useEffect(() => {
+        let token = localStorage.getItem("USUARIO");
+        setToken(token);
 
+        if (token === "null") {
+            Navigate("/");
+        } else { 
+            buscar(token);
+        }
+    }, [Navigate, limite, buscar]);
 
-				<table>
-					<thead>
-						<tr className="bak">
-							<th>ID</th>
-							<th>Produto</th>
-							<th>Imagem</th>
-							<th>Descricao</th>
-							<th>Valor</th>
-							<th>Estoque</th>
-							<th>Disponivel</th>
-							<th className="alter">Alterar ou excluir</th>
-						</tr>
-					</thead>
+    return (
+      
+        <div className="pagina-consultar">
+            <header className="cabecalho">
+                <MenuUsuario />
+                <Cabe />
+            </header>
 
-					<tbody>
-						{produtos.map((item) => (
-							<tr>
-								<td>{item.id}</td>
-								<td>{item.tipo}</td>
-								<td>{item.img}</td>
-								<td>{item.descricao}</td>
-								<td>{item.valor}</td>
-								<td>{item.estoque}</td>
-								{/* <td>{new Date(item.vinganca).toLocaleDateString()}</td> */}
-								<td>{item.disponivel ? "Sim" : "Não"}</td>
-								<td>
-									<Link to={`/cadastrar/${item.id}`}>
-										<img src="assets\images\asf.png" alt="" width={40} />
-									</Link>
-									<Link onClick={() => deletar(item.id, token)}>Deletar</Link>
+            <main>
+                <div className="botao-voltar">
+                    <div className="voltar" onClick={voltar} style={{ cursor: 'pointer' }}>
+                        <img
+                            src="/assets/images/Arrowleft.png"
+                            alt="seta"
+                            width={25}
+                        />
+                        <h1>VOLTAR</h1>
+                    </div>
+                </div>
+                
+                <div className="opcoes">
+                    <button className="sair" onClick={sair}>
+                        Sair
+                    </button>
 
-								</td>
-							</tr>
-						))}
-					</tbody>
-				</table>
+                    <div className="visualizar">
+                        <button className="botao-card">
+                            <img src="/assets/images/icones/consultarCard.svg" alt="botãoCard" width={30} height={30}/>
+                        </button>
 
-
-				<div>
-					<button className="ver">Ver mais</button>
-				</div>
-
-			</div>
+                        <button className="botao-list">
+                            <img src="/assets/images/icones/consultarLista.svg" alt="botãoLista" width={30} height={30}/>
+                        </button>
+                    </div>
 
 
+                    <div className="pesquisar-adicionar">
+                        <input type="text" placeholder="Pesquisar item" />
 
-			<div className="rodape">
-				<footer>
+                        <button className="adicionar">
+                            <img src="/assets/images/icones/adicionarQuadrado.svg" alt="Sinal_Mais" width={30}/>
+                            <Link to={"/cadastrar"}>Adicionar</Link>
+                        </button>
+                    </div>
+
+                </div>
 
 
-					<Rodape />
 
-				</footer>
-			</div>
+                <div className="tabela" style={{ overflow: "auto" }}>
+                    <table>
+                        <thead>
+                            <tr className="bak">
+                                <th>ID</th>
+                                <th>nome</th>
+                                <th>categoria</th>
+                                <th>Descricao</th>
+                                <th>Valor</th>
+                                <th>Estoque</th>
+                                <th>Disponivel</th>
+                                <th>Alterar ou excluir</th>
+                            </tr>
+                        </thead>
 
-		</div>
-	);
+                        <tbody>
+                            {produtos.map((item, index) => (
+                                <tr key={index}>
+                                    <td>
+                                        #{item.id.toString().padStart(2, "0")}
+                                    </td>
+                                    <td>{item.nome}</td>
+                                    <td>{item.categoria}</td>
+                                    <td>{item.descricao}</td>
+                                    <td>{item.valor}</td>
+                                    <td>{item.estoque}</td>
+                                    {/* <td>{new Date(item.vinganca).toLocaleDateString()}</td> */}
+                                    <td>{item.disponivel ? "Sim" : "Não"}</td>
+                                    <td> 
+                                        <MagicMotion>
+                                        <Link to={`/cadastrar/${item.id}`}>
+                                            <img
+                                                src="/assets/images/editar.png"
+                                                alt="icone_alterar"
+                                                width={48}
+                                            />
+                                        </Link>
+ 
+                                        <Link
+                                            onClick={() =>
+                                                deletar(item.id, token)
+                                            }
+                                        >
+                                            <img
+                                                src="/assets/images/Remover.svg"
+                                                alt="icone_lixo"
+                                                width={48}
+                                            />
+                                        </Link>
+                                        </MagicMotion>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+
+            {mostrarVermais &&
+                <div className="verMais">
+                    <hr />
+                    <button onClick={VerMais}>Ver Mais</button>
+                    <hr />
+                </div>
+            }
+            </main>
+
+            <footer>
+                <Rodape />
+            </footer>
+        </div>
+    );
 }
