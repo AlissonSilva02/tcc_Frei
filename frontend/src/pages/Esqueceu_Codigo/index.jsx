@@ -2,7 +2,7 @@ import "./index.scss";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Rodape from "../../components/rodape";
-import Cabecalhologin from "../../components/CabecalhoLogin/index.jsx";
+import Cabecalhologin from "../../components/cabecalhoLogin/index.jsx";
 
 export default function Esqueceu_senha_codigo() {
   const [codigo, setCodigo] = useState("");

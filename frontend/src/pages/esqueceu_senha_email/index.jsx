@@ -2,7 +2,7 @@ import "./index.scss";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Rodape from "../../components/rodape";
-import Cabecalhologin from "../../components/CabecalhoLogin/index.jsx";
+import Cabecalhologin from "../../components/cabecalhoLogin/index.jsx";
 import emailjs from '@emailjs/browser'
 
 export default function Esqueceu_senha_email() {
@@ -19,7 +19,7 @@ export default function Esqueceu_senha_email() {
       to_email: Emailuser 
     }
 
-   emailjs.send(  process.env.REACT_APP_SERVICE_ID,process.env.REACT_APP_TEMPLATE_ID, templateParams, process.env.REACT_APP_PUBLIC_KEY,  )
+   emailjs.send(  process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, templateParams, process.env.REACT_APP_PUBLIC_KEY,  )
     .then((response) => {
       alert("E-mail enviado", response.status, response.text)
     }, (err) => {

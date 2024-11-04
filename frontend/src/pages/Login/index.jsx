@@ -1,9 +1,9 @@
 import './index.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import Rodape from '../../components/rodape';
-import CabecalhoLogin from '../../components/CabecalhoLogin/index.jsx';
+import CabecalhoLogin from '../../components/cabecalhoLogin/index.jsx';
 
 import { toast } from "react-toastify";
 
@@ -33,7 +33,7 @@ export default function Login() {
             senha: senha,
         };
 
-        const url = "http://localhost:5002/entrar/";
+        const url = "http://localhost:5031/entrar/";
         let resp = await axios.post(url, usuario);
 
         if (resp.data.erro !== undefined) {
@@ -54,6 +54,7 @@ export default function Login() {
 
 
     return (
+        <div>
         <div className="Pagina-login">
             <header>
                 <img src="/assets/images/logo/Ashey-Logo.svg" alt="logoAshey" />
@@ -113,5 +114,6 @@ export default function Login() {
 
             <Rodape />
         </div>
+        
     );
 }
