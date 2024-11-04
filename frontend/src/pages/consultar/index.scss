@@ -34,19 +34,52 @@
 
                 border-radius: 100px;
                 border: #000 solid 3px;
-            }
-
-            button{
-
 
                 font-size: 24px;
-                border-radius: 50px;
-
-                padding: 20px 40px;
-                background-color: #000;
                 color: #fff;
+            }
 
-                border: none;
+            .visualizar{
+                display: flex;
+                gap: 10px;
+
+                .botao-card, .botao-list{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    background: none;
+                    padding: 10px;
+                    border: 2px solid black;
+                    border-radius: 10px;
+                }
+            }
+
+            .pesquisar-adicionar{
+                display: flex;
+                justify-content: flex-end;
+
+                gap: 10px;
+
+                .adicionar{
+                    display: flex;
+                    gap: 15px;
+                    align-items: center;
+
+                    font-size: 24px;
+                    color: #fff;
+                    border-radius: 20px;
+
+                    padding: 20px 40px;
+                    background-color: #000;
+
+                    border: none;
+                }
+
+                input{
+                    border-radius: 50px;
+                    padding: 0px 5% 0px 5%;
+                }
             }
 
         }

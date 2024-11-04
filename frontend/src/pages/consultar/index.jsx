@@ -6,9 +6,7 @@ import Rodape from "../../components/rodape/index.jsx";
 import MenuUsuario from "../../components/MenuUsuario/index.jsx";
 import { MagicMotion } from "react-magic-motion";
 
-
 import axios from "axios";
-import VoltarButton from "../../components/voltar/index.jsx";
 
 export default function Consultar() {
     const [produtos, setProdutos] = useState([]);
@@ -52,6 +50,10 @@ export default function Consultar() {
         await buscar(token);
     }
 
+    function voltar() {
+        Navigate('/')
+    }
+
     useEffect(() => {
         let token = localStorage.getItem("USUARIO");
         setToken(token);
@@ -72,15 +74,45 @@ export default function Consultar() {
             </header>
 
             <main>
-                <VoltarButton/>
+                <div className="botao-voltar">
+                    <div className="voltar" onClick={voltar} style={{ cursor: 'pointer' }}>
+                        <img
+                            src="/assets/images/Arrowleft.png"
+                            alt="seta"
+                            width={25}
+                        />
+                        <h1>VOLTAR</h1>
+                    </div>
+                </div>
+                
                 <div className="opcoes">
                     <button className="sair" onClick={sair}>
                         Sair
                     </button>
-                    <button>
-                        <Link to={"/cadastrar"}>Adicionar Item</Link>
-                    </button>
+
+                    <div className="visualizar">
+                        <button className="botao-card">
+                            <img src="/assets/images/icones/consultarCard.svg" alt="botãoCard" width={30} height={30}/>
+                        </button>
+
+                        <button className="botao-list">
+                            <img src="/assets/images/icones/consultarLista.svg" alt="botãoLista" width={30} height={30}/>
+                        </button>
+                    </div>
+
+
+                    <div className="pesquisar-adicionar">
+                        <input type="text" placeholder="Pesquisar item" />
+
+                        <button className="adicionar">
+                            <img src="/assets/images/icones/adicionarQuadrado.svg" alt="Sinal_Mais" width={30}/>
+                            <Link to={"/cadastrar"}>Adicionar</Link>
+                        </button>
+                    </div>
+
                 </div>
+
+
 
                 <div className="tabela" style={{ overflow: "auto" }}>
                     <table>
@@ -145,7 +177,7 @@ export default function Consultar() {
                     <button onClick={VerMais}>Ver Mais</button>
                     <hr />
                 </div>
-                 }
+            }
             </main>
 
             <footer>
