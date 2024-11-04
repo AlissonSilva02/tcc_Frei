@@ -1,8 +1,9 @@
-import "./index.scss";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import Rodape from "../../components/rodape";
+import './index.scss';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
+import Rodape from '../../components/rodape';
+import CabecalhoLogin from '../../components/CabecalhoLogin/index.jsx';
 
 import { toast } from "react-toastify";
 
@@ -32,7 +33,7 @@ export default function Login() {
             senha: senha,
         };
 
-        const url = `http://${host}/entrar/`;
+        const url = "http://localhost:5002/entrar/";
         let resp = await axios.post(url, usuario);
 
         if (resp.data.erro !== undefined) {
@@ -85,28 +86,20 @@ export default function Login() {
                                 placeholder="Digite sua Senha"
                                 onKeyUp={teclaApertada}
                                 onChange={(e) => setSenha(e.target.value)}
-                            />
-                            <button
-                                className="olho"
-                                onClick={verificaOlho}
-                                type="button"
-                            >
-                                {!olho && (
-                                    <img
-                                        src="/assets/images/login/olhoFechado.svg"
-                                        alt="olhoFechado"
-                                        height={25}
-                                    />
-                                )}
-                                {olho && (
-                                    <img
-                                        src="/assets/images/login/olhoAberto.svg"
-                                        alt="olhoAberto"
-                                        height={25}
-                                    />
-                                )}
-                            </button>
-                        </div>
+                            /> 
+                            <button className='olho' onClick={verificaOlho} type='button'>
+                                {!olho  && <hr className='oiof' />}
+                                {olho && <hr className='oio' />}
+                            </button></div>
+                            
+                            
+                            </div>
+                            <a href='/esqueceue'>Esqueci a Senha</a>
+                       
+
+                        <hr className="linha" />
+
+                        <button className='mes' onClick={entrar}>ENTRAR</button>
                     </div>
                     <a href="/esqueceu_senha_email">Esqueci a Senha</a>
 

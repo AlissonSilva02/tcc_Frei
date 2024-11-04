@@ -21,14 +21,14 @@ export default function Consultar() {
     const Navigate = useNavigate();
 
     const buscar = useCallback(async (token) => {
-        const url = `http://${host}/select/produto/?total=${limite}&x-access-token=${token}`;
+        const url = `http://localhost:5002/select/produto/?total=${limite}&x-access-token=${token}`;
         let resp = await axios.get(url);
         setProdutos(resp.data);
     }, [limite]);
 
     async function deletar(id, token) {
         // Remova o parâmetro id
-        const url = `http://${host}/delete/produto/${id}?x-access-token=${token}`; // Substitua o parâmetro id
+        const url = `http://localhost:5002/delete/produto/${id}?x-access-token=${token}`; // Substitua o parâmetro id
         await axios.delete(url);
 
         await buscar(token);

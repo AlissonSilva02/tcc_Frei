@@ -1,8 +1,9 @@
 .secao-cabecalho {
-    width: 100%;
+    width: 100vw;
     background-color: #ffffff;
     border-bottom: 2px solid #dfdfdf;
     font-family: "inter";
+
 
     a{
         text-decoration: none;
@@ -17,25 +18,36 @@
     .barraInfo{
         display: flex;
         justify-content: space-around;
-
+        text-wrap: wrap;
         align-items: center;
-        gap: 15px;
-
+        gap: 2vw;
+        font-size: 2vw;
         color: antiquewhite;
-        padding: 10px 5vw;
+        padding: 2vh 5vw;
         background-color: #181818;
         border-bottom: solid 1px black;
 
         .telefone{
             display: flex;
             align-items: center;
-            gap: 15px;
-        }
+            gap: 1vw;            
+   
+
+            .tel{
+                width: 2.5vw;
+            }
+        }    
+       
 
         .localizacao{
             display: flex;
             align-items: center;
             gap: 15px;
+
+
+            .loc{
+                width: 2.5vw;
+            }
         }
     }
 
@@ -52,7 +64,7 @@
             display: flex;
             justify-content: center;
             gap: 10px;
-            width: 150px;
+            width: 15vw;
             margin-left: 10%;
             margin-right: 5%;
         }
@@ -62,7 +74,8 @@
             flex-direction: row;
             align-items: center;
             justify-content: center;
-
+            
+            font-size: 1vw;
             padding: 1.5rem 4rem;
 
             border-radius: 10px;
@@ -72,12 +85,12 @@
             //background-color: rgb(235, 235, 235);
             //border: 1px solid rgb(29, 29, 29);
 
-            gap: 15px;
+            gap: 1.5vw;
 
             .linha{
                 background-color: rgb(14, 14, 14);
 
-                 height: 30px;
+                 height: 4vh;
                  width: 2px;
             }
         }

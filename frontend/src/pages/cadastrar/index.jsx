@@ -80,7 +80,7 @@ export default function Cadastrar() {
 
         if (id === undefined) {
             //inserir
-            const url = `http://${host}/insert/produto?x-access-token=${token}`;
+            const url = `http://localhost:5002/insert/produto?x-access-token=${token}`;
             let resp = await axios.post(url, paramCorpo);
             alert(resp)
             navigate("/consultar");
@@ -93,7 +93,7 @@ export default function Cadastrar() {
                     "x-access-token": token,
                 },
             };
-            const url = `http://${host}/update/produto/${id}`;
+            const url = `http://localhost:5002/update/produto/${id}`;
             await axios.put(url, paramCorpo, config);
 
             navigate("/consultar");
@@ -101,21 +101,42 @@ export default function Cadastrar() {
         }
     }
 
-    const Buscar = useCallback(
-        async (token) => {
-            const url = `http://${host}/select/produto/${id}?x-access-token=${token}`;
-            let resp = await axios.get(url);
+    
+    // async function Buscar(token) {
+    //     const url = `http://localhost:5002/select/produto/${id}?x-access-token=${token}`;
+    //     let resp = await axios.get(url);
 
-            setnome(resp.data.nome);
-            setcategoria(resp.data.categoria);
-            setImg(resp.data.img);
-            setDescricao(resp.data.descricao);
-            setValor(resp.data.valor);
-            setDisponivel(resp.data.disponivel);
-            setEstoque(resp.data.estoque);
-        },
-        [id]
-    );
+    //     setnome(resp.data.nome);
+    //     setcategoria(resp.data.categoria);
+    //     setImg(resp.data.img);
+    //     setDescricao(resp.data.descricao);
+    //     setValor(resp.data.valor);
+    //     setDisponivel(resp.data.disponivel);
+    //     setEstoque(resp.data.estoque);
+    // }
+
+
+const Buscar = useCallback(async (token) => {
+    const url = `http://localhost:5002/select/produto/${id}?x-access-token=${token}`
+    let resp =  await axios.get(url)
+
+    setnome(resp.data.nome);
+    setcategoria(resp.data.categoria);
+    setImg(resp.data.img);
+    setDescricao(resp.data.descricao);
+    setValor(resp.data.valor);
+    setDisponivel(resp.data.disponivel);
+    setEstoque(resp.data.estoque);
+}, [id])
+
+
+    /*
+    const buscar = useCallback(async (token) => {
+        const url = `http://localhost:5002/select/produto/?total=${limite}&x-access-token=${token}`;
+        let resp = await axios.get(url);
+        setProdutos(resp.data);
+    }, [limite]);
+    */
 
     useEffect(() => {
         let token = localStorage.getItem("USUARIO");
