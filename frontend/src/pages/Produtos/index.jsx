@@ -106,16 +106,15 @@ export default function Produtos() {
 						<h1>Resultados Principais </h1>
 						<div className="produtos">
 							{produtosFiltrados.length > 0 ? (
-								produtosFiltrados.map((item) => (
-									
+								produtosFiltrados.map((item, index) => (
 										<Card
+											key={index}
 											imagem={item.img}
-											alt={item.img}
+											alt={item.nome}
 											preco={item.valor}
 											nome={item.nome}
 											link={item.id}
 										/>
-									
 								))
 							) : (
 								<p>Nenhum produto encontrado</p>

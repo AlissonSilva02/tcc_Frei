@@ -1,5 +1,5 @@
 import "./index.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Rodape from "../../components/rodape";
@@ -43,6 +43,14 @@ export default function Login() {
             navigate("/consultar/");
         }
     }
+
+    useEffect(() => {
+        const token = localStorage.getItem("USUARIO")
+        if (token !== 'null' && token !== undefined) {
+            navigate('/consultar')
+        }
+    }, [navigate])
+
 
     return (
         <div className="Pagina-login">
