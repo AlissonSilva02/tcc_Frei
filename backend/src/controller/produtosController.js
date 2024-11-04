@@ -2,6 +2,7 @@ import * as db from "../repository/produtosRepository.js";
 
 import { autenticar } from "../utils/jwt.js";
 
+import { storage } from "./multerConfig.js";
 import multer from 'multer'
 import fs from 'fs'
 
@@ -74,7 +75,7 @@ endpoints.get("/produto/nome", async (req, resp) => {
     }
 });
 
-let inserirImagem = multer({dest: './storage/produtos'})
+let inserirImagem = multer({storage: storage})
 endpoints.post("/insert/produto", autenticar, inserirImagem.single('produto'), async (req, resp) => {
     try {
         let id = req.user.id;
@@ -121,7 +122,7 @@ endpoints.post("/insert/produto", autenticar, inserirImagem.single('produto'), a
 });
 
 //Atualizar imagem
-let atualizarImagemProduto = multer({dest: './storage/produtos'})
+let atualizarImagemProduto = multer({storage: storage})
 endpoints.put("/update/imagem/:id", autenticar, atualizarImagemProduto.single('produto'), async (req, resp) => {
         try {
             let id = req.params.id;
