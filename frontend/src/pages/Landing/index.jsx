@@ -10,6 +10,20 @@ import Card from "../../components/CardProduto/index.jsx";
 export default function App() {
   const [produto, setProduto] = useState([]);
 
+  const [limite, setLimite] = useState(5);
+
+  const [mostrarVermais , setMostrarVermais] = useState(true);
+
+  async function VerMais() {
+    if (limite !== produto.length) {
+        setMostrarVermais(false)
+    }
+
+    let novoLimite = limite + 4;
+    setLimite(novoLimite);
+
+    await buscarProdutos();
+}
   const buscarProdutos = useCallback(async () => {
     const url = `http://localhost:5031/select/produto`;
     const resp = await axios.get(url);
