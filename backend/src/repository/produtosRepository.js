@@ -1,6 +1,6 @@
 import con from './connection.js'
 
-export async function consultarProdutosLimite(total) {
+export async function consultarProdutosLimite(limite) {
     let comando = `
     SELECT  id_produto id,  
             nome,
@@ -14,7 +14,7 @@ export async function consultarProdutosLimite(total) {
     LIMIT ?
     `
 
-    let resposta = await con.query(comando, [Number(total)]);
+    let resposta = await con.query(comando, [Number(limite)]);
     let registros = resposta[0]
 
     return registros;

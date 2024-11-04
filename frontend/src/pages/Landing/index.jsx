@@ -19,7 +19,9 @@ export default function App() {
 
   useEffect(() => {
     buscarProdutos();
-  }, [buscarProdutos]);
+  });
+
+
 
   const slides = [
     {
@@ -61,8 +63,8 @@ export default function App() {
         <MenuUsuario />
         <Cabe />
       </header>
-      <div className="secao-landing0">
-        <div className="secao-landing">
+      <div className="secao-landing">
+        <div className="secao-landingo">
           <div className="land">
             {slides.map((slide, index) => (
               <div
@@ -122,23 +124,28 @@ export default function App() {
         <div className="listaProdutos">
           <h1>Resultados Principais</h1>
           <div className="produtos">
-            {produto.length > 0 ? (
-              produto.map((item) => (
+            {produto.map((item, index) => (
                 <Card
+                  key={index}
                   imagem={item.img}
-                  alt={item.img}
+                  alt={item.nome}
                   preco={item.valor}
                   nome={item.nome}
                   link={item.id}
                 />
               ))
-            ) : (
-              <p>Nenhum produto encontrado</p>
-            )}
+            }
           </div>
         </div>
 
       </div>
+      {mostrarVermais && (
+          <div className="ver">
+            <hr />
+            <button onClick={VerMais}>Ver Mais</button>
+            <hr />
+          </div>
+        )}
       <div className="rodape">
         <footer>
           <Rodape />

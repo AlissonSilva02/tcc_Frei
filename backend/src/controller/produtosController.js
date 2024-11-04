@@ -18,10 +18,10 @@ import removerProdutoService from "../service/RemoverProdutoService.js";
 const endpoints = Router();
 
 //seleciona os produtos com um total de limite
-endpoints.get("/select/produto", async (req, resp) => {
+endpoints.get("/select/produto/:limite", async (req, resp) => {
     try {
         //Recebe o limite de registros
-        let limite = req.query.total
+        let limite = req.params.limite
     
         let produto = await consultarProdutosLimiteService(limite);
 
