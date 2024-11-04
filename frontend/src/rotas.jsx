@@ -14,7 +14,6 @@ import Esqueceu_senha_codigo from "./pages/Esqueceu_Codigo/index.jsx";
 import Esqueceu_senha_email from "./pages/esqueceu_senha_email/index.jsx";
 
 //excluir depois
-import Cabe from "./components/cabecalho/index.jsx";
 import MenuUsuario from "./components/MenuUsuario/index.jsx";
 
 export default function Navegacao() {

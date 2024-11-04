@@ -6,6 +6,8 @@ import Rodape from "../../components/rodape/index.jsx";
 import MenuUsuario from "../../components/MenuUsuario/index.jsx";
 import { MagicMotion } from "react-magic-motion";
 
+import ConsultarTabelaLista from "../../components/consultarTabelaLista/index.jsx";
+
 import axios from "axios";
 
 export default function Consultar() {
@@ -14,14 +16,13 @@ export default function Consultar() {
     const [limite, setLimite] = useState(5);
 
     const [mostrarVermais , setMostrarVermais] = useState(true);
+    const Navigate = useNavigate();
 
     //4.172.207.208:5031
     const host = 'localhost:5031'
 
-    const Navigate = useNavigate();
-
     const buscar = useCallback(async (token) => {
-        const url = `http://localhost:5031/select/produto/?total=${limite}&x-access-token=${token}`;
+        const url = `http://${host}/select/produto/?total=${limite}&x-access-token=${token}`;
         let resp = await axios.get(url);
         setProdutos(resp.data);
     }, [limite]);
@@ -112,9 +113,11 @@ export default function Consultar() {
 
                 </div>
 
+            
+                {/* <ConsultarTabelaLista token={token}/> */}
 
-
-                <div className="tabela" style={{ overflow: "auto" }}>
+                
+                 <div className="tabela" style={{ overflow: "auto" }}>
                     <table>
                         <thead>
                             <tr className="bak">
@@ -140,7 +143,7 @@ export default function Consultar() {
                                     <td>{item.descricao}</td>
                                     <td>{item.valor}</td>
                                     <td>{item.estoque}</td>
-                                    {/* <td>{new Date(item.vinganca).toLocaleDateString()}</td> */}
+                                    {/* <td>{new Date(item.vinganca).toLocaleDateString()}</td>  */}
                                     <td>{item.disponivel ? "Sim" : "Não"}</td>
                                     <td> 
                                         <MagicMotion>
@@ -167,9 +170,10 @@ export default function Consultar() {
                                     </td>
                                 </tr>
                             ))}
-                        </tbody>
-                    </table>
-                </div>
+                            </tbody>
+                        </table>
+                    </div> 
+                
 
             {mostrarVermais &&
                 <div className="verMais">
