@@ -29,7 +29,7 @@ export default function Consultar() {
 
     async function deletar(id, token) {
         // Remova o parâmetro id
-        const url = `http://localhost:5031/delete/produto/${id}?x-access-token=${token}`; // Substitua o parâmetro id
+        const url = `http://${host}/delete/produto/${id}?x-access-token=${token}`; // Substitua o parâmetro id
         await axios.delete(url);
 
         await buscar(token);

@@ -20,7 +20,7 @@ export default function Produto() {
 	const host = 'localhost:5031'
 
 	const buscar = useCallback(async () => {
-		const url = `http://localhost:5031/select/produto/${id}`
+		const url = `http://${host}/select/produto/${id}`
 		let resp = await axios.get(url)
 		setProduto(resp.data)
 	}, [id]);
@@ -29,9 +29,8 @@ export default function Produto() {
 	const buscarRelacionados = useCallback(async () => {
 		const url = `http://${host}/produto/nome?buscar=${produto.categoria}`;
 
-		
 
-	 	let resp = await axios.post(url);
+	 	let resp = await axios.get(url);
 	 	setRelacionados(resp.data);
 	}, [produto])
 
