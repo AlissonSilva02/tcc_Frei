@@ -17,6 +17,7 @@
     }
 
     main {
+        min-height: 50vh;
         padding: 5%;
 
         .opcoes{
@@ -87,46 +88,6 @@
 
         }
 
-        .tabela {
-            display: flex;
-            justify-content: center;
-
-            table {
-                font-size: 15px;
-                margin-top: 20px;
-                background-color: #e9e6e6;
-                border-spacing: 0;
-                table-layout: auto;
-                width: 100%;
-            }
-
-            th {
-                padding: 2vh 2vw;
-                background-color: #000;
-                color: #fff;
-                font-size: 1.5vw;
-                border-left: 1px solid ;
-
-                
-            }
-
-            td {
-                padding: 15px 10px;
-                color: #9e9e9e;
-                font-size: 1.2vw;
-                text-align: center;
-                border-left: 1px solid ;
-            }
-
-            tr:nth-child(odd) {
-                background-color: #fff; 
-            }
-
-            tr:nth-child(even) {
-                background-color: #e9e6e6; 
-            }
-        }
-
         .verMais {
             display: flex;
             flex-direction: row;
@@ -158,5 +119,11 @@
                 font-size: 1.7vw;
             }
         }
+    }
+
+    footer{
+        width: 100%;
+        position: relative;
+        bottom: 0;
     }
 }

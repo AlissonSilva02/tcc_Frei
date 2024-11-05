@@ -161,11 +161,11 @@ export default function App() {
             <hr />
           </div>
         )}
-      <div className="rodape">
+      
         <footer>
           <Rodape />
         </footer>
-      </div>
+        
     </div>
   );
 }
