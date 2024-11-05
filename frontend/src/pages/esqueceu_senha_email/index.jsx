@@ -1,6 +1,6 @@
 import "./index.scss";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+/*import { useNavigate } from "react-router-dom";*/
 import Rodape from "../../components/rodape";
 import Cabecalhologin from "../../components/cabecalhoLogin/index.jsx";
 import emailjs from '@emailjs/browser'
@@ -31,14 +31,16 @@ export default function Esqueceu_senha_email() {
     
   }
 
-  const navigate = useNavigate();
+  /*const navigate = useNavigate();
 
   async function confirmar() {
     if (setEmailuser === Emailuser) {
       alert("Código email valido");
       navigate("/esqueceuc");
     }
-  }
+  }*/
+
+
 
   return (
     <div className="email">
