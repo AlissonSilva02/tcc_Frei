@@ -37,7 +37,7 @@ export default function Navegacao() {
                 
                 <Route path="/Menu" element={<MenuUsuario />} />
                 <Route path="/esqueceuc" element={<Esqueceu_senha_codigo />} />
-                <Route path="/esqueceue" element={<Esqueceu_senha_email />} />
+                <Route path="/esqueceu_senha_email" element={<Esqueceu_senha_email />} />
                 <Route path="*" element={<Not />} />
             </Routes>
         </BrowserRouter>

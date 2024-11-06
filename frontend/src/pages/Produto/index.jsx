@@ -66,8 +66,8 @@ export default function Produto() {
 			</header>
 
 			<main>
-				<button onClick={testar}>Testar</button>
-				<button onClick={() => alert(JSON.stringify(produto.categoria))}>produto</button>
+				
+				
 
 				<div className="botao-voltar">
 					<Link to={-1}>
