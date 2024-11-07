@@ -9,7 +9,10 @@
 
     img{
         width: 3vw;
+
     }
+
+    
 
     .cabecalho{
         display: flex;
@@ -57,6 +60,11 @@
                     padding: 10px;
                     border: 2px solid black;
                     border-radius: 10px;
+
+
+                    &.ativado{
+                        border: 2px solid #3eb0ea;
+                    }
                 }
             }
 

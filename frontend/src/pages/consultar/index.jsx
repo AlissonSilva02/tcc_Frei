@@ -17,6 +17,14 @@ export default function Consultar() {
     const [mostrarVermais, setMostrarVermais] = useState(true);
     const Navigate = useNavigate();
 
+    const [cardAtivado, setCardAtivado] = useState(false)
+    const [listaAtivado, setListaAtivado] = useState(true)
+
+    function ativar() {
+        setCardAtivado(!cardAtivado)
+        setListaAtivado(!listaAtivado)
+    }
+
     //4.172.207.208:5031
     const host = "localhost:5031";
 
@@ -79,7 +87,7 @@ export default function Consultar() {
                     </button>
 
                     <div className="visualizar">
-                        <button className="botao-card">
+                        <button className="botao-card" onClick={ativar}>
                             <img
                                 src="/assets/images/icones/consultarCard.svg"
                                 alt="botãoCard"
@@ -88,8 +96,9 @@ export default function Consultar() {
                             />
                         </button>
 
-                        <button className="botao-list">
+                        <button className={`botao-list ${listaAtivado ? 'ativado' : ''}`} onClick={ativar}>
                             <img
+                                
                                 src="/assets/images/icones/consultarLista.svg"
                                 alt="botãoLista"
                                 width={30}
@@ -112,7 +121,9 @@ export default function Consultar() {
                     </div>
                 </div>
 
-                <ConsultarTabelaLista token={token}/> 
+                {listaAtivado &&
+                    <ConsultarTabelaLista token={token}/> 
+                }
 
             </main>
 
