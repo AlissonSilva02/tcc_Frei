@@ -8,6 +8,7 @@ import MenuUsuario from "../../components/MenuUsuario/index.jsx";
 import ConsultarTabelaLista from "../../components/consultarTabelaLista/index.jsx";
 
 import axios from "axios";
+import CardTabela from "../../components/cardTabela/index.jsx";
 
 export default function Consultar() {
     const [produtos, setProdutos] = useState([]);
@@ -124,6 +125,8 @@ export default function Consultar() {
                 {listaAtivado &&
                     <ConsultarTabelaLista token={token}/> 
                 }
+
+                <CardTabela token={token}/>
 
             </main>
 
