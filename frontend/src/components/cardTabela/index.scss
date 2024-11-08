@@ -1,0 +1,134 @@
+.CardTabela {
+    display: flex;
+    flex-direction: column;
+    font-family: inter;
+  
+    .componente-TabelaLista {
+      display: flex;
+      flex-direction: column;
+
+      tbody {
+        gap: 2rem;
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+  
+        tr {
+          border: 2px solid #cfcfcf;
+          border-radius: 10px;
+          padding: 2%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: #fff;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+          &:hover {
+            transform: scale(1.02);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+          }
+  
+          .imagem {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1vw;
+            padding-right: 2%;
+            font-size: 1.3rem;
+  
+            img {
+              width: 20vh;
+              height: auto;
+              border-radius: 8px;
+            }
+  
+            p {
+              font-size: 1.2rem;
+              color: #666;
+            }
+          }
+  
+          .especificacoes {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem; 
+            padding-left: 2%; 
+            padding-right: 60%;
+
+            h3 {
+              font-size: 2rem;
+              font-weight: bold;
+              color: #333;
+            }
+  
+            .valores {
+              display: flex;
+              flex-direction: column;
+              font-size: 1.3rem;
+              color: #888;
+  
+              h4 {
+                display: flex;
+                margin-bottom: 7%;
+              }
+            }
+          }
+  
+          .alteracoes {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 1rem;
+  
+            img {
+              width: 6vh;
+              height: auto;
+              cursor: pointer;
+              transition: transform 0.3s ease;
+  
+              &:hover {
+                transform: scale(1.1);
+              }
+            }
+          }
+        }
+      }
+  
+      .nenhum {
+        text-align: center;
+        font-size: 1.5rem;
+        color: #999;
+      }
+    }
+  
+    .verMais {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 16px;
+  
+      hr {
+        flex: 1;
+        height: 1px;
+        border: none;
+        background-color: #ddd;
+      }
+  
+      button {
+        background-color: #000;
+        color: #000;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 0 8px;
+        transition: border 0.3s ease, background-color 0.3s ease;
+  
+        &:hover {
+          background-color: #000000;
+          color: white;
+        }
+      }
+    }
+  }
+  
