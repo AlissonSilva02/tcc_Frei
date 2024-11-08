@@ -1,4 +1,6 @@
 .pagina-landing {
+  font-family: inter;
+  
   .ver {
     display: flex;
     flex-direction: row;
@@ -123,10 +125,9 @@
 
         .banner {
           width: 100%;
-          height: auto;
-          max-height: 500px;
+          height: 500px;
           object-fit: cover;
-        }
+         }
 
         .banner-content {
           position: absolute;
