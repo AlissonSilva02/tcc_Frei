@@ -6,7 +6,6 @@ import { MagicMotion } from "react-magic-motion";
 
 import axios from "axios";
 
-
 export default function CardTabela({ token }) {
     const [limite, setLimite] = useState(5);
     const [produtos, setProdutos] = useState([]);
@@ -23,7 +22,6 @@ export default function CardTabela({ token }) {
         },
         [limite]
     );
-
 
     async function VerMais() {
         if (limite !== produtos.length) {
@@ -50,45 +48,71 @@ export default function CardTabela({ token }) {
         buscar(token);
     }, [buscar]);
 
-
     return (
-        <div className='CardTabela'>
+        <div className="Componente-CardTabela">
+          <button onClick={() => alert(JSON.stringify(produtos))}>
+                Testar
+            </button> 
 
-            <div>
-                <img src={produtos.imagem} alt={produtos.alt} />
-                <p>id: {produtos.id}</p>
-            </div>
+            {produtos.length > 0 ? (
+                produtos.map((item, index) => (
+                    <MagicMotion>
+                        <div className="cardProduto" key={index}>
+                            
+                            <div className="container-flex">
+                                <div className="imagem_Id">
 
-            <div>
-                <h4>{produtos.nome}</h4>
-                <p>Estoque: {produtos.estoque}</p>
-                <h5>Preço: {produtos.preco}</h5>
-            </div>
+                                    <div className="imagem">
+                                        <img src={item.img} alt={item.nome} />
+                                    </div>
 
-            <div>
-                <MagicMotion>
-                    <Link to={`/cadastrar/${produtos.id}`}>
-                        <img
-                            src="/assets/images/editar.png"
-                            alt="icone_alterar"
-                            width={48}
-                        />
-                    </Link>
+                                    <div className="id"> 
+                                        <p>id: {item.id}</p>
+                                    </div>
+                                </div>
 
-                    <Link
-                        onClick={() =>
-                            deletar(produtos.id, token)
-                        }
-                    >
-                        <img
-                            src="/assets/images/Remover.svg"
-                            alt="icone_lixo"
-                            width={48}
-                        />
-                    </Link>
-                </MagicMotion>
-            </div>
+                                <div className="infoProduto">
+                                    <h4>{item.nome}</h4>
+                                    <p>Estoque: {item.estoque}</p>
+                                    <h5>Preço: R${item.valor}</h5>
+                                </div>
+                            </div>
 
+                            <div className="icones">  
+                                <Link to={`/cadastrar/${item.id}`}>
+                                    <img
+                                        src="/assets/images/editar.png"
+                                        alt="icone_alterar"
+                                        width={48}
+                                    />
+                                </Link>
+
+                                <Link
+                                    onClick={() => deletar(item.id, token)}
+                                >
+                                    <img
+                                        src="/assets/images/Remover.svg"
+                                        alt="icone_lixo"
+                                        width={48}
+                                    />
+                                </Link>
+                            </div>
+                        </div>
+                    </MagicMotion>
+                ))
+            ) : (
+                <div className="nenhum">
+                    <p>Nenhum produto encontrado</p>
+                </div>
+            )}
+
+            {mostrarVermais && (
+                <div className="verMais">
+                    <hr />
+                    <button onClick={VerMais}>Ver Mais</button>
+                    <hr />
+                </div>
+            )}
         </div>
-    )
+    );
 }

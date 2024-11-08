@@ -1,0 +1,43 @@
+.Componente-CardTabela{
+    .cardProduto{
+        display: flex;
+        justify-content: space-between;
+
+        width: 100%;
+
+        padding: 2em;
+        border: 2px solid gray;
+        border-radius: 15px;
+
+        .container-flex{
+            display: flex;
+
+            .imagem_Id{
+                .imagem{
+                    display: flex; 
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: #f7f7f7;
+                    border: 1px solid rgb(209, 209, 209);
+                    margin-right: 3vw;
+                    aspect-ratio: 1; /* Define um formato quadrado */
+                    overflow: hidden;
+
+                    img {
+                        width: 80%; /* Ajuste para deixar a imagem menor que o quadrado */
+                        height: 80%; /* Proporção igual para centralizar */
+                        object-fit: contain; /* Mantém a proporção da imagem sem cortá-la */
+                    }
+                }
+            
+            }
+        }
+
+        .icones{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}

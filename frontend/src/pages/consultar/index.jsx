@@ -6,9 +6,9 @@ import Rodape from "../../components/rodape/index.jsx";
 import MenuUsuario from "../../components/MenuUsuario/index.jsx";
 
 import ConsultarTabelaLista from "../../components/consultarTabelaLista/index.jsx";
+import CardTabela from "../../components/cardTabela/index.jsx";
 
 import axios from "axios";
-import CardTabela from "../../components/cardTabela/index.jsx";
 
 export default function Consultar() {
     const [produtos, setProdutos] = useState([]);
@@ -21,9 +21,14 @@ export default function Consultar() {
     const [cardAtivado, setCardAtivado] = useState(false)
     const [listaAtivado, setListaAtivado] = useState(true)
 
-    function ativar() {
-        setCardAtivado(!cardAtivado)
-        setListaAtivado(!listaAtivado)
+    function ativarLista() {
+        setListaAtivado(true)
+        setCardAtivado(false)
+    }
+
+    function ativarCard() {
+        setCardAtivado(true)
+        setListaAtivado(false)
     }
 
     //4.172.207.208:5031
@@ -88,7 +93,7 @@ export default function Consultar() {
                     </button>
 
                     <div className="visualizar">
-                        <button className="botao-card" onClick={ativar}>
+                        <button className={`botao-card ${cardAtivado ? 'ativado' : ''}`} onClick={ativarCard}>
                             <img
                                 src="/assets/images/icones/consultarCard.svg"
                                 alt="botãoCard"
@@ -97,9 +102,8 @@ export default function Consultar() {
                             />
                         </button>
 
-                        <button className={`botao-list ${listaAtivado ? 'ativado' : ''}`} onClick={ativar}>
+                        <button className={`botao-list ${listaAtivado ? 'ativado' : ''}`} onClick={ativarLista}>
                             <img
-                                
                                 src="/assets/images/icones/consultarLista.svg"
                                 alt="botãoLista"
                                 width={30}
@@ -126,7 +130,10 @@ export default function Consultar() {
                     <ConsultarTabelaLista token={token}/> 
                 }
 
-                <CardTabela token={token}/>
+                {cardAtivado &&
+                    <CardTabela token={token}/> 
+                }
+
 
             </main>
 
