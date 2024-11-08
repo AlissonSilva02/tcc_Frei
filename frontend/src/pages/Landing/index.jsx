@@ -12,10 +12,9 @@ export default function App() {
 
   const [limite, setLimite] = useState(5);
 
-
   async function VerMais() {
-     buscarProdutos();
-}
+    buscarProdutos();
+  }
   const buscarProdutos = useCallback(async () => {
     const url = `http://localhost:5031/select/produto/?total=4`;
 
@@ -28,17 +27,15 @@ export default function App() {
     buscarProdutos();
   });
 
-
-
   const slides = [
     {
-      image: "/assets/images/landing/wavely.svg",
+      image: "/assets/images/landing/Wavely.png",
       title: "Wavely",
       description:
         "Definição e leveza! Formulada especialmente para valorizar a beleza natural dos seus fios, Wavely oferece a hidratação e o controle que você precisa para ondas e cachos incríveis, sem pesar.",
     },
     {
-      image: "/assets/images/landing/carbon.svg",
+      image: "/assets/images/landing/carbon.png",
       title: "Carbon",
       description:
         "Renovação profunda com tecnologia avançada e ingredientes selecionados para quem busca uma limpeza intensa e uma restauração completa do cabelo.",
@@ -83,25 +80,23 @@ export default function App() {
                   src={slide.image}
                   alt={`Banner ${index + 1}`}
                 />
-                {index === currentIndex && (
-                  <div
-                    className={`banner-content ${
-                      slide.title === "Carbon" ? "right" : "left"
-                    }`}
+                <div
+                  className={`banner-content ${
+                    slide.title === "Carbon" ? "right" : "left"
+                  }`}
+                >
+                  <h1
+                    style={{
+                      color: slide.title === "Carbon" ? "#fff" : "#000",
+                    }}
                   >
-                    <h1
-                      style={{
-                        color: slide.title === "Carbon" ? "#fff" : "#000",
-                      }}
-                    >
-                      {slide.title}
-                    </h1>
-                    <p>{slide.description}</p>
-                    <Link to={"/produtos/"} className="veja-mais">
-                      Veja mais
-                    </Link>
-                  </div>
-                )}
+                    {slide.title}
+                  </h1>
+                  <p>{slide.description}</p>
+                  <Link to="/produtos/" className="veja-mais">
+                    Veja mais
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
@@ -117,7 +112,7 @@ export default function App() {
         </div>
 
         <div className="ashei">
-          <h1>So na Ashey</h1>
+          <h1>Trabalhamos com as melhores marcas, como :</h1>
 
           <div className="images">
             <img src="/assets/images/landing/oboticario.png" alt="" />
@@ -132,26 +127,21 @@ export default function App() {
           <h1>Resultados Principais</h1>
           <div className="produtos">
             {produto.map((item, index) => (
-                <Card
-                  key={index}
-                  imagem={item.img}
-                  alt={item.nome}
-                  preco={item.valor}
-                  nome={item.nome}
-                  link={item.id}
-                />
-              ))
-            }
+              <Card
+                key={index}
+                imagem={item.img}
+                alt={item.nome}
+                preco={item.valor}
+                nome={item.nome}
+                link={item.id}
+              />
+            ))}
           </div>
         </div>
-
       </div>
-    
-      
-        <footer>
-          <Rodape />
-        </footer>
-        
+      <footer>
+        <Rodape />
+      </footer>
     </div>
   );
 }
