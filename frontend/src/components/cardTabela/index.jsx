@@ -7,42 +7,42 @@ import { MagicMotion } from "react-magic-motion";
 import axios from "axios";
 
 export default function CardTabela({ token }) {
-    const [limite, setLimite] = useState(5);
-    const [produtos, setProdutos] = useState([]);
-    const [mostrarVermais, setMostrarVermais] = useState(true);
+  const [limite, setLimite] = useState(5);
+  const [produtos, setProdutos] = useState([]);
+  const [mostrarVermais, setMostrarVermais] = useState(true);
 
-    const buscar = useCallback(
-        async (token) => {
-            const url = `http://${host}/select/produto/?total=${limite}&x-access-token=${token}`;
-            let resp = await axios.get(url);
+  const buscar = useCallback(
+    async (token) => {
+      const url = `http://${host}/select/produto/?total=${limite}&x-access-token=${token}`;
+      let resp = await axios.get(url);
 
-            const itens = Array.isArray(resp.data) ? resp.data : [];
+      const itens = Array.isArray(resp.data) ? resp.data : [];
 
             setProdutos(itens);
         },
         [limite]
     );
 
-    async function VerMais() {
-        if (limite !== produtos.length) {
-            setMostrarVermais(false);
-        }
-
-        let novoLimite = limite * 2;
-        setLimite(novoLimite);
-
-        await buscar(token);
+  async function VerMais() {
+    if (limite !== produtos.length) {
+      setMostrarVermais(false);
     }
 
-    const host = "localhost:5031";
+    let novoLimite = limite * 2;
+    setLimite(novoLimite);
 
-    async function deletar(id, token) {
-        // Remova o parâmetro id
-        const url = `http://${host}/delete/produto/${id}?x-access-token=${token}`; // Substitua o parâmetro id
-        await axios.delete(url);
+    await buscar(token);
+  }
 
-        await buscar(token);
-    }
+  const host = "localhost:5031";
+
+  async function deletar(id, token) {
+    // Remova o parâmetro id
+    const url = `http://${host}/delete/produto/${id}?x-access-token=${token}`; // Substitua o parâmetro id
+    await axios.delete(url);
+
+    await buscar(token);
+  }
 
     useEffect(() => {
         buscar(token);
@@ -116,3 +116,4 @@ export default function CardTabela({ token }) {
         </div>
     );
 }
+
