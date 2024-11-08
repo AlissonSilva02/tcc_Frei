@@ -17,3 +17,20 @@ export async function validarUsuario(usuario) {
 }
 
 
+export async function validarUsuarioemail(usuario) {
+    let comando = `
+       SELECT   id_autonomo  id,  
+                nome,	
+                email
+        FROM autonomo
+        WHERE nome= ? and email = ?
+     `;
+
+    let registros = await con.query(comando, [usuario.nome, usuario.email]);
+
+    return registros[0][0];
+
+
+}
+
+

@@ -36,7 +36,7 @@ export default function Navegacao() {
                 <Route path="/produtos" element={<Produtos/>} />
                 
                 <Route path="/Menu" element={<MenuUsuario />} />
-                <Route path="/esqueceuc" element={<Esqueceu_senha_codigo />} />
+                <Route path="/esqueceu_codigo" element={<Esqueceu_senha_codigo />} />
                 <Route path="/esqueceu_senha_email" element={<Esqueceu_senha_email />} />
                 <Route path="*" element={<Not />} />
             </Routes>

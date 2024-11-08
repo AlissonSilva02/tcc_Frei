@@ -6,39 +6,51 @@ import Cabecalhologin from "../../components/cabecalhoLogin/index.jsx";
 import emailjs from '@emailjs/browser'
 import React from "react";
 import env from "react-dotenv";
+import axios from 'axios'
 
 export default function Esqueceu_senha_email() {
   const [Emailuser, setEmailuser] = useState("");
+  const [nome, SetNome] = useState("");
 
- 
-  function mandarEmail(e) {
-    e.preventDefault()
-    if (Emailuser === '') {
+  const host = "localhost:5031";
+
+ async function mandarEmail() {
+
+	const usuario = 
+	
+	{
+	 "email": Emailuser, 
+	 "nome": nome
+				};
+
+const templateParams = {
+    to_email: Emailuser }
+	  
+
+const url = "http://localhost:5031/confirmar/email";
+let resp = await axios.post(url, usuario);
+
+
+    if (resp.data == null) {}
       alert('preencha todos os campos')
       return
     }
-    
-    const templateParams = {
-      to_email: Emailuser 
-    }
-
+		
+		
    emailjs.send( env.SERVICE_ID, env.TEMPLATE_ID, templateParams, env.PUBLIC_KEY)
     .then((response) => {
       console.log("E-mail enviado", response.status, response.text)
     }, (err) => {
       alert("Erro: ", err)
-    })
+	})
+
+
+
     
-  }
+	
+    
+  
 
-  /*const navigate = useNavigate();
-
-  async function confirmar() {
-    if (setEmailuser === Emailuser) {
-      alert("Código email valido");
-      navigate("/esqueceuc");
-    }
-  }*/
 
 
 
@@ -53,7 +65,7 @@ export default function Esqueceu_senha_email() {
               Enviaremos um código no seu email para que você possa redefinir
               sua senha
             </p>
-            <form onSubmit={mandarEmail}/>
+
             <input
               type="text"
               placeholder="Digite seu email"
@@ -65,5 +77,6 @@ export default function Esqueceu_senha_email() {
       </div>
       <Rodape />
     </div>
-  );
-}
+  )}
+  ;
+

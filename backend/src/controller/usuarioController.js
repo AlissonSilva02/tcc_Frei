@@ -25,4 +25,25 @@ endpoints.post("/entrar/", async (req, resp) => {
     }
 });
 
+endpoints.post("/confirmar/email", async (req, resp) => {
+    try {
+        let pessoa = req.body;
+
+        let usuario = await db.validarUsuarioemail(pessoa);
+
+        if (usuario == null) {
+            resp.send({ erro: "Usuário ou senha incorreto(s)" });
+        } else {
+
+            resp.send({
+                usuario
+            });
+        }
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message,
+        });
+    }
+});
+
 export default endpoints;
