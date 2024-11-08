@@ -6,7 +6,7 @@ import Rodape from "../../components/rodape/index.jsx";
 import MenuUsuario from "../../components/MenuUsuario/index.jsx";
 
 import ConsultarTabelaLista from "../../components/consultarTabelaLista/index.jsx";
-import CardTabela from "../../components/cardTabela/index.jsx";
+import ConsultarCardTabela from "../../components/consultarCardTabela/index.jsx";
 
 import axios from "axios";
 
@@ -97,8 +97,6 @@ export default function Consultar() {
                             <img
                                 src="/assets/images/icones/consultarCard.svg"
                                 alt="botãoCard"
-                                width={30}
-                                height={30}
                             />
                         </button>
 
@@ -106,8 +104,6 @@ export default function Consultar() {
                             <img
                                 src="/assets/images/icones/consultarLista.svg"
                                 alt="botãoLista"
-                                width={30}
-                                height={30}
                             />
                         </button>
                     </div>
@@ -119,7 +115,6 @@ export default function Consultar() {
                             <img
                                 src="/assets/images/icones/adicionarQuadrado.svg"
                                 alt="Sinal_Mais"
-                                width={30}
                             />
                             <Link to={"/cadastrar"}>Adicionar</Link>
                         </button>
@@ -131,7 +126,7 @@ export default function Consultar() {
                 }
 
                 {cardAtivado &&
-                    <CardTabela token={token}/> 
+                    <ConsultarCardTabela token={token}/> 
                 }
 
 

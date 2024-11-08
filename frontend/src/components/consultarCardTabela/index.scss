@@ -1,0 +1,199 @@
+.Componente-CardTabela {
+	font-family: inter;
+
+    .cardProduto {
+        display: flex;
+        justify-content: space-between;
+
+        width: 100%;
+
+        padding: 2em;
+        border: 2px solid gray;
+        border-radius: 15px;
+        margin-bottom: 20px;
+
+        .container-flex {
+            display: flex;
+			width: 100%;
+
+            .imagem_Id {
+                .imagem {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+
+                    background-color: #f7f7f7;
+					
+                    border: 1px solid rgb(209, 209, 209);
+
+                    max-width: 15em;
+                    margin-right: 2em;
+                    aspect-ratio: 1; /* Define um formato quadrado */
+                    overflow: hidden;
+
+                    img {
+                        width: 80%; /* Ajuste para deixar a imagem menor que o quadrado */
+                        height: 80%; /* Proporção igual para centralizar */
+                        object-fit: contain; /* Mantém a proporção da imagem sem cortá-la */
+                    }
+                }
+            }
+
+			.infoProduto{
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+
+				width: 70%;
+				padding-bottom: 2em;
+
+				.titulo_descricao{
+					width: 100%;
+				}
+
+				p{
+					margin-top: 15px;
+					font-size: 1rem;
+					font-weight: 700;
+				}
+			}
+        }
+
+        .icones {
+            display: flex;
+            flex-direction: column;
+			justify-content: center;
+            align-items: center;
+
+			gap: 20px;
+        }
+    }
+
+	.verMais {
+		display: flex;
+
+		align-items: center;
+		justify-content: center;
+		gap: 15px;
+		
+		width: 100%;
+		margin-top: 50px;
+        margin-bottom: 50px;
+	
+		button {
+			background-color: #fff;
+            padding: 20px 40px;
+            width: 20%;
+
+			border: 2px solid #cccccc;
+			border-radius: 100px;
+			font-size: 1.7vw;
+		
+			cursor: pointer;
+			
+			transition: border 0.3s ease, background-color 0.3s ease;
+	
+			&:hover {
+				background-color: #000000;
+				color: white;
+			}
+		}
+
+		hr {
+			width: 50%;
+			height: 3px;
+			background-color: #000;
+		}
+	}
+	
+}
+
+.Componente-CardTabela {
+    display: flex;
+    flex-direction: column;
+    font-family: inter;
+
+    .componente-TabelaLista {
+        display: flex;
+        flex-direction: column;
+
+        .cardProduto {
+            border: 2px solid #cfcfcf;
+            border-radius: 10px;
+            padding: 2%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            &:hover {
+                transform: scale(1.02);
+                box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+            }
+
+            img {
+                width: 20vh;
+                height: auto;
+                border-radius: 8px;
+            }
+
+            p {
+                font-size: 1.2rem;
+                color: #666;
+            }
+        }
+
+        .especificacoes {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding-left: 2%;
+            padding-right: 60%;
+
+            h3 {
+                font-size: 2rem;
+                font-weight: bold;
+                color: #333;
+            }
+
+            .valores {
+                display: flex;
+                flex-direction: column;
+                font-size: 1.3rem;
+                color: #888;
+
+                h4 {
+                    display: flex;
+                    margin-bottom: 7%;
+                }
+            }
+        }
+
+        .alteracoes {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 1rem;
+
+            img {
+                width: 6vh;
+                height: auto;
+                cursor: pointer;
+                transition: transform 0.3s ease;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+
+    .nenhum {
+        text-align: center;
+        font-size: 1.5rem;
+        color: #999;
+    }
+}
+

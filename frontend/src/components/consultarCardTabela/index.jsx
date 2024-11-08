@@ -6,7 +6,7 @@ import { MagicMotion } from "react-magic-motion";
 
 import axios from "axios";
 
-export default function CardTabela({ token }) {
+export default function ConsultarCardTabela({ token }) {
   const [limite, setLimite] = useState(5);
   const [produtos, setProdutos] = useState([]);
   const [mostrarVermais, setMostrarVermais] = useState(true);
@@ -50,9 +50,9 @@ export default function CardTabela({ token }) {
 
     return (
         <div className="Componente-CardTabela">
-          <button onClick={() => alert(JSON.stringify(produtos))}>
+            {/* <button onClick={() => alert(JSON.stringify(produtos))}>
                 Testar
-            </button> 
+            </button>  */}
 
             {produtos.length > 0 ? (
                 produtos.map((item, index) => (
@@ -72,9 +72,16 @@ export default function CardTabela({ token }) {
                                 </div>
 
                                 <div className="infoProduto">
-                                    <h4>{item.nome}</h4>
-                                    <p>Estoque: {item.estoque}</p>
-                                    <h5>Preço: R${item.valor}</h5>
+                                    <div className="titulo_descricao">
+                                        <h1>{item.nome}</h1>
+                                        <hr style={{width:"100%"}} />
+                                        <p>{item.descricao}</p>
+                                    </div>
+
+                                    <div >
+                                        <p>Estoque: {item.estoque}</p>
+                                        <p>Preço: R${Number(item.valor).toFixed(2)}</p>
+                                    </div>
                                 </div>
                             </div>
 
