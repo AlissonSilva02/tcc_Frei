@@ -49,11 +49,8 @@ export default function ConsultarTabelaLista({ token }) {
     }, [buscar]);
 
     return (
-        <div>
-            <div
-                className="componente-TabelaLista"
-                style={{ overflow: "auto" }}
-            >
+        <div className="componente-TabelaLista">
+            <div className="TabelaLista" style={{ overflow: "auto" }} >
                 {produtos.length > 0 ? (
                     <table>
                         <thead>
