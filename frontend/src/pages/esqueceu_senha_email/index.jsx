@@ -7,6 +7,7 @@ import emailjs from '@emailjs/browser'
 import React from "react";
 import env from "react-dotenv";
 import axios from 'axios'
+import { toast } from "react-toastify";
 
 export default function Esqueceu_senha_email() {
   const [Emailuser, setEmailuser] = useState("");
@@ -31,21 +32,20 @@ const url = "http://localhost:5031/confirmar/email";
 let resp = await axios.post(url, usuario);
 
 
-    if (resp.data == null) {}
-      alert('preencha todos os campos')
+    if (resp.data.erro !== undefined) {
+      toast.error('Usuario ou email incorretos')
       return
     }
+    else{
 		
 		
    emailjs.send( env.SERVICE_ID, env.TEMPLATE_ID, templateParams, env.PUBLIC_KEY)
     .then((response) => {
       console.log("E-mail enviado", response.status, response.text)
-    }, (err) => {
-      alert("Erro: ", err)
-	})
+    })}
 
 
-
+}
     
 	
     
@@ -57,6 +57,7 @@ let resp = await axios.post(url, usuario);
   return (
     <div className="email">
       <Cabecalhologin />
+      
       <div className="container">
         <div className="formulario">
           <div className="campo">
@@ -66,11 +67,20 @@ let resp = await axios.post(url, usuario);
               sua senha
             </p>
 
+            <input type="text" 
+             placeholder="digite o nome de usuario"
+             onChange={(e) => SetNome(e.target.value)}
+            
+            
+            
+            />
+
             <input
               type="text"
               placeholder="Digite seu email"
               onChange={(e) => setEmailuser(e.target.value)}
             />
+
             <button onClick={mandarEmail}>Enviar Código</button>
           </div>
         </div>
