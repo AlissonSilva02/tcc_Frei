@@ -1,71 +1,90 @@
-.pagina-ajuda {
-  display: flex;
-  flex-direction: column;
-  font-family: "inter";
+.pagina-ajuda { 
+    font-family: "inter";
 
-  a {
-    text-decoration: none;
-    color: black;
-  }
+	*{
+		border:  2px solid black;
 
-  .ajuda {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    align-items: center;
+	}
 
-    h1 {
-      font-size: 34px;
-      color: #423f3f;
+    a {
+        text-decoration: none;
+        color: black;
     }
 
-    .perguntasErespostas {
-      display: flex;
-      margin-top: 35px;
-      margin-bottom: 20px;
-      font-size: 27px;
-      font-weight: 500;
+    .ajuda {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
 
-      details {
-        p {
-          color: #6f6767;
-        }
-      }
+		.container{
 
-      details {
-        width: 100%;
+		
 
-        summary {
-          display: flex;
-          align-items: center;
-          cursor: pointer;
-          list-style: none;
+        h1 {
+            font-size: 34px;
+            color: #423f3f;
         }
 
-        /* Seta padrão com rotação ao expandir */
-        summary::after {
-          content: "▸"; /* Seta apontando para a direita */
-          margin-left: 8px;
-          font-size: 30px;
-          transition: transform 0.5s ease; /* Animação suave na rotação */
-        }
+		hr{
+			width: 100%;
+			height: 3px;
+			margin-top: 15px;
+			border: none;
+			background-color: #423f3f;
+		}
 
-        /* Quando o details é aberto, a seta gira para baixo */
-        &[open] summary::after {
-          transform: rotate(90deg); /* Roda para baixo */
-        }
+        .perguntasErespostas {
+            display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
 
-        .conteudo {
-          display: flex;
-          flex-direction: column;
-          padding-top: 10px;
-          font-size: 18px;
+
+           	margin: 40px 0px;
+            font-size: 2rem;
+            font-weight: 500;
+
+            details {
+                p {
+                    color: #6f6767;
+                }
+            }
+
+            details {
+                summary {
+                    display: flex;
+                    align-items: center;
+					justify-content: center;
+                    list-style: none;
+                    cursor: pointer;
+                }
+
+                /* Seta padrão com rotação ao expandir */
+                summary::after {
+                    content: "▸"; /* Seta apontando para a direita */
+					margin-left: 8px;
+                    font-size: 30px;
+                    transition: transform 0.5s ease; /* Animação suave na rotação */
+                }
+
+                /* Quando o details é aberto, a seta gira para baixo */
+                &[open] summary::after {
+                    transform: rotate(90deg); /* Roda para baixo */
+                }
+
+                .conteudo {
+                    display: flex;
+                    flex-direction: column;
+					align-items: center;
+					justify-content: center;
+
+                    padding-top: 10px;
+                    font-size: 18px;
+                }
+            }
         }
-      }
+	}
     }
-  }
-  .cosmet {
-    width: 60%;
-    margin-left: 20%;
-  }
+   
 }

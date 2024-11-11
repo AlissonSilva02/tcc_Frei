@@ -10,7 +10,7 @@ import Not from "./pages/not_found/index.jsx";
 import Sobre from "./pages/sobrenos/index.jsx";
 import Ajuda from "./pages/ajuda/index.jsx"
 import  Produtos  from "./pages/Produtos/index.jsx";
-import Esqueceu_senha_codigo from "./pages/Esqueceu_Codigo/index.jsx";
+import EsqueceuSenhaCodigo from "./pages/Esqueceu_Codigo/index.jsx";
 import Esqueceu_senha_email from "./pages/esqueceu_senha_email/index.jsx";
 
 //excluir depois
@@ -36,7 +36,7 @@ export default function Navegacao() {
                 <Route path="/produtos" element={<Produtos/>} />
                 
                 <Route path="/Menu" element={<MenuUsuario />} />
-                <Route path="/esqueceu_codigo" element={<Esqueceu_senha_codigo />} />
+                <Route path="/esqueceu_codigo" element={<EsqueceuSenhaCodigo />} />
                 <Route path="/esqueceu_senha_email" element={<Esqueceu_senha_email />} />
                 <Route path="*" element={<Not />} />
             </Routes>

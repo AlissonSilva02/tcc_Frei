@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Rodape from "../../components/rodape";
 import Cabecalhologin from "../../components/cabecalhoLogin/index.jsx";
 
-export default function Esqueceu_senha_codigo() {
+export default function EsqueceuSenhaCodigo() {
   const [codigo, setCodigo] = useState("");
   const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ export default function Esqueceu_senha_codigo() {
   }
 
   return (
-    <div className="codigo">
+    <div className="pagina-Codigo">
       <Cabecalhologin />
       <div className="container">
         <div className="formulario">

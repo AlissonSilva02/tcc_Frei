@@ -11,7 +11,7 @@ export default function Cabecalho_Login() {
   };
 
   return (
-    <div className="container">
+    <div className="componente-cabecalho-login">
       <div className="botao-voltar">
         <div
           className="voltar"

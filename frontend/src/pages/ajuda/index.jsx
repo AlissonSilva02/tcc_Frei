@@ -13,11 +13,12 @@ export default function Ajuda() {
 					<MenuUsuario />
 					<Cabe pesquisar={false} />
 				</header>
+				
 				<main>
 					<div className="pagina-ajuda">
 						<VoltarButton />
 						<div className="ajuda">
-							<div>
+							<div className="container">
 								<h1>Como podemos ajudar ?</h1>
 
 								<div className="perguntasErespostas">
@@ -42,13 +43,13 @@ export default function Ajuda() {
 												Ficamos felizes com seu interesse! Envie uma mensagem
 												pelo WhatsApp com seu currículo e uma breve
 												apresentação. Nossa equipe avaliará e entrará em contato
-												se houver uma oportunidade.
+												quando houver uma oportunidade.
 											</p>
 										</div>
 									</details>
 								</div>
 
-								<div className="perguntasErespostas">
+								{/* <div className="perguntasErespostas">
 									<details>
 										<summary>
 											Quais são os horários de atendimento ao cliente?
@@ -216,7 +217,7 @@ export default function Ajuda() {
 											</p>
 										</div>
 									</details>
-								</div>
+								</div> */}
 							</div>
 
 							<img className="cosmet" src="/assets/images/faq/faq.svg" alt="" />
