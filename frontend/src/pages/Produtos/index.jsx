@@ -16,6 +16,8 @@ export default function Produtos() {
 	const [filtrosSelecionados, setFiltrosSelecionados] = useState([]);
 	const [precoMax, setPrecoMax] = useState(2000);
 
+	//const [mostarFiltro, setMostarFiltro] = useState(false) //mobile
+
 	const categorias = [
 		"pentes",
 		"escovas",
@@ -85,25 +87,33 @@ export default function Produtos() {
 						<h2>Filtros</h2>
 						<FiltroPreco onChange={setPrecoMax} />
 						<h2>Tipo de produto</h2>
-						<div className="categorias">
-							{categorias.map((categoria, idx) => (
-								<div key={idx} className="click">
-									<input
-										className="check"
-										type="checkbox"
-										checked={filtrosSelecionados.includes(categoria)}
-										onChange={() => handleFiltroClick(categoria)}
-									/>
-									<p>
-										{categoria.charAt(0).toUpperCase() + categoria.slice(1)}
-									</p>
-								</div>
-							))}
+
+
+						<div className="container-fix"> 
+							<div className="categorias">
+								{categorias.map((categoria, index) => (
+									<div key={index} className={`click ${filtrosSelecionados.includes(categoria) ? 'ativo' : ''}`} onClick={() => handleFiltroClick(categoria)}>
+										<input
+											className="check"
+											id={index}
+											type="checkbox"
+											checked={filtrosSelecionados.includes(categoria)}
+											onChange={() => handleFiltroClick(categoria)}
+										/>
+										<label htmlFor={index}>
+											{categoria.charAt(0).toUpperCase() + categoria.slice(1)}
+										</label>
+									</div>
+								))}
+							</div>
+								{/* <button onClick={mostarFiltro}>
+									Filtrar
+								</button> */}
 						</div>
 					</div>
 
 					<div className="listaProdutos">
-						<h1>Resultados Principais </h1>
+						<h1>Resultados</h1>
 						<div className="produtos">
 							{produtosFiltrados.length > 0 ? (
 								produtosFiltrados.map((item, index) => (
