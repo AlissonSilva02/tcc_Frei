@@ -25,6 +25,18 @@ export default function Consultar() {
         setListaAtivado(false)
     }
 
+    //4.172.207.208:5031
+    const host = "4.172.207.208:5031";
+
+    const buscar = useCallback(
+        async (token) => {
+            const url = `http://${host}/select/produto/?total=${limite}&x-access-token=${token}`;
+            let resp = await axios.get(url);
+            setProdutos(resp.data);
+        },
+        [limite]
+    );
+
     async function sair() {
         localStorage.setItem("USUARIO", null);
         Navigate("/");

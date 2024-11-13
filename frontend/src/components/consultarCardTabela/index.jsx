@@ -34,7 +34,7 @@ export default function ConsultarCardTabela({ token }) {
     await buscar(token);
   }
 
-  const host = "localhost:5031";
+  const host = "4.172.207.208:5031";
 
   async function deletar(id, token) {
     // Remova o parâmetro id
