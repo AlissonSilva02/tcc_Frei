@@ -32,7 +32,7 @@ export default function Consultar() {
     }
 
     //4.172.207.208:5031
-    const host = "localhost:5031";
+    const host = "4.172.207.208:5031";
 
     const buscar = useCallback(
         async (token) => {

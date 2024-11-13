@@ -16,7 +16,7 @@ export default function App() {
     buscarProdutos();
   }
   const buscarProdutos = useCallback(async () => {
-    const url = `http://localhost:5031/select/produto/?total=4`;
+    const url = `http://4.172.207.208:5031/select/produto/?total=4`;
 
     const resp = await axios.get(url);
     const produtos = Array.isArray(resp.data) ? resp.data : [];

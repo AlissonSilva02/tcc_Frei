@@ -13,7 +13,7 @@ export default function Esqueceu_senha_email() {
   const [Emailuser, setEmailuser] = useState("");
   const [nome, SetNome] = useState("");
 
-  const host = "localhost:5031";
+  const host = "4.172.207.208:5031";
 
  async function mandarEmail() {
 
@@ -28,7 +28,7 @@ const templateParams = {
     to_email: Emailuser }
 	  
 
-const url = "http://localhost:5031/confirmar/email";
+const url = "http://4.172.207.208:5031/confirmar/email";
 let resp = await axios.post(url, usuario);
 
 
