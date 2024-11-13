@@ -5,7 +5,7 @@
   .container_principal {
     display: flex;
     gap: 20px;
-    flex-wrap: wrap;
+    //flex-wrap: wrap;
 
     h3 {
       font-size: 1.5rem;
@@ -79,8 +79,8 @@
       }
 
       .produtos > * {
-        flex: 1 1 calc(25% - 20px); 
-        max-width: calc(25% - 20px);
+        // flex: 1 1 calc(25% - 20px); 
+        // max-width: calc(25% - 20px);
         box-sizing: border-box;
         transition: transform 0.3s; 
       }
@@ -98,10 +98,10 @@
         width: 20%; 
       }
 
-      .listaProdutos .produtos > * {
-        flex: 1 1 calc(33.33% - 20px); 
-        max-width: calc(33.33% - 20px);
-      }
+      // .listaProdutos .produtos > * {
+      //   flex: 1 1 calc(33.33% - 20px); 
+      //   max-width: calc(33.33% - 20px);
+      // }
     }
   }
 
@@ -112,10 +112,10 @@
         width: 21%; 
       }
 
-      .listaProdutos .produtos > * {
-        flex: 1 1 calc(50% - 20px);
-        max-width: calc(50% - 20px);
-      }
+      // .listaProdutos .produtos > * {
+      //   flex: 1 1 calc(50% - 20px);
+      //   max-width: calc(50% - 20px);
+      // }
     }
   }
 

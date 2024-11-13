@@ -11,7 +11,7 @@ import Sobre from "./pages/sobrenos/index.jsx";
 import Ajuda from "./pages/ajuda/index.jsx"
 import  Produtos  from "./pages/Produtos/index.jsx";
 import EsqueceuSenhaCodigo from "./pages/Esqueceu_Codigo/index.jsx";
-import Esqueceu_senha_email from "./pages/esqueceu_senha_email/index.jsx";
+import EsqueceuSenhaEmail from "./pages/esqueceu_senha_email/index.jsx";
 
 //excluir depois
 import MenuUsuario from "./components/MenuUsuario/index.jsx";
@@ -37,7 +37,7 @@ export default function Navegacao() {
                 
                 <Route path="/Menu" element={<MenuUsuario />} />
                 <Route path="/esqueceu_codigo" element={<EsqueceuSenhaCodigo />} />
-                <Route path="/esqueceu_senha_email" element={<Esqueceu_senha_email />} />
+                <Route path="/esqueceu_senha_email" element={<EsqueceuSenhaEmail />} />
                 <Route path="*" element={<Not />} />
             </Routes>
         </BrowserRouter>

@@ -117,7 +117,7 @@ export default function Cadastrar() {
 
 
 const Buscar = useCallback(async (token) => {
-    const url = `http://localhost:5031/select/produto/${id}?x-access-token=${token}`
+    const url = `http://${host}/select/produto/${id}?x-access-token=${token}`
     let resp =  await axios.get(url)
 
     setnome(resp.data.nome);

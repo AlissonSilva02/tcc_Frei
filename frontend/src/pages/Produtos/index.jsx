@@ -16,7 +16,7 @@ export default function Produtos() {
 	const [filtrosSelecionados, setFiltrosSelecionados] = useState([]);
 	const [precoMax, setPrecoMax] = useState(2000);
 
-	//const [mostarFiltro, setMostarFiltro] = useState(false) //mobile
+	const [mostarFiltro, setMostarFiltro] = useState(false) //mobile
 
 	const categorias = [
 		"pentes",
@@ -106,9 +106,9 @@ export default function Produtos() {
 									</div>
 								))}
 							</div>
-								{/* <button onClick={mostarFiltro}>
+								<button onClick={mostarFiltro}>
 									Filtrar
-								</button> */}
+								</button> 
 						</div>
 					</div>
 

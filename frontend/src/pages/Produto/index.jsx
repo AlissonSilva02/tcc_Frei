@@ -83,7 +83,7 @@ export default function Produto() {
 				<div className="guia">
 					<p> home / </p>
 					<p> produtos /  </p>
-					<p> cremes capilares</p>
+					<p> {produto.categoria} </p>
 				</div>
 
 				<div className="secao-produto">

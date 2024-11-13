@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import "./index.scss";
 import { Link, useNavigate } from "react-router-dom";
 import Cabe from "../../components/cabecalho/index.jsx";
@@ -8,15 +8,9 @@ import MenuUsuario from "../../components/MenuUsuario/index.jsx";
 import ConsultarTabelaLista from "../../components/consultarTabelaLista/index.jsx";
 import ConsultarCardTabela from "../../components/consultarCardTabela/index.jsx";
 
-import axios from "axios";
-
 export default function Consultar() {
-    const [produtos, setProdutos] = useState([]);
-    const [token, setToken] = useState(null);
-    const [limite, setLimite] = useState(5);
-
-    const [mostrarVermais, setMostrarVermais] = useState(true);
     const Navigate = useNavigate();
+    const [token, setToken] = useState(null);
 
     const [cardAtivado, setCardAtivado] = useState(false)
     const [listaAtivado, setListaAtivado] = useState(true)
@@ -30,18 +24,6 @@ export default function Consultar() {
         setCardAtivado(true)
         setListaAtivado(false)
     }
-
-    //4.172.207.208:5031
-    const host = "localhost:5031";
-
-    const buscar = useCallback(
-        async (token) => {
-            const url = `http://${host}/select/produto/?total=${limite}&x-access-token=${token}`;
-            let resp = await axios.get(url);
-            setProdutos(resp.data);
-        },
-        [limite]
-    );
 
     async function sair() {
         localStorage.setItem("USUARIO", null);
@@ -58,10 +40,9 @@ export default function Consultar() {
 
         if (token === "null") {
             Navigate("/");
-        } else {
-            buscar(token);
-        }
-    }, [Navigate, limite, buscar]);
+        } 
+
+    }, [Navigate]);
 
 
     return (
