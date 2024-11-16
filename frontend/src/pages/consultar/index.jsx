@@ -12,30 +12,30 @@ export default function Consultar() {
     const Navigate = useNavigate();
     const [token, setToken] = useState(null);
 
-    const [cardAtivado, setCardAtivado] = useState(false)
-    const [listaAtivado, setListaAtivado] = useState(true)
+    const [cardAtivado, setCardAtivado] = useState(false);
+    const [listaAtivado, setListaAtivado] = useState(true);
 
     function ativarLista() {
-        setListaAtivado(true)
-        setCardAtivado(false)
+        setListaAtivado(true);
+        setCardAtivado(false);
     }
 
     function ativarCard() {
-        setCardAtivado(true)
-        setListaAtivado(false)
+        setCardAtivado(true);
+        setListaAtivado(false);
     }
 
     //4.172.207.208:5031
-    const host = "4.172.207.208:5031";
+    const host = "localhost:3131";
 
-    const buscar = useCallback(
-        async (token) => {
-            const url = `http://${host}/select/produto/?total=${limite}&x-access-token=${token}`;
-            let resp = await axios.get(url);
-            setProdutos(resp.data);
-        },
-        [limite]
-    );
+    // const buscar = useCallback(
+    //     async (token) => {
+    //         const url = `http://${host}/select/produto/?total=${limite}&x-access-token=${token}`;
+    //         let resp = await axios.get(url);
+    //         setProdutos(resp.data);
+    //     },
+    //     [limite]
+    // );
 
     async function sair() {
         localStorage.setItem("USUARIO", null);
@@ -45,16 +45,6 @@ export default function Consultar() {
     function voltar() {
         Navigate("/");
     }
-
-    useEffect(() => {
-        let token = localStorage.getItem("USUARIO");
-        setToken(token);
-
-        if (token === "null") {
-            Navigate("/");
-        } 
-
-    }, [Navigate]);
 
 
     return (
@@ -86,14 +76,24 @@ export default function Consultar() {
                     </button>
 
                     <div className="visualizar">
-                        <button className={`botao-card ${cardAtivado ? 'ativado' : ''}`} onClick={ativarCard}>
+                        <button
+                            className={`botao-card ${
+                                cardAtivado ? "ativado" : ""
+                            }`}
+                            onClick={ativarCard}
+                        >
                             <img
                                 src="/assets/images/icones/consultarCard.svg"
                                 alt="botãoCard"
                             />
                         </button>
 
-                        <button className={`botao-list ${listaAtivado ? 'ativado' : ''}`} onClick={ativarLista}>
+                        <button
+                            className={`botao-list ${
+                                listaAtivado ? "ativado" : ""
+                            }`}
+                            onClick={ativarLista}
+                        >
                             <img
                                 src="/assets/images/icones/consultarLista.svg"
                                 alt="botãoLista"
@@ -114,15 +114,9 @@ export default function Consultar() {
                     </div>
                 </div>
 
-                {listaAtivado &&
-                    <ConsultarTabelaLista token={token}/> 
-                }
+                {listaAtivado && <ConsultarTabelaLista token={token} />}
 
-                {cardAtivado &&
-                    <ConsultarCardTabela token={token}/> 
-                }
-
-
+                {cardAtivado && <ConsultarCardTabela token={token} />}
             </main>
 
             <footer>

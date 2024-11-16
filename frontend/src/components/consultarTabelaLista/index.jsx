@@ -1,15 +1,30 @@
 import "./index.scss";
 import { useState, useEffect, useCallback } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { MagicMotion } from "react-magic-motion";
 
 import axios from "axios";
 
-export default function ConsultarTabelaLista({ token }) {
+export default function ConsultarTabelaLista() {
     const [limite, setLimite] = useState(5);
     const [produtos, setProdutos] = useState([]);
     const [mostrarVermais, setMostrarVermais] = useState(true);
+
+    const Navigate = useNavigate();
+    const host = "localhost:3131";
+    const [token, setToken] = useState(null);
+
+
+    useEffect(() => {
+        let token = localStorage.getItem("USUARIO");
+        setToken(token);
+
+        if (token === "null") {
+            Navigate("/");
+        }
+    }, [Navigate]);
+
 
     const buscar = useCallback(
         async (token) => {
@@ -34,7 +49,7 @@ export default function ConsultarTabelaLista({ token }) {
         await buscar(token);
     }
 
-    const host = "4.172.207.208:5031";
+    
 
     async function deletar(id, token) {
         // Remova o parâmetro id
