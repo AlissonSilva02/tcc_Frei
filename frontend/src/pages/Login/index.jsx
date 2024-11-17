@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Rodape from "../../components/rodape";
-import CabecalhoLogin from "../../components/cabecalhoLogin/index.jsx";
 
 import { toast } from "react-toastify";
 

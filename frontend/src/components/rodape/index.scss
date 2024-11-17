@@ -1,100 +1,98 @@
 .secao-rodape {
-  width: 100%;
-  background-color: #262626;
-  font-family: inter;
-
-  .link_image {
-    display: flex;
-    align-items: center;
-    margin: 0 3%;
-    justify-content: space-between;
-    
-    .links {
-      display: flex;
-      gap: 2vw;
-     font-size: 2.5vw;
-
-
-      h3 {
-        text-decoration: none;
-        color: white; 
-        font-size: 1.5vw;
-      }
-    }
-
-    .logo {
-      display: flex;
-      width: 15%;
-      height: auto;
-    }
-  }
-
-
-
-  .linha {
     width: 100%;
-    height: 0.5vh;
-    background-color: #967e32;
-  }
+    background-color: #262626;
+    font-family: inter;
 
-  .cor {
-    display: flex;
-    align-items: end;
-    flex-direction: column;
-    margin-right: 20px;
-
-
-
-    .container_intermediario {
-      display: flex;
-      width: 100%;
-      justify-content: space-between;
-      padding-left: 5vw;
-      align-items: center;
-      margin-bottom: 5px;
-
-      .admin {
-        color: #EFB820;
-        border: 1px solid #EFB820;
-        border-radius: 10px;
-        padding: 2vh 4vw;
+    .container_superior {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        
-        h3{
-          font-size: 1.5vw;
+        justify-content: space-between;
+        padding-top: 15px;
+
+        .link_admin {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            margin: 0 3%;
+            
+            .links {
+                display: flex;
+                gap: 2vw;
+
+                h3 {
+                    text-decoration: none;
+                    color: white;
+                    font-size: 1rem;
+                }
+            }
+
+            .admin {
+                color: #efb820;
+                border: 1px solid #efb820;
+                border-radius: 10px;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                h3 {
+                    margin: 1em 2em;
+                    font-size: 1rem;
+                }
+            }
         }
-      }
 
-      .grupo {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        gap: 3vh;
-        font-size: 1.4vw;
+        .logo_redes {
+            display: flex;
+            align-items: end;
+            flex-direction: column;
+            margin-right: 20px;
 
+            .container_intermediario {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 5px;
 
+                .redes_sociais {
+                    display: flex;
+                    flex-direction: column;
 
-        .redes {
-          display: flex;
-          gap: 10px;
-          color: white;
+                    gap: 1em;
+                    font-size: 1.4em;
 
-          img {
-            width: 1.6vw;
+                    .redes {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        color: white;
+
+                        img {
+                            width: 30px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .logo {
+            display: flex;
+            width: 50%;
             height: auto;
-          }
         }
-
-      }
     }
 
-  }
+    .linha {
+        width: 100%;
+        height: 2px;
+        margin-top: 15px;
+        background-color: #967e32;
+    }
 
-  .copyright {
-    color: white;
-    padding: 10px;
-    font-size: 1vw;
-  }
+    .copyright {
+        color: white;
+        padding: 10px;
+        font-size: 1rem;
+    }
 }

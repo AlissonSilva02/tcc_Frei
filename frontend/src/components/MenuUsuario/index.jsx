@@ -21,6 +21,11 @@ export default function MenuUsuario() {
                         nome: "Sobre nós",
                         link: "/sobre"
                     },
+                    {
+                        icone: "/assets/images/menu/help.svg",
+                        nome: "Ajuda",
+                        link: "/ajuda"
+                    }
                 ]}
             />
         </div>

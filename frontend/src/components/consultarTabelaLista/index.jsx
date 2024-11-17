@@ -61,7 +61,7 @@ export default function ConsultarTabelaLista() {
 
     useEffect(() => {
         buscar(token);
-    }, [buscar]);
+    }, [buscar, token]);
 
     return (
         <div className="componente-TabelaLista">
@@ -131,7 +131,11 @@ export default function ConsultarTabelaLista() {
             {mostrarVermais && (
                 <div className="verMais">
                     <hr />
-                    <button onClick={VerMais}>Ver Mais</button>
+                        <button onClick={VerMais}>
+                            <p>
+                                Ver Mais
+                            </p>
+                        </button>
                     <hr />
                 </div>
             )}

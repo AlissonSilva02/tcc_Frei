@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useState} from "react";
 import "./index.scss";
 import { Link, useNavigate } from "react-router-dom";
 import Cabe from "../../components/cabecalho/index.jsx";
@@ -10,11 +10,9 @@ import ConsultarCardTabela from "../../components/consultarCardTabela/index.jsx"
 
 export default function Consultar() {
     const Navigate = useNavigate();
-    const [token, setToken] = useState(null);
 
     const [cardAtivado, setCardAtivado] = useState(false);
     const [listaAtivado, setListaAtivado] = useState(true);
-
     function ativarLista() {
         setListaAtivado(true);
         setCardAtivado(false);
@@ -24,9 +22,6 @@ export default function Consultar() {
         setCardAtivado(true);
         setListaAtivado(false);
     }
-
-    //4.172.207.208:5031
-    const host = "localhost:3131";
 
     async function sair() {
         localStorage.setItem("USUARIO", null);
@@ -105,9 +100,9 @@ export default function Consultar() {
                     </div>
                 </div>
 
-                {listaAtivado && <ConsultarTabelaLista token={token} />}
+                {listaAtivado && <ConsultarTabelaLista/>}
 
-                {cardAtivado && <ConsultarCardTabela token={token} />}
+                {cardAtivado && <ConsultarCardTabela/>}
             </main>
 
             <footer>
