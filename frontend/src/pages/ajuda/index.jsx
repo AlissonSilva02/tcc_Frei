@@ -49,7 +49,7 @@ export default function Ajuda() {
 									</details>
 								</div>
 
-								{/* <div className="perguntasErespostas">
+								<div className="perguntasErespostas">
 									<details>
 										<summary>
 											Quais são os horários de atendimento ao cliente?
@@ -217,7 +217,7 @@ export default function Ajuda() {
 											</p>
 										</div>
 									</details>
-								</div> */}
+								</div>
 							</div>
 
 							<img className="cosmet" src="/assets/images/faq/faq.svg" alt="" />

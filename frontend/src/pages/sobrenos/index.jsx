@@ -2,6 +2,7 @@ import Cabe from "../../components/cabecalho";
 import Rodape from "../../components/rodape";
 
 import MenuUsuario from "../../components/MenuUsuario";
+import { Link } from "react-router-dom";
 
 import "./index.scss";
 import VoltarButton from "../../components/voltar";
@@ -17,7 +18,9 @@ export default function Sobre() {
                 </header>
                 <VoltarButton/>
                 <div className="faleConosco">
-                    <button className="butao">Fale Conosco</button>
+                    <Link to={'/ajuda'}>
+                        <button className="butao">Fale Conosco</button>
+                    </Link>
                 </div>
 
                 <div className="nossaMissao">
