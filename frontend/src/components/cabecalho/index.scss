@@ -34,19 +34,18 @@
    
 
             .tel{
-                width: 2.5vw;
+                width: 1em;
+                height: 1em;
             }
         }    
-       
-
         .localizacao{
             display: flex;
             align-items: center;
             gap: 15px;
 
-
             .loc{
-                width: 2.5vw;
+                width: 1em;
+                height: 0.85em;
             }
         }
     }
@@ -123,6 +122,26 @@
 
             .pesquisa {
                 width: 90%;
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .secao-cabecalho {
+        .barraInfo{
+    
+            .telefone{
+                .tel{
+                    width: 2em;
+                    height: 2em;
+                }
+            }    
+            .localizacao{
+                .loc{
+                    width: 1.85em;
+                    height: 1.85em;
+                }
             }
         }
     }

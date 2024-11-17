@@ -77,19 +77,19 @@
                     gap: 15px;
                     align-items: center;
 
-                    font-size: 0.75em;
-                    border-radius: 15px;
+                    font-size: 1rem;
+                    border-radius: 5px;
 
-                    padding: 0.2em 1em;
+                    padding: 0.5em 1em;
+                    
+                    color: #ffffff;
                     background-color: #000;
 
                     border: none;
 
-                   
                     img{
                         width: 1.50em;
                     }
-                   
                 }
 
                 input{
@@ -109,4 +109,77 @@
         position: relative;
         bottom: 0;
     }
+}
+
+@media (max-width: 600px) {
+    .pagina-consultar {
+    
+        main {
+            .opcoes{
+    
+                .visualizar{
+                    display: flex;
+                    gap: 10px;
+    
+                    .botao-card, .botao-list{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+    
+                        background: none;
+                        padding: 10px;
+                        border: 2px solid black;
+                        border-radius: 10px;
+    
+                        img{
+                            width: 1.50em;
+                            
+                        }
+    
+                        &.ativado{
+                            border: 2px solid #3eb0ea;
+                        }
+                    }
+                }
+    
+                .pesquisar-adicionar{
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    
+    
+                    .adicionar{
+                        display: flex;
+                        gap: 15px;
+                        align-items: center;
+    
+                        font-size: 1rem;
+                        border-radius: 5px;
+    
+                        padding: 0.5em 1em;
+                        
+                        color: #ffffff;
+                        background-color: #000;
+    
+                        border: none;
+    
+                        img{
+                            width: 1.50em;
+                        }
+                    }
+    
+                    input{
+                        border-radius: 50px;
+                        padding: 5px 20px;
+                        width: 150px;
+                        min-width: 20px;
+                    }
+                }
+    
+            }
+    
+        }
+    
+    }
+
 }

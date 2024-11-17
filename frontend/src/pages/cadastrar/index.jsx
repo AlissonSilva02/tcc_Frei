@@ -116,18 +116,18 @@ export default function Cadastrar() {
     // }
 
 
-const Buscar = useCallback(async (token) => {
-    const url = `http://${host}/select/produto/${id}?x-access-token=${token}`
-    let resp =  await axios.get(url)
+    const Buscar = useCallback(async (token) => {
+        const url = `http://${host}/select/produto/${id}?x-access-token=${token}`
+        let resp =  await axios.get(url)
 
-    setnome(resp.data.nome);
-    setcategoria(resp.data.categoria);
-    setImg(resp.data.img);
-    setDescricao(resp.data.descricao);
-    setValor(resp.data.valor);
-    setDisponivel(resp.data.disponivel);
-    setEstoque(resp.data.estoque);
-}, [id])
+        setnome(resp.data.nome);
+        setcategoria(resp.data.categoria);
+        setImg(resp.data.img);
+        setDescricao(resp.data.descricao);
+        setValor(resp.data.valor);
+        setDisponivel(resp.data.disponivel);
+        setEstoque(resp.data.estoque);
+    }, [id])
 
 
     /*

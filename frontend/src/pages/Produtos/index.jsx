@@ -17,6 +17,7 @@ export default function Produtos() {
 	const [precoMax, setPrecoMax] = useState(2000);
 
 	const [mostarFiltro, setMostarFiltro] = useState(false) //mobile
+	const host = 'localhost:3131'
 
 	const categorias = [
 		"pentes",
@@ -37,7 +38,7 @@ export default function Produtos() {
 	];
 
 	const buscarProdutos = useCallback(async () => {
-		const url = `http://4.172.207.208:5031/produto/preco/`;
+		const url = `http://${host}/produto/preco/`;
 		const resp = await axios.post(url, { precoMax });
 		const produtos = Array.isArray(resp.data) ? resp.data : [];
 		setProduto(produtos);

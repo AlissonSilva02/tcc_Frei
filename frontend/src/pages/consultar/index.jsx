@@ -28,15 +28,6 @@ export default function Consultar() {
     //4.172.207.208:5031
     const host = "localhost:3131";
 
-    // const buscar = useCallback(
-    //     async (token) => {
-    //         const url = `http://${host}/select/produto/?total=${limite}&x-access-token=${token}`;
-    //         let resp = await axios.get(url);
-    //         setProdutos(resp.data);
-    //     },
-    //     [limite]
-    // );
-
     async function sair() {
         localStorage.setItem("USUARIO", null);
         Navigate("/");
@@ -45,7 +36,6 @@ export default function Consultar() {
     function voltar() {
         Navigate("/");
     }
-
 
     return (
         <div className="pagina-consultar">
@@ -103,14 +93,15 @@ export default function Consultar() {
 
                     <div className="pesquisar-adicionar">
                         <input type="text" placeholder="Pesquisar item" />
-
-                        <button className="adicionar">
-                            <img
-                                src="/assets/images/icones/adicionarQuadrado.svg"
-                                alt="Sinal_Mais"
-                            />
-                            <Link to={"/cadastrar"}>Adicionar</Link>
-                        </button>
+                        <Link to={"/cadastrar"}>
+                            <button className="adicionar">
+                                <img
+                                    src="/assets/images/icones/adicionarQuadrado.svg"
+                                    alt="Sinal_Mais"
+                                />
+                                Adicionar
+                            </button>
+                        </Link>
                     </div>
                 </div>
 

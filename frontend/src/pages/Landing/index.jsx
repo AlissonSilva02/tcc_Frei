@@ -17,7 +17,7 @@ export default function App() {
     }
 
     const buscarProdutos = useCallback(async () => {
-        const url = `http://localhost:5031/select/produto/?total=4`;
+        const url = `http://localhost:3131/select/produto/?total=4`;
 
         const resp = await axios.get(url);
         const produtos = Array.isArray(resp.data) ? resp.data : [];
@@ -122,7 +122,7 @@ export default function App() {
                 </div>
 
                 <div className="ashei">
-                    <h1>Trabalhamos com as melhores marcas, como :</h1>
+                    <h1>Trabalhamos com as melhores marcas</h1>
 
                     <div className="images">
                         <img
@@ -137,7 +137,7 @@ export default function App() {
                 </div>
 
                 <div className="listaProdutos">
-                    <h1>Resultados Principais</h1>
+                    <h1>Ultimos Lançamentos</h1>
                     <div className="produtos">
                         {produto.map((item, index) => (
                             <Card
