@@ -1,6 +1,40 @@
 .Componente-CardTabela {
 	font-family: inter;
 
+    .pesquisar-adicionar {
+        display: flex;
+        justify-content: flex-end;
+        gap: 2vw;
+        width: 100%;
+
+        .adicionar {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+
+            font-size: 1rem;
+            border-radius: 5px;
+
+            padding: 0.5em 1em;
+
+            color: #ffffff;
+            background-color: #000;
+
+            border: none;
+
+            img {
+                width: 1.5em;
+            }
+        }
+
+        input {
+            border-radius: 50px;
+            padding: 5px 20px;
+            width: 150px;
+            min-width: 20px;
+        }
+    }
+    
     .cardProduto {
         display: flex;
         justify-content: space-between;
@@ -11,6 +45,7 @@
         border: 2px solid gray;
         border-radius: 15px;
         margin-bottom: 20px;
+        margin-top: 20px;
 
         .container-flex {
             display: flex;
@@ -193,6 +228,11 @@
         text-align: center;
         font-size: 1.5rem;
         color: #999;
+        
+        position: absolute;
+        left: 0;
+        right: 0;
+        background-color: none;
     }
 }
 

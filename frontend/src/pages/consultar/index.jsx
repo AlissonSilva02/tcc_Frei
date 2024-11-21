@@ -1,6 +1,6 @@
 import {useState} from "react";
 import "./index.scss";
-import { Link, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import Cabe from "../../components/cabecalho/index.jsx";
 import Rodape from "../../components/rodape/index.jsx";
 import MenuUsuario from "../../components/MenuUsuario/index.jsx";
@@ -13,6 +13,7 @@ export default function Consultar() {
 
     const [cardAtivado, setCardAtivado] = useState(false);
     const [listaAtivado, setListaAtivado] = useState(true);
+
     function ativarLista() {
         setListaAtivado(true);
         setCardAtivado(false);
@@ -31,6 +32,7 @@ export default function Consultar() {
     function voltar() {
         Navigate("/");
     }
+
 
     return (
         <div className="pagina-consultar">
@@ -86,18 +88,7 @@ export default function Consultar() {
                         </button>
                     </div>
 
-                    <div className="pesquisar-adicionar">
-                        <input type="text" placeholder="Pesquisar item" />
-                        <Link to={"/cadastrar"}>
-                            <button className="adicionar">
-                                <img
-                                    src="/assets/images/icones/adicionarQuadrado.svg"
-                                    alt="Sinal_Mais"
-                                />
-                                Adicionar
-                            </button>
-                        </Link>
-                    </div>
+                   
                 </div>
 
                 {listaAtivado && <ConsultarTabelaLista/>}
