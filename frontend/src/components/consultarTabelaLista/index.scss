@@ -29,6 +29,10 @@
             font-size: 1.2vw;
             text-align: center;
             border-left: 1px solid;
+
+            img{
+                width: 30%;
+            }
         }
 
         tr:nth-child(odd) {
