@@ -168,7 +168,7 @@ export default function ConsultarTabelaLista() {
                                                 <img
                                                     src="/assets/images/editar.png"
                                                     alt="icone_alterar"
-                                                    width={48}
+                                                   
                                                 />
                                             </Link>
 
@@ -180,7 +180,7 @@ export default function ConsultarTabelaLista() {
                                                 <img
                                                     src="/assets/images/Remover.svg"
                                                     alt="icone_lixo"
-                                                    width={48}
+                                                
                                                 />
                                             </Link>
                                         </MagicMotion>

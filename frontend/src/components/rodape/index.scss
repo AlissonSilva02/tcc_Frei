@@ -1,98 +1,131 @@
 .secao-rodape {
-    width: 100%;
-    background-color: #262626;
-    font-family: inter;
+  width: 100%;
+  background-color: #262626;
+  font-family: inter;
 
-    .container_superior {
+  .container_superior {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+
+    .link_admin {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      margin: 0 3%;
+
+      .links {
         display: flex;
+        gap: 2vw;
+
+        h3 {
+          text-decoration: none;
+          color: white;
+          font-size: 1rem;
+        }
+      }
+
+      .admin {
+        color: #efb820;
+        border: 1px solid #efb820;
+        border-radius: 10px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        h3 {
+          margin: 1em 2em;
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .logo_redes {
+      display: flex;
+      align-items: end;
+      flex-direction: column;
+      margin-right: 20px;
+
+      .container_intermediario {
+        display: flex;
+        flex-direction: column;
         justify-content: space-between;
-        padding-top: 15px;
+        align-items: center;
+        margin-bottom: 5px;
 
-        .link_admin {
+        .redes_sociais {
+          display: flex;
+          flex-direction: column;
+
+          gap: 1em;
+          font-size: 1.4em;
+
+          .redes {
             display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: space-around;
-            margin: 0 3%;
-            
-            .links {
-                display: flex;
-                gap: 2vw;
+            gap: 10px;
+            color: white;
 
-                h3 {
-                    text-decoration: none;
-                    color: white;
-                    font-size: 1rem;
-                }
+            img {
+              width: 30px;
             }
-
-            .admin {
-                color: #efb820;
-                border: 1px solid #efb820;
-                border-radius: 10px;
-
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                h3 {
-                    margin: 1em 2em;
-                    font-size: 1rem;
-                }
-            }
+          }
         }
-
-        .logo_redes {
-            display: flex;
-            align-items: end;
-            flex-direction: column;
-            margin-right: 20px;
-
-            .container_intermediario {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                align-items: center;
-                margin-bottom: 5px;
-
-                .redes_sociais {
-                    display: flex;
-                    flex-direction: column;
-
-                    gap: 1em;
-                    font-size: 1.4em;
-
-                    .redes {
-                        display: flex;
-                        align-items: center;
-                        gap: 10px;
-                        color: white;
-
-                        img {
-                            width: 30px;
-                        }
-                    }
-                }
-            }
-        }
-
-        .logo {
-            display: flex;
-            width: 50%;
-            height: auto;
-        }
+      }
     }
 
-    .linha {
-        width: 100%;
-        height: 2px;
-        margin-top: 15px;
-        background-color: #967e32;
+    .logo {
+      display: flex;
+      width: 50%;
+      height: auto;
     }
+  }
 
-    .copyright {
-        color: white;
-        padding: 10px;
-        font-size: 1rem;
+  .linha {
+    width: 100%;
+    height: 2px;
+    margin-top: 15px;
+    background-color: #967e32;
+  }
+
+  .copyright {
+    color: white;
+    padding: 10px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+    .secao-rodape{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    
+  .container_superior {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .link_admin {
+    width: 100%;
+
+    .admin{
+        margin-top: 20px ;
+        margin-bottom: 20px;
     }
+  }
+
+  .logo {
+    width: 80%;
+  }
+
+  .copyright {
+    font-size: 0.8rem;
+    padding: 20px 0;
+  }
+}
 }

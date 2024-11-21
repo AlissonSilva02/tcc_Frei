@@ -1,116 +1,201 @@
 .pagina-SobreNos {
-	font-family: "inter";
+  font-family: "inter";
 
-    .sobre {
-        width: 100%;
+  .sobre {
+    width: 100%;
 
-        p{
-            font-size: 1.5vw;
+    p {
+      font-size: 1.5vw;
+    }
+
+    h2 {
+      font-size: 2vw;
+    }
+    h3 {
+      font-size: 1.2vw;
+    }
+
+    .faleConosco {
+      width: 100%;
+      padding: 20vh 0;
+      height: 20vh;  
+      background-image: url("../../../public/assets/images/imageasd.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+
+      button {
+        margin-left: 4vw;
+        padding: 3vh 10vw;
+        background-color: #171717;
+
+        border: none;
+        border-radius: 10px;
+
+        color: #ffffff;
+        font-weight: 800;
+        font-size: 2vw;
+      }
+
+      @media (max-width:768px){
+        padding: 10vh 0;
+      }
+    }
+
+    .nossaMissao {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+        
+      padding: 10vh 0vw;
+      background-color: #171717;
+      color: #ffffff;
+       
+      h2{
+        font-size: 2vw;
+      }
+      p{
+        width: 40%;
+        font-weight: 300;
+        font-size: 1.2rem;
+      }
+
+     
+      @media (max-width: 768px) {
+        h2{
+            font-size: 25px;
+          }
+        p {
+            width: 80%;
         }
+    }
+    }
+   
 
-        h2 {
-            font-size: 2vw;
-        }
-        h3 {
-            font-size: 1.2vw;
-        }
-
-        .faleConosco {
-            width: 100%;
-			height: 50vh;
-            padding: 20vh 0;
-
-            background-image: url("../../../public/assets/images/imageasd.png");
-            background-size: cover;
-            background-repeat: no-repeat;
-
-            button {
-                margin-left: 4vw;
-				padding: 3vh 10vw;
-                background-color: #171717;
-
-				border: none;
-                border-radius: 5px;
-
-				color: #ffffff;
-                font-weight: 800;
-				font-size: 1vw;
-            }
-        }
-
-        .nossaMissao {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-            gap: 40px;
-
-            padding: 20vh 0vw;
-            background-color: #171717;
-			
-            color: #ffffff;
-		
-			p{
-				width: 30%;
-				font-weight: 200;
-			}
-        }
-
-        .comentarios {
+    .comentarios {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+      
+        padding: 4% 0px;
+        background-color: #fcbf58;
+      
+        .comenta {
+          display: flex;
+          justify-content: center; 
+          gap: 10px;
+      
+          .comments-txt {
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 40px;
+      
+            .card-comentario {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              padding: 20px;
+              background-color: #fff;
+              border-radius: 8px;
+              box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+              width: 90%;
 
-            padding: 4% 0px;
-            background-color: #fcbf58;
-
-            .comments-txt {
+              p {
+                font-weight: 300;
+                text-align: center;
+                width: 100%; 
+                padding-bottom: 2%;
+              }
+      
+              img {
+                max-width: 100px;
+                width: auto;
+                height: auto;
+              }
+      
+              .nome-comentario {
                 display: flex;
-                justify-content: center;
                 align-items: center;
-                gap: 20px;
-               
-                p{
-                    font-weight: 600;
-                    text-align: center;
-                    width: 30%;
+                gap: 10px;
+      
+                img {
+                  width: 60px;
+                  height: 60px;
+                  border-radius: 50%;
                 }
+              }
             }
-
-            .seta {
-                height: 10vh;
-                margin: 5vw 0;
-            }
+          }
         }
-
-        .recado {
-            display: flex;
-            justify-content: center;
-
-            padding: 10vh 0;
-
+      
+        @media (max-width: 768px) {
+          .comenta {
+            flex-direction: column;
+          }
+      
+          .comments-txt .card-comentario {
             p {
-                width: 70%;
+              width: 100%; 
             }
+          }
         }
-        
-        .creditos{
-            margin-top: 20px;
-            padding: 0% 15%;
+      
+        @media (max-width: 480px) {
+          .comments-txt .card-comentario {
+            p {
+              font-size: 14px; 
+            }
+      
+            img {
+              max-width: 60px;
+            }
+      
+            .nome-comentario img {
+              width: 40px;
+              height: 40px;
+            }
+          }
         }
+      }
+      
+      
+
+    .recado {
+      display: flex;
+      justify-content: center;
+
+      padding: 10vh 0;
+
+      p {
+        width: 70%;
+        font-size: 1.2rem;
+      }
     }
 
-    .tiny {
-        display: flex;
-        justify-content: center;
+    .creditos {
+      margin-top: 20px;
+      padding: 0% 15%;
+     
+      p{
+        font-size: 1.2rem;
 
-        img{
-            width: 50vw;
-        }
-    }
+      }
 
-    footer {
-        width: 100%;
     }
+  }
+
+  .tiny {
+    display: flex;
+    justify-content: center;
+
+    img {
+      width: 50vw;
+    }
+  }
+
+  footer {
+    width: 100%;
+  }
 }
