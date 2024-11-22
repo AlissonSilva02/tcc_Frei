@@ -124,8 +124,7 @@ export default function Login() {
                             </div>
                         </div>
 
-                        <a href="/esqueceu_senha_email">Esqueci a Senha</a>
-
+                    
                         <hr className="linha" />
 
                         <button className="entrar" onClick={entrar}>

@@ -6,6 +6,7 @@ CREATE TABLE autonomo (
     id_autonomo		 	INT PRIMARY KEY auto_increment,
     nome 				VARCHAR(255) not null,
     senha 				VARCHAR(255) not null
+    
 );
 
 INSERT INTO autonomo (nome, senha)
