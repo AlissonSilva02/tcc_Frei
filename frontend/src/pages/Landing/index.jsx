@@ -36,7 +36,7 @@ export default function App() {
                 "Definição e leveza! Formulada especialmente para valorizar a beleza natural dos seus fios, Wavely oferece a hidratação e o controle que você precisa para ondas e cachos incríveis, sem pesar.",
         },
         {
-            image: "/assets/images/landing/carbon.png",
+            image: "/assets/images/landing/Carbon.png",
             title: "Carbon",
             description:
                 "Renovação profunda com tecnologia avançada e ingredientes selecionados para quem busca uma limpeza intensa e uma restauração completa do cabelo.",

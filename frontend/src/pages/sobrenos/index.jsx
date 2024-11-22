@@ -111,7 +111,7 @@ export default function Sobre() {
       </div>
 
       <div className="tiny">
-        <img src="assets/images/tiny.png" alt="tiny" />
+        <img src="assets/images/Tiny.png" alt="tiny" />
       </div>
 
       <footer>

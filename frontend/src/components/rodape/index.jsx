@@ -40,7 +40,7 @@ export default function Rodape() {
                     <div className="container_intermediario">
                          <img 
                             className="logo"
-                            src="/assets\images\logo\Ashey-logo.svg"
+                            src="/assets/images/logo/Ashey-Logo.svg"
                             alt="logo"
                         />
 
@@ -63,7 +63,7 @@ export default function Rodape() {
 
                             <div className="redes">
                                 <img
-                                    src="/assets/images/RedesSociais/frame.svg"
+                                    src="/assets/images/RedesSociais/Frame.svg"
                                     alt="yt"
                                 />
                                 <p>(11) 94033-0018</p>
