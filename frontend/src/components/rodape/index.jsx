@@ -29,7 +29,7 @@ export default function Rodape() {
 
                     <Link to={"/login"} style={{ textDecoration: "none" }}>
                         <div className="admin">
-                            <h3>Login</h3>
+                            <h3>Admin</h3>
                         </div>
                     </Link>
 
