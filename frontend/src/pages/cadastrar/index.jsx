@@ -27,7 +27,7 @@ export default function Cadastrar() {
     const { id } = useParams();
 
     //4.172.207.208:5031
-    const host = "localhost:3131";
+    const host = "4.172.207.208:5031";
 
     function alterarImagem(e) {
         const file = e.target.files[0];

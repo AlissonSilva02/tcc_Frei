@@ -13,7 +13,7 @@ export default function EsqueceuSenhaEmail() {
     const [Emailuser, setEmailuser] = useState("");
     const [nome, SetNome] = useState("");
 
-    const host = "localhost:3131";
+    const host = "4.172.207.208:5031";
 
     async function mandarEmail() {
         const usuario = {

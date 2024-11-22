@@ -17,7 +17,7 @@ export default function Produtos() {
 	const [precoMax, setPrecoMax] = useState(2000);
 
 	const [mostarFiltro, setMostarFiltro] = useState(false) //mobile
-	const host = 'localhost:3131'
+	const host = '4.172.207.208:5031'
 
 	const categorias = [
 		"pentes",

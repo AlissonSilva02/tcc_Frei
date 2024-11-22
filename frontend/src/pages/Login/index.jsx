@@ -15,7 +15,7 @@ export default function Login() {
     const navigate = useNavigate();
 
     //4.172.207.208:5031
-    const host = "localhost:3131";
+    const host = "4.172.207.208:5031";
 
     function verificaOlho() {
         setOlho(!olho);

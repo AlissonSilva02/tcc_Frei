@@ -13,7 +13,7 @@ export default function ConsultarCardTabela() {
     const [pesquisar, setPesquisar] = useState("");
 
     const Navigate = useNavigate();
-    const host = "localhost:3131";
+    const host = "4.172.207.208:5031";
     const [token, setToken] = useState(null);
 
     //receber Token
